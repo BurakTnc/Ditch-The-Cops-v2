@@ -41,11 +41,13 @@ namespace _YabuGames.Scripts.Controllers
         private void Subscribe()
         {
             InputSignals.Instance.OnTouch += CheckTheTouch;
+            InputSignals.Instance.CanMove += AllowToMove;
         }
 
         private void UnSubscribe()
         {
             InputSignals.Instance.OnTouch -= CheckTheTouch;
+            InputSignals.Instance.CanMove -= AllowToMove;
         }
         #endregion
 
@@ -62,6 +64,7 @@ namespace _YabuGames.Scripts.Controllers
             if (!canMove)
                 return;
             
+            Debug.Log("raf");
             if (_rb.velocity.magnitude < _topSpeed)
             {
                 _rb.AddForce(transform.forward * (_forwardSpeed * Time.fixedDeltaTime), ForceMode.Acceleration);
@@ -78,9 +81,9 @@ namespace _YabuGames.Scripts.Controllers
 
             if (direction != Vector3.zero)
                 return;
-            for (var i = 0; i < 2; i++)
+            foreach (var t in trails)
             {
-                trails[i].emitting = false;
+                t.emitting = false;
             }
 
         }
@@ -115,6 +118,7 @@ namespace _YabuGames.Scripts.Controllers
             _topSpeed = carSpecs.topSpeed;
         }
 
+        #region Subsribed Functions
         private void CheckTheTouch(bool onTouch)
         {
             _isAccelerating = onTouch;
@@ -124,5 +128,6 @@ namespace _YabuGames.Scripts.Controllers
         {
             _onTrap = isBlocked; 
         }
+        #endregion
     }
 }

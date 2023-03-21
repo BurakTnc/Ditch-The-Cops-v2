@@ -13,7 +13,7 @@ namespace _YabuGames.Scripts.Controllers
         
         private void Update()
         {
-            
+            CheckInput();
         }
 
         private void CheckInput()
