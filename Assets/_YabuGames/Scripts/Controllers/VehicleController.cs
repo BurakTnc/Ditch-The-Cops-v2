@@ -64,7 +64,6 @@ namespace _YabuGames.Scripts.Controllers
             if (!canMove)
                 return;
             
-            Debug.Log("raf");
             if (_rb.velocity.magnitude < _topSpeed)
             {
                 _rb.AddForce(transform.forward * (_forwardSpeed * Time.fixedDeltaTime), ForceMode.Acceleration);
@@ -95,10 +94,7 @@ namespace _YabuGames.Scripts.Controllers
                 for (var i = 0; i < trails.Length; i++)
                 {
                     trails[i].emitting = true;
-                    if (!smokeParticle[i].isPlaying)
-                    {
-                        smokeParticle[i].Play();
-                    }                   
+                    smokeParticle[i].Play();            
                 }
             }
             else
@@ -106,6 +102,11 @@ namespace _YabuGames.Scripts.Controllers
                 foreach (var t in trails)
                 {
                     t.emitting = false;
+                }
+
+                foreach (var t in smokeParticle)
+                {
+                    t.Pause();
                 }
             }
         }

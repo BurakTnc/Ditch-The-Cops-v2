@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df62227ba2345469e79e16f9bb79865, type: 3}
   m_Name: Car-1
   m_EditorClassIdentifier: 
-  angularSpeed: 40
+  angularSpeed: 10
   forwardSpeed: 3000
-  skidLimit: 0.1
-  topSpeed: 30
+  skidLimit: 0.5
+  topSpeed: 20

@@ -61,19 +61,10 @@ namespace _YabuGames.Scripts.Controllers
 
         private void Follow()
         {
-            if (_isGameRunning)
-            {
-                transform.position = Vector3.Lerp(transform.position, _player.position + offset,
-                    followSpeed * Time.deltaTime);
-            }
-
-                                     // For Limited Follow
-            
-            // if (_isGameRunning)
-            // {
-            //     Vector3 desiredPos = new Vector3(0, transform.position.y, _player.position.z) + offset;
-            //     transform.position = Vector3.Lerp(transform.position, desiredPos, followSpeed * Time.deltaTime);
-            // }
+            // if (!_isGameRunning) 
+            //     return;
+            Vector3 desiredPos = new Vector3(_player.position.x, transform.position.y, _player.position.z) + offset;
+            transform.position = Vector3.Lerp(transform.position, desiredPos, followSpeed * Time.deltaTime);
         }
     }
 }
