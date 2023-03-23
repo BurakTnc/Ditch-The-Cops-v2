@@ -12,6 +12,7 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private TrailRenderer[] trails = new TrailRenderer[2];
         [SerializeField] private ParticleSystem[] smokeParticle = new ParticleSystem[2];
 
+        private VehicleAudioController _audioController;
         private Rigidbody _rb;
         private PlayerInputController _input;
         private Vector3 _direction;
@@ -23,6 +24,7 @@ namespace _YabuGames.Scripts.Controllers
             var root = transform.root;
             _input = root.GetComponent<PlayerInputController>();
             _rb = root.GetComponent<Rigidbody>();
+            _audioController = root.GetComponent<VehicleAudioController>();
             
             GetCarSpecs();
         }
@@ -37,7 +39,12 @@ namespace _YabuGames.Scripts.Controllers
         {
             UnSubscribe();
         }
-        
+
+        private void Start()
+        {
+            _audioController.EndSkidding();
+        }
+
         private void Subscribe()
         {
             InputSignals.Instance.OnTouch += CheckTheTouch;
@@ -91,6 +98,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (magnitude >= _skidLimit)
             {
+                _audioController.BeginSkidding();
                 for (var i = 0; i < trails.Length; i++)
                 {
                     trails[i].emitting = true;
@@ -99,6 +107,7 @@ namespace _YabuGames.Scripts.Controllers
             }
             else
             {
+                _audioController.EndSkidding();
                 foreach (var t in trails)
                 {
                     t.emitting = false;

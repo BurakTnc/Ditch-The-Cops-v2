@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9df62227ba2345469e79e16f9bb79865, type: 3}
-  m_Name: Car-1
+  m_Script: {fileID: 11500000, guid: 6eb36a1d857141f58785c4b87cdb7954, type: 3}
+  m_Name: Police Spec-1
   m_EditorClassIdentifier: 
-  angularSpeed: 10
-  forwardSpeed: 3000
-  skidLimit: 2
-  topSpeed: 20
+  angularSpeed: 120
+  speed: 10
+  acceleration: 40
