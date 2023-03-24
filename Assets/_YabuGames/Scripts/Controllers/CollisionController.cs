@@ -5,22 +5,15 @@ namespace _YabuGames.Scripts.Controllers
 {
     public class CollisionController : MonoBehaviour
     {
+        private player
         private void OnCollisionEnter(Collision collision)
         {
-            switch (collision.transform.tag)
+            if (collision.gameObject.TryGetComponent(out PoliceCarController component))
             {
-                default:
-                    break;
+                
             }
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            switch (other.tag)
-            {
-                default:
-                    break;
-            }
-        }
+      
     }
 }

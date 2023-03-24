@@ -300,6 +300,7 @@ MonoBehaviour:
   explosionRadius: 1
   upwardsModifier: 2
   forceMode: 1
+  eliminatedParticle: {fileID: 0}
   explosionSound: {fileID: 0}
 --- !u!82 &8074122922686596229
 AudioSource:
@@ -357,7 +358,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.877
+      value: 0.908
       inSlope: 0
       outSlope: 0
       tangentMode: 0

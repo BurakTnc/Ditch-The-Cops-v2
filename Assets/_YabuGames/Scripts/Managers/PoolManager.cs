@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _YabuGames.Scripts.Managers
 {
@@ -9,10 +10,10 @@ namespace _YabuGames.Scripts.Managers
         
     [Header("                               // Set Particles Stop Action To DISABLE //")]
     [Space(20)]
-        [SerializeField] private List<GameObject> firstParticle = new List<GameObject>();
-        [SerializeField] private List<GameObject> secondParticle = new List<GameObject>();
-        [SerializeField] private List<GameObject> thirdParticle = new List<GameObject>();
-        [SerializeField] private List<GameObject> fourthParticle = new List<GameObject>();
+        [SerializeField] private List<GameObject> hitParticle = new List<GameObject>();
+        [SerializeField] private List<GameObject> eliminatedParticle = new List<GameObject>();
+        [SerializeField] private List<GameObject> explosionParticle = new List<GameObject>();
+        [SerializeField] private List<GameObject> smokeParticle = new List<GameObject>();
 
         
         private void Awake()
@@ -30,38 +31,38 @@ namespace _YabuGames.Scripts.Managers
             
         }
 
-        public void GetFirstParticle(Vector3 desiredPos)
+        public void GetHitParticle(Vector3 desiredPos)
         {
-            var temp = firstParticle[0];
-            firstParticle.Remove(temp);
+            var temp = hitParticle[0];
+            hitParticle.Remove(temp);
             temp.transform.position = desiredPos;
             temp.SetActive(true);
-            firstParticle.Add(temp);
+            hitParticle.Add(temp);
             
         }
-        public void GetSecondParticle(Vector3 desiredPos)
+        public void GetEliminatedParticle(Vector3 desiredPos)
         {
-            var temp = secondParticle[0];
-            secondParticle.Remove(temp);
+            var temp = eliminatedParticle[0];
+            eliminatedParticle.Remove(temp);
             temp.transform.position = desiredPos;
             temp.SetActive(true);
-            secondParticle.Add(temp);
+            eliminatedParticle.Add(temp);
         }
-        public void GetThirdParticle(Vector3 desiredPos)
+        public void GetExplosionParticle(Vector3 desiredPos)
         {
-            var temp = thirdParticle[0];
-            thirdParticle.Remove(temp);
+            var temp = explosionParticle[0];
+            explosionParticle.Remove(temp);
             temp.transform.position = desiredPos;
             temp.SetActive(true);
-            thirdParticle.Add(temp);
+            explosionParticle.Add(temp);
         }
-        public void GetFourthParticle(Vector3 desiredPos)
+        public void GetSmokeParticle(Vector3 desiredPos)
         {
-            var temp = fourthParticle[0];
-            fourthParticle.Remove(temp);
+            var temp = smokeParticle[0];
+            smokeParticle.Remove(temp);
             temp.transform.position = desiredPos;
             temp.SetActive(true);
-            fourthParticle.Add(temp);
+            smokeParticle.Add(temp);
         }
     }
 }
