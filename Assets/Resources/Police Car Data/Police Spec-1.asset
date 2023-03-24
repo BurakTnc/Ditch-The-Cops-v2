@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Police Spec-1
   m_EditorClassIdentifier: 
   angularSpeed: 120
-  speed: 10
+  speed: 15
   acceleration: 40

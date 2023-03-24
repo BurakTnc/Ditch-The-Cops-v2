@@ -14,10 +14,14 @@ namespace _YabuGames.Scripts.Controllers
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            // if (collision.gameObject.CompareTag("Player"))
+            // {
+            //     _carController.Eliminate(collision.contacts[0].point);
+            // }
+
+            if (collision.gameObject.TryGetComponent(out PoliceCarController carController))
             {
-                Debug.Log(collision.transform.position);
-                _carController.Eliminate(collision.transform.position+Vector3.down);
+                carController.Eliminate(collision.contacts[0].point);
             }
         }
     }
