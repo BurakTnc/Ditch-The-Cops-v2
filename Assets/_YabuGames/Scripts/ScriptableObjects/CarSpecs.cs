@@ -9,5 +9,6 @@ namespace _YabuGames.Scripts.ScriptableObjects
         public float forwardSpeed = 10;
         public float skidLimit;
         public float topSpeed;
+        public int health = 100;
     }
 }

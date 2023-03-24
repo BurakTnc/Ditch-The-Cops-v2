@@ -11,6 +11,7 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private CarSpecs carSpecs;
         [SerializeField] private TrailRenderer[] trails = new TrailRenderer[2];
         [SerializeField] private ParticleSystem[] smokeParticle = new ParticleSystem[2];
+        [SerializeField] private Transform mesh;
 
         private VehicleAudioController _audioController;
         private Rigidbody _rb;
@@ -78,11 +79,11 @@ namespace _YabuGames.Scripts.Controllers
 
             if (direction != Vector3.zero) 
             {
-                Quaternion desiredRotation= Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), _angularSpeed * Time.deltaTime);
-                Vector3 rot = transform.root.rotation.eulerAngles;
+                Quaternion desiredRotation= Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(direction), _angularSpeed * Time.deltaTime);
+                Vector3 rot = mesh.rotation.eulerAngles;
                 Vector3 des = desiredRotation.eulerAngles;
                 CheckTheSkid((des-rot).magnitude);
-                transform.root.rotation = desiredRotation;
+                mesh.rotation = desiredRotation;
             }
 
             if (direction != Vector3.zero)

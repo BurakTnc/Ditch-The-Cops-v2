@@ -4952,6 +4952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Police LV1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1841946982614788797, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
 --- !u!1 &551714252 stripped
@@ -6921,6 +6925,10 @@ PrefabInstance:
     - target: {fileID: 1841946982614788797, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
       propertyPath: m_Name
       value: Police LV1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841946982614788797, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
@@ -9002,6 +9010,10 @@ PrefabInstance:
     - target: {fileID: 1841946982614788797, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
       propertyPath: m_Name
       value: Police LV1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841946982614788797, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
@@ -17444,6 +17456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Police LV1
       objectReference: {fileID: 0}
+    - target: {fileID: 1841946982614788797, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a513f798c91f34268ad6ca2b3634edf2, type: 3}
 --- !u!1001 &6473067649941762368
@@ -17500,6 +17516,14 @@ PrefabInstance:
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926447629906404264, guid: f467cbae9182441b18a6c45aac811627, type: 3}
+      propertyPath: explosionForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926447629906404264, guid: f467cbae9182441b18a6c45aac811627, type: 3}
+      propertyPath: explosionRadius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f467cbae9182441b18a6c45aac811627, type: 3}

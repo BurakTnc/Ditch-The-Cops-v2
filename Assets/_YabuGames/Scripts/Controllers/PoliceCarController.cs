@@ -17,6 +17,10 @@ namespace _YabuGames.Scripts.Controllers
         [Header("Sound Effects")] 
         [SerializeField] private AudioClip explosionSound;
 
+        [Header("Damage To Give")]
+        public int damage;
+        
+        [Space]
         private BoxCollider _collider;
         private AudioSource _source;
         private Rigidbody _rb;

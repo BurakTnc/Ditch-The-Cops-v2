@@ -6,7 +6,7 @@ namespace _YabuGames.Scripts.Controllers
 {
     public class PlayerInputController : MonoBehaviour
     {
-        public Vector3 direction;
+       [HideInInspector] public Vector3 direction;
 
         private float _xAxis, _yAxis;
 
