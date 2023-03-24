@@ -6,7 +6,6 @@ namespace _YabuGames.Scripts.Controllers
     public class PoliceCollisionController : MonoBehaviour
     {
         private PoliceCarController _carController;
-        private PoliceAIController _aiController;
 
         private void Awake()
         {
@@ -17,6 +16,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (collision.gameObject.CompareTag("Player"))
             {
+                Debug.Log(collision.transform.position);
                 _carController.Eliminate(collision.transform.position+Vector3.down);
             }
         }
