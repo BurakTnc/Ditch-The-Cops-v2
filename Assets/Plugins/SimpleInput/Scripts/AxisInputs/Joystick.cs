@@ -48,7 +48,7 @@ namespace SimpleInputNamespace
 
 		private Vector2 joystickInitialPos;
 
-		private float opacity = 1f;
+		private float opacity = .5f;
 
 		private Vector2 m_value = Vector2.zero;
 		public Vector2 Value { get { return m_value; } }
@@ -207,7 +207,7 @@ namespace SimpleInputNamespace
 				return;
 
 			if( joystickHeld )
-				opacity = Mathf.Min( 1f, opacity + Time.unscaledDeltaTime * 4f );
+				opacity = Mathf.Min( .5f, opacity + Time.unscaledDeltaTime * 4f );
 			else
 				opacity = Mathf.Max( 0f, opacity - Time.unscaledDeltaTime * 4f );
 

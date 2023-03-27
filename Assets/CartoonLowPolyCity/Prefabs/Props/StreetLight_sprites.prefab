@@ -165,7 +165,7 @@ SpriteRenderer:
   m_Size: {x: 25, y: 25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4575787100778744461
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9003813699868344457}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: StreetLight_sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,6 +283,6 @@ SpriteRenderer:
   m_Size: {x: 25, y: 25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4903351923958229562}
   - component: {fileID: 59244469232626370}
   - component: {fileID: 7407789837408862087}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RoadSign_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
