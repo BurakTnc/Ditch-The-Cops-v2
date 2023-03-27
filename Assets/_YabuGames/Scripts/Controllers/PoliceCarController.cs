@@ -1,6 +1,7 @@
 using System;
 using _YabuGames.Scripts.Managers;
 using _YabuGames.Scripts.ScriptableObjects;
+using _YabuGames.Scripts.Signals;
 using DG.Tweening;
 using UnityEngine;
 
@@ -47,6 +48,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             if(_isEliminated)
                 return;
+            LevelSignals.Instance.OnPoliceEliminated?.Invoke();
             _isEliminated = true;
             PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up*3);
             Invoke(nameof(SetSmokeParticle),3);

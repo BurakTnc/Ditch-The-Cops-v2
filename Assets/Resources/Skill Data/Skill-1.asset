@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eb36a1d857141f58785c4b87cdb7954, type: 3}
-  m_Name: Police Spec-1
+  m_Script: {fileID: 11500000, guid: 6773b734e2224d12b36df8d012a1695c, type: 3}
+  m_Name: Skill-1
   m_EditorClassIdentifier: 
-  angularSpeed: 120
-  speed: 15
-  acceleration: 40
-  damage: 3
-  chaseSkill: 0.2
+  headLine: Missle
+  skillDescription: A Missle.
+  skillIcon: {fileID: 21300000, guid: 0b34e8723b7382b429bd107afccfa2d7, type: 3}
+  skillID: 0

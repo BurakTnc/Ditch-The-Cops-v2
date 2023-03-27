@@ -1,7 +1,9 @@
 using System;
 using _YabuGames.Scripts.Signals;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _YabuGames.Scripts.Managers
 {
@@ -9,8 +11,13 @@ namespace _YabuGames.Scripts.Managers
     {
         public static UIManager Instance;
         
-        [SerializeField] private GameObject mainPanel, gamePanel, winPanel, losePanel, storePanel;
+        [SerializeField] private GameObject mainPanel, gamePanel, winPanel, skillPanel, storePanel;
         [SerializeField] private TextMeshProUGUI[] moneyText;
+        [SerializeField] private Image[] stars = new Image[5];
+        [SerializeField] private Image healthBar;
+        [SerializeField] private Sprite yellowStarSprite;
+
+
 
 
         private void Awake()
@@ -27,6 +34,7 @@ namespace _YabuGames.Scripts.Managers
             Instance = this;
 
             #endregion
+            
 
         }
 
@@ -43,6 +51,7 @@ namespace _YabuGames.Scripts.Managers
         private void Start()
         {
             SetMoneyTexts();
+            
         }
 
         #region Subscribtions
@@ -92,6 +101,31 @@ namespace _YabuGames.Scripts.Managers
             gamePanel.SetActive(true);
             HapticManager.Instance.PlayFailureHaptic();
         }
+        
+        public void UpdateHealthBar(float amount)
+        {
+            healthBar.fillAmount = amount;
+        }
+        public void SetStars(int wantedLevel)
+        {
+            for (var i = 0; i < wantedLevel; i++)
+            {
+                stars[i].sprite = yellowStarSprite;
+                stars[i].transform.DOScale(Vector3.one * 1.5f, .3f).SetLoops(10, LoopType.Yoyo);
+            }
+        }
+        public void OpenSkillPanel()
+        {
+            Time.timeScale = 0;
+            skillPanel.transform.localScale=Vector3.zero;
+            skillPanel.SetActive(true);
+            skillPanel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutSine);
+        }
+        public void CloseSkillPanel()
+        {
+            Time.timeScale = 1;
+            skillPanel.SetActive(false);
+        }
 
         public void PlayButton()
         {
@@ -116,5 +150,6 @@ namespace _YabuGames.Scripts.Managers
             CoreGameSignals.Instance.OnLevelLoad?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
         }
+        
     }
 }

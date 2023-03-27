@@ -8,7 +8,7 @@ namespace _YabuGames.Scripts.ScriptableObjects
         public float angularSpeed;
         public float speed;
         public float acceleration;
-        public int damage;
+        public int damage = 10;
         [Range(0, 1)] public float chaseSkill = .1f;
     }
 }

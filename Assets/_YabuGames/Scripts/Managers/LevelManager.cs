@@ -1,3 +1,4 @@
+using System;
 using _YabuGames.Scripts.Signals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,8 +8,13 @@ namespace _YabuGames.Scripts.Managers
     public class LevelManager : MonoBehaviour
     {
         public static LevelManager Instance;
-        public int sceneID;
-        public int levelID;
+
+        [SerializeField] private float wantedLevelIncreaseValue;
+        [SerializeField] private float skillPanelTime;
+        
+        private float _wantedLevel;
+        private int _passedLevels;
+        private float _delayer;
 
         private void Awake()
         {
@@ -24,9 +30,14 @@ namespace _YabuGames.Scripts.Managers
 
             #endregion
             
-            GetValues();
         }
-        
+
+        private void Start()
+        {
+            SetChaosValue();
+            _delayer = skillPanelTime;
+        }
+
         private void OnEnable()
         {
             Subscribe();
@@ -41,41 +52,85 @@ namespace _YabuGames.Scripts.Managers
 
         private void Subscribe()
         {
-            CoreGameSignals.Instance.OnSave += Save;
-            CoreGameSignals.Instance.OnLevelWin += LevelWin;
-            CoreGameSignals.Instance.OnLevelLoad += LoadScene;
+            LevelSignals.Instance.OnPoliceEliminated += IncreaseWantedLevel;
+            // CoreGameSignals.Instance.OnSave += Save;
+            // CoreGameSignals.Instance.OnLevelWin += LevelWin;
+            // CoreGameSignals.Instance.OnLevelLoad += LoadScene;
         }
         
         private void UnSubscribe()
         {
-            CoreGameSignals.Instance.OnSave -= Save;
-            CoreGameSignals.Instance.OnLevelWin -= LevelWin;
-            CoreGameSignals.Instance.OnLevelLoad -= LoadScene;
+            LevelSignals.Instance.OnPoliceEliminated -= IncreaseWantedLevel;
+            // CoreGameSignals.Instance.OnSave -= Save;
+            // CoreGameSignals.Instance.OnLevelWin -= LevelWin;
+            // CoreGameSignals.Instance.OnLevelLoad -= LoadScene;
         }
 
         #endregion
-        
-        private void GetValues()
+
+        private void Update()
         {
-            sceneID = PlayerPrefs.GetInt("sceneID", 0);
-            levelID = PlayerPrefs.GetInt("levelID", 1);
+            OpenSkillPanel();
         }
 
-        private void LevelWin()
+        private void OpenSkillPanel()
         {
-           // if(false) return;
-            levelID++;
+            _delayer -= Time.deltaTime;
+            _delayer = Mathf.Clamp(_delayer, 0, skillPanelTime);
+            if (_delayer>0)
+                return;
+            _delayer += skillPanelTime;
+            UIManager.Instance.OpenSkillPanel();
+
         }
 
-        private void Save()
+        private void IncreaseWantedLevel()
         {
-            PlayerPrefs.SetInt("sceneID",sceneID);
-            PlayerPrefs.SetInt("levelID",levelID);
+            _wantedLevel += wantedLevelIncreaseValue;
+            SetChaosValue();
         }
 
-        private void LoadScene()
+        private void SetChaosValue()
         {
-            SceneManager.LoadScene(sceneID);
+            if (_wantedLevel>=5)
+            {
+                if(_passedLevels==5)
+                    return;
+                _passedLevels = 5;
+                UIManager.Instance.SetStars(5);
+                return;
+            }
+            if (_wantedLevel>=4)
+            {
+                if(_passedLevels==4)
+                    return;
+                _passedLevels = 4;
+                UIManager.Instance.SetStars(4);
+                return;
+            }
+            if (_wantedLevel>=3)
+            {
+                if(_passedLevels==3)
+                    return;
+                _passedLevels = 3;
+                UIManager.Instance.SetStars(3);
+                return;
+            }
+            if (_wantedLevel>=2)
+            {
+                if(_passedLevels==2)
+                    return;
+                _passedLevels = 2;
+                UIManager.Instance.SetStars(2);
+                return;
+            }
+            if (_wantedLevel<2)
+            {
+                if(_passedLevels==1)
+                    return;
+                _passedLevels = 1;
+                UIManager.Instance.SetStars(1);
+            }
         }
     }
 }
