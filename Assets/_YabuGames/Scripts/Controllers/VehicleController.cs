@@ -66,7 +66,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void Move()
         {
-            var canMove = _isAccelerating && !_onTrap;
+            var canMove =  !_onTrap;
             var direction = _input.direction;
             
             if (!canMove)

@@ -12,8 +12,8 @@ namespace _YabuGames.Scripts.Managers
     {
         [SerializeField] private bool isScanNeeded;
         [SerializeField] private List<Spawner> spawners = new List<Spawner>();
-        [SerializeField] private float spawnCooldown = 1f;
-        [FormerlySerializedAs("spawnItem")] [SerializeField] private string spawnItemName;
+        [SerializeField] private float spawnCooldown = 1f; 
+        [SerializeField] private string spawnItemName;
 
         private float _time;
         private int _queuedItems;
@@ -25,9 +25,7 @@ namespace _YabuGames.Scripts.Managers
             {
                 if(!spawners[r].CanSpawn()) return;
             }
-            _queuedItems--;
-            _queuedItems = Mathf.Clamp(_queuedItems, 0, 10); 
-            _time += spawnCooldown;
+            
             spawners[r].ReadyToSpawn(spawnItemName,isScanNeeded);
         }
 
@@ -44,6 +42,14 @@ namespace _YabuGames.Scripts.Managers
             {
                 SpawnRandom();
             }
+        }
+
+        public void SpawnFeedBack()
+        {
+            _queuedItems--;
+            _queuedItems = Mathf.Clamp(_queuedItems, 0, 10); 
+            _time += spawnCooldown;
+            
         }
     }
 }

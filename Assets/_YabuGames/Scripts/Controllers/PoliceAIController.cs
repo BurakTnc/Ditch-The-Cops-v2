@@ -12,6 +12,8 @@ namespace _YabuGames.Scripts.Controllers
         private NavMeshAgent _agent;
         private Transform _player;
         private bool _onChase;
+        private float _rookieLevel;
+        private float _delayer;
 
         private void Awake()
         {
@@ -24,14 +26,20 @@ namespace _YabuGames.Scripts.Controllers
             _agent.speed = specs.speed;
             _agent.angularSpeed = specs.angularSpeed;
             _agent.acceleration = specs.acceleration;
+            _rookieLevel = specs.chaseSkill;
             _onChase = true;
         }
 
 
         private void SetTarget()
         {
+            _delayer -= Time.deltaTime;
+            _delayer = Mathf.Clamp(_delayer, 0, _rookieLevel);
             if(!_onChase)
                 return;
+            if(_delayer>0)
+                return;
+            _delayer += _rookieLevel;
             _agent.SetDestination(_player.position);
         }
         

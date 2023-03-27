@@ -1,5 +1,7 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 using _YabuGames.Scripts.Managers;
+using UnityEditor;
 using UnityEngine;
 
 namespace _YabuGames.Scripts.Controllers
@@ -11,6 +13,11 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private float explosionForce;
         [SerializeField] private float upwardsModifier;
         [SerializeField] private ForceMode forceMode;
+        [Header("Obstacle Crash Physics")] 
+        [SerializeField] private float obstacleExplosionRadius;
+        [SerializeField] private float obstacleExplosionForce;
+        [SerializeField] private float obstacleUpwardsModifier;
+        [SerializeField] private ForceMode obstacleForceMode;
 
         private Rigidbody _rb;
 
@@ -24,6 +31,15 @@ namespace _YabuGames.Scripts.Controllers
         {
             _rb.AddExplosionForce(explosionForce, impactPoint, explosionRadius, upwardsModifier, forceMode);
             PoolManager.Instance.GetHitParticle(impactPoint);
+        }
+
+        public void ObstacleCollision(Vector3 impactPoint,Rigidbody obstacleRb)
+        {
+            obstacleRb.constraints = RigidbodyConstraints.None;
+            obstacleRb.AddExplosionForce(obstacleExplosionForce, impactPoint, obstacleExplosionRadius, obstacleUpwardsModifier,
+                obstacleForceMode);
+            PoolManager.Instance.GetHitParticle(impactPoint);
+            Destroy(obstacleRb.gameObject,3);
         }
 
 

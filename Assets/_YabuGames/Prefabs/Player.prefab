@@ -159,13 +159,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1cae5c8faf22f49b1a0ea14cc0f79aea, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.022
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 77
+  Priority: 40
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -437,10 +437,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e9777f1a4e4994996281714212c018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 2
-  explosionForce: 15
+  explosionRadius: 1
+  explosionForce: 20
   upwardsModifier: 0
   forceMode: 2
+  obstacleExplosionRadius: 1
+  obstacleExplosionForce: 1
+  obstacleUpwardsModifier: -2
+  obstacleForceMode: 1
 --- !u!65 &8125642775169092339
 BoxCollider:
   m_ObjectHideFlags: 0

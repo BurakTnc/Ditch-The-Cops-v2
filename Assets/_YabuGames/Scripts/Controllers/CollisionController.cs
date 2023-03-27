@@ -21,6 +21,13 @@ namespace _YabuGames.Scripts.Controllers
             {
                 _physicsController.PoliceCollision(collision.contacts[0].point);
                 healthController.TakeDamage(component.damage);
+                return;
+            }
+
+            if (collision.gameObject.TryGetComponent(out Rigidbody rb))
+            {
+                _physicsController.ObstacleCollision(collision.contacts[0].point, rb);
+                return;
             }
             
         }

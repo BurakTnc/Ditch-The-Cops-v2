@@ -1,5 +1,6 @@
 using System;
 using _YabuGames.Scripts.Managers;
+using _YabuGames.Scripts.ScriptableObjects;
 using DG.Tweening;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace _YabuGames.Scripts.Controllers
     [RequireComponent(typeof(AudioSource))]
     public class PoliceCarController : MonoBehaviour
     {
+        [HideInInspector] public int damage;
+        
         [Header("Physics")] 
         [SerializeField] private float explosionForce;
         [SerializeField] private float explosionRadius;
@@ -16,10 +19,9 @@ namespace _YabuGames.Scripts.Controllers
 
         [Header("Sound Effects")] 
         [SerializeField] private AudioClip explosionSound;
+        [Space]
+        [SerializeField] private PoliceSpecs specs;
 
-        [Header("Damage To Give")]
-        public int damage;
-        
         [Space]
         private BoxCollider _collider;
         private AudioSource _source;
@@ -38,6 +40,7 @@ namespace _YabuGames.Scripts.Controllers
         private void Start()
         {
             _source.Play();
+            damage = specs.damage;
         }
 
         public void Eliminate(Vector3 impactPoint)
@@ -56,6 +59,7 @@ namespace _YabuGames.Scripts.Controllers
                 return;
             }
             AudioSource.PlayClipAtPoint(explosionSound, transform.position + Vector3.up);
+            Destroy(gameObject,5);
             
         }
 
@@ -67,7 +71,7 @@ namespace _YabuGames.Scripts.Controllers
         private void OnBecameInvisible()
         {
             _collider.enabled = false;
-            _source.Pause();
+            _source.mute = enabled;
             if (_isEliminated)
             {
                 Destroy(gameObject);
@@ -77,7 +81,7 @@ namespace _YabuGames.Scripts.Controllers
         private void OnBecameVisible()
         {
             _collider.enabled = true;
-            _source.Play();
+            _source.mute = false;
         }
     }
 }

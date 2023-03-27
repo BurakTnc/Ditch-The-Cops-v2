@@ -1,4 +1,5 @@
 using System;
+using _YabuGames.Scripts.Managers;
 using UnityEngine;
 
 namespace _YabuGames.Scripts.Controllers
@@ -14,15 +15,21 @@ namespace _YabuGames.Scripts.Controllers
 
         private void OnCollisionEnter(Collision collision)
         {
-            // if (collision.gameObject.CompareTag("Player"))
-            // {
-            //     _carController.Eliminate(collision.contacts[0].point);
-            // }
-
             if (collision.gameObject.TryGetComponent(out PoliceCarController carController))
             {
                 carController.Eliminate(collision.contacts[0].point);
+                return;
             }
+
+            if (collision.gameObject.TryGetComponent(out Rigidbody rb))
+            {
+                if (collision.gameObject.CompareTag("Player"))
+                    return;
+                PoolManager.Instance.GetHitParticle(collision.contacts[0].point);
+                rb.constraints = RigidbodyConstraints.None;
+                Destroy(collision.gameObject,3);
+            }
+            
         }
     }
 }
