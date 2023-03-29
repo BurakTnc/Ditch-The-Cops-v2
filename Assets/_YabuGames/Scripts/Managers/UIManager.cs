@@ -127,6 +127,14 @@ namespace _YabuGames.Scripts.Managers
             skillPanel.SetActive(false);
         }
 
+        public void OpenPanel(GameObject panel)
+        {
+            if(!panel)
+                return;
+            panel.SetActive(true);
+            panel.transform.localScale = Vector3.zero;
+            panel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
+        }
         public void PlayButton()
         {
             CoreGameSignals.Instance.OnGameStart?.Invoke();

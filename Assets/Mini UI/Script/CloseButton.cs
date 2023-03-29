@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
-public class CloseButton : MonoBehaviour
+namespace Mini_UI.Script
 {
-    public GameObject Panel;
-    void Start()
+    public class CloseButton : MonoBehaviour
     {
-        
-    }
+        public GameObject Panel;
 
-    public void Close()
-    {
-        Panel.SetActive(false);
-        this.gameObject.SetActive(false);
+        public void Close()
+        {
+            Panel.transform.DOScale(Vector3.zero, .3f).SetEase(Ease.InBack).OnComplete(Disable);
+            //this.gameObject.SetActive(false);
+        }
+
+        private void Disable()
+        {
+            Panel.SetActive(false);
+        }
     }
 }
