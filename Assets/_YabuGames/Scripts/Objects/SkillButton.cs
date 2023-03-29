@@ -4,13 +4,14 @@ using _YabuGames.Scripts.ScriptableObjects;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _YabuGames.Scripts.Objects
 {
     public class SkillButton: MonoBehaviour
     {
-        [SerializeField] private SkillSpecs specs;
+
         [SerializeField] private Image skillIcon;
         [SerializeField] private TextMeshProUGUI skillDescription, headLine;
         [SerializeField] private GameObject[] crowns = new GameObject[3];
@@ -18,13 +19,13 @@ namespace _YabuGames.Scripts.Objects
         private int _skillLevel;
         private int _skillID;
 
-        private void Awake()
+        public void SetSkill(SkillSpecs skillSpecs)
         {
-            headLine.text = specs.headLine;
-            skillDescription.text = specs.skillDescription;
-            skillIcon.sprite = specs.skillIcon;
-            _skillID = specs.skillID;
-            for (var i = 0; i < _skillLevel+1; i++)
+            headLine.text = skillSpecs.headLine;
+            skillDescription.text = skillSpecs.skillDescription;
+            skillIcon.sprite = skillSpecs.skillIcon;
+            _skillID = skillSpecs.skillID;
+            for (var i = 0; i < _skillLevel + 1; i++)
             {
                 crowns[i].SetActive(true);
             }

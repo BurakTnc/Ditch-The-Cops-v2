@@ -1,7 +1,12 @@
 using System;
+using System.Collections.Generic;
+using _YabuGames.Scripts.Objects;
+using _YabuGames.Scripts.ScriptableObjects;
 using _YabuGames.Scripts.Signals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace _YabuGames.Scripts.Managers
 {
@@ -11,11 +16,14 @@ namespace _YabuGames.Scripts.Managers
 
         [SerializeField] private float wantedLevelIncreaseValue;
         [SerializeField] private float skillPanelTime;
+        [SerializeField] private List<SkillSpecs> skillSpecsList = new List<SkillSpecs>();
+        [SerializeField] private SkillButton[] skillButtons;
         
         private float _wantedLevel;
         private int _passedLevels;
         private float _delayer;
-
+        private readonly List<SkillSpecs> _chosenSkills = new List<SkillSpecs>(3);
+        
         private void Awake()
         {
             #region Singleton
@@ -29,13 +37,14 @@ namespace _YabuGames.Scripts.Managers
             Instance = this;
 
             #endregion
-            
+
         }
 
         private void Start()
         {
             SetChaosValue();
             _delayer = skillPanelTime;
+
         }
 
         private void OnEnable()
@@ -73,12 +82,38 @@ namespace _YabuGames.Scripts.Managers
             OpenSkillPanel();
         }
 
+        private void ChooseRandomSkill()
+        {
+            if (_chosenSkills.Count>0)
+            {
+                foreach (var skill in _chosenSkills)
+                {
+                    skillSpecsList.Add(skill);
+                }
+                _chosenSkills.Clear();
+            }
+            
+            for (var i = 0; i < 3; i++)
+            {
+                var r = Random.Range(0, skillSpecsList.Count);
+                var skill = skillSpecsList[r];
+                skillSpecsList.Remove(skill);
+                _chosenSkills.Add(skill);
+            }
+
+            for (var i = 0; i < 3; i++)
+            {
+                skillButtons[i].SetSkill(_chosenSkills[i]);
+            }
+        }
         private void OpenSkillPanel()
         {
+            
             _delayer -= Time.deltaTime;
             _delayer = Mathf.Clamp(_delayer, 0, skillPanelTime);
             if (_delayer>0)
                 return;
+            ChooseRandomSkill();
             _delayer += skillPanelTime;
             UIManager.Instance.OpenSkillPanel();
 

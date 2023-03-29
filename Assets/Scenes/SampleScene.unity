@@ -1661,7 +1661,7 @@ RectTransform:
   - {fileID: 853687014}
   - {fileID: 769096664}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8028,6 +8028,8 @@ GameObject:
   - component: {fileID: 499332248}
   - component: {fileID: 499332250}
   - component: {fileID: 499332249}
+  - component: {fileID: 499332252}
+  - component: {fileID: 499332251}
   m_Layer: 5
   m_Name: Headline
   m_TagString: Untagged
@@ -8152,6 +8154,126 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499332247}
   m_CullTransparentMesh: 1
+--- !u!114 &499332251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499332247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateType: 0
+  isSpeedBased: 0
+  hasOnStart: 0
+  hasOnPlay: 0
+  hasOnUpdate: 0
+  hasOnStepComplete: 0
+  hasOnComplete: 0
+  hasOnTweenCreated: 0
+  hasOnRewind: 0
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  onUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onStepComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onTweenCreated:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewind:
+    m_PersistentCalls:
+      m_Calls: []
+  targetIsSelf: 1
+  targetGO: {fileID: 0}
+  tweenTargetIsTargetGO: 1
+  delay: 0
+  duration: 0.5
+  easeType: 1
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loopType: 1
+  loops: -1
+  id: 
+  isRelative: 0
+  isFrom: 0
+  isIndependentUpdate: 0
+  autoKill: 1
+  isActive: 1
+  isValid: 1
+  target: {fileID: 499332248}
+  animationType: 5
+  targetType: 11
+  forcedTargetType: 0
+  autoPlay: 1
+  useTargetAsV3: 0
+  endValueFloat: 1.3
+  endValueV3: {x: 0, y: 0, z: 0}
+  endValueV2: {x: 0, y: 0}
+  endValueColor: {r: 1, g: 1, b: 1, a: 1}
+  endValueString: 
+  endValueRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  endValueTransform: {fileID: 0}
+  optionalBool0: 1
+  optionalFloat0: 90
+  optionalInt0: 10
+  optionalRotationMode: 0
+  optionalScrambleMode: 0
+  optionalString: 
+--- !u!114 &499332252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499332247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preset: 0
+  onEnableBehaviour: 2
+  onDisableBehaviour: 0
 --- !u!1001 &499371540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8374,13 +8496,14 @@ GameObject:
   - component: {fileID: 518520933}
   - component: {fileID: 518520932}
   - component: {fileID: 518520931}
+  - component: {fileID: 518520934}
   m_Layer: 5
   m_Name: Skill_2
-  m_TagString: Untagged
+  m_TagString: SkillButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &518520930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8448,7 +8571,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 518520932}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 518520934}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Objects.SkillButton, Assembly-CSharp
+        m_MethodName: ApplySkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &518520932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8487,6 +8622,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518520929}
   m_CullTransparentMesh: 1
+--- !u!114 &518520934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518520929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f761541e7b9d469db72159991af020b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 173092648}
+  skillDescription: {fileID: 1542021609}
+  headLine: {fileID: 236891678}
+  crowns:
+  - {fileID: 1015921810}
+  - {fileID: 914200466}
+  - {fileID: 1964669917}
 --- !u!1001 &521745808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11863,7 +12017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &769096664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15667,6 +15821,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wantedLevelIncreaseValue: 0.1
   skillPanelTime: 10
+  skillSpecsList:
+  - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
+  - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
+  - {fileID: 11400000, guid: 07d5a431a52894d4cab5d6e462775811, type: 2}
+  - {fileID: 11400000, guid: b8bbc71edb54e4cc2a444f74bf125db9, type: 2}
+  - {fileID: 11400000, guid: 107940cf8f8864783b54a30af7ac281b, type: 2}
+  - {fileID: 11400000, guid: 5fb44e5051f7f49f6ac463ec73363d02, type: 2}
+  skillButtons:
+  - {fileID: 1587392121}
+  - {fileID: 518520934}
+  - {fileID: 1375877298}
 --- !u!1001 &1029123736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17579,7 +17744,7 @@ Transform:
   - {fileID: 1023218145}
   - {fileID: 679033808}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1164893188
 PrefabInstance:
@@ -21148,13 +21313,14 @@ GameObject:
   - component: {fileID: 1375877297}
   - component: {fileID: 1375877296}
   - component: {fileID: 1375877295}
+  - component: {fileID: 1375877298}
   m_Layer: 5
   m_Name: Skill_3
-  m_TagString: Untagged
+  m_TagString: SkillButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1375877294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21222,7 +21388,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1375877296}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1375877298}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Objects.SkillButton, Assembly-CSharp
+        m_MethodName: ApplySkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1375877296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21261,6 +21439,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375877293}
   m_CullTransparentMesh: 1
+--- !u!114 &1375877298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375877293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f761541e7b9d469db72159991af020b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 197103138}
+  skillDescription: {fileID: 1530334661}
+  headLine: {fileID: 834171470}
+  crowns:
+  - {fileID: 681511147}
+  - {fileID: 1322292382}
+  - {fileID: 170903985}
 --- !u!1001 &1376516826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24796,6 +24993,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8457935040279323970, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
   m_PrefabInstance: {fileID: 8457935039449008954}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587392121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8457935040279323974, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+  m_PrefabInstance: {fileID: 8457935039449008954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f761541e7b9d469db72159991af020b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1588018671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33472,9 +33680,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8457935040279323971, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457935040279323971, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457935040279323971, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1587392121}
+    - target: {fileID: 8457935040279323971, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457935040279323971, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ApplySkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457935040279323971, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _YabuGames.Scripts.Objects.SkillButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457935040279323971, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8457935040279323981, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
       propertyPath: m_Name
       value: Skill_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457935040279323981, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}
+      propertyPath: m_TagString
+      value: SkillButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b99732ff466f3496a85db60a2d9221e6, type: 3}

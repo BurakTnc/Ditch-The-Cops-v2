@@ -123,8 +123,13 @@ namespace _YabuGames.Scripts.Managers
         }
         public void CloseSkillPanel()
         {
-            Time.timeScale = 1;
-            skillPanel.SetActive(false);
+            skillPanel.transform.DOScale(Vector3.zero, .5f).SetEase(Ease.InBack).OnComplete(Continue);
+
+            void Continue()
+            {
+                Time.timeScale = 1;
+                skillPanel.SetActive(false);
+            }
         }
 
         public void OpenPanel(GameObject panel)
