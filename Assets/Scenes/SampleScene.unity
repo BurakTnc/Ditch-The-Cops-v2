@@ -18378,7 +18378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d69cc8642ca4f75a6186f2be2f1ba8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedLevelIncreaseValue: 0.04
+  wantedLevelIncreaseValue: 0.05
   skillPanelTime: 60
   skillSpecsList:
   - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
