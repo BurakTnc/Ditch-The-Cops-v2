@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6773b734e2224d12b36df8d012a1695c, type: 3}
   m_Name: Skill-6
   m_EditorClassIdentifier: 
-  headLine: Skill
-  skillDescription: A Skill
-  skillIcon: {fileID: 21300000, guid: c699b9df774c0434aa171a150ba6a22c, type: 3}
+  headLine: Heal Up
+  skillDescription: Heal  10% HP
+  skillIcon: {fileID: 21300000, guid: 2ce2adf580cfd764aa54f3e45914a968, type: 3}
   skillID: 5

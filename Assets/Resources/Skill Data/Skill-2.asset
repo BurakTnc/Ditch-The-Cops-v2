@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6773b734e2224d12b36df8d012a1695c, type: 3}
   m_Name: Skill-2
   m_EditorClassIdentifier: 
-  headLine: Shield
-  skillDescription: A Shield.
+  headLine: God
+  skillDescription: Invincible for 5 seconds
   skillIcon: {fileID: 21300000, guid: 0bde4a445a2021b4599f04d2fd78ddcc, type: 3}
   skillID: 1
