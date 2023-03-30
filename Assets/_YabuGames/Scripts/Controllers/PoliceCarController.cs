@@ -63,7 +63,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void Start()
         {
-            _source.Play();
+           // _source.Play();
             damage = specs.damage;
         }
 
@@ -71,11 +71,11 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (isMuted)
             {
-                _source.Pause();
+                _source.Stop();
             }
             else
             {
-                _source.UnPause();
+                _source.Play();
             }
         }
 
