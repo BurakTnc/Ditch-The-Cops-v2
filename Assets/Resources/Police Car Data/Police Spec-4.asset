@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angularSpeed: 159.72
   speed: 19.965
-  acceleration: 40
-  damage: 13
+  acceleration: 25
+  damage: 20
   chaseSkill: 0.25
