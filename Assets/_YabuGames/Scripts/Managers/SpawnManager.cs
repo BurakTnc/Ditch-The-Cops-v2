@@ -25,8 +25,10 @@ namespace _YabuGames.Scripts.Managers
             {
                 if(!spawners[r].CanSpawn()) return;
             }
-            
-            spawners[r].ReadyToSpawn(spawnItemName,isScanNeeded);
+
+            var wantedLevel = LevelManager.Instance.GetWantedLevel();
+            var chosenPrefab = Random.Range(1, wantedLevel);
+            spawners[r].ReadyToSpawn($"Police-{chosenPrefab}",isScanNeeded);
         }
 
         private void Update()

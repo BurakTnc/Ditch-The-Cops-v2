@@ -168,5 +168,7 @@ namespace _YabuGames.Scripts.Managers
                 UIManager.Instance.SetStars(1);
             }
         }
+
+        public int GetWantedLevel() => _passedLevels;
     }
 }
