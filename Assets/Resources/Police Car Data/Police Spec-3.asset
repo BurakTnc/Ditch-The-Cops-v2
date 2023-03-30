@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eb36a1d857141f58785c4b87cdb7954, type: 3}
-  m_Name: Police Spec-1
+  m_Name: Police Spec-3
   m_EditorClassIdentifier: 
-  angularSpeed: 120
-  speed: 15
+  angularSpeed: 145.2
+  speed: 18.15
   acceleration: 40
-  damage: 3
-  chaseSkill: 0.4
+  damage: 8
+  chaseSkill: 0.3
