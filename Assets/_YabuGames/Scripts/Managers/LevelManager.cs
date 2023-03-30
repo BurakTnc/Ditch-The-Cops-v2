@@ -84,6 +84,7 @@ namespace _YabuGames.Scripts.Managers
 
         private void ChooseRandomSkill()
         {
+            LevelSignals.Instance.OnSkillPanel?.Invoke(true);
             if (_chosenSkills.Count>0)
             {
                 foreach (var skill in _chosenSkills)

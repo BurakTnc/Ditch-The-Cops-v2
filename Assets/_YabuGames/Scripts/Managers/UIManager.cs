@@ -129,6 +129,7 @@ namespace _YabuGames.Scripts.Managers
             {
                 Time.timeScale = 1;
                 skillPanel.SetActive(false);
+                LevelSignals.Instance.OnSkillPanel?.Invoke(false);
             }
         }
 
@@ -139,6 +140,11 @@ namespace _YabuGames.Scripts.Managers
             panel.SetActive(true);
             panel.transform.localScale = Vector3.zero;
             panel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
+        }
+
+        public void SelectMapButton(int sceneID)
+        {
+            SceneLoader.Instance.sceneID = sceneID;
         }
         public void PlayButton()
         {

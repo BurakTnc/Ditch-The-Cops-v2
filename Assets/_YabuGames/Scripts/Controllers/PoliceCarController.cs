@@ -38,10 +38,45 @@ namespace _YabuGames.Scripts.Controllers
             _collider = GetComponent<BoxCollider>();
         }
 
+        #region Subscribtions
+
+        private void OnEnable()
+        {
+            Subscribe();
+        }
+
+        private void OnDisable()
+        {
+            UnSubscribe();
+        }
+
+        private void Subscribe()
+        {
+            LevelSignals.Instance.OnSkillPanel += Mute;
+        }
+
+        private void UnSubscribe()
+        {
+            LevelSignals.Instance.OnSkillPanel -= Mute;
+        }
+        #endregion
+
         private void Start()
         {
             _source.Play();
             damage = specs.damage;
+        }
+
+        private void Mute(bool isMuted)
+        {
+            if (isMuted)
+            {
+                _source.Pause();
+            }
+            else
+            {
+                _source.UnPause();
+            }
         }
 
         public void Eliminate(Vector3 impactPoint)

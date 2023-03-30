@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 1
-  explosionForce: 20
+  explosionForce: 10
   upwardsModifier: 0
   forceMode: 2
   obstacleExplosionRadius: 1
