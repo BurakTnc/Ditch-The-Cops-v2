@@ -28,6 +28,7 @@ namespace _YabuGames.Scripts.Controllers
             _agent.acceleration = specs.acceleration;
             _rookieLevel = specs.chaseSkill;
             _onChase = true;
+            _agent.speed *= 1.4f;
         }
 
 

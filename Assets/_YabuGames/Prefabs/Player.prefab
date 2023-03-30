@@ -481,9 +481,9 @@ MonoBehaviour:
   explosionForce: 10
   upwardsModifier: 0
   forceMode: 2
-  obstacleExplosionRadius: 1
-  obstacleExplosionForce: 5
-  obstacleUpwardsModifier: 2
+  obstacleExplosionRadius: 0.3
+  obstacleExplosionForce: 1
+  obstacleUpwardsModifier: 0
   obstacleForceMode: 1
 --- !u!65 &8125642775169092339
 BoxCollider:

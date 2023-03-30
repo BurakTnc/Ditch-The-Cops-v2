@@ -4,6 +4,7 @@ using _YabuGames.Scripts.ScriptableObjects;
 using _YabuGames.Scripts.Signals;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace _YabuGames.Scripts.Controllers
 {
@@ -29,6 +30,7 @@ namespace _YabuGames.Scripts.Controllers
         private Rigidbody _rb;
         private PoliceAIController _aiController;
         private bool _isEliminated;
+        private NavMeshAgent _agent;
 
         private void Awake()
         {
@@ -36,6 +38,7 @@ namespace _YabuGames.Scripts.Controllers
             _aiController = GetComponent<PoliceAIController>();
             _source = GetComponent<AudioSource>();
             _collider = GetComponent<BoxCollider>();
+            _agent = GetComponent<NavMeshAgent>();
         }
 
         #region Subscribtions
@@ -107,6 +110,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void OnBecameInvisible()
         {
+            _agent.speed *= 1.4f;
             _collider.enabled = false;
             _source.mute = enabled;
             if (_isEliminated)
@@ -117,6 +121,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void OnBecameVisible()
         {
+            _agent.speed /= 1.4f;
             _collider.enabled = true;
             _source.mute = false;
         }
