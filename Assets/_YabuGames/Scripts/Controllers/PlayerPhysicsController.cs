@@ -35,6 +35,7 @@ namespace _YabuGames.Scripts.Controllers
 
         public void ObstacleCollision(Vector3 impactPoint,Rigidbody obstacleRb)
         {
+            obstacleRb.useGravity = true;
             obstacleRb.constraints = RigidbodyConstraints.None;
             obstacleRb.AddExplosionForce(obstacleExplosionForce, impactPoint, obstacleExplosionRadius, obstacleUpwardsModifier,
                 obstacleForceMode);
