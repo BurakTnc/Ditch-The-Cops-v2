@@ -30,7 +30,7 @@ namespace _YabuGames.Scripts.Managers
             
             _onShake = true;
             if (!softShake)
-                _cam.DOShakeRotation(.2f, 3, 6, 100, true).OnComplete(EndShake);
+                _cam.DOShakeRotation(.3f, 4, 8, 100, true).OnComplete(EndShake);
             else
                 _cam.DOShakeRotation(.1f, 2, 4, 100, true).OnComplete(EndShake);
         }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb36a1d857141f58785c4b87cdb7954, type: 3}
   m_Name: Police Spec-5
   m_EditorClassIdentifier: 
-  angularSpeed: 175.692
-  speed: 21.9615
+  angularSpeed: 120
+  speed: 7
   acceleration: 20
   damage: 40
   chaseSkill: 0.2

@@ -2197,6 +2197,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118672873}
   m_CullTransparentMesh: 1
+--- !u!1 &119114301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119114302}
+  - component: {fileID: 119114303}
+  m_Layer: 0
+  m_Name: Skill Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119114302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119114301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1164071550}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &119114303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119114301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ece0bb4ff1c4d52b4659fe8a6aade11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileSpawnPeriod: 15
 --- !u!1 &121412379
 GameObject:
   m_ObjectHideFlags: 0
@@ -8076,10 +8121,6 @@ PrefabInstance:
     - target: {fileID: 130346, guid: 07bf9ced87963e24299c2c2a22bfeeb6, type: 3}
       propertyPath: m_Name
       value: NukeExplosionFire
-      objectReference: {fileID: 0}
-    - target: {fileID: 130346, guid: 07bf9ced87963e24299c2c2a22bfeeb6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 468048, guid: 07bf9ced87963e24299c2c2a22bfeeb6, type: 3}
       propertyPath: m_RootOrder
@@ -18379,7 +18420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wantedLevelIncreaseValue: 0.05
-  skillPanelTime: 60
+  skillPanelTime: 3
   skillSpecsList:
   - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
   - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
@@ -20492,6 +20533,7 @@ Transform:
   - {fileID: 974203758}
   - {fileID: 1023218145}
   - {fileID: 679033808}
+  - {fileID: 119114302}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23236,7 +23278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.549927, y: -9.150085}
+  m_AnchoredPosition: {x: -10.549927, y: -9.1501465}
   m_SizeDelta: {x: -21.1, y: -228.3003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328164153
@@ -29457,7 +29499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 17.89093}
+  m_AnchoredPosition: {x: 0, y: 17.89087}
   m_SizeDelta: {x: 0, y: 122.0728}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1707663385
@@ -29907,7 +29949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 19.099304}
+  m_AnchoredPosition: {x: 0, y: 19.099243}
   m_SizeDelta: {x: 0, y: 38.1986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1735116699
@@ -32136,7 +32178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918689193}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: -3.4, y: 44, z: -19.1}
+  m_LocalPosition: {x: -3.4, y: 60, z: -19.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

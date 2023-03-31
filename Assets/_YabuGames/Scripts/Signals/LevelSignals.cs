@@ -10,6 +10,7 @@ namespace _YabuGames.Scripts.Signals
 
         public UnityAction OnPoliceEliminated = delegate { };
         public UnityAction<bool> OnSkillPanel = delegate { };
+        public UnityAction<int> OnSkillActive = delegate { };
 
         private void Awake()
         {

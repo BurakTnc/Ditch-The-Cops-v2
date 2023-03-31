@@ -89,7 +89,7 @@ namespace _YabuGames.Scripts.Controllers
             LevelSignals.Instance.OnPoliceEliminated?.Invoke();
             _isEliminated = true;
             PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up*3);
-            Invoke(nameof(SetSmokeParticle),3);
+            Invoke(nameof(SetSmokeParticle),2);
             _rb.AddExplosionForce(explosionForce,impactPoint,explosionRadius,upwardsModifier,forceMode);
             _aiController.StopChasing();
             _source.DOPitch(0, 2f).SetEase(Ease.InSine);
@@ -103,6 +103,26 @@ namespace _YabuGames.Scripts.Controllers
             
         }
 
+        public void MissileExplosion(Vector3 impactPoint,float radius)
+        {
+            if(_isEliminated)
+                return;
+            LevelSignals.Instance.OnPoliceEliminated?.Invoke();
+            _isEliminated = true;
+            PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up*3);
+            Invoke(nameof(SetSmokeParticle),2);
+            _rb.AddExplosionForce(explosionForce+50,impactPoint,radius,upwardsModifier+2,forceMode);
+            _aiController.StopChasing();
+            _source.DOPitch(0, 2f).SetEase(Ease.InSine);
+            if (!explosionSound)
+            {
+                Debug.LogWarning("There Is No Explosion Sound Attached!");
+                return;
+            }
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position + Vector3.up);
+            Destroy(gameObject,5);
+        }
+
         private void SetSmokeParticle()
         {
             PoolManager.Instance.GetSmokeParticle(transform.position);
@@ -112,7 +132,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             _agent.speed *= 1.4f;
             _collider.enabled = false;
-            _source.mute = enabled;
+            Mute(true);
             if (_isEliminated)
             {
                 Destroy(gameObject);
@@ -123,7 +143,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             _agent.speed /= 1.4f;
             _collider.enabled = true;
-            _source.mute = false;
+            Mute(false);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using _YabuGames.Scripts.Managers;
 using _YabuGames.Scripts.ScriptableObjects;
+using _YabuGames.Scripts.Signals;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -52,6 +53,7 @@ namespace _YabuGames.Scripts.Objects
         public void ApplySkill()
         {
             UIManager.Instance.CloseSkillPanel();
+            LevelSignals.Instance.OnSkillActive?.Invoke(_skillID);
         }
     }
 }

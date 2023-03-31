@@ -27,7 +27,7 @@ namespace _YabuGames.Scripts.Managers
             }
 
             var wantedLevel = LevelManager.Instance.GetWantedLevel();
-            var chosenPrefab = Random.Range(1, wantedLevel);
+            var chosenPrefab = Random.Range(1, wantedLevel+1);
             spawners[r].ReadyToSpawn($"Police-{chosenPrefab}",isScanNeeded);
         }
 
