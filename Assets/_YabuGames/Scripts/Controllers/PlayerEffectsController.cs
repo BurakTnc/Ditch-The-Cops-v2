@@ -52,7 +52,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void ApplyReduceDamage()
         {
-            reduceDamageEffect.SetActive(true);
+          //  reduceDamageEffect.SetActive(true);
         }
 
         private void ApplyHealingEffect(float duration)
