@@ -165,13 +165,13 @@ namespace _YabuGames.Scripts.Managers
 
         public void NextButton()
         {
-            CoreGameSignals.Instance.OnLevelLoad?.Invoke();
+            CoreGameSignals.Instance.OnGameStart?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
         }
 
         public void RetryButton()
         {
-            CoreGameSignals.Instance.OnLevelLoad?.Invoke();
+            CoreGameSignals.Instance.OnGameStart?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
         }
         
