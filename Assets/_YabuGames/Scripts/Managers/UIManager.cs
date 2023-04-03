@@ -10,8 +10,8 @@ namespace _YabuGames.Scripts.Managers
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
-        
-        [SerializeField] private GameObject mainPanel, gamePanel, winPanel, skillPanel, storePanel;
+
+        [SerializeField] private GameObject mainPanel, gamePanel, winPanel, skillPanel, losePanel;
         [SerializeField] private TextMeshProUGUI[] moneyText;
         [SerializeField] private Image[] stars = new Image[5];
         [SerializeField] private Image healthBar;
@@ -98,7 +98,7 @@ namespace _YabuGames.Scripts.Managers
         private void LevelLose()
         {
             gamePanel.SetActive(false);
-            gamePanel.SetActive(true);
+            losePanel.SetActive(true);
             HapticManager.Instance.PlayFailureHaptic();
         }
         
