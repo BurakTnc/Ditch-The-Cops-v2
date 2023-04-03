@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using _YabuGames.Scripts.Managers;
 using _YabuGames.Scripts.Signals;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,8 +11,10 @@ namespace _YabuGames.Scripts.Controllers
     {
         [SerializeField] private PlayerHealthController healthController;
         [SerializeField] private PlayerPhysicsController physicsController;
+        [SerializeField] private AudioClip hitSound;
 
         private bool _onGodMode;
+        private bool _onReduceDamage;
 
        #region Subscribtions
 
@@ -27,31 +31,55 @@ namespace _YabuGames.Scripts.Controllers
        private void Subscribe()
        {
            SkillSignals.Instance.OnGodMode += ApplyGodMode;
+           SkillSignals.Instance.OnReduceDamage += ApplyReducedDamage;
        }
 
        private void UnSubscribe()
        {
            SkillSignals.Instance.OnGodMode -= ApplyGodMode;
+           SkillSignals.Instance.OnReduceDamage -= ApplyReducedDamage;
        }
 
        #endregion
 
-       private void ApplyGodMode()
+       private void ApplyReducedDamage()
        {
-           
+           _onReduceDamage = true;
+       }
+       private void ApplyGodMode(float duration)
+       {
+           StartCoroutine(Delayer(duration));
+       }
+
+       private IEnumerator Delayer(float duration)
+       {
+           _onGodMode = true;
+           yield return new WaitForSeconds(duration);
+           _onGodMode = false;
        }
         private void OnCollisionEnter(Collision collision)
         {
+            AudioSource.PlayClipAtPoint(hitSound,transform.position);
             if (collision.gameObject.TryGetComponent(out PoliceCarController component))
             {
                 if (!_onGodMode)
                 {
+                    HapticManager.Instance.PlayLightHaptic();
                     physicsController.PoliceCollision(collision.contacts[0].point);
-                    healthController.TakeDamage(component.damage);
+                    if (_onReduceDamage)
+                    {
+                        var reducedDamage = (int)(component.damage - component.damage * .1f);
+                        healthController.TakeDamage(reducedDamage);
+                    }
+                    else
+                    {
+                        healthController.TakeDamage(component.damage);
+                    }
+                    
                 }
                 else
                 {
-                    component.Eliminate(collision.contacts[0].point);
+                    component.MissileExplosion(collision.contacts[0].point,10);
                 }
                 return;
             }
@@ -60,6 +88,10 @@ namespace _YabuGames.Scripts.Controllers
             {
                 physicsController.ObstacleCollision(collision.contacts[0].point, rb);
                 return;
+            }
+            else
+            {
+                HapticManager.Instance.PlaySelectionHaptic();
             }
             
         }

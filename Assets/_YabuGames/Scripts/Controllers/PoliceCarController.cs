@@ -86,6 +86,8 @@ namespace _YabuGames.Scripts.Controllers
         {
             if(_isEliminated)
                 return;
+            HapticManager.Instance.PlayRigidHaptic();
+            ShakeManager.Instance.ShakeCamera(true);
             LevelSignals.Instance.OnPoliceEliminated?.Invoke();
             _isEliminated = true;
             PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up*3);
@@ -107,6 +109,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             if(_isEliminated)
                 return;
+            HapticManager.Instance.PlayRigidHaptic();
             LevelSignals.Instance.OnPoliceEliminated?.Invoke();
             _isEliminated = true;
             PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up*3);

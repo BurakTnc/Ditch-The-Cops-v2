@@ -59,22 +59,22 @@ namespace _YabuGames.Scripts.Managers
                 {
                     CoreGameSignals.Instance.OnLevelWin += LevelWin;
                     CoreGameSignals.Instance.OnLevelFail += LevelLose;
-                    CoreGameSignals.Instance.OnGameStart += OnGameStart;
+                    //CoreGameSignals.Instance.OnGameStart += OnGameStart;
                 }
         
                 private void UnSubscribe()
                 {
                     CoreGameSignals.Instance.OnLevelWin -= LevelWin;
                     CoreGameSignals.Instance.OnLevelFail -= LevelLose;
-                    CoreGameSignals.Instance.OnGameStart -= OnGameStart;
+                    //CoreGameSignals.Instance.OnGameStart -= OnGameStart;
                 }
 
         #endregion
         
         private void OnGameStart()
         {
-            mainPanel.SetActive(false);
-            gamePanel.SetActive(true);
+            // mainPanel.SetActive(false);
+            // gamePanel.SetActive(true);
         }
         private void SetMoneyTexts()
         {
@@ -105,6 +105,11 @@ namespace _YabuGames.Scripts.Managers
         public void UpdateHealthBar(float amount)
         {
             healthBar.fillAmount = amount;
+        }
+
+        public void PlayMaxHpAnimation()
+        {
+            healthBar.transform.parent.DOScaleX(1.1f, .3f).SetLoops(6, LoopType.Yoyo);
         }
         public void SetStars(int wantedLevel)
         {

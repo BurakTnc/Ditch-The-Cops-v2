@@ -81,18 +81,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: c690a70b43c004848b74503c7eee5a31, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
+  Priority: 10
+  DopplerLevel: 2
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 2.56
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -127,7 +127,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.94
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -142,7 +142,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.06388889
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   explosionRadius: 1
   upwardsModifier: 2
   forceMode: 1
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 8300000, guid: e05f675c1546b41b8815f86b1480bdc3, type: 3}
   specs: {fileID: 11400000, guid: b944f1fe0262846518427eeb82bc977e, type: 2}
 --- !u!114 &-519556991820398677
 MonoBehaviour:

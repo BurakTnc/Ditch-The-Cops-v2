@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using _YabuGames.Scripts.ScriptableObjects;
 using _YabuGames.Scripts.Signals;
 using UnityEngine;
@@ -50,12 +51,14 @@ namespace _YabuGames.Scripts.Controllers
         {
             InputSignals.Instance.OnTouch += CheckTheTouch;
             InputSignals.Instance.CanMove += AllowToMove;
+            SkillSignals.Instance.OnNitro += GainSpeed;
         }
 
         private void UnSubscribe()
         {
             InputSignals.Instance.OnTouch -= CheckTheTouch;
             InputSignals.Instance.CanMove -= AllowToMove;
+            SkillSignals.Instance.OnNitro -= GainSpeed;
         }
         #endregion
 
@@ -130,6 +133,17 @@ namespace _YabuGames.Scripts.Controllers
         }
 
         #region Subsribed Functions
+
+        private IEnumerator SpeedRoutine(float duration)
+        {
+            _topSpeed += _forwardSpeed * .2f;
+            yield return new WaitForSeconds(duration);
+            _topSpeed -= _forwardSpeed * .2f;
+        }
+        private void GainSpeed(float duration)
+        {
+            StartCoroutine(SpeedRoutine(duration));
+        }
         private void CheckTheTouch(bool onTouch)
         {
             _isAccelerating = onTouch;

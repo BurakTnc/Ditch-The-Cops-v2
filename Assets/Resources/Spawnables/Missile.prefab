@@ -23786,7 +23786,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 31d4354cef3a92a4481b8c1464e22afd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: df2d7caec9fe5469c8fdeb27dde3761f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -23891,7 +23891,7 @@ MonoBehaviour:
   scanningLayer:
     serializedVersion: 2
     m_Bits: 128
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 8300000, guid: 44b111e327e98421e806f3cfa6351bf5, type: 3}
 --- !u!135 &5159469755725429109
 SphereCollider:
   m_ObjectHideFlags: 0

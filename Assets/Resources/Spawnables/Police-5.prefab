@@ -1423,7 +1423,7 @@ MonoBehaviour:
   explosionRadius: 1
   upwardsModifier: 2
   forceMode: 1
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 8300000, guid: e05f675c1546b41b8815f86b1480bdc3, type: 3}
   specs: {fileID: 11400000, guid: 8ba2bfdac60714c5b91d45ada3ae3586, type: 2}
 --- !u!114 &-2968254463449289013
 MonoBehaviour:

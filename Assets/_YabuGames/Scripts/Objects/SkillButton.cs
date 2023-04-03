@@ -17,7 +17,7 @@ namespace _YabuGames.Scripts.Objects
         [SerializeField] private TextMeshProUGUI skillDescription, headLine;
         [SerializeField] private GameObject[] crowns = new GameObject[3];
 
-        private int _skillLevel;
+        private int _skillLevel = 1;
         private int _skillID;
 
         public void SetSkill(SkillSpecs skillSpecs)
@@ -26,11 +26,20 @@ namespace _YabuGames.Scripts.Objects
             skillDescription.text = skillSpecs.skillDescription;
             skillIcon.sprite = skillSpecs.skillIcon;
             _skillID = skillSpecs.skillID;
+            _skillLevel = SkillManager.Instance.ChosenSkills[_skillID];
+            foreach (var t in crowns)
+            {
+                t.SetActive(false);
+            }
+
+            if (_skillLevel > 2)
+                _skillLevel = 2;
             for (var i = 0; i < _skillLevel + 1; i++)
             {
                 crowns[i].SetActive(true);
             }
         }
+        
 
         private void OnEnable()
         {
@@ -47,11 +56,20 @@ namespace _YabuGames.Scripts.Objects
 
         private void OnOpening()
         {
+            foreach (var t in crowns)
+            {
+                t.transform.DORewind();
+                t.transform.DOKill();
+            }
+            if(_skillLevel>2)
+                return;
+
             crowns[_skillLevel].transform.DOScale(Vector3.one * 1.3f, .3f).SetLoops(-1, LoopType.Yoyo);
         }
 
         public void ApplySkill()
         {
+            HapticManager.Instance.PlaySelectionHaptic();
             UIManager.Instance.CloseSkillPanel();
             LevelSignals.Instance.OnSkillActive?.Invoke(_skillID);
         }

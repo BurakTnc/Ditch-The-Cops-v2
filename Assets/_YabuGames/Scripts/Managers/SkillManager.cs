@@ -7,15 +7,26 @@ namespace _YabuGames.Scripts.Managers
 {
     public class SkillManager : MonoBehaviour
     {
+        //skill timeri resetlenmiyor
+        
         public static SkillManager Instance;
+        
+       [HideInInspector] public readonly int[] ChosenSkills = new int[7];
         
         public float missileSpawnPeriod;
         public float godModePeriod;
+        public float nitroPeriod;
+        public float healPeriod;
 
+        [SerializeField] private float godModeDuration;
+        [SerializeField] private float nitroDuration;
+        [SerializeField] private float healDuration;
+        
         // 0-Missile / 1-God Mode / 2-Nitro / 3-Max HP / 4-Reduce Damage / 5-Heal / 6-Bonus Earning 
         private readonly bool[] _skillIDList = new bool[7];
+        
         private Transform _player;
-        private float _missileDelayer, _godModeDelayer;
+        private float _missileDelayer, _godModeDelayer, _nitroDelayer, _healDelayer;
 
         private void Awake()
         {
@@ -56,12 +67,83 @@ namespace _YabuGames.Scripts.Managers
         {
             ApplyMissileSkill();
             ApplyGodMode();
+            ApplyNitro();
+            ApplyMaxHp();
+            ApplyReduceDamage();
+            ApplyHeal();
         }
 
         private void OpenASkill(int skillID)
         {
+            SetChosenSkills(skillID);
             _skillIDList[skillID] = true;
+            switch (skillID)
+            {
+                case 0:
+                    _missileDelayer = 0;
+                    break;
+                case 1:
+                    _godModeDelayer = 0;
+                    break;
+                case 2:
+                    _nitroDelayer = 0;
+                    break;
+                case 5:
+                    _healDelayer = 0;
+                    break;
+                default:
+                    break;
+            }
         }
+
+        private void ApplyHeal()
+        {
+            _healDelayer -= Time.deltaTime;
+            _healDelayer = Mathf.Clamp(_healDelayer, 0, healPeriod);
+            
+            var isAble = _skillIDList[5] && _healDelayer <= 0;
+            if(!isAble)
+                return;
+            
+            SetChosenSkills(5);
+            SkillSignals.Instance.OnHealing?.Invoke(healDuration);
+            _healDelayer += healPeriod;
+        }
+        private void ApplyReduceDamage()
+        {
+            var isAble = _skillIDList[4];
+            if(!isAble)
+                return;
+            
+            SetChosenSkills(4);
+            SkillSignals.Instance.OnReduceDamage?.Invoke();
+            _skillIDList[4] = false;
+        }
+        private void ApplyMaxHp()
+        {
+            var isAble = _skillIDList[3];
+            if(!isAble)
+                return;
+            
+            SetChosenSkills(3);
+            SkillSignals.Instance.OnMaxHealth?.Invoke();
+            _skillIDList[3] = false;
+        }
+        private void ApplyNitro()
+        {
+            _nitroDelayer -= Time.deltaTime;
+            _nitroDelayer = Mathf.Clamp(_nitroDelayer, 0, nitroPeriod);
+            
+            var isAble = _skillIDList[2] && _nitroDelayer <= 0;
+            if(!isAble)
+                return;
+            
+            SetChosenSkills(2);
+            SkillSignals.Instance.OnNitro?.Invoke(nitroDuration);
+            _nitroDelayer += nitroPeriod;
+        }
+        
+        #region GodMode
 
         private void ApplyGodMode()
         {
@@ -72,11 +154,14 @@ namespace _YabuGames.Scripts.Managers
             if(!isAble)
                 return;
             
-            SkillSignals.Instance.OnGodMode?.Invoke();
+            SetChosenSkills(1);
+            SkillSignals.Instance.OnGodMode?.Invoke(godModeDuration);
             _godModeDelayer += godModePeriod;
 
 
         }
+
+        #endregion
 
         #region Missile
         private void ApplyMissileSkill()
@@ -97,7 +182,24 @@ namespace _YabuGames.Scripts.Managers
             }
         }
         #endregion
-        
+
+        private void SetChosenSkills(int id)
+        {
+            switch (ChosenSkills[id])
+            {
+                case 0:
+                    ChosenSkills[id] = 1;
+                    break;
+                case 1:
+                    ChosenSkills[id] = 2;
+                    break;
+                case 2:
+                    ChosenSkills[id] = 3;
+                    break;
+                default:
+                    break;
+            }
+        }
 
         
     }

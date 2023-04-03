@@ -39,6 +39,8 @@ namespace _YabuGames.Scripts.Objects
 
         private void Chase()
         {
+            if (_hasTarget && !_target)
+                _hasTarget = false;
             transform.position = Vector3.Lerp(transform.position, !_hasTarget ? _player.position+Vector3.up*50 : _target.position,
                 speed * Time.deltaTime);
         }

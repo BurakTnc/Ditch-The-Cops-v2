@@ -45,9 +45,9 @@ namespace _YabuGames.Scripts.Controllers
 
         #endregion
 
-        private void ApplyGodMode()
+        private void ApplyGodMode(float duration)
         {
-            StartCoroutine(ApplyCoolDown(shieldEffect, 5));
+            StartCoroutine(ApplyCoolDown(shieldEffect, duration));
         }
 
         private void ApplyReduceDamage()
@@ -55,14 +55,14 @@ namespace _YabuGames.Scripts.Controllers
             reduceDamageEffect.SetActive(true);
         }
 
-        private void ApplyHealingEffect()
+        private void ApplyHealingEffect(float duration)
         {
-            StartCoroutine(ApplyCoolDown(healEffect, 5));
+            StartCoroutine(ApplyCoolDown(healEffect, duration));
         }
 
-        private void ApplySpeedEffect()
+        private void ApplySpeedEffect(float duration)
         {
-            StartCoroutine(ApplyCoolDown(nitroEffect, 5));
+            StartCoroutine(ApplyCoolDown(nitroEffect, duration));
         }
 
         private IEnumerator ApplyCoolDown(GameObject effect,float time)

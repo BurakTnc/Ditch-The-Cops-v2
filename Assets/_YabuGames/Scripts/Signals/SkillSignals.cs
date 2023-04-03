@@ -8,11 +8,11 @@ namespace _YabuGames.Scripts.Signals
     {
         public static SkillSignals Instance;
         
-        public UnityAction OnGodMode = delegate { };
-        public UnityAction OnHealing = delegate { };
+        public UnityAction<float> OnGodMode = delegate { };
+        public UnityAction<float> OnHealing = delegate { };
         public UnityAction OnMaxHealth = delegate { };
         public UnityAction OnReduceDamage = delegate { };
-        public UnityAction OnNitro = delegate { };
+        public UnityAction<float> OnNitro = delegate { };
         public UnityAction OnBonusIncome = delegate { };
 
         private void Awake()

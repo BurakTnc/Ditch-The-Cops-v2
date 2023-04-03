@@ -1,14 +1,19 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using _YabuGames.Scripts.Managers;
 using _YabuGames.Scripts.ScriptableObjects;
+using _YabuGames.Scripts.Signals;
 using UnityEngine.UI;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _YabuGames.Scripts.Controllers
 {
     public class PlayerHealthController : MonoBehaviour
     {
 
+        
         [SerializeField] private CarSpecs specs;
         [SerializeField] private List<GameObject> damageEffects = new List<GameObject>();
 
@@ -16,6 +21,29 @@ namespace _YabuGames.Scripts.Controllers
         private float _health;
         private List<GameObject> _activeEffects = new List<GameObject>();
         private int _takenDamageLevel;
+        private bool _onHeal;
+
+        private void OnEnable()
+        {
+            Subscribe();
+        }
+
+        private void OnDisable()
+        {
+            UnSubscribe();
+        }
+
+        private void Subscribe()
+        {
+            SkillSignals.Instance.OnMaxHealth += GainMaxHp;
+            SkillSignals.Instance.OnHealing += ActivateHealMode;
+        }
+
+        private void UnSubscribe()
+        {
+            SkillSignals.Instance.OnMaxHealth -= GainMaxHp;
+            SkillSignals.Instance.OnHealing -= ActivateHealMode;
+        }
 
         private void Start()
         {
@@ -23,11 +51,45 @@ namespace _YabuGames.Scripts.Controllers
             _maxHealth = _health;
         }
 
+        private void Update()
+        {
+            Heal();
+        }
+
+        private void Heal()
+        {
+            if (!_onHeal) 
+                return;
+
+            _health += 2 * Time.deltaTime;
+            var amount = _health / _maxHealth;
+            UIManager.Instance.UpdateHealthBar(amount);
+        }
+
+        private void ActivateHealMode(float duration)
+        {
+            StartCoroutine(HealRoutine(duration));
+        }
+
+        private IEnumerator HealRoutine(float duration)
+        {
+            _onHeal = true;
+            yield return new WaitForSeconds(duration);
+            _onHeal = false;
+        }
         private void SetHealthBar()
         {
             var amount = _health / _maxHealth;
             UIManager.Instance.UpdateHealthBar(amount);
             SetDamageEffects(amount);
+        }
+
+        private void GainMaxHp()
+        {
+            _maxHealth += _maxHealth * .1f;
+            var amount = _health / _maxHealth;
+            UIManager.Instance.PlayMaxHpAnimation();
+            UIManager.Instance.UpdateHealthBar(amount);
         }
 
         private void SetDamageEffects(float healthAmount)
@@ -90,7 +152,7 @@ namespace _YabuGames.Scripts.Controllers
             {
                 _health = 0;
                 SetHealthBar();
-                //Lose
+                CoreGameSignals.Instance.OnLevelFail?.Invoke();
                 return;
             }
             _health -= damage;

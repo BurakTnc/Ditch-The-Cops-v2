@@ -302,7 +302,7 @@ MonoBehaviour:
   explosionRadius: 1
   upwardsModifier: 2
   forceMode: 1
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 8300000, guid: e05f675c1546b41b8815f86b1480bdc3, type: 3}
   specs: {fileID: 11400000, guid: 2e533209c913d469d972c836293b39fd, type: 2}
 --- !u!82 &8074122922686596229
 AudioSource:
