@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 20120
+  controlID: 41
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_SerializedViewNames:
   - UnityEditor.GameView
   m_SerializedViewValues:
-  - /Users/yavuzozsoy/Documents/UnityProjects/Ditch-The-Cops-v2/Library/PlayModeViewStates/e12c46224a1914abc9b3e7c3a9f7093f
+  - /Users/yavuzozsoy/Documents/UnityProjects/Ditch-The-Cops-v2/Library/PlayModeViewStates/c4b9e7215c7b84ba38602020b101a875
   m_PlayModeViewName: Device Simulator
   m_ShowGizmos: 0
   m_TargetDisplay: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
     scale: 22
     fitToScreenEnabled: 1
     rotationDegree: 0
-    highlightSafeAreaEnabled: 1
+    highlightSafeAreaEnabled: 0
     friendlyName: Apple iPhone 13 Pro Max
     networkReachability: 1
     systemLanguage: 10
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 20121
+  controlID: 42
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 20122
+  controlID: 43
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -413,9 +413,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.3999999, y: 44, z: -19.1}
+    m_Target: {x: 403.53067, y: 2702.8643, z: 0}
     speed: 2
-    m_Value: {x: -3.3999999, y: 44, z: -19.1}
+    m_Value: {x: 403.5307, y: 2702.8613, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -462,13 +462,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.2310402, y: 0.20286117, z: -0.049327396, w: 0.9502911}
+    m_Target: {x: 0.33345115, y: -0.24325722, z: 0.08947626, w: 0.9064458}
     speed: 2
-    m_Value: {x: -0.2310402, y: -0.20286117, z: 0.049327396, w: -0.9502911}
+    m_Value: {x: 0.33344886, y: -0.24325554, z: 0.08947564, w: 0.90643954}
   m_Size:
-    m_Target: 12.999352
+    m_Target: 326.49207
     speed: 2
-    m_Value: 12.999352
+    m_Value: 326.49194
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -595,23 +595,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5e740000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 64a0fcfffed3fcff02d4fcff06d4fcff0ad4fcffd8eafdff0e39feff14c0feff9ed6feffcae2feffec2bffff2a3fffff1266ffff0cfaffff32fbffff9acb0000
+      m_SelectedIDs: 4665040030670400
+      m_LastClickedID: 288560
+      m_ExpandedIDs: caa7feff627dffff98c8ffffeaf9ffffc40704005c5f040018650400
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Canvas
+        m_OriginalName: Canvas
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 286556
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
       m_SearchString: 
@@ -690,22 +690,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Skill Data
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Skill Data
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/yavuzozsoy/Documents/UnityProjects/Ditch-The-Cops-v2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 497}
-    m_SelectedIDs: be0c0400
-    m_LastClickedID: 265406
-    m_ExpandedIDs: 00000000a2b50000a4b50000a6b50000a8b50000aab50000acb5000004b6000042b6000044b60000fede000002df000014df000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: c67d0000
+    m_LastClickedID: 32198
+    m_ExpandedIDs: 00000000c67d0000c87d0000ca7d0000cc7d0000ce7d0000d07d0000d27d0000d47d0000d67d0000d87d0000da7d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -733,7 +733,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a2b50000a4b50000a6b50000a8b50000aab50000acb5000004b6000044b60000fede000002df000014df000000ca9a3b
+    m_ExpandedIDs: 00000000c67d0000c87d0000ca7d0000cc7d0000ce7d0000d07d0000d27d0000d47d0000d67d0000d87d0000da7d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -758,8 +758,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 5e740000
-    m_LastClickedInstanceID: 29790
+    m_SelectedInstanceIDs: 4665040030670400
+    m_LastClickedInstanceID: 288070
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000a0cb0000
     m_RenameOverlay:
@@ -847,7 +847,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -52492
+  m_LastSelectedObjectID: -19498
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -874,7 +874,7 @@ MonoBehaviour:
   - {fileID: 16}
   - {fileID: 17}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
