@@ -115,23 +115,24 @@ namespace _YabuGames.Scripts.Controllers
 
         public void MissileExplosion(Vector3 impactPoint,float radius)
         {
-            if(_isEliminated)
-                return;
-            HapticManager.Instance.PlayRigidHaptic();
-            LevelSignals.Instance.OnPoliceEliminated?.Invoke();
-            _isEliminated = true;
-            PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up*3);
-            Invoke(nameof(SetSmokeParticle),2);
-            _rb.AddExplosionForce(explosionForce+50,impactPoint,radius,upwardsModifier+2,forceMode);
-            _aiController.StopChasing();
-            _source.DOPitch(0, 2f).SetEase(Ease.InSine);
-            if (!explosionSound)
+            if (!_isEliminated)
             {
-                Debug.LogWarning("There Is No Explosion Sound Attached!");
-                return;
+                HapticManager.Instance.PlayRigidHaptic();
+                LevelSignals.Instance.OnPoliceEliminated?.Invoke();
+                _isEliminated = true;
+                PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up*3);
+                Invoke(nameof(SetSmokeParticle),2);
+                if (!explosionSound)
+                {
+                    Debug.LogWarning("There Is No Explosion Sound Attached!");
+                    return;
+                }
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position + Vector3.up);
+                _aiController.StopChasing();
+                _source.DOPitch(0, 2f).SetEase(Ease.InSine);
+                Destroy(gameObject,5);
             }
-            AudioSource.PlayClipAtPoint(explosionSound, transform.position + Vector3.up);
-            Destroy(gameObject,5);
+            _rb.AddExplosionForce(explosionForce+50,impactPoint,radius,upwardsModifier+2,forceMode);
         }
 
         private void SetSmokeParticle()

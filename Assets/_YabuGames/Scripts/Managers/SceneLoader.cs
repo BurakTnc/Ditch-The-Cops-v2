@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using _YabuGames.Scripts.Signals;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace _YabuGames.Scripts.Managers
 {
@@ -10,6 +12,9 @@ namespace _YabuGames.Scripts.Managers
     {
         public static SceneLoader Instance;
        [HideInInspector] public int sceneID;
+
+       [SerializeField] private GameObject loadingPanel;
+       [SerializeField] private Image loadingBar;
 
 
        private void Awake()
@@ -25,7 +30,7 @@ namespace _YabuGames.Scripts.Managers
 
        private void Start()
        {
-           sceneID = PlayerPrefs.GetInt("sceneID", 0);
+           sceneID = PlayerPrefs.GetInt("sceneID", 1);
        }
 
        #region Subscribtions
@@ -54,14 +59,27 @@ namespace _YabuGames.Scripts.Managers
 
        #endregion
 
+       private IEnumerator LoadSceneAsync(int sceneId)
+       {
+           var operation = SceneManager.LoadSceneAsync(sceneId);
+           loadingPanel.SetActive(true);
+           while (!operation.isDone)
+           {
+               var progressValue = Mathf.Clamp01(operation.progress / 0.9f);
+               loadingBar.fillAmount = progressValue;
+               yield return null;
+           }
+           
+       }
        private void LoadMainMenu()
        {
-           SceneManager.LoadScene(1);
+           StartCoroutine(LoadSceneAsync(0));
        }
-       public void LoadScene()
+       private void LoadScene()
        {
+           
            PlayerPrefs.SetInt("sceneID",sceneID);
-           SceneManager.LoadScene(sceneID);
+           StartCoroutine(LoadSceneAsync(sceneID));
        }
        
     }

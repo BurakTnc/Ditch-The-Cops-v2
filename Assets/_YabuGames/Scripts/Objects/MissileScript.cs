@@ -13,7 +13,7 @@ namespace _YabuGames.Scripts.Objects
         [SerializeField] private float explosionRange;
         [SerializeField] private LayerMask scanningLayer;
         [SerializeField] private AudioClip explosionSound;
-
+        
         private Transform _player;
         private bool _hasTarget;
         private Transform _target;
@@ -75,7 +75,7 @@ namespace _YabuGames.Scripts.Objects
             PoolManager.Instance.GetExplosionParticle(transform.position);
             if (explosionSound)
             {
-                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+                AudioSource.PlayClipAtPoint(explosionSound,_player.position);
             }
             
             _explodedColliders = Physics.OverlapSphere(transform.position, explosionRange, scanningLayer);

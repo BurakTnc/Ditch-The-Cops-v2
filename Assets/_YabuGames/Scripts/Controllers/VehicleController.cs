@@ -100,6 +100,8 @@ namespace _YabuGames.Scripts.Controllers
 
         private void CheckTheSkid(float magnitude)
         {
+            if(!_isAccelerating)
+                return;
             if (magnitude >= _skidLimit)
             {
                 _audioController.BeginSkidding();
@@ -111,16 +113,21 @@ namespace _YabuGames.Scripts.Controllers
             }
             else
             {
-                _audioController.EndSkidding();
-                foreach (var t in trails)
-                {
-                    t.emitting = false;
-                }
+                EndSkidding();
+            }
+        }
 
-                foreach (var t in smokeParticle)
-                {
-                    t.Pause();
-                }
+        private void EndSkidding()
+        {
+            _audioController.EndSkidding();
+            foreach (var t in trails)
+            {
+                t.emitting = false;
+            }
+
+            foreach (var t in smokeParticle)
+            {
+                t.Pause();
             }
         }
 
@@ -147,6 +154,10 @@ namespace _YabuGames.Scripts.Controllers
         private void CheckTheTouch(bool onTouch)
         {
             _isAccelerating = onTouch;
+            if (!onTouch)
+            {
+                EndSkidding();
+            }
         }
 
         private void AllowToMove(bool isBlocked)

@@ -23884,7 +23884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a45ba9a8ce4d8882076a1b69e4af69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnOffset: {x: 0, y: 70, z: 0}
+  spawnOffset: {x: 0, y: 75, z: 0}
   speed: 5
   scanningRange: 30
   explosionRange: 10
