@@ -63,7 +63,7 @@ namespace _YabuGames.Scripts.Controllers
             {
                 if (!_onGodMode)
                 {
-                    HapticManager.Instance.PlayLightHaptic();
+                    HapticManager.Instance.PlayHeavyHaptic();
                     physicsController.PoliceCollision(collision.contacts[0].point);
                     if (_onReduceDamage)
                     {
@@ -78,6 +78,7 @@ namespace _YabuGames.Scripts.Controllers
                 }
                 else
                 {
+                    HapticManager.Instance.PlayRigidHaptic();
                     component.MissileExplosion(collision.contacts[0].point,10);
                 }
                 return;
@@ -85,6 +86,7 @@ namespace _YabuGames.Scripts.Controllers
 
             if (collision.gameObject.TryGetComponent(out Rigidbody rb))
             {
+                HapticManager.Instance.PlaySelectionHaptic();
                 physicsController.ObstacleCollision(collision.contacts[0].point, rb);
                 AudioSource.PlayClipAtPoint(hitSound,transform.position);
                 return;
