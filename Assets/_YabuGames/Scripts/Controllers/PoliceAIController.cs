@@ -1,5 +1,6 @@
 using System;
 using _YabuGames.Scripts.ScriptableObjects;
+using _YabuGames.Scripts.Signals;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,16 @@ namespace _YabuGames.Scripts.Controllers
         {
             _agent = GetComponent<NavMeshAgent>();
             _player = GameObject.Find("Player").transform;
+        }
+
+        private void OnEnable()
+        {
+            LevelSignals.Instance.OnPlayerDestroyed += StopChasing;
+        }
+
+        private void OnDisable()
+        {
+            LevelSignals.Instance.OnPlayerDestroyed -= StopChasing;
         }
 
         private void Start()
@@ -51,6 +62,8 @@ namespace _YabuGames.Scripts.Controllers
 
         public void StopChasing()
         {
+            if(!_agent.isActiveAndEnabled)
+                return;
             _onChase = false;
             _agent.isStopped = true;
             _agent.enabled = false;

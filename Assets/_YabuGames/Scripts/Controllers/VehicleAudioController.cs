@@ -34,15 +34,23 @@ namespace _YabuGames.Scripts.Controllers
         private void Subscribe()
         {
             LevelSignals.Instance.OnSkillPanel += Mute;
+            CoreGameSignals.Instance.OnLevelFail += LevelEnd;
+            CoreGameSignals.Instance.OnLevelWin += LevelEnd;
         }
 
         private void UnSubscribe()
         {
             LevelSignals.Instance.OnSkillPanel -= Mute;
+            CoreGameSignals.Instance.OnLevelFail -= LevelEnd;
+            CoreGameSignals.Instance.OnLevelWin -= LevelEnd;
         }
 
         #endregion
 
+        private void LevelEnd()
+        {
+            Mute(true);
+        }
         private void Mute(bool isMuted)
         {
             if (isMuted)

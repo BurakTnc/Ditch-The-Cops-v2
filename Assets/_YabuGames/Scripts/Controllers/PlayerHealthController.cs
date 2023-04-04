@@ -16,12 +16,14 @@ namespace _YabuGames.Scripts.Controllers
         
         [SerializeField] private CarSpecs specs;
         [SerializeField] private List<GameObject> damageEffects = new List<GameObject>();
+        [SerializeField] private PlayerPhysicsController physicsController;
 
         private float _maxHealth;
         private float _health;
         private List<GameObject> _activeEffects = new List<GameObject>();
         private int _takenDamageLevel;
         private bool _onHeal;
+        private bool _onLose;
 
         private void OnEnable()
         {
@@ -148,15 +150,25 @@ namespace _YabuGames.Scripts.Controllers
         }
         public void TakeDamage(int damage)
         {
-            if (_health<damage)
+            if (_health<damage && !_onLose)
             {
                 _health = 0;
                 SetHealthBar();
-                CoreGameSignals.Instance.OnLevelFail?.Invoke();
+                Invoke(nameof(Lose),2);
+                physicsController.Eliminate();
+                LevelSignals.Instance.OnPlayerDestroyed?.Invoke();
+                HapticManager.Instance.PlaySoftHaptic();
+                InputSignals.Instance.CanMove?.Invoke(true);
+                _onLose = true;
                 return;
             }
             _health -= damage;
             SetHealthBar();
+        }
+
+        private void Lose()
+        {
+            CoreGameSignals.Instance.OnLevelFail?.Invoke();
         }
         
     }

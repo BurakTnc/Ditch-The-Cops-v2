@@ -115,7 +115,6 @@ namespace _YabuGames.Scripts.Managers
             if(!isAble)
                 return;
             
-            SetChosenSkills(4);
             SkillSignals.Instance.OnReduceDamage?.Invoke();
             _skillIDList[4] = false;
         }
@@ -125,7 +124,6 @@ namespace _YabuGames.Scripts.Managers
             if(!isAble)
                 return;
             
-            SetChosenSkills(3);
             SkillSignals.Instance.OnMaxHealth?.Invoke();
             _skillIDList[3] = false;
         }
@@ -138,7 +136,6 @@ namespace _YabuGames.Scripts.Managers
             if(!isAble)
                 return;
             
-            SetChosenSkills(2);
             SkillSignals.Instance.OnNitro?.Invoke(nitroDuration);
             _nitroDelayer += nitroPeriod;
         }
@@ -154,7 +151,6 @@ namespace _YabuGames.Scripts.Managers
             if(!isAble)
                 return;
             
-            SetChosenSkills(1);
             SkillSignals.Instance.OnGodMode?.Invoke(godModeDuration);
             _godModeDelayer += godModePeriod;
 

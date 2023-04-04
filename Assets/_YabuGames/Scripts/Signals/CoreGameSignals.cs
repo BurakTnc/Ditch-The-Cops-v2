@@ -12,6 +12,7 @@ namespace _YabuGames.Scripts.Signals
         public UnityAction OnLevelWin=delegate { };
         public UnityAction OnLevelFail=delegate { };
         public UnityAction OnSave = delegate { };
+        public UnityAction OnMainMenu = delegate { };
         public UnityAction<int,bool> OnSpawnCoins=delegate { };
 
         #region Singleton

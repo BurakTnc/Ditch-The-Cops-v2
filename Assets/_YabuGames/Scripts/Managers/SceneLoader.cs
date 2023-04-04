@@ -43,15 +43,21 @@ namespace _YabuGames.Scripts.Managers
        private void Subscribe()
        {
            CoreGameSignals.Instance.OnGameStart += LoadScene;
+           CoreGameSignals.Instance.OnMainMenu += LoadMainMenu;
        }
 
        private void UnSubscribe()
        {
            CoreGameSignals.Instance.OnGameStart -= LoadScene;
+           CoreGameSignals.Instance.OnMainMenu -= LoadMainMenu;
        }
 
        #endregion
 
+       private void LoadMainMenu()
+       {
+           SceneManager.LoadScene(1);
+       }
        public void LoadScene()
        {
            PlayerPrefs.SetInt("sceneID",sceneID);

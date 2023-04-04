@@ -187,6 +187,7 @@ MonoBehaviour:
   - {fileID: 4033817302282639778}
   - {fileID: 6077444638525108272}
   - {fileID: 3809533896757547568}
+  physicsController: {fileID: 7926447629906404264}
 --- !u!82 &6473067648539920821
 AudioSource:
   m_ObjectHideFlags: 0
@@ -479,9 +480,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 1
-  explosionForce: 10
+  explosionForce: 40
   upwardsModifier: 0
-  forceMode: 2
+  forceMode: 1
   obstacleExplosionRadius: 0.3
   obstacleExplosionForce: 1
   obstacleUpwardsModifier: 0

@@ -90,15 +90,21 @@ namespace _YabuGames.Scripts.Managers
         }
         private void LevelWin()
         {
+            Time.timeScale = 0;
             gamePanel.SetActive(false);
+            winPanel.transform.localScale = Vector3.zero;
             winPanel.SetActive(true);
+            winPanel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
             HapticManager.Instance.PlaySuccessHaptic();
         }
 
         private void LevelLose()
         {
+            Time.timeScale = 0;
             gamePanel.SetActive(false);
+            losePanel.transform.localScale = Vector3.zero;
             losePanel.SetActive(true);
+            losePanel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
             HapticManager.Instance.PlayFailureHaptic();
         }
         
@@ -159,7 +165,7 @@ namespace _YabuGames.Scripts.Managers
 
         public void MenuButton()
         {
-            mainPanel.SetActive(true);
+            CoreGameSignals.Instance.OnMainMenu?.Invoke();
             HapticManager.Instance.PlayLightHaptic();
         }
 

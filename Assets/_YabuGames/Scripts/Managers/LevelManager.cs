@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 namespace _YabuGames.Scripts.Managers
 {
+    [RequireComponent(typeof(AudioSource))]
     public class LevelManager : MonoBehaviour
     {
         public static LevelManager Instance;
@@ -18,10 +19,13 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private float skillPanelTime;
         [SerializeField] private List<SkillSpecs> skillSpecsList = new List<SkillSpecs>();
         [SerializeField] private SkillButton[] skillButtons;
-        
+        [SerializeField] private AudioClip[] wantedLevelIncreaseSounds;
+
+        private AudioSource _source;
         private float _wantedLevel;
         private int _passedLevels;
         private float _delayer;
+        private bool _onLose;
         private readonly List<SkillSpecs> _chosenSkills = new List<SkillSpecs>(3);
         
         private void Awake()
@@ -38,10 +42,13 @@ namespace _YabuGames.Scripts.Managers
 
             #endregion
 
+            _source = GetComponent<AudioSource>();
+
         }
 
         private void Start()
         {
+            Time.timeScale = 1;
             SetChaosValue();
             _delayer = skillPanelTime;
 
@@ -62,6 +69,8 @@ namespace _YabuGames.Scripts.Managers
         private void Subscribe()
         {
             LevelSignals.Instance.OnPoliceEliminated += IncreaseWantedLevel;
+            LevelSignals.Instance.OnPlayerDestroyed += Lose;
+            CoreGameSignals.Instance.OnLevelWin += Lose;
             // CoreGameSignals.Instance.OnSave += Save;
             // CoreGameSignals.Instance.OnLevelWin += LevelWin;
             // CoreGameSignals.Instance.OnLevelLoad += LoadScene;
@@ -70,6 +79,9 @@ namespace _YabuGames.Scripts.Managers
         private void UnSubscribe()
         {
             LevelSignals.Instance.OnPoliceEliminated -= IncreaseWantedLevel;
+            CoreGameSignals.Instance.OnLevelFail -= Lose;
+            CoreGameSignals.Instance.OnLevelWin -= Lose;
+            
             // CoreGameSignals.Instance.OnSave -= Save;
             // CoreGameSignals.Instance.OnLevelWin -= LevelWin;
             // CoreGameSignals.Instance.OnLevelLoad -= LoadScene;
@@ -82,6 +94,12 @@ namespace _YabuGames.Scripts.Managers
             OpenSkillPanel();
         }
 
+        private void Lose()
+        {
+            _onLose = true;
+            var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
+            _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
+        }
         private void ChooseRandomSkill()
         {
             LevelSignals.Instance.OnSkillPanel?.Invoke(true);
@@ -109,6 +127,8 @@ namespace _YabuGames.Scripts.Managers
         }
         private void OpenSkillPanel()
         {
+            if(_onLose)
+                return;
             
             _delayer -= Time.deltaTime;
             _delayer = Mathf.Clamp(_delayer, 0, skillPanelTime);
@@ -133,6 +153,8 @@ namespace _YabuGames.Scripts.Managers
                 if(_passedLevels==5)
                     return;
                 _passedLevels = 5;
+                var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
+                _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
                 UIManager.Instance.SetStars(5);
                 return;
             }
@@ -141,6 +163,8 @@ namespace _YabuGames.Scripts.Managers
                 if(_passedLevels==4)
                     return;
                 _passedLevels = 4;
+                var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
+                _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
                 UIManager.Instance.SetStars(4);
                 return;
             }
@@ -149,6 +173,8 @@ namespace _YabuGames.Scripts.Managers
                 if(_passedLevels==3)
                     return;
                 _passedLevels = 3;
+                var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
+                _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
                 UIManager.Instance.SetStars(3);
                 return;
             }
@@ -157,6 +183,8 @@ namespace _YabuGames.Scripts.Managers
                 if(_passedLevels==2)
                     return;
                 _passedLevels = 2;
+                var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
+                _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
                 UIManager.Instance.SetStars(2);
                 return;
             }
@@ -164,6 +192,8 @@ namespace _YabuGames.Scripts.Managers
             {
                 if(_passedLevels==1)
                     return;
+                var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
+                _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
                 _passedLevels = 1;
                 UIManager.Instance.SetStars(1);
             }

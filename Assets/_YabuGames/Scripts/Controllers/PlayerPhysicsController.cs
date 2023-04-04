@@ -43,6 +43,12 @@ namespace _YabuGames.Scripts.Controllers
             Destroy(obstacleRb.gameObject,3);
         }
 
+        public void Eliminate()
+        {
+            _rb.AddExplosionForce(explosionForce+300, transform.position, explosionRadius+2, upwardsModifier+2, forceMode);
+            PoolManager.Instance.GetSmokeParticle(transform.position);
+        }
+
 
     }
     

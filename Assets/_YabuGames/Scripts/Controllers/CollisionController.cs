@@ -59,7 +59,6 @@ namespace _YabuGames.Scripts.Controllers
        }
         private void OnCollisionEnter(Collision collision)
         {
-            AudioSource.PlayClipAtPoint(hitSound,transform.position);
             if (collision.gameObject.TryGetComponent(out PoliceCarController component))
             {
                 if (!_onGodMode)
@@ -87,13 +86,10 @@ namespace _YabuGames.Scripts.Controllers
             if (collision.gameObject.TryGetComponent(out Rigidbody rb))
             {
                 physicsController.ObstacleCollision(collision.contacts[0].point, rb);
+                AudioSource.PlayClipAtPoint(hitSound,transform.position);
                 return;
             }
-            else
-            {
-                HapticManager.Instance.PlaySelectionHaptic();
-            }
-            
+
         }
 
       
