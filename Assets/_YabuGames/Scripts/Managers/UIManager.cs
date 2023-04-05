@@ -17,6 +17,19 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private Image healthBar;
         [SerializeField] private Sprite yellowStarSprite;
 
+        [Header("Player Profile")] 
+        [SerializeField] private TextMeshProUGUI playerXpText;
+        [SerializeField] private TextMeshProUGUI playerLevel;
+        [SerializeField] private Image playerProgressBar;
+        [Header("Missions")] 
+        [SerializeField] private TextMeshProUGUI eliminatedCopsText;
+        [SerializeField] private TextMeshProUGUI survivedTimeText;
+        [SerializeField] private TextMeshProUGUI reachedLevelText;
+        [SerializeField] private Slider eliminatedCopsProgressBar;
+        [SerializeField] private Slider survivedTimeProgressBar;
+        [SerializeField] private Slider reachedLevelProgressBar;
+        [SerializeField] private Button[] missionClaimButtons;
+        
 
 
 
@@ -51,23 +64,60 @@ namespace _YabuGames.Scripts.Managers
         private void Start()
         {
             SetMoneyTexts();
+            if(!playerXpText)
+                return;
+            var reachedXp = GameManager.Instance.GetPlayerXp();
             
+            var reachedXpAmount = reachedXp / 1000;
+            Debug.Log(reachedXpAmount);
+            playerProgressBar.DOFillAmount(reachedXpAmount, 1).SetEase(Ease.OutBack);
+            playerXpText.text = reachedXp + "/1000";
+            
+        }
+
+        private void SetProgressBars()
+        {
+            if (!eliminatedCopsProgressBar)
+                return;
+
+            var eliminatedCops = GameManager.Instance.GetEliminatedCops();
+            
+            eliminatedCopsProgressBar.DOValue(eliminatedCops, 1).SetEase(Ease.OutBack);
+            eliminatedCopsText.text = eliminatedCops + "/100";
+
+            var survivedTime = GameManager.Instance.GetSurvivedTime();
+            
+
+            //Debug.Log(survivedTime/600);
+            survivedTimeProgressBar.DOValue(survivedTime/60, 1).SetEase(Ease.OutBack);
+            survivedTimeText.text = (int) (survivedTime / 60) + "/100";
+
+
+            var pLevel = GameManager.Instance.GetPlayerLevel();
+            reachedLevelText.text = pLevel + "/100";
+            reachedLevelProgressBar.DOValue(pLevel, 1).SetEase(Ease.OutBack);
+            playerLevel.text = pLevel.ToString();
+        }
+
+        private void Update()
+        {
+            SetMoneyTexts();
         }
 
         #region Subscribtions
         private void Subscribe()
-                {
-                    CoreGameSignals.Instance.OnLevelWin += LevelWin;
-                    CoreGameSignals.Instance.OnLevelFail += LevelLose;
-                    //CoreGameSignals.Instance.OnGameStart += OnGameStart;
-                }
-        
-                private void UnSubscribe()
-                {
-                    CoreGameSignals.Instance.OnLevelWin -= LevelWin;
-                    CoreGameSignals.Instance.OnLevelFail -= LevelLose;
-                    //CoreGameSignals.Instance.OnGameStart -= OnGameStart;
-                }
+        {
+            CoreGameSignals.Instance.OnLevelWin += LevelWin;
+            CoreGameSignals.Instance.OnLevelFail += LevelLose;
+            //CoreGameSignals.Instance.OnGameStart += OnGameStart;
+        }
+
+        private void UnSubscribe()
+        {
+            CoreGameSignals.Instance.OnLevelWin -= LevelWin;
+            CoreGameSignals.Instance.OnLevelFail -= LevelLose;
+            //CoreGameSignals.Instance.OnGameStart -= OnGameStart;
+        }
 
         #endregion
         
@@ -84,12 +134,13 @@ namespace _YabuGames.Scripts.Managers
             {
                 if (t)
                 {
-                    t.text = "$" + GameManager.Instance.GetMoney();
+                    t.text = GameManager.Instance.GetMoney().ToString();
                 }
             }
         }
         private void LevelWin()
         {
+            CoreGameSignals.Instance.OnSave?.Invoke();
             Time.timeScale = 0;
             gamePanel.SetActive(false);
             winPanel.transform.localScale = Vector3.zero;
@@ -100,6 +151,7 @@ namespace _YabuGames.Scripts.Managers
 
         private void LevelLose()
         {
+            CoreGameSignals.Instance.OnSave?.Invoke();
             Time.timeScale = 0;
             gamePanel.SetActive(false);
             losePanel.transform.localScale = Vector3.zero;
@@ -144,6 +196,16 @@ namespace _YabuGames.Scripts.Managers
             }
         }
 
+        public void OpenMissionsPanel( GameObject panel)
+        {
+            if(!panel)
+                return;
+            panel.SetActive(true);
+            panel.transform.localScale = Vector3.zero;
+            panel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
+            SetProgressBars();
+        }
+
         public void OpenPanel(GameObject panel)
         {
             if(!panel)
@@ -180,6 +242,19 @@ namespace _YabuGames.Scripts.Managers
             CoreGameSignals.Instance.OnGameStart?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
         }
-        
+
+        public void OpenClaimButton(int buttonID)
+        {
+            if(missionClaimButtons.Length<1)
+                return;
+            
+            missionClaimButtons[buttonID].interactable = true;
+        }
+
+        public void ClaimButton(int buttonID)
+        {
+            missionClaimButtons[buttonID].interactable = false;
+            CoreGameSignals.Instance.OnSpawnCoins?.Invoke(20, 1, 50, true);
+        }
     }
 }

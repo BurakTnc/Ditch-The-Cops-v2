@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -3185,6 +3186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -4990,6 +4992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -6064,7 +6067,8 @@ MonoBehaviour:
   winPanel: {fileID: 238011085}
   skillPanel: {fileID: 853687013}
   losePanel: {fileID: 3030209242758094995}
-  moneyText: []
+  moneyText:
+  - {fileID: 1534859825}
   stars:
   - {fileID: 1561439784}
   - {fileID: 962489766}
@@ -10748,6 +10752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -11026,6 +11031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -13015,6 +13021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -14782,6 +14789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -15329,6 +15337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -22076,6 +22085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -25066,6 +25076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -26220,6 +26231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -28997,6 +29009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -29659,6 +29672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -30443,6 +30457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -31294,6 +31309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -32341,6 +32357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollectible: 0
   layer:
     serializedVersion: 2
     m_Bits: 192
@@ -34071,6 +34088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCollectibleCount: 0
+  collectibleDelayer: 0
   isScanNeeded: 1
   spawners:
   - {fileID: 851943305}
@@ -34090,7 +34108,6 @@ MonoBehaviour:
   - {fileID: 27442743}
   - {fileID: 1948181065}
   spawnCooldown: 1
-  spawnItemName: Police-
   collectibleSpawnCooldown: 1
   maxCollectibleCount: 10
 --- !u!4 &2036930621

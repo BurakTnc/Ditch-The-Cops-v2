@@ -6,6 +6,7 @@ using _YabuGames.Scripts.Signals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace _YabuGames.Scripts.Managers
@@ -20,7 +21,7 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private List<SkillSpecs> skillSpecsList = new List<SkillSpecs>();
         [SerializeField] private SkillButton[] skillButtons;
         [SerializeField] private AudioClip[] wantedLevelIncreaseSounds;
-
+        
         private AudioSource _source;
         private float _wantedLevel;
         private int _passedLevels;
@@ -49,6 +50,7 @@ namespace _YabuGames.Scripts.Managers
         private void Start()
         {
             Time.timeScale = 1;
+            GameManager.Instance.onSurvive = true;
             SetChaosValue();
             _delayer = skillPanelTime;
 
@@ -96,6 +98,8 @@ namespace _YabuGames.Scripts.Managers
 
         private void Lose()
         {
+            GameManager.Instance.onSurvive = false;
+            CoreGameSignals.Instance.OnSave?.Invoke();
             _onLose = true;
             var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
             _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);

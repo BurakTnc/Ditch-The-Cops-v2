@@ -94,6 +94,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             if(_isEliminated)
                 return;
+            GameManager.Instance.IncreaseXp(damage);
             HapticManager.Instance.PlayWarningHaptic();
             ShakeManager.Instance.ShakeCamera(true);
             LevelSignals.Instance.OnPoliceEliminated?.Invoke();
@@ -117,6 +118,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (!_isEliminated)
             {
+                GameManager.Instance.IncreaseXp(damage);
                 HapticManager.Instance.PlayWarningHaptic();
                 LevelSignals.Instance.OnPoliceEliminated?.Invoke();
                 _isEliminated = true;

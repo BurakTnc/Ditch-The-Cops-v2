@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1728
     height: 1080
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Simulator
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SimulatorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -190,8 +190,8 @@ MonoBehaviour:
     y: 0
     width: 387
     height: 770.5
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -214,10 +214,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 387
     y: 0
-    width: 690.5
+    width: 635.5
     height: 770.5
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -239,12 +239,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1077.5
+    x: 1022.5
     y: 0
-    width: 241.5
+    width: 296.5
     height: 770.5
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -269,15 +269,15 @@ MonoBehaviour:
     y: 770.5
     width: 1319
     height: 259.5
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -297,8 +297,8 @@ MonoBehaviour:
     y: 0
     width: 409
     height: 1030
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -327,7 +327,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 387
     y: 67
-    width: 688.5
+    width: 633.5
     height: 749.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -530,9 +530,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 371, y: 730.5231, z: 0}
+    m_Target: {x: 4.0218544, y: 266.71173, z: -126.183304}
     speed: 2
-    m_Value: {x: 371, y: 730.5231, z: 0}
+    m_Value: {x: 4.0218544, y: 266.71173, z: -126.183304}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -579,13 +579,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.08658417, y: -0.010125644, z: -0.000916777, w: 0.99621564}
+    m_Target: {x: -0.51107615, y: 0.24063347, z: 0.15151966, w: 0.8111739}
     speed: 2
-    m_Value: {x: -0.08658219, y: -0.010125412, z: -0.00091675605, w: 0.9961928}
+    m_Value: {x: -0.51105964, y: 0.2406257, z: 0.15151477, w: 0.8111477}
   m_Size:
-    m_Target: 511.98373
+    m_Target: 100.969376
     speed: 2
-    m_Value: 511.98373
+    m_Value: 100.969376
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -675,9 +675,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1077.5
+    x: 1022.5
     y: 67
-    width: 239.5
+    width: 294.5
     height: 749.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -686,9 +686,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: acee1700
-      m_LastClickedID: 1568428
-      m_ExpandedIDs: e8eaf6ff52a8f7ff56a8f7ff62a8f7ff68a8f7ff74a8f7ff96a8f7ff36eff7ff7a6ef8ff2c70f9ff5a70f9ff4c02fcff2cf5fdffbc00feff5edefefff889ffff3aacffffe0adffff96f4ffffe06e00000e77000070780000c47800007c790000ac79000054db0a00cafd0a00d6281300663113002875150052ef1700
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 6251f9ff5e5cf9ff781efaffde6cfaffa48cfcff08cbfeff14a7ffff06fbfffff4ffffff0872000016b9000060be0000d6be000080c0000044c1000004fb0a0034fb0a0094fc0a006afd0a0008fe0a0032000b00ba000b00d8000b00b2010b00be010b00f2010b005e020b00e2020b00a4030b00b4030b00d2030b00ec030b00f2030b00f6030b0006040b0014040b0046040b0054040b00ac060b0054800f004cc00f004a0710000c081000a615100018211000fa341000880f1100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -753,22 +753,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_YabuGames/Scripts/Objects
+    - Assets/_YabuGames/Scripts/Managers
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/_YabuGames/Scripts/Objects
+  - Assets/_YabuGames/Scripts/Managers
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/buraktunc/Documents/GitHub/Ditch-The-Cops-v2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 85.5}
-    m_SelectedIDs: b4be0000
-    m_LastClickedID: 48820
-    m_ExpandedIDs: 000000003abe00003cbe00003ebe000040be000044be000046be0000a4be000000ca9a3b
+    scrollPos: {x: 0, y: 271}
+    m_SelectedIDs: ccb70000
+    m_LastClickedID: 47052
+    m_ExpandedIDs: 0000000008b700000ab700000cb700000eb7000010b7000012b700009cb7000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -796,7 +796,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003abe00003cbe00003ebe000040be000042be000044be000046be0000
+    m_ExpandedIDs: 0000000008b700000ab700000cb700000eb7000010b7000012b70000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000a0cb0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -840,7 +840,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -910,7 +910,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -546666
+  m_LastSelectedObjectID: 721884
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -988,15 +988,15 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13974, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Game
-    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
+    m_Text: Simulator
+    m_Image: {fileID: 3038311277492192215, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
@@ -1009,68 +1009,33 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SerializedViewNames:
-  - UnityEditor.DeviceSimulation.SimulatorWindow
+  - UnityEditor.GameView
   m_SerializedViewValues:
-  - /Users/yavuzozsoy/Documents/UnityProjects/Ditch-The-Cops-v2/Library/PlayModeViewStates/2a8b4429ea87b4d31b22a708c9062668
-  m_PlayModeViewName: GameView
+  - /Users/buraktunc/Documents/GitHub/Ditch-The-Cops-v2/Library/PlayModeViewStates/ca83a60e2a715414ba4e81dcb9dfd6ca
+  m_PlayModeViewName: Device Simulator
   m_ShowGizmos: 0
   m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 772, y: 1372}
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
+  m_TargetSize: {x: 1125, y: 2436}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
+  m_EnterPlayModeBehavior: 2
   m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 0700000000000000000000000d000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -193
-    m_HBaseRangeMax: 193
-    m_VBaseRangeMin: -343
-    m_VBaseRangeMax: 343
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 386
-      height: 728.5
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 193, y: 364.25}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -193
-      y: -364.25
-      width: 386
-      height: 728.5
-    m_MinimalGUI: 1
-  m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 772, y: 1499}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 00000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
+  m_SimulatorState:
+    controlPanelVisible: 0
+    controlPanelWidth: 0
+    controlPanelFoldoutKeys:
+    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
+    controlPanelFoldoutValues: 00
+    pluginNames:
+    - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
+    pluginStates:
+    - '{}'
+    scale: 28
+    fitToScreenEnabled: 1
+    rotationDegree: 0
+    highlightSafeAreaEnabled: 0
+    friendlyName: Apple iPhone X
+    networkReachability: 1
+    systemLanguage: 10

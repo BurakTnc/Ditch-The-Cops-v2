@@ -12,7 +12,7 @@ namespace _YabuGames.Scripts.Objects
         private RectTransform _target;
         private RectTransform _rectTransform;
         private AudioSource _source;
-        private int _earnValue;
+        private int _earnValue = 5;
         private bool _onUI;
 
         private void Awake()
