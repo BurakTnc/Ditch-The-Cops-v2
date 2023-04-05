@@ -11,17 +11,15 @@ namespace _YabuGames.Scripts.Managers
         public static SpawnManager Instance;
         
         [HideInInspector] public int currentCollectibleCount;
+        [HideInInspector] public float collectibleDelayer;
         
         [SerializeField] private bool isScanNeeded;
         [SerializeField] private List<Spawner> spawners = new List<Spawner>();
-        [SerializeField] private float spawnCooldown = 1f; 
-        [SerializeField] private string spawnItemName;
+        [SerializeField] private float spawnCooldown = 1f;
         [SerializeField] private float collectibleSpawnCooldown;
         [SerializeField] private int maxCollectibleCount;
         
         private float _time;
-        private float _collectibleDelayer;
-        
         private int _queuedItems;
 
         private void Awake()
@@ -37,13 +35,13 @@ namespace _YabuGames.Scripts.Managers
 
         private void SpawnCollectible()
         {
-            _collectibleDelayer = collectibleSpawnCooldown;
+            collectibleDelayer = collectibleSpawnCooldown;
             currentCollectibleCount++;
             
             var r = Random.Range(0, spawners.Count);
             if (isScanNeeded)
             {
-                if(!spawners[r].CanSpawn()) return;
+                if(!spawners[r].CanCollectibleSpawn()) return;
             }
             
             var item = "coin";
@@ -61,7 +59,7 @@ namespace _YabuGames.Scripts.Managers
                     break;
             }
 
-            spawners[r].ReadyToSpawn(item,isScanNeeded);
+            spawners[r].ReadyToSpawn(item,isScanNeeded,true);
         }
         private void SpawnRandom()
         {
@@ -73,16 +71,16 @@ namespace _YabuGames.Scripts.Managers
 
             var wantedLevel = LevelManager.Instance.GetWantedLevel();
             var chosenPrefab = Random.Range(1, wantedLevel+1);
-            spawners[r].ReadyToSpawn($"Police-{chosenPrefab}",isScanNeeded);
+            spawners[r].ReadyToSpawn($"Police-{chosenPrefab}",isScanNeeded,false);
         }
 
         private void Update()
         {
             CarSpawnProcess();
 
-            _collectibleDelayer -= Time.deltaTime;
-            _collectibleDelayer = Mathf.Clamp(_collectibleDelayer, 0, collectibleSpawnCooldown);
-            if (_collectibleDelayer <= 0)
+            collectibleDelayer -= Time.deltaTime;
+            collectibleDelayer = Mathf.Clamp(collectibleDelayer, 0, collectibleSpawnCooldown);
+            if (collectibleDelayer <= 0)
             {
                 if (currentCollectibleCount >= maxCollectibleCount) 
                     return;

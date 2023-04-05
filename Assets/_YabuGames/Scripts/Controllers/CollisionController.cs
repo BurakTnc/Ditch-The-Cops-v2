@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using _YabuGames.Scripts.Managers;
 using _YabuGames.Scripts.Signals;
+using _YabuGames.Scripts.Spawners;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -92,6 +93,10 @@ namespace _YabuGames.Scripts.Controllers
                 AudioSource.PlayClipAtPoint(hitSound,transform.position);
                 return;
             }
+            else
+            {
+                physicsController.PoliceCollision(collision.contacts[0].point);
+            }
 
         }
 
@@ -99,15 +104,26 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (other.gameObject.CompareTag("Coin"))
             {
-                Destroy(other.gameObject);
+                if (other.transform.parent.TryGetComponent(out Spawner spawner))
+                {
+                    spawner.hasCollectible = false;
+                }
                 SpawnManager.Instance.currentCollectibleCount--;
+                SpawnManager.Instance.collectibleDelayer += 2;
                 var r = Random.Range(1, 6);
                 CoreGameSignals.Instance.OnSpawnCoins?.Invoke(r, 0, 10,false);
+                Destroy(other.gameObject);
             }
             if (other.gameObject.CompareTag("Health"))
             {
-                Destroy(other.gameObject);
+                if (other.transform.parent.TryGetComponent(out Spawner spawner))
+                {
+                    spawner.hasCollectible = false;
+                }
+                SpawnManager.Instance.currentCollectibleCount--;
+                SpawnManager.Instance.collectibleDelayer += 2;
                 healthController.GetHeal();
+                Destroy(other.gameObject);
             }
         }
     }

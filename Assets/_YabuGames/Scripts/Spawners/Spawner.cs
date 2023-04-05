@@ -7,13 +7,16 @@ namespace _YabuGames.Scripts.Spawners
 {
     public class Spawner : MonoBehaviour
     {
+        [HideInInspector] public bool hasCollectible;
+        
         [SerializeField] private LayerMask layer;
         [SerializeField] private float scanRadius = 5f;
 
         private SpawnManager _manager;
         private Collider[] _blockingColliders = new Collider[3];
         private int _blockingObjectsCount;
-        private bool _canSpawn = false;
+        private bool _canSpawn;
+        
 
         private void Awake()
         {
@@ -25,23 +28,23 @@ namespace _YabuGames.Scripts.Spawners
             ScanArea();
         }
 
-        public void ReadyToSpawn(string item,bool isScanNeeded)
+        public void ReadyToSpawn(string item,bool isScanNeeded,bool isCollectible)
         {
             
             if (isScanNeeded)
             {
                 if (!_canSpawn) return;
-                Spawn(item);
+                Spawn(item,isCollectible);
             }
             else 
             {
-                Spawn(item);
+                Spawn(item,isCollectible);
             }
         }
 
-        private void Spawn(string item)
+        private void Spawn(string item,bool isCollectible)
         {
-            var temp = Instantiate(Resources.Load<GameObject>(path: $"Spawnables/{item}"));
+            var temp = Instantiate(Resources.Load<GameObject>(path: $"Spawnables/{item}"),transform);
             temp.transform.position = transform.position;
 
             if (temp.TryGetComponent(out PoliceAIController aiController))
@@ -49,6 +52,10 @@ namespace _YabuGames.Scripts.Spawners
                 aiController.EnableAgent();
             }
             _manager.SpawnFeedBack();
+            if(!isCollectible)
+                return;
+            temp.transform.position+=Vector3.up;
+            hasCollectible = true;
         }
 
         private void ScanArea()
@@ -68,6 +75,11 @@ namespace _YabuGames.Scripts.Spawners
         public bool CanSpawn()
         {
             return _canSpawn;
+        }
+
+        public bool CanCollectibleSpawn()
+        {
+            return !hasCollectible;
         }
     }
 }
