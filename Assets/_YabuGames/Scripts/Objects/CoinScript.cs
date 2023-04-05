@@ -12,9 +12,8 @@ namespace _YabuGames.Scripts.Objects
         private RectTransform _target;
         private RectTransform _rectTransform;
         private AudioSource _source;
-        private bool _hapticSupported;
-
-        [FormerlySerializedAs("_earnValue")] [SerializeField] private int earnValue;
+        private int _earnValue;
+        private bool _onUI;
 
         private void Awake()
         {
@@ -26,9 +25,12 @@ namespace _YabuGames.Scripts.Objects
         private void Start()
         {
             _rectTransform.pivot = _target.pivot;
-            var x = Random.Range(-500, 0);
-            var y = Random.Range(-1300, -601);
-            _rectTransform.anchoredPosition = new Vector3(x, y, 0);
+            if (_onUI)
+            {
+                var x = Random.Range(-500, 0);
+                var y = Random.Range(-1300, -601);
+                _rectTransform.anchoredPosition = new Vector3(x, y, 0);
+            }
             StartCoroutine(Latency());
         }
 
@@ -43,15 +45,25 @@ namespace _YabuGames.Scripts.Objects
         private void MoveToTarget(float time)
         {
             _rectTransform.DOAnchorPos(_target.anchoredPosition, time).SetEase(Ease.InBack);
-            _rectTransform.DOScale(Vector2.one, time).OnComplete(() => SetMoney());
+            _rectTransform.DOScale(Vector2.one, time).OnComplete(SetMoney);
         }
 
         private void SetMoney()
         {
             HapticManager.Instance.PlaySelectionHaptic();
             _source.Play();
-            GameManager.Instance.ArrangeMoney(earnValue);
+            GameManager.Instance.ArrangeMoney(_earnValue);
             Destroy(gameObject,1);
+        }
+
+        public void SetEarnValue(int value)
+        {
+            _earnValue = value;
+        }
+
+        public void SetScreen(bool onUI)
+        {
+            _onUI = onUI;
         }
     }
 }

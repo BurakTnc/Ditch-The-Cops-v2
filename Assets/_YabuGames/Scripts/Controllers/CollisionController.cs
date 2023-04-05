@@ -4,6 +4,7 @@ using _YabuGames.Scripts.Managers;
 using _YabuGames.Scripts.Signals;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _YabuGames.Scripts.Controllers
 {
@@ -94,6 +95,20 @@ namespace _YabuGames.Scripts.Controllers
 
         }
 
-      
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Coin"))
+            {
+                Destroy(other.gameObject);
+                SpawnManager.Instance.currentCollectibleCount--;
+                var r = Random.Range(1, 6);
+                CoreGameSignals.Instance.OnSpawnCoins?.Invoke(r, 0, 10,false);
+            }
+            if (other.gameObject.CompareTag("Health"))
+            {
+                Destroy(other.gameObject);
+                healthController.GetHeal();
+            }
+        }
     }
 }

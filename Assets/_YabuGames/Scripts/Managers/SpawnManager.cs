@@ -8,6 +8,8 @@ namespace _YabuGames.Scripts.Managers
 {
     public class SpawnManager : MonoBehaviour
     {
+        public static SpawnManager Instance;
+        
         [HideInInspector] public int currentCollectibleCount;
         
         [SerializeField] private bool isScanNeeded;
@@ -21,8 +23,17 @@ namespace _YabuGames.Scripts.Managers
         private float _collectibleDelayer;
         
         private int _queuedItems;
-        
 
+        private void Awake()
+        {
+            if (Instance != this && Instance != null) 
+            {
+                Destroy(this);
+                return;
+            }
+
+            Instance = this;
+        }
 
         private void SpawnCollectible()
         {

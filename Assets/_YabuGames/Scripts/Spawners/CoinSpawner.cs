@@ -1,4 +1,5 @@
 using System.Collections;
+using _YabuGames.Scripts.Objects;
 using _YabuGames.Scripts.Signals;
 using UnityEngine;
 
@@ -8,11 +9,10 @@ namespace _YabuGames.Scripts.Spawners
     {
         public static CoinSpawner Instance;
         
-        [SerializeField]
-        private GameObject loseTarget, winTarget;
-
+        private GameObject _target;
         private bool _isWon;
         private Camera _cam;
+        private Transform _player;
         
         private void Awake()
         {
@@ -25,6 +25,8 @@ namespace _YabuGames.Scripts.Spawners
             Instance = this;
             #endregion
             _cam=Camera.main;
+            _player = GameObject.Find("Player").transform;
+            _target=GameObject.Find("CoinImage");
         }
 
         private void Start()
@@ -37,35 +39,24 @@ namespace _YabuGames.Scripts.Spawners
             CoreGameSignals.Instance.OnSpawnCoins -= SpawnCoins;
         }
 
-        private IEnumerator Begin(int coin,float time)
+        private IEnumerator Begin(int coin,float delay,int earnValue,bool onUI)
         {
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(delay);
             if (coin <= 0) yield break;
-            var target = loseTarget;
-            if (_isWon)
-            {
-                target = winTarget;
-            }
+          
             for (var i = 0; i < coin; i++)
             {
-                Instantiate(Resources.Load<GameObject>(path: "Spawnables/Coin"), _cam.WorldToScreenPoint(Vector3.zero),
-                    loseTarget.transform.rotation, target.transform);
+                var temp = Instantiate(Resources.Load<GameObject>(path: "Spawnables/Coin"),
+                    _cam.WorldToScreenPoint(_player.position),
+                    _target.transform.rotation, _target.transform.parent);
+                temp.GetComponent<CoinScript>().SetScreen(onUI);
+                temp.GetComponent<CoinScript>().SetEarnValue(earnValue);
             }
         }
 
-        private void SpawnCoins(int coin,bool isWin)
+        private void SpawnCoins(int coin,float delay,int earnValue,bool onUI)
         {
-            _isWon = isWin;
-            float delay;
-            if (isWin)
-            {
-                delay = .8f;
-            }
-            else
-            {
-                delay = 0;
-            }
-            StartCoroutine(Begin(coin, delay));
+            StartCoroutine(Begin(coin, delay, earnValue,onUI));
         }
     }
 }
