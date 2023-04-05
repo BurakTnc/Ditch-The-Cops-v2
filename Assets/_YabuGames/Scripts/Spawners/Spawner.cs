@@ -1,4 +1,5 @@
 using System;
+using _YabuGames.Scripts.Controllers;
 using _YabuGames.Scripts.Managers;
 using UnityEngine;
 
@@ -42,6 +43,11 @@ namespace _YabuGames.Scripts.Spawners
         {
             var temp = Instantiate(Resources.Load<GameObject>(path: $"Spawnables/{item}"));
             temp.transform.position = transform.position;
+
+            if (temp.TryGetComponent(out PoliceAIController aiController))
+            {
+                aiController.EnableAgent();
+            }
             _manager.SpawnFeedBack();
         }
 

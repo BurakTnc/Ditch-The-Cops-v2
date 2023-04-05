@@ -68,5 +68,10 @@ namespace _YabuGames.Scripts.Controllers
             _agent.isStopped = true;
             _agent.enabled = false;
         }
+
+        public void EnableAgent()
+        {
+            _agent.enabled = true;
+        }
     }
 }
