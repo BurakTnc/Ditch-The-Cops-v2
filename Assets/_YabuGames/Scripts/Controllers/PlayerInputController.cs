@@ -28,6 +28,25 @@ namespace _YabuGames.Scripts.Controllers
             }
             _xAxis = SimpleInput.GetAxis("Horizontal");
             _yAxis = SimpleInput.GetAxis("Vertical");
+            // if (_xAxis>0)
+            // {
+            //     _xAxis = 1;
+            // }
+            //
+            // if (_xAxis<0)
+            // {
+            //     _xAxis = -1;
+            // }
+            //
+            // if (_yAxis>0)
+            // {
+            //     _yAxis = 1;
+            // }
+            //
+            // if (_yAxis<0)
+            // {
+            //     _yAxis = -1;
+            // }
             direction = Vector3.forward * _yAxis + Vector3.right * _xAxis;
         }
         

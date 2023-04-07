@@ -587,11 +587,11 @@ PrefabInstance:
       objectReference: {fileID: 1051958225}
     - target: {fileID: 114592483299003616, guid: e0815e227ed46e445b99930271e8942c, type: 3}
       propertyPath: m_Color.a
-      value: 0.45490196
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114675716580427132, guid: e0815e227ed46e445b99930271e8942c, type: 3}
       propertyPath: m_Color.a
-      value: 0.4627451
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224977699150327530, guid: e0815e227ed46e445b99930271e8942c, type: 3}
       propertyPath: m_Pivot.x
@@ -6077,6 +6077,16 @@ MonoBehaviour:
   - {fileID: 1272311765}
   healthBar: {fileID: 291671552}
   yellowStarSprite: {fileID: 21300000, guid: 0a72e799835015e4a870130c4c958d92, type: 3}
+  playerXpText: {fileID: 0}
+  playerLevel: {fileID: 0}
+  playerProgressBar: {fileID: 0}
+  eliminatedCopsText: {fileID: 0}
+  survivedTimeText: {fileID: 0}
+  reachedLevelText: {fileID: 0}
+  eliminatedCopsProgressBar: {fileID: 0}
+  survivedTimeProgressBar: {fileID: 0}
+  reachedLevelProgressBar: {fileID: 0}
+  missionClaimButtons: []
 --- !u!1001 &400321218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19827,6 +19837,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd361d0cd8d149228fe8a86999df384c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSurvive: 0
+  money: 0
+  _survivedTime: 0
 --- !u!1 &1145535488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 130332, guid: 2e30d40b54f77704d815fabce00d7b2e, type: 3}

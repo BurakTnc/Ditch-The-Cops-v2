@@ -69,7 +69,6 @@ namespace _YabuGames.Scripts.Managers
             var reachedXp = GameManager.Instance.GetPlayerXp();
             
             var reachedXpAmount = reachedXp / 1000;
-            Debug.Log(reachedXpAmount);
             playerProgressBar.DOFillAmount(reachedXpAmount, 1).SetEase(Ease.OutBack);
             playerXpText.text = reachedXp + "/1000";
             
