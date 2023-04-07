@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Skill-6
   m_EditorClassIdentifier: 
   headLine: Heal Up
-  skillDescription: Heal  10% HP
+  skillDescription: Increase HP Regen
   skillIcon: {fileID: 21300000, guid: 2ce2adf580cfd764aa54f3e45914a968, type: 3}
   skillID: 5

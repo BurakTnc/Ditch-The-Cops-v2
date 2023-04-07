@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6773b734e2224d12b36df8d012a1695c, type: 3}
   m_Name: Skill-7
   m_EditorClassIdentifier: 
-  headLine: Bonus Earnings
-  skillDescription: Earn 10% Bonus Coin
+  headLine: COINS!
+  skillDescription: Increase Earnings
   skillIcon: {fileID: 21300000, guid: 0e348e97a82157948ae55f1487c4232f, type: 3}
   skillID: 6
