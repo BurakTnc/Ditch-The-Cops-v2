@@ -13,9 +13,11 @@ Material:
   - TCP2_MOBILE
   - TCP2_RAMP_CRISP
   - TCP2_REFLECTIONS_FRESNEL
+  - TCP2_RIM_LIGHTING
   - TCP2_RIM_LIGHTING_LIGHTMASK
   - TCP2_SHADOW_LIGHT_COLOR
   - TCP2_SPECULAR
+  - TCP2_SPECULAR_STYLIZED
   m_InvalidKeywords:
   - TCP2_OUTLINE_CONST_SIZE
   - TCP2_UV_NORMALS_FULL
@@ -124,7 +126,7 @@ Material:
     - _OutlinePixelSizeType: 1
     - _OutlineTextureLOD: 5
     - _OutlineTextureType: 0
-    - _OutlineWidth: 1.69
+    - _OutlineWidth: 2
     - _Parallax: 0.02
     - _RampBands: 4
     - _RampBandsSmoothing: 0.1
@@ -137,17 +139,17 @@ Material:
     - _ReflectionMapType: 0
     - _ReflectionSmoothness: 0.5
     - _RenderingMode: 0
-    - _RimMax: 1
-    - _RimMin: 0.5
+    - _RimMax: 1.84
+    - _RimMin: 0.97
     - _ShadowColorLightAtten: 1
     - _SingleIndirectColor: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpecularMapType: 0
     - _SpecularRoughness: 0.5
-    - _SpecularToonSize: 0.25
-    - _SpecularToonSmoothness: 0.05
-    - _SpecularType: 0
+    - _SpecularToonSize: 0.027
+    - _SpecularToonSmoothness: 1
+    - _SpecularType: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _UseAlphaTest: 0
@@ -160,7 +162,7 @@ Material:
     - _UseOcclusion: 0
     - _UseOutline: 0
     - _UseReflections: 0
-    - _UseRim: 0
+    - _UseRim: 1
     - _UseRimLightMask: 1
     - _UseShadowTexture: 0
     - _UseSpecular: 1

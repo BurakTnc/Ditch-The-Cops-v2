@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Skill-3
   m_EditorClassIdentifier: 
   headLine: Nitro
-  skillDescription: Gain 20% speed for 5 second
+  skillDescription: Gain speed for 5 second
   skillIcon: {fileID: 21300000, guid: 620f7ec954ad6b7499a45cc1d7a8b964, type: 3}
   skillID: 2
