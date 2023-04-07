@@ -101,7 +101,7 @@ namespace _YabuGames.Scripts.Controllers
             {
                 case <= .10f:
                 {
-                    if(_takenDamageLevel>3)
+                    if(_takenDamageLevel>1)
                         return;
                     _takenDamageLevel++;
                     var r = Random.Range(0, damageEffects.Count);
@@ -113,7 +113,7 @@ namespace _YabuGames.Scripts.Controllers
                 }
                 case <= .3f:
                 {
-                    if(_takenDamageLevel>2)
+                    if(_takenDamageLevel>0)
                         return;
                     _takenDamageLevel++;
                     var r = Random.Range(0, damageEffects.Count);
