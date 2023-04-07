@@ -86,8 +86,6 @@ namespace _YabuGames.Scripts.Managers
 
             var survivedTime = GameManager.Instance.GetSurvivedTime();
             
-
-            //Debug.Log(survivedTime/600);
             survivedTimeProgressBar.DOValue(survivedTime/60, 1).SetEase(Ease.OutBack);
             survivedTimeText.text = (int) (survivedTime / 60) + "/100";
 

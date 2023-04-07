@@ -1,19 +1,27 @@
+using System;
 using UnityEngine;
 
 namespace _YabuGames.Scripts.Managers
 {
     public class StatsManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        private void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        private void Update()
+        public static StatsManager Instance;
+
+        public int[] targetLevelXp;
+        public int[] targetEliminate;
+        public int[] targetSurvivedTime;
+        public int[] targetReachedLevel;
+
+        private void Awake()
         {
-        
+            if (Instance != this && Instance != null)
+            {
+                Destroy(this);
+                return;
+            }
+
+            Instance = this;
         }
     }
 }

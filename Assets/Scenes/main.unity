@@ -11529,6 +11529,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07bf9ced87963e24299c2c2a22bfeeb6, type: 3}
+--- !u!1 &734217347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734217348}
+  - component: {fileID: 734217349}
+  m_Layer: 0
+  m_Name: Stats Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734217348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734217347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2535183592716570559}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &734217349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734217347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb28735e3a2cd4a04b1d7253a0303f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLevelXp: 
+  targetEliminate: 
+  targetSurvivedTime: 
+  targetReachedLevel: 
 --- !u!1001 &734329366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32512,6 +32560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSurvive: 0
   money: 0
+  _survivedTime: 0
 --- !u!4 &2535183592692100951
 Transform:
   m_ObjectHideFlags: 0
@@ -32537,7 +32586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2535183592716570559}
   m_Layer: 0
-  m_Name: Game Root (1)
+  m_Name: 'Game Root '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32561,6 +32610,7 @@ Transform:
   - {fileID: 2535183593369925295}
   - {fileID: 1522233599}
   - {fileID: 1419481147}
+  - {fileID: 734217348}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
