@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5939386154840978667}
   - component: {fileID: 5939386154841945643}
   - component: {fileID: 6136066502592297227}
+  - component: {fileID: -3106994098018272626}
   m_Layer: 0
   m_Name: Mailbox_01
   m_TagString: Untagged
@@ -96,9 +97,25 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6e6fb92e3ef591b47849c5c3882ae7f0, type: 3}
+--- !u!54 &-3106994098018272626
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939386154839746795}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &2614694767146532772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,22 +186,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c91559cac28ee8740a6ee5b9fef6745e, type: 3}
   m_PrefabInstance: {fileID: 2614694767146532772}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2614694767146498308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: c91559cac28ee8740a6ee5b9fef6745e, type: 3}
-  m_PrefabInstance: {fileID: 2614694767146532772}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &7468909137317052183
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2614694767146498308}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: c91559cac28ee8740a6ee5b9fef6745e, type: 3}
