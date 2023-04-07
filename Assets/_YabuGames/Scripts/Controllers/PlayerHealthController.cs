@@ -111,7 +111,7 @@ namespace _YabuGames.Scripts.Controllers
                     _activeEffects.Add(effect);
                     return;
                 }
-                case <= .25f:
+                case <= .3f:
                 {
                     if(_takenDamageLevel>2)
                         return;
@@ -123,30 +123,7 @@ namespace _YabuGames.Scripts.Controllers
                     _activeEffects.Add(effect);
                     return;
                 }
-                case <= .50f:
-                {
-                    if(_takenDamageLevel>1)
-                        return;
-                    _takenDamageLevel++;
-                    var r = Random.Range(0, damageEffects.Count);
-                    var effect = damageEffects[r];
-                    effect.SetActive(true);
-                    damageEffects.Remove(effect);
-                    _activeEffects.Add(effect);
-                    return;
-                }
-                case <= .75f:
-                {
-                    if(_takenDamageLevel>0)
-                        return;
-                    _takenDamageLevel++;
-                    var r = Random.Range(0, damageEffects.Count);
-                    var effect = damageEffects[r];
-                    effect.SetActive(true);
-                    damageEffects.Remove(effect);
-                    _activeEffects.Add(effect);
-                    break;
-                }
+                
             }
         }
         public void TakeDamage(int damage)

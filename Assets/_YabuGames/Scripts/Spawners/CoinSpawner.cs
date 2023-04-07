@@ -46,6 +46,10 @@ namespace _YabuGames.Scripts.Spawners
           
             for (var i = 0; i < coin; i++)
             {
+                if (onUI)
+                {
+                    _target = GameObject.FindGameObjectWithTag("CoinUI");
+                }
                 var temp = Instantiate(Resources.Load<GameObject>(path: "Spawnables/Coin"),
                     _cam.WorldToScreenPoint(_player.position),
                     _target.transform.rotation, _target.transform.parent);

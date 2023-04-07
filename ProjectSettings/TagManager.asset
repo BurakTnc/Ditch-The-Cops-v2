@@ -9,6 +9,7 @@ TagManager:
   - SkillButton
   - Coin
   - Health
+  - CoinUI
   layers:
   - Default
   - TransparentFX

@@ -148,7 +148,7 @@ namespace _YabuGames.Scripts.Managers
         public float GetSurvivedTime() => _survivedTime;
         public float GetPlayerXp() => _playerXp;
         public int GetCurrentSurvivedTime() => (int)_survivedTimePerAPlay;
-        public int GetEarnedMoney() => _eliminatedCopsPerAPlay + (int)_survivedTimePerAPlay / 100;
+        public int GetEarnedMoney() => _eliminatedCopsPerAPlay + (int)_survivedTimePerAPlay / 50;
 
         private void IncreaseEliminatedCops()
         {

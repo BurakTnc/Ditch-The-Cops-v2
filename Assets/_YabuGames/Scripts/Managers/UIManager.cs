@@ -4,6 +4,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace _YabuGames.Scripts.Managers
 {
@@ -37,6 +38,7 @@ namespace _YabuGames.Scripts.Managers
         private int _targetSurviveTime;
         private int _targetReachedLevel;
         private int _playerLevel;
+        private int _earnedMoney;
         
 
 
@@ -185,15 +187,7 @@ namespace _YabuGames.Scripts.Managers
 
         private void LevelLose()
         {
-            foreach (var t in scoreTexts)
-            {
-                t.text = GameManager.Instance.GetCurrentSurvivedTime().ToString();
-            }
-
-            foreach (var t in rewardMoneyTexts)
-            {
-                t.text = GameManager.Instance.GetEarnedMoney().ToString();
-            }
+            CalculateEarnings(GameManager.Instance.GetEarnedMoney());
             CoreGameSignals.Instance.OnSave?.Invoke();
             Time.timeScale = 0;
             gamePanel.SetActive(false);
@@ -202,7 +196,50 @@ namespace _YabuGames.Scripts.Managers
             losePanel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
             HapticManager.Instance.PlayFailureHaptic();
         }
-        
+
+        private void CalculateEarnings(int earnedValue)
+        {
+            foreach (var t in scoreTexts)
+            {
+                
+                t.text = GameManager.Instance.GetCurrentSurvivedTime().ToString();
+            }
+
+            foreach (var t in rewardMoneyTexts)
+            {
+                t.text = _earnedMoney.ToString();
+                DOTween.To(GetValue, SetValue, earnedValue, 1.5f).OnUpdate(UpdateValue)
+                    .SetEase(Ease.OutSine).SetDelay(1);
+                
+
+                void UpdateValue()
+                {
+                    t.text = _earnedMoney.ToString();
+                }
+                
+            }
+            
+
+            int GetValue()
+            {
+                return _earnedMoney;
+            }
+
+            void SetValue(int value)
+            {
+                _earnedMoney = value;
+            }
+        }
+
+        public void DoubleTheIncome(GameObject button)
+        {
+            button.SetActive(false);
+            CalculateEarnings(GameManager.Instance.GetEarnedMoney()*2);
+            var r = Random.Range(10, 15);
+            CoreGameSignals.Instance.OnSpawnCoins?.Invoke(r,0,0,true);
+            
+        }
+
         public void UpdateHealthBar(float amount)
         {
             healthBar.fillAmount = amount;

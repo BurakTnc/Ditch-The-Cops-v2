@@ -1771,11 +1771,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1051958225}
-  - {fileID: 853687014}
   - {fileID: 769096664}
   - {fileID: 3030209242758094996}
   - {fileID: 238011086}
+  - {fileID: 1051958225}
+  - {fileID: 853687014}
   - {fileID: 756673890}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2652,7 +2652,7 @@ MonoBehaviour:
   endValueFloat: 0
   endValueV3: {x: 0, y: 0, z: 20}
   endValueV2: {x: 0, y: 0}
-  endValueColor: {r: 1, g: 1, b: 1, a: 1}
+  endValueColor: {r: 0.5176471, g: 0.5254902, b: 0.5529412, a: 1}
   endValueString: 
   endValueRect:
     serializedVersion: 2
@@ -3990,7 +3990,7 @@ RectTransform:
   m_Children:
   - {fileID: 1924841140}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5145,7 +5145,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 320905623}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: DoubleTheIncome
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 320905619}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &320905623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6298,6 +6310,12 @@ MonoBehaviour:
   - {fileID: 1272311765}
   healthBar: {fileID: 291671552}
   yellowStarSprite: {fileID: 21300000, guid: 0a72e799835015e4a870130c4c958d92, type: 3}
+  scoreTexts:
+  - {fileID: 749845834}
+  - {fileID: 1944295472}
+  rewardMoneyTexts:
+  - {fileID: 1484036272}
+  - {fileID: 760034809}
   playerXpText: {fileID: 0}
   playerLevel: {fileID: 0}
   playerProgressBar: {fileID: 0}
@@ -8522,6 +8540,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475072811}
   m_CullTransparentMesh: 1
+--- !u!1 &480070354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480070355}
+  - component: {fileID: 480070356}
+  m_Layer: 0
+  m_Name: Stats Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &480070355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480070354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1164071550}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &480070356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480070354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb28735e3a2cd4a04b1d7253a0303f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLevelXp: 0
+  targetEliminate: 0
+  targetSurvivedTime: 0
+  targetReachedLevel: 0
+  playerLevel: 0
 --- !u!1 &491584546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 130332, guid: 2e30d40b54f77704d815fabce00d7b2e, type: 3}
@@ -13637,7 +13704,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123,456
+  m_text: '67
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3f21d9c2f3a140219d555d8aafe08ee, type: 2}
   m_sharedMaterial: {fileID: -9006972912442625360, guid: e3f21d9c2f3a140219d555d8aafe08ee, type: 2}
@@ -13671,7 +13740,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -13755,7 +13824,7 @@ RectTransform:
   - {fileID: 1399452366}
   - {fileID: 1255016260}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15178,7 +15247,7 @@ GameObject:
   - component: {fileID: 842757282}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: CoinUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15345,7 +15414,7 @@ RectTransform:
   - {fileID: 2052789993}
   - {fileID: 465745361}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16806,7 +16875,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 920939325}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: DoubleTheIncome
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &920939325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17132,7 +17213,7 @@ MonoBehaviour:
   endValueFloat: 0
   endValueV3: {x: 0, y: 0, z: 0}
   endValueV2: {x: 0, y: 0}
-  endValueColor: {r: 1, g: 1, b: 1, a: 1}
+  endValueColor: {r: 0.5176471, g: 0.5254902, b: 0.5529412, a: 1}
   endValueString: 
   endValueRect:
     serializedVersion: 2
@@ -18518,7 +18599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wantedLevelIncreaseValue: 0.05
-  skillPanelTime: 3
+  skillPanelTime: 30
   skillSpecsList:
   - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
   - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
@@ -18527,8 +18608,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 107940cf8f8864783b54a30af7ac281b, type: 2}
   - {fileID: 11400000, guid: 5fb44e5051f7f49f6ac463ec73363d02, type: 2}
   - {fileID: 11400000, guid: d70a0c45bc6704581baf78c0848d0968, type: 2}
-  - {fileID: 11400000, guid: 087eea8add2934963b9bbc83bbb91d66, type: 2}
-  - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
   skillButtons:
   - {fileID: 1587392121}
   - {fileID: 2052789994}
@@ -19357,7 +19436,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051958224}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19369,7 +19448,7 @@ RectTransform:
   - {fileID: 1466939259}
   - {fileID: 2082042612}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -20333,7 +20412,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSurvive: 0
   money: 0
-  _survivedTime: 0
 --- !u!1 &1145535488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 130332, guid: 2e30d40b54f77704d815fabce00d7b2e, type: 3}
@@ -20760,6 +20838,7 @@ Transform:
   - {fileID: 119114302}
   - {fileID: 369202217}
   - {fileID: 1455104377}
+  - {fileID: 480070355}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26812,6 +26891,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 454262, guid: 146d2ff25be0f824fa285b16b2915ff3, type: 3}
   m_PrefabInstance: {fileID: 1419942308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1491207822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4092560875650832202, guid: f467cbae9182441b18a6c45aac811627, type: 3}
+  m_PrefabInstance: {fileID: 6473067649941762368}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1493825422
 GameObject:
@@ -35450,8 +35534,8 @@ GameObject:
   - component: {fileID: 2054392838}
   - component: {fileID: 2054392837}
   m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
+  m_Name: CoinImage
+  m_TagString: CoinUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37171,7 +37255,7 @@ RectTransform:
   m_Children:
   - {fileID: 3030209242723356229}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -38563,6 +38647,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2880822531224762955, guid: f467cbae9182441b18a6c45aac811627, type: 3}
+      propertyPath: damageEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880822531224762955, guid: f467cbae9182441b18a6c45aac811627, type: 3}
+      propertyPath: damageEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1491207822}
     - target: {fileID: 6473067648539920815, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_Name
       value: Player

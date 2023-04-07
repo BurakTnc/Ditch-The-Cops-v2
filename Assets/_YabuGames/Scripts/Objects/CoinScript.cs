@@ -27,8 +27,9 @@ namespace _YabuGames.Scripts.Objects
             _rectTransform.pivot = _target.pivot;
             if (_onUI)
             {
-                var x = Random.Range(-500, 0);
-                var y = Random.Range(-1300, -601);
+                transform.localScale = Vector3.one * 1.5f;
+                var x = Random.Range(-200, 100);
+                var y = Random.Range(-100, 300);
                 _rectTransform.anchoredPosition = new Vector3(x, y, 0);
             }
             StartCoroutine(Latency());
@@ -37,15 +38,17 @@ namespace _YabuGames.Scripts.Objects
         private IEnumerator Latency()
         {
             var r = Random.Range(.2f, .5f);
-            yield return new WaitForSeconds(r);
+            yield return new WaitForSecondsRealtime(r);
             MoveToTarget(Random.Range(.5f, 1f));
 
         }
 
         private void MoveToTarget(float time)
         {
-            _rectTransform.DOAnchorPos(_target.anchoredPosition, time).SetEase(Ease.InBack);
-            _rectTransform.DOScale(Vector2.one, time).OnComplete(SetMoney);
+            _rectTransform.DOAnchorPos(_target.anchoredPosition, time).SetEase(Ease.InBack)
+                .SetUpdate(UpdateType.Late, true).timeScale = 1;
+            _rectTransform.DOScale(Vector2.one, time).OnComplete(SetMoney).SetUpdate(UpdateType.Late, true);
+                
         }
 
         private void SetMoney()
