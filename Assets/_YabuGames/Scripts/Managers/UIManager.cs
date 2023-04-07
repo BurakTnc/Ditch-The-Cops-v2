@@ -16,6 +16,8 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private Image[] stars = new Image[5];
         [SerializeField] private Image healthBar;
         [SerializeField] private Sprite yellowStarSprite;
+        [SerializeField] private TextMeshProUGUI[] scoreTexts;
+        [SerializeField] private TextMeshProUGUI[] rewardMoneyTexts;
 
         [Header("Player Profile")] 
         [SerializeField] private TextMeshProUGUI playerXpText;
@@ -29,6 +31,12 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private Slider survivedTimeProgressBar;
         [SerializeField] private Slider reachedLevelProgressBar;
         [SerializeField] private Button[] missionClaimButtons;
+
+        private int _targetLevelXp;
+        private int _targetEliminate;
+        private int _targetSurviveTime;
+        private int _targetReachedLevel;
+        private int _playerLevel;
         
 
 
@@ -64,14 +72,30 @@ namespace _YabuGames.Scripts.Managers
         private void Start()
         {
             SetMoneyTexts();
-            if(!playerXpText)
+            GetTargetValues();
+            SetPlayerProgress();
+        }
+
+        private void GetTargetValues()
+        {
+            _targetLevelXp = StatsManager.Instance.targetLevelXp;
+            _playerLevel = StatsManager.Instance.playerLevel;
+            _targetEliminate = StatsManager.Instance.targetEliminate;
+            _targetSurviveTime = StatsManager.Instance.targetSurvivedTime;
+            _targetReachedLevel = StatsManager.Instance.targetReachedLevel;
+        }
+
+        public void SetPlayerProgress()
+        {
+            if (!playerXpText)
                 return;
             var reachedXp = GameManager.Instance.GetPlayerXp();
-            
-            var reachedXpAmount = reachedXp / 1000;
-            playerProgressBar.DOFillAmount(reachedXpAmount, 1).SetEase(Ease.OutBack);
-            playerXpText.text = reachedXp + "/1000";
-            
+
+            var reachedXpAmount = reachedXp / _targetLevelXp;
+            playerProgressBar.DOFillAmount(reachedXpAmount, 1).SetEase(Ease.OutBack)
+                .OnComplete(StatsManager.Instance.SetPlayerLevel);
+            playerXpText.text = reachedXp + "/" + _targetLevelXp;
+            playerLevel.text = _playerLevel.ToString();
         }
 
         private void SetProgressBars()
@@ -80,20 +104,24 @@ namespace _YabuGames.Scripts.Managers
                 return;
 
             var eliminatedCops = GameManager.Instance.GetEliminatedCops();
-            
-            eliminatedCopsProgressBar.DOValue(eliminatedCops, 1).SetEase(Ease.OutBack);
-            eliminatedCopsText.text = eliminatedCops + "/100";
+
+            eliminatedCopsProgressBar.value = 0;
+            eliminatedCopsProgressBar.maxValue = _targetEliminate;
+            eliminatedCopsProgressBar.DOValue(eliminatedCops, 2).SetEase(Ease.OutBack);
+            eliminatedCopsText.text = eliminatedCops + "/" + _targetEliminate;
 
             var survivedTime = GameManager.Instance.GetSurvivedTime();
+
+            survivedTimeProgressBar.value = 0;
+            survivedTimeProgressBar.maxValue = _targetSurviveTime;
+            survivedTimeProgressBar.DOValue((int)(survivedTime/60), 2).SetEase(Ease.OutBack);
+            survivedTimeText.text = (int)(survivedTime / 60) + "/" + _targetSurviveTime;
+
+            reachedLevelProgressBar.value = 0;
+            reachedLevelProgressBar.maxValue = _targetReachedLevel;
+            reachedLevelText.text = _playerLevel + "/" + _targetReachedLevel;
+            reachedLevelProgressBar.DOValue(_playerLevel, 2).SetEase(Ease.OutBack);
             
-            survivedTimeProgressBar.DOValue(survivedTime/60, 1).SetEase(Ease.OutBack);
-            survivedTimeText.text = (int) (survivedTime / 60) + "/100";
-
-
-            var pLevel = GameManager.Instance.GetPlayerLevel();
-            reachedLevelText.text = pLevel + "/100";
-            reachedLevelProgressBar.DOValue(pLevel, 1).SetEase(Ease.OutBack);
-            playerLevel.text = pLevel.ToString();
         }
 
         private void Update()
@@ -137,6 +165,15 @@ namespace _YabuGames.Scripts.Managers
         }
         private void LevelWin()
         {
+            foreach (var t in scoreTexts)
+            {
+                t.text = GameManager.Instance.GetCurrentSurvivedTime().ToString();
+            }
+
+            foreach (var t in rewardMoneyTexts)
+            {
+                t.text = GameManager.Instance.GetEarnedMoney().ToString();
+            }
             CoreGameSignals.Instance.OnSave?.Invoke();
             Time.timeScale = 0;
             gamePanel.SetActive(false);
@@ -148,6 +185,15 @@ namespace _YabuGames.Scripts.Managers
 
         private void LevelLose()
         {
+            foreach (var t in scoreTexts)
+            {
+                t.text = GameManager.Instance.GetCurrentSurvivedTime().ToString();
+            }
+
+            foreach (var t in rewardMoneyTexts)
+            {
+                t.text = GameManager.Instance.GetEarnedMoney().ToString();
+            }
             CoreGameSignals.Instance.OnSave?.Invoke();
             Time.timeScale = 0;
             gamePanel.SetActive(false);

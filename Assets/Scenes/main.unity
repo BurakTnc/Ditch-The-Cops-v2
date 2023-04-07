@@ -11794,7 +11794,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2535183592716570559}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &734217349
 MonoBehaviour:
@@ -11808,10 +11808,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb28735e3a2cd4a04b1d7253a0303f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLevelXp: 
-  targetEliminate: 
-  targetSurvivedTime: 
-  targetReachedLevel: 
+  targetLevelXp: 0
+  targetEliminate: 0
+  targetSurvivedTime: 0
+  targetReachedLevel: 0
+  playerLevel: 0
 --- !u!1001 &734329366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23168,7 +23169,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2535183592716570559}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1419481148
 MonoBehaviour:
@@ -24841,7 +24842,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2535183592716570559}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1522233600
 MonoBehaviour:
@@ -33279,7 +33280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSurvive: 0
   money: 0
-  _survivedTime: 0
 --- !u!4 &2535183592692100951
 Transform:
   m_ObjectHideFlags: 0
@@ -33293,7 +33293,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2535183592716570559}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2535183592716570556
 GameObject:
@@ -33324,12 +33324,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2535183592405253638}
+  - {fileID: 734217348}
   - {fileID: 2535183592692100951}
   - {fileID: 2535183594103103071}
   - {fileID: 2535183593369925295}
   - {fileID: 1522233599}
   - {fileID: 1419481147}
-  - {fileID: 734217348}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -33375,7 +33375,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2535183592716570559}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2535183594103103068
 GameObject:
@@ -33421,6 +33421,8 @@ MonoBehaviour:
   - {fileID: 0}
   healthBar: {fileID: 0}
   yellowStarSprite: {fileID: 21300000, guid: 0a72e799835015e4a870130c4c958d92, type: 3}
+  scoreTexts: []
+  rewardMoneyTexts: []
   playerXpText: {fileID: 192857412}
   playerLevel: {fileID: 916201444}
   playerProgressBar: {fileID: 2050928937}
@@ -33447,7 +33449,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2535183592716570559}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &4622689338406686156
 RectTransform:
