@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _YabuGames.Scripts.Signals;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _YabuGames.Scripts.Managers
@@ -11,22 +12,24 @@ namespace _YabuGames.Scripts.Managers
         
         public static SkillManager Instance;
         
-       [HideInInspector] public readonly int[] ChosenSkills = new int[7];
+       [HideInInspector] public readonly int[] ChosenSkills = new int[9];
         
         public float missileSpawnPeriod;
         public float godModePeriod;
         public float nitroPeriod;
         public float healPeriod;
+        public float spikePeriod;
+        public float oilPeriod;
 
         [SerializeField] private float godModeDuration;
         [SerializeField] private float nitroDuration;
         [SerializeField] private float healDuration;
         
-        // 0-Missile / 1-God Mode / 2-Nitro / 3-Max HP / 4-Reduce Damage / 5-Heal / 6-Bonus Earning 
-        private readonly bool[] _skillIDList = new bool[7];
+        // 0-Missile / 1-God Mode / 2-Nitro / 3-Max HP / 4-Reduce Damage / 5-Heal / 6-Bonus Earning / 7-Spike Trap / 8-Oil Trap
+        private readonly bool[] _skillIDList = new bool[9];
         
         private Transform _player;
-        private float _missileDelayer, _godModeDelayer, _nitroDelayer, _healDelayer;
+        private float _missileDelayer, _godModeDelayer, _nitroDelayer, _healDelayer, _spikeDelayer, _oilDelayer;
 
         private void Awake()
         {
@@ -37,6 +40,7 @@ namespace _YabuGames.Scripts.Managers
             }
 
             Instance = this;
+            _player = GameObject.Find("Player").transform;
         }
 
         #region Subscribtions
@@ -71,6 +75,8 @@ namespace _YabuGames.Scripts.Managers
             ApplyMaxHp();
             ApplyReduceDamage();
             ApplyHeal();
+            ApplySpikeTrap();
+            ApplyOilTrap();
         }
 
         private void OpenASkill(int skillID)
@@ -91,11 +97,51 @@ namespace _YabuGames.Scripts.Managers
                 case 5:
                     _healDelayer = 0;
                     break;
+                case 7:
+                    _spikeDelayer = 0;
+                    break;
                 default:
                     break;
             }
         }
 
+        private void ApplyOilTrap()
+        {
+            _oilDelayer -= Time.deltaTime;
+            _oilDelayer = Mathf.Clamp(_oilDelayer, 0, oilPeriod);
+
+            var isAble = _skillIDList[8] && _oilDelayer <= 0;
+            if(!isAble)
+                return;
+
+            _oilDelayer += oilPeriod;
+            var oil = Instantiate(Resources.Load<GameObject>("Spawnables/Oil"));
+            var targetScale = oil.transform.localScale;
+            oil.transform.localScale=Vector3.zero;
+            var rot = _player.GetChild(0).transform.rotation;
+            oil.transform.SetPositionAndRotation(_player.position - _player.forward, rot);
+            oil.transform.DOScale(targetScale, 2f).SetEase(Ease.OutBack);
+            Destroy(oil,5);
+        }
+        private void ApplySpikeTrap()
+        {
+            _spikeDelayer -= Time.deltaTime;
+            _spikeDelayer = Mathf.Clamp(_spikeDelayer, 0, spikePeriod);
+
+            var isAble = _skillIDList[7] && _spikeDelayer <= 0;
+            if(!isAble)
+                return;
+
+            _spikeDelayer += spikePeriod;
+            var spike=Instantiate(Resources.Load<GameObject>("Spawnables/Spike"));
+            var targetScale = spike.transform.localScale;
+            spike.transform.localScale = new Vector3(0, targetScale.y, targetScale.z);
+            var rot = _player.GetChild(0).transform.rotation;
+            spike.transform.SetPositionAndRotation(_player.position - _player.forward * 3, rot);
+            spike.transform.DOScaleX(targetScale.x, 2f).SetEase(Ease.OutBack);
+            Destroy(spike,5);
+        }
+    
         private void ApplyHeal()
         {
             _healDelayer -= Time.deltaTime;
@@ -105,7 +151,6 @@ namespace _YabuGames.Scripts.Managers
             if(!isAble)
                 return;
             
-            SetChosenSkills(5);
             SkillSignals.Instance.OnHealing?.Invoke(healDuration);
             _healDelayer += healPeriod;
         }

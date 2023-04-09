@@ -10,6 +10,8 @@ TagManager:
   - Coin
   - Health
   - CoinUI
+  - SpikeTrap
+  - OilTrap
   layers:
   - Default
   - TransparentFX

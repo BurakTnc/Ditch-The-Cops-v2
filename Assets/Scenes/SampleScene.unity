@@ -2061,6 +2061,8 @@ MonoBehaviour:
   godModePeriod: 15
   nitroPeriod: 15
   healPeriod: 15
+  spikePeriod: 15
+  oilPeriod: 5
   godModeDuration: 5
   nitroDuration: 3
   healDuration: 5
@@ -18657,7 +18659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wantedLevelIncreaseValue: 0.05
-  skillPanelTime: 30
+  skillPanelTime: 10
   skillSpecsList:
   - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
   - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
@@ -18666,6 +18668,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 107940cf8f8864783b54a30af7ac281b, type: 2}
   - {fileID: 11400000, guid: 5fb44e5051f7f49f6ac463ec73363d02, type: 2}
   - {fileID: 11400000, guid: d70a0c45bc6704581baf78c0848d0968, type: 2}
+  - {fileID: 11400000, guid: 087eea8add2934963b9bbc83bbb91d66, type: 2}
+  - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
   skillButtons:
   - {fileID: 1587392121}
   - {fileID: 2052789994}

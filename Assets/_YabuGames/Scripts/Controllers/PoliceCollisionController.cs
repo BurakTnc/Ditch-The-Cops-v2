@@ -15,6 +15,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void OnCollisionEnter(Collision collision)
         {
+            
             if (collision.gameObject.TryGetComponent(out PoliceCarController carController))
             {
                 carController.Eliminate(collision.contacts[0].point);
@@ -24,12 +25,33 @@ namespace _YabuGames.Scripts.Controllers
             if (collision.gameObject.TryGetComponent(out Rigidbody rb))
             {
                 if (collision.gameObject.CompareTag("Player"))
+                {
+                    if(!_carController.onOil)
+                        return;
+                    _carController.Eliminate(collision.contacts[0].point);
                     return;
+
+                }
                 PoolManager.Instance.GetHitParticle(collision.contacts[0].point);
                 rb.constraints = RigidbodyConstraints.None;
                 Destroy(collision.gameObject,3);
             }
             
+            
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("SpikeTrap"))
+            {
+                _carController.Eliminate(transform.position + Vector3.down);
+                return;
+            }
+
+            if (other.gameObject.CompareTag("OilTrap"))
+            {
+                _carController.OnOilTrap();
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using _YabuGames.Scripts.Signals;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Experimental.GlobalIllumination;
 
 namespace _YabuGames.Scripts.Controllers
 {
@@ -12,6 +13,7 @@ namespace _YabuGames.Scripts.Controllers
     public class PoliceCarController : MonoBehaviour
     {
         [HideInInspector] public int damage;
+        [HideInInspector] public bool onOil;
         
         [Header("Physics")] 
         [SerializeField] private float explosionForce;
@@ -31,6 +33,7 @@ namespace _YabuGames.Scripts.Controllers
         private PoliceAIController _aiController;
         private bool _isEliminated;
         private NavMeshAgent _agent;
+        private Vector3 _onOilHeading;
 
         private void Awake()
         {
@@ -74,6 +77,13 @@ namespace _YabuGames.Scripts.Controllers
             damage = specs.damage;
         }
 
+        private void Update()
+        {
+            if(!onOil)
+                return;
+            _rb.velocity = _onOilHeading * 16;
+        }
+
         private void LevelEnd()
         {
             Mute(true);
@@ -94,6 +104,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             if(_isEliminated)
                 return;
+            onOil = false;
             GameManager.Instance.IncreaseXp(damage);
             HapticManager.Instance.PlayWarningHaptic();
             ShakeManager.Instance.ShakeCamera(true);
@@ -118,6 +129,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (!_isEliminated)
             {
+                onOil = false;
                 GameManager.Instance.IncreaseXp(damage);
                 HapticManager.Instance.PlayWarningHaptic();
                 LevelSignals.Instance.OnPoliceEliminated?.Invoke();
@@ -158,6 +170,19 @@ namespace _YabuGames.Scripts.Controllers
             _agent.speed /= 1.4f;
             _collider.enabled = true;
             Mute(false);
+        }
+
+        public void OnOilTrap()
+        {
+            if(_isEliminated)
+                return;
+            _aiController.StopChasing();
+            onOil = true;
+            _onOilHeading = transform.forward;
+            transform.DOShakeRotation(2, Vector3.up * 70, 1, 100, true)
+                .OnComplete(() => Eliminate(transform.position - Vector3.up));
+
+
         }
     }
 }
