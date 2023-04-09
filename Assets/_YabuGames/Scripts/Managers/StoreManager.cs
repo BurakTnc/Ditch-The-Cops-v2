@@ -12,10 +12,11 @@ namespace _YabuGames.Scripts.Managers
         
         public int[] mapPrices = new int[4];
         public int[] carPrices = new int[9];
-        
-         public int[] boughtMaps = new int[4];
-         public int[] boughtCars = new int[9];
 
+        [HideInInspector] public int[] boughtMaps = new int[4];
+        [HideInInspector] public int[] boughtCars = new int[9];
+
+        [SerializeField] private GameObject[] currentMapImages;
         [SerializeField] private Button[] carButtons;
         [SerializeField] private Button[] mapButtons;
         [SerializeField] private TextMeshProUGUI[] mapButtonsTexts;
@@ -24,7 +25,6 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private GameObject[] carButtonImages;
 
         private int _prevMapId, _prevCarId;
-        private TextMeshProUGUI _prevSelectedMapButton, _prevSelectedCarButton;
 
         private void Awake()
         {
@@ -42,6 +42,7 @@ namespace _YabuGames.Scripts.Managers
         {
             CheckButtonConditions();
             SetButtons();
+            SetCurrentMapImage();
         }
 
         private void CheckButtonConditions()
@@ -127,7 +128,9 @@ namespace _YabuGames.Scripts.Managers
                 {
                     boughtMaps[i] = PlayerPrefs.GetInt($"map{i}", 0);
                 }
-                
+
+                _prevMapId = PlayerPrefs.GetInt("prevMapId", 0);
+
             }
 
             for (var i = 0; i < boughtCars.Length; i++)
@@ -156,6 +159,16 @@ namespace _YabuGames.Scripts.Managers
             }
         }
 
+        private void SetCurrentMapImage()
+        {
+            foreach (var t in currentMapImages)
+            {
+                t.SetActive(false);
+            }
+
+            currentMapImages[_prevMapId].SetActive(true);
+        }
+
         public void UnlockMap(int mapID)
         {
             if (_prevMapId == 0)
@@ -163,16 +176,21 @@ namespace _YabuGames.Scripts.Managers
                 mapButtonsTexts[mapID].text = "Selected";
                 mapButtonImages[mapID].SetActive(false);
                 _prevMapId = mapID;
+                PlayerPrefs.SetInt("prevMapId",_prevMapId);
+                SetCurrentMapImage();
             }
             else
             {
+                
                 mapButtonsTexts[_prevMapId].text = "Select";
                 mapButtonsTexts[mapID].text = "Selected";
                 mapButtonImages[mapID].SetActive(false);
                 _prevMapId = mapID;
+                PlayerPrefs.SetInt("prevMapId",_prevMapId);
+                SetCurrentMapImage();
         
             }
-            
+            currentMapImages[mapID].SetActive(true);
             SceneLoader.Instance.ChangeSceneIndex(mapID+1);
             if (boughtMaps[mapID] == 0)
             {

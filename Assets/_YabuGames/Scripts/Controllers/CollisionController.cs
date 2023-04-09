@@ -82,7 +82,7 @@ namespace _YabuGames.Scripts.Controllers
             {
                 if (!_onGodMode)
                 {
-                    HapticManager.Instance.PlayHeavyHaptic();
+                    HapticManager.Instance.PlaySoftHaptic();
                     physicsController.PoliceCollision(collision.contacts[0].point);
                     if (_onReduceDamage)
                     {
@@ -97,7 +97,7 @@ namespace _YabuGames.Scripts.Controllers
                 }
                 else
                 {
-                    HapticManager.Instance.PlayRigidHaptic();
+                    HapticManager.Instance.PlayWarningHaptic();
                     component.MissileExplosion(collision.contacts[0].point,10);
                 }
                 return;

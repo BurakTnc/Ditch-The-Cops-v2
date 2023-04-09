@@ -17,6 +17,7 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private CarSpecs specs;
         [SerializeField] private List<GameObject> damageEffects = new List<GameObject>();
         [SerializeField] private PlayerPhysicsController physicsController;
+        [SerializeField] private AudioClip explosionSound;
 
         private float _maxHealth;
         private float _health;
@@ -52,6 +53,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void Start()
         {
+            specs = Resources.Load<CarSpecs>($"Car Data/Car-{PlayerVehicleManager.Instance.carID+1}");
             _health = specs.health;
             _maxHealth = _health;
         }
@@ -153,6 +155,8 @@ namespace _YabuGames.Scripts.Controllers
             if (_health<damage && !_onLose)
             {
                 _health = 0;
+                PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up);
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
                 SetHealthBar();
                 physicsController.Eliminate();
                 Invoke(nameof(Lose), 2);

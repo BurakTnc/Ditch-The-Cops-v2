@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11910fdf4c54efc8d7be9d08c1187e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carID: 0
 --- !u!1 &24740032
 GameObject:
   m_ObjectHideFlags: 0
@@ -5264,6 +5265,11 @@ MonoBehaviour:
   carPrices: 00000000e8030000d0070000b80b0000a00f00008813000070170000581b0000401f0000
   boughtMaps: 01000000000000000000000000000000
   boughtCars: 010000000000000000000000000000000000000000000000000000000000000000000000
+  currentMapImages:
+  - {fileID: 403636430}
+  - {fileID: 1206733389}
+  - {fileID: 1419905096}
+  - {fileID: 142505380}
   carButtons:
   - {fileID: 299106399}
   - {fileID: 1774183866}

@@ -8,7 +8,7 @@ namespace _YabuGames.Scripts.Managers
     {
         public static PlayerVehicleManager Instance;
         
-        private int _carID;
+       [HideInInspector] public int carID;
 
         private void Awake()
         {
@@ -19,7 +19,7 @@ namespace _YabuGames.Scripts.Managers
             }
             Instance = this;
 
-            _carID = PlayerPrefs.GetInt("carID", 0);
+            carID = PlayerPrefs.GetInt("carID", 0);
         }
 
         private void Start()
@@ -31,13 +31,13 @@ namespace _YabuGames.Scripts.Managers
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
-            transform.GetChild(_carID).gameObject.SetActive(true);
+            transform.GetChild(carID).gameObject.SetActive(true);
         }
 
         public void SetCarId(int carID)
         {
-            _carID = carID;
-            PlayerPrefs.SetInt("carID",_carID);
+            this.carID = carID;
+            PlayerPrefs.SetInt("carID",this.carID);
         }
     }
 }

@@ -246,7 +246,7 @@ namespace _YabuGames.Scripts.Managers
             CalculateEarnings(GameManager.Instance.GetEarnedMoney()*2);
             var r = Random.Range(10, 15);
             CoreGameSignals.Instance.OnSpawnCoins?.Invoke(r,0,0,true);
-            
+            HapticManager.Instance.PlaySelectionHaptic();
         }
 
         public void UpdateHealthBar(float amount)
@@ -293,6 +293,7 @@ namespace _YabuGames.Scripts.Managers
             panel.transform.localScale = Vector3.zero;
             panel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
             SetProgressBars();
+            HapticManager.Instance.PlaySelectionHaptic();
         }
 
         public void OpenPanel(GameObject panel)
@@ -302,6 +303,7 @@ namespace _YabuGames.Scripts.Managers
             panel.SetActive(true);
             panel.transform.localScale = Vector3.zero;
             panel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
+            HapticManager.Instance.PlaySelectionHaptic();
         }
         
         public void PlayButton()
@@ -346,28 +348,33 @@ namespace _YabuGames.Scripts.Managers
             GameManager.Instance.ResetMissionProgress(buttonID);
             GetTargetValues();
             SetProgressBars();
+            HapticManager.Instance.PlaySelectionHaptic();
         }
 
         public void BuyMapButton(int mapID)
         {
             StoreManager.Instance.UnlockMap(mapID-1);
+            HapticManager.Instance.PlaySelectionHaptic();
         }
 
         public void BuyCarButton(int carID)
         {
             StoreManager.Instance.UnlockCar(carID);
+            HapticManager.Instance.PlaySelectionHaptic();
         }
 
         public void DeclineReviveButton()
         {
             revivePanel.SetActive(false);
             CoreGameSignals.Instance.OnLevelFail?.Invoke();
+            HapticManager.Instance.PlaySelectionHaptic();
         }
 
         public void ReviveButton()
         {
             revivePanel.SetActive(false);
             LevelSignals.Instance.OnRevive?.Invoke();
+            HapticManager.Instance.PlaySelectionHaptic();
         }
     }
 }

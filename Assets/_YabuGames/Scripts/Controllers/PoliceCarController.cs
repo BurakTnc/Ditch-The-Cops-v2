@@ -121,7 +121,7 @@ namespace _YabuGames.Scripts.Controllers
                 return;
             onOil = false;
             GameManager.Instance.IncreaseXp(damage);
-            HapticManager.Instance.PlayWarningHaptic();
+            HapticManager.Instance.PlayRigidHaptic();
             ShakeManager.Instance.ShakeCamera(true);
             LevelSignals.Instance.OnPoliceEliminated?.Invoke();
             _isEliminated = true;
@@ -146,7 +146,7 @@ namespace _YabuGames.Scripts.Controllers
             {
                 onOil = false;
                 GameManager.Instance.IncreaseXp(damage);
-                HapticManager.Instance.PlayWarningHaptic();
+                HapticManager.Instance.PlayHeavyHaptic();
                 LevelSignals.Instance.OnPoliceEliminated?.Invoke();
                 _isEliminated = true;
                 PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up*3);

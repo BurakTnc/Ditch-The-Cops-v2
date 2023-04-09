@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11910fdf4c54efc8d7be9d08c1187e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carID: 0
 --- !u!1 &1582956139727853197
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +469,7 @@ MonoBehaviour:
   - {fileID: 5209140433364117275}
   - {fileID: 4092560875650832202}
   physicsController: {fileID: 7926447629906404264}
+  explosionSound: {fileID: 8300000, guid: 44b111e327e98421e806f3cfa6351bf5, type: 3}
 --- !u!82 &6473067648539920821
 AudioSource:
   m_ObjectHideFlags: 0
