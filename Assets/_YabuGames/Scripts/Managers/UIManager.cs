@@ -12,7 +12,7 @@ namespace _YabuGames.Scripts.Managers
     {
         public static UIManager Instance;
 
-        [SerializeField] private GameObject mainPanel, gamePanel, winPanel, skillPanel, losePanel;
+        [SerializeField] private GameObject revivePanel, gamePanel, winPanel, skillPanel, losePanel;
         [SerializeField] private TextMeshProUGUI[] moneyText;
         [SerializeField] private Image[] stars = new Image[5];
         [SerializeField] private Image healthBar;
@@ -136,6 +136,7 @@ namespace _YabuGames.Scripts.Managers
         {
             CoreGameSignals.Instance.OnLevelWin += LevelWin;
             CoreGameSignals.Instance.OnLevelFail += LevelLose;
+            LevelSignals.Instance.OnPlayerDestroyed += OpenRevivePanel;
             //CoreGameSignals.Instance.OnGameStart += OnGameStart;
         }
 
@@ -143,6 +144,7 @@ namespace _YabuGames.Scripts.Managers
         {
             CoreGameSignals.Instance.OnLevelWin -= LevelWin;
             CoreGameSignals.Instance.OnLevelFail -= LevelLose;
+            LevelSignals.Instance.OnPlayerDestroyed -= OpenRevivePanel;
             //CoreGameSignals.Instance.OnGameStart -= OnGameStart;
         }
 
@@ -164,6 +166,13 @@ namespace _YabuGames.Scripts.Managers
                     t.text = GameManager.Instance.GetMoney().ToString();
                 }
             }
+        }
+
+        private void OpenRevivePanel()
+        {
+            revivePanel.transform.localScale = Vector3.zero;
+            revivePanel.SetActive(true);
+            revivePanel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
         }
         private void LevelWin()
         {
@@ -294,11 +303,7 @@ namespace _YabuGames.Scripts.Managers
             panel.transform.localScale = Vector3.zero;
             panel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
         }
-
-        public void SelectMapButton(int sceneID)
-        {
-            SceneLoader.Instance.sceneID = sceneID;
-        }
+        
         public void PlayButton()
         {
             CoreGameSignals.Instance.OnGameStart?.Invoke();
@@ -351,6 +356,18 @@ namespace _YabuGames.Scripts.Managers
         public void BuyCarButton(int carID)
         {
             
+        }
+
+        public void DeclineReviveButton()
+        {
+            revivePanel.SetActive(false);
+            CoreGameSignals.Instance.OnLevelFail?.Invoke();
+        }
+
+        public void ReviveButton()
+        {
+            revivePanel.SetActive(false);
+            LevelSignals.Instance.OnRevive?.Invoke();
         }
     }
 }

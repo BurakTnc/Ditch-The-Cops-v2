@@ -12,6 +12,7 @@ namespace _YabuGames.Scripts.Signals
         public UnityAction<bool> OnSkillPanel = delegate { };
         public UnityAction<int> OnSkillActive = delegate { };
         public UnityAction OnPlayerDestroyed = delegate { };
+        public UnityAction OnRevive = delegate { };
 
         private void Awake()
         {

@@ -17,6 +17,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private bool _onGodMode;
         private bool _onReduceDamage;
+        private bool _isEliminated;
 
        #region Subscribtions
 
@@ -34,15 +35,29 @@ namespace _YabuGames.Scripts.Controllers
        {
            SkillSignals.Instance.OnGodMode += ApplyGodMode;
            SkillSignals.Instance.OnReduceDamage += ApplyReducedDamage;
+           LevelSignals.Instance.OnPlayerDestroyed += Eliminate;
+           LevelSignals.Instance.OnRevive += Revive;
        }
 
        private void UnSubscribe()
        {
            SkillSignals.Instance.OnGodMode -= ApplyGodMode;
            SkillSignals.Instance.OnReduceDamage -= ApplyReducedDamage;
+           LevelSignals.Instance.OnPlayerDestroyed -= Eliminate;
+           LevelSignals.Instance.OnRevive -= Revive;
        }
 
        #endregion
+
+       private void Eliminate()
+       {
+           _isEliminated = true;
+       }
+
+       private void Revive()
+       {
+           _isEliminated = false;
+       }
 
        private void ApplyReducedDamage()
        {
@@ -61,6 +76,8 @@ namespace _YabuGames.Scripts.Controllers
        }
         private void OnCollisionEnter(Collision collision)
         {
+            if(_isEliminated)
+                return;
             if (collision.gameObject.TryGetComponent(out PoliceCarController component))
             {
                 if (!_onGodMode)

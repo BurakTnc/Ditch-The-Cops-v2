@@ -24,6 +24,7 @@ namespace _YabuGames.Scripts.Controllers
         private int _takenDamageLevel;
         private bool _onHeal;
         private bool _onLose;
+        private bool _isRevived;
 
         private void OnEnable()
         {
@@ -39,12 +40,14 @@ namespace _YabuGames.Scripts.Controllers
         {
             SkillSignals.Instance.OnMaxHealth += GainMaxHp;
             SkillSignals.Instance.OnHealing += ActivateHealMode;
+            LevelSignals.Instance.OnRevive += Revive;
         }
 
         private void UnSubscribe()
         {
             SkillSignals.Instance.OnMaxHealth -= GainMaxHp;
             SkillSignals.Instance.OnHealing -= ActivateHealMode;
+            LevelSignals.Instance.OnRevive -= Revive;
         }
 
         private void Start()
@@ -58,6 +61,25 @@ namespace _YabuGames.Scripts.Controllers
             Heal();
         }
 
+        private void Revive()
+        {
+            _isRevived = true;
+            _onLose = false;
+            _health = _maxHealth;
+            foreach (var effect in damageEffects)
+            {
+                effect.SetActive(false);
+            }
+            InputSignals.Instance.CanMove?.Invoke(false);
+            var amount = _health / _maxHealth;
+            UIManager.Instance.UpdateHealthBar(amount);
+            _takenDamageLevel = 0;
+            foreach (var effect in _activeEffects)
+            {
+                effect.SetActive(false);
+                damageEffects.Add(effect);
+            }
+        }
         private void Heal()
         {
             if (!_onHeal) 
@@ -66,6 +88,7 @@ namespace _YabuGames.Scripts.Controllers
             _health += 2 * Time.deltaTime;
             var amount = _health / _maxHealth;
             UIManager.Instance.UpdateHealthBar(amount);
+            _health = Mathf.Clamp(_health, 0, _maxHealth);
         }
 
         private void ActivateHealMode(float duration)
@@ -122,7 +145,7 @@ namespace _YabuGames.Scripts.Controllers
                     _activeEffects.Add(effect);
                     return;
                 }
-                
+
             }
         }
         public void TakeDamage(int damage)
@@ -131,9 +154,8 @@ namespace _YabuGames.Scripts.Controllers
             {
                 _health = 0;
                 SetHealthBar();
-                Invoke(nameof(Lose),2);
                 physicsController.Eliminate();
-                LevelSignals.Instance.OnPlayerDestroyed?.Invoke();
+                Invoke(nameof(Lose), 2);
                 HapticManager.Instance.PlaySoftHaptic();
                 InputSignals.Instance.CanMove?.Invoke(true);
                 _onLose = true;
@@ -145,7 +167,12 @@ namespace _YabuGames.Scripts.Controllers
 
         private void Lose()
         {
-            CoreGameSignals.Instance.OnLevelFail?.Invoke();
+            if (_isRevived)
+            {
+                CoreGameSignals.Instance.OnLevelFail?.Invoke();
+                return;
+            }
+            LevelSignals.Instance.OnPlayerDestroyed?.Invoke();
         }
 
         public void GetHeal()

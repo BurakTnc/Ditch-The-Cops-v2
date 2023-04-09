@@ -74,6 +74,7 @@ namespace _YabuGames.Scripts.Managers
         private void Subscribe()
         {
             LevelSignals.Instance.OnPoliceEliminated += IncreaseWantedLevel;
+            LevelSignals.Instance.OnRevive += Revive;
             LevelSignals.Instance.OnPlayerDestroyed += Lose;
             CoreGameSignals.Instance.OnLevelWin += Lose;
             // CoreGameSignals.Instance.OnSave += Save;
@@ -84,6 +85,7 @@ namespace _YabuGames.Scripts.Managers
         private void UnSubscribe()
         {
             LevelSignals.Instance.OnPoliceEliminated -= IncreaseWantedLevel;
+            LevelSignals.Instance.OnRevive -= Revive;
             CoreGameSignals.Instance.OnLevelFail -= Lose;
             CoreGameSignals.Instance.OnLevelWin -= Lose;
             
@@ -97,6 +99,14 @@ namespace _YabuGames.Scripts.Managers
         private void Update()
         {
             OpenSkillPanel();
+        }
+
+        private void Revive()
+        {
+            if (skillSpecsList.Count > 0 || chosenSkills.Count > 0)
+            {
+                onLose = false;
+            }
         }
 
         private void Lose()

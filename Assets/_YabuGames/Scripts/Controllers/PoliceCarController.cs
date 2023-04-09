@@ -59,12 +59,16 @@ namespace _YabuGames.Scripts.Controllers
         private void Subscribe()
         {
             LevelSignals.Instance.OnSkillPanel += Mute;
+            LevelSignals.Instance.OnPlayerDestroyed += Stop;
+            LevelSignals.Instance.OnRevive += Continue;
             CoreGameSignals.Instance.OnLevelFail += LevelEnd;
             CoreGameSignals.Instance.OnLevelWin += LevelEnd;
         }
 
         private void UnSubscribe()
         {
+            LevelSignals.Instance.OnPlayerDestroyed -= Stop;
+            LevelSignals.Instance.OnRevive -= Continue;
             LevelSignals.Instance.OnSkillPanel -= Mute;
             CoreGameSignals.Instance.OnLevelFail -= LevelEnd;
             CoreGameSignals.Instance.OnLevelWin -= LevelEnd;
@@ -82,6 +86,17 @@ namespace _YabuGames.Scripts.Controllers
             if(!onOil)
                 return;
             _rb.velocity = _onOilHeading * 16;
+        }
+
+        private void Stop()
+        {
+            _aiController.StopChasing();
+        }
+
+        private void Continue()
+        {
+            _aiController.ContinueChasing();
+            Mute(false);
         }
 
         private void LevelEnd()

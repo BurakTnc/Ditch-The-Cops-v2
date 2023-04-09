@@ -36,6 +36,8 @@ namespace _YabuGames.Scripts.Controllers
             LevelSignals.Instance.OnSkillPanel += Mute;
             CoreGameSignals.Instance.OnLevelFail += LevelEnd;
             CoreGameSignals.Instance.OnLevelWin += LevelEnd;
+            // CoreGameSignals.Instance.OnLevelFail += Lose;
+            // CoreGameSignals.Instance.OnLevelWin += Lose;
         }
 
         private void UnSubscribe()
@@ -43,10 +45,17 @@ namespace _YabuGames.Scripts.Controllers
             LevelSignals.Instance.OnSkillPanel -= Mute;
             CoreGameSignals.Instance.OnLevelFail -= LevelEnd;
             CoreGameSignals.Instance.OnLevelWin -= LevelEnd;
+            // CoreGameSignals.Instance.OnLevelFail -= Lose;
+            // CoreGameSignals.Instance.OnLevelWin -= Lose;
         }
 
         #endregion
 
+        private void Lose()
+        {
+            GetComponent<AudioListener>().enabled = false;
+        }
+        
         private void LevelEnd()
         {
             Mute(true);

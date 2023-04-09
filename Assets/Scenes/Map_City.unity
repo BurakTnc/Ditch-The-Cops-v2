@@ -1772,10 +1772,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 769096664}
-  - {fileID: 3030209242758094996}
-  - {fileID: 134733240}
   - {fileID: 238011086}
   - {fileID: 1051958225}
+  - {fileID: 134733240}
+  - {fileID: 3030209242758094996}
   - {fileID: 853687014}
   - {fileID: 1079917761}
   m_Father: {fileID: 0}
@@ -2058,12 +2058,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ece0bb4ff1c4d52b4659fe8a6aade11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileSpawnPeriod: 10
-  godModePeriod: 15
-  nitroPeriod: 15
-  healPeriod: 15
-  spikePeriod: 15
-  oilPeriod: 5
+  earningLevel: 1
+  missileSpawnPeriod: 21
+  godModePeriod: 20
+  nitroPeriod: 20
+  healPeriod: 20
+  spikePeriod: 25
+  oilPeriod: 20
+  instanceSpecs:
+  - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
+  - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
+  - {fileID: 11400000, guid: 07d5a431a52894d4cab5d6e462775811, type: 2}
+  - {fileID: 11400000, guid: b8bbc71edb54e4cc2a444f74bf125db9, type: 2}
+  - {fileID: 11400000, guid: 107940cf8f8864783b54a30af7ac281b, type: 2}
+  - {fileID: 11400000, guid: 5fb44e5051f7f49f6ac463ec73363d02, type: 2}
+  - {fileID: 11400000, guid: d70a0c45bc6704581baf78c0848d0968, type: 2}
+  - {fileID: 11400000, guid: 087eea8add2934963b9bbc83bbb91d66, type: 2}
+  - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
   godModeDuration: 5
   nitroDuration: 3
   healDuration: 5
@@ -2384,7 +2395,7 @@ RectTransform:
   - {fileID: 1784067729}
   - {fileID: 884508858}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4071,7 +4082,7 @@ RectTransform:
   m_Children:
   - {fileID: 1924841140}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5155,12 +5166,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1460065290}
-  m_Father: {fileID: 1197730551}
-  m_RootOrder: 3
+  m_Father: {fileID: 3030209242723356229}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5225088}
   m_AnchorMax: {x: 0.5, y: 0.5225088}
-  m_AnchoredPosition: {x: 0, y: 336.1}
+  m_AnchoredPosition: {x: 0, y: -214.63687}
   m_SizeDelta: {x: 187.3323, y: 103.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &320905621
@@ -5233,6 +5244,18 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 320905619}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1197730550}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -6347,11 +6370,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 399410079}
         m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
-        m_MethodName: OpenPanel
-        m_Mode: 2
+        m_MethodName: DeclineReviveButton
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 3030209242758094995}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6632,7 +6655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1e2aa3ace924a7381990334b5dd65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPanel: {fileID: 769096663}
+  revivePanel: {fileID: 134733239}
   gamePanel: {fileID: 1051958224}
   winPanel: {fileID: 238011085}
   skillPanel: {fileID: 853687013}
@@ -17604,7 +17627,7 @@ RectTransform:
   m_Children:
   - {fileID: 780771274}
   m_Father: {fileID: 3030209242723356229}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.4047456}
   m_AnchorMax: {x: 0.5, y: 0.4047456}
@@ -19180,8 +19203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d69cc8642ca4f75a6186f2be2f1ba8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedLevelIncreaseValue: 0.05
-  skillPanelTime: 10
   skillSpecsList:
   - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
   - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
@@ -19192,6 +19213,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d70a0c45bc6704581baf78c0848d0968, type: 2}
   - {fileID: 11400000, guid: 087eea8add2934963b9bbc83bbb91d66, type: 2}
   - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
+  chosenSkills: []
+  onLose: 0
+  wantedLevelIncreaseValue: 0.05
+  skillPanelTime: 30
   skillButtons:
   - {fileID: 1587392121}
   - {fileID: 2052789994}
@@ -20032,7 +20057,7 @@ RectTransform:
   - {fileID: 1466939259}
   - {fileID: 2082042612}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -22362,10 +22387,8 @@ RectTransform:
   m_Children:
   - {fileID: 3030209241940917050}
   - {fileID: 187521797}
-  - {fileID: 1209231250}
-  - {fileID: 320905620}
   m_Father: {fileID: 3030209242723356229}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22598,12 +22621,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1197730551}
-  m_RootOrder: 2
+  m_Father: {fileID: 3030209242723356229}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 430}
+  m_AnchoredPosition: {x: 0, y: -105.99994}
   m_SizeDelta: {x: 269.078, y: 77.9584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209231251
@@ -29794,11 +29817,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 399410079}
         m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
-        m_MethodName: DoubleTheIncome
-        m_Mode: 2
+        m_MethodName: ReviveButton
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1592080126}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -32192,9 +32215,9 @@ MonoBehaviour:
   targetIsSelf: 1
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
-  delay: 0
-  duration: 0.5
-  easeType: 1
+  delay: 1
+  duration: 1
+  easeType: 2
   easeCurve:
     serializedVersion: 2
     m_Curve:
@@ -32219,23 +32242,23 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  loopType: 1
-  loops: -1
+  loopType: 0
+  loops: 1
   id: 
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
   target: {fileID: 1784067729}
-  animationType: 5
+  animationType: 13
   targetType: 11
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
-  endValueFloat: 1.3
-  endValueV3: {x: 0, y: 0, z: 0}
+  endValueFloat: 0
+  endValueV3: {x: 0, y: 0, z: 10}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -32246,7 +32269,7 @@ MonoBehaviour:
     width: 0
     height: 0
   endValueTransform: {fileID: 0}
-  optionalBool0: 1
+  optionalBool0: 0
   optionalFloat0: 90
   optionalInt0: 10
   optionalRotationMode: 0
@@ -38776,6 +38799,8 @@ RectTransform:
   - {fileID: 118672874}
   - {fileID: 1969456416}
   - {fileID: 1041421950}
+  - {fileID: 1209231250}
+  - {fileID: 320905620}
   - {fileID: 932544925}
   - {fileID: 1197730551}
   m_Father: {fileID: 3030209242758094996}
@@ -38857,7 +38882,7 @@ RectTransform:
   m_Children:
   - {fileID: 3030209242723356229}
   m_Father: {fileID: 104603599}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

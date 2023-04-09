@@ -16,4 +16,4 @@ MonoBehaviour:
   forwardSpeed: 3000
   skidLimit: 1
   topSpeed: 20
-  health: 100
+  health: 10
