@@ -131,7 +131,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6723409267758027491
 Transform:
@@ -8376,6 +8376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rock-terrasse
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010226914310, guid: e478c31dbb2ac4d4dae3f8696b1c9d93, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4000012905557916, guid: e478c31dbb2ac4d4dae3f8696b1c9d93, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -8432,6 +8436,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 6e3ac6e47b4d7a44685dfef9bf209413, type: 2}
+    - target: {fileID: 64000011601375556, guid: e478c31dbb2ac4d4dae3f8696b1c9d93, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e478c31dbb2ac4d4dae3f8696b1c9d93, type: 3}
 --- !u!4 &7574832923999067098 stripped
@@ -10711,6 +10719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: crate-box (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 164854, guid: 862cc76e7c4d26a46a30c4bb7290d771, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 413480, guid: 862cc76e7c4d26a46a30c4bb7290d771, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -10772,6 +10784,10 @@ PrefabInstance:
     - target: {fileID: 1000012306397774, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
       propertyPath: m_Name
       value: marketplace-stand_simple (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012306397774, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4000013248036578, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
       propertyPath: m_RootOrder
@@ -10843,6 +10859,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 164854, guid: 862cc76e7c4d26a46a30c4bb7290d771, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 413480, guid: 862cc76e7c4d26a46a30c4bb7290d771, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -10912,6 +10932,10 @@ PrefabInstance:
     - target: {fileID: 1000012306397774, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
       propertyPath: m_Name
       value: marketplace-stand_simple (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012306397774, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4000013248036578, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
       propertyPath: m_RootOrder
@@ -10983,6 +11007,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 164854, guid: 862cc76e7c4d26a46a30c4bb7290d771, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 413480, guid: 862cc76e7c4d26a46a30c4bb7290d771, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -11053,6 +11081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: marketplace-stand_simple (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012306397774, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013248036578, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -11118,6 +11150,10 @@ PrefabInstance:
     - target: {fileID: 1000011468335034, guid: 0e041594ec314944fa6ff43462cc1a4a, type: 3}
       propertyPath: m_Name
       value: jar-medium
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011468335034, guid: 0e041594ec314944fa6ff43462cc1a4a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4000013329553796, guid: 0e041594ec314944fa6ff43462cc1a4a, type: 3}
       propertyPath: m_RootOrder
@@ -11216,6 +11252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: marketplace-stand_simple
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012306397774, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013248036578, guid: 3956c670eaf2649c0981c63c7d3100b7, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -11302,6 +11342,10 @@ PrefabInstance:
     - target: {fileID: 1000012217942374, guid: 2c0ffdce1d2808e41bbd608cc0e901a4, type: 3}
       propertyPath: m_Name
       value: jar-big
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012217942374, guid: 2c0ffdce1d2808e41bbd608cc0e901a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4000012127292984, guid: 2c0ffdce1d2808e41bbd608cc0e901a4, type: 3}
       propertyPath: m_RootOrder
