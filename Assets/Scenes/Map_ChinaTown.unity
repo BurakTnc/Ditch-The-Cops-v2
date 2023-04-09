@@ -2009,12 +2009,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ece0bb4ff1c4d52b4659fe8a6aade11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earningLevel: 1
   missileSpawnPeriod: 10
   godModePeriod: 15
   nitroPeriod: 15
   healPeriod: 15
   spikePeriod: 15
   oilPeriod: 5
+  instanceSpecs: []
   godModeDuration: 5
   nitroDuration: 3
   healDuration: 5
@@ -6200,11 +6202,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 399410079}
         m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
-        m_MethodName: OpenPanel
-        m_Mode: 2
+        m_MethodName: DeclineReviveButton
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 3030209242758094995}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6485,7 +6487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1e2aa3ace924a7381990334b5dd65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPanel: {fileID: 769096663}
+  revivePanel: {fileID: 134733239}
   gamePanel: {fileID: 1051958224}
   winPanel: {fileID: 238011085}
   skillPanel: {fileID: 853687013}
@@ -18935,8 +18937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d69cc8642ca4f75a6186f2be2f1ba8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedLevelIncreaseValue: 0.05
-  skillPanelTime: 10
   skillSpecsList:
   - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
   - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
@@ -18947,6 +18947,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d70a0c45bc6704581baf78c0848d0968, type: 2}
   - {fileID: 11400000, guid: 087eea8add2934963b9bbc83bbb91d66, type: 2}
   - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
+  chosenSkills: []
+  onLose: 0
+  wantedLevelIncreaseValue: 0.05
+  skillPanelTime: 10
   skillButtons:
   - {fileID: 1587392121}
   - {fileID: 2052789994}
@@ -29541,11 +29545,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 399410079}
         m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
-        m_MethodName: DoubleTheIncome
-        m_Mode: 2
+        m_MethodName: ReviveButton
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1592080126}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
