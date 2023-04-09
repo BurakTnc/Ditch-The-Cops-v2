@@ -350,12 +350,12 @@ namespace _YabuGames.Scripts.Managers
 
         public void BuyMapButton(int mapID)
         {
-            
+            StoreManager.Instance.UnlockMap(mapID-1);
         }
 
         public void BuyCarButton(int carID)
         {
-            
+            StoreManager.Instance.UnlockCar(carID);
         }
 
         public void DeclineReviveButton()

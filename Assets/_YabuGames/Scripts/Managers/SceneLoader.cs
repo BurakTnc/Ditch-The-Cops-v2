@@ -104,9 +104,15 @@ namespace _YabuGames.Scripts.Managers
        }
        private void LoadScene()
        {
-           
+           sceneID = PlayerPrefs.GetInt("sceneID",1);
            PlayerPrefs.SetInt("sceneID",sceneID);
            StartCoroutine(LoadSceneAsync(sceneID));
+       }
+
+       public void ChangeSceneIndex(int id)
+       {
+           Debug.Log(id);
+           PlayerPrefs.SetInt("sceneID",id);
        }
        
     }

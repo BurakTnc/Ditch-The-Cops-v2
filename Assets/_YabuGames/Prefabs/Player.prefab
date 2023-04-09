@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3741033032755412804}
+  - component: {fileID: 506755080034309249}
   m_Layer: 0
   m_Name: Vehicles
   m_TagString: Untagged
@@ -40,6 +41,18 @@ Transform:
   m_Father: {fileID: 6473067650519768726}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506755080034309249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225251069124930214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11910fdf4c54efc8d7be9d08c1187e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1582956139727853197
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +468,6 @@ MonoBehaviour:
   - {fileID: 5209140433364117275}
   - {fileID: 4092560875650832202}
   physicsController: {fileID: 7926447629906404264}
-  collectibleHealValue: 0
 --- !u!82 &6473067648539920821
 AudioSource:
   m_ObjectHideFlags: 0
