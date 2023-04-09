@@ -54,7 +54,7 @@ namespace _YabuGames.Scripts.Spawners
             _manager.SpawnFeedBack();
             if(!isCollectible)
                 return;
-            temp.transform.position+=Vector3.up;
+            temp.transform.position+=Vector3.up*2;
             hasCollectible = true;
         }
 

@@ -43,7 +43,7 @@ namespace _YabuGames.Scripts.Spawners
         {
             yield return new WaitForSeconds(delay);
             if (coin <= 0) yield break;
-          
+
             for (var i = 0; i < coin; i++)
             {
                 if (onUI)

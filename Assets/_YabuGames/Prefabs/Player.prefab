@@ -453,9 +453,7 @@ MonoBehaviour:
   specs: {fileID: 11400000, guid: 3fde46a69e7b34759a948ae72a633018, type: 2}
   damageEffects:
   - {fileID: 5209140433364117275}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4092560875650832202}
   physicsController: {fileID: 7926447629906404264}
   collectibleHealValue: 0
 --- !u!82 &6473067648539920821
@@ -2696,6 +2694,11 @@ PrefabInstance:
 --- !u!4 &4092560875650798314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 421518, guid: 552b7b5872bf41745810a0b7bdabf440, type: 3}
+  m_PrefabInstance: {fileID: 4092560875650923620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4092560875650832202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 125742, guid: 552b7b5872bf41745810a0b7bdabf440, type: 3}
   m_PrefabInstance: {fileID: 4092560875650923620}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4367596891404571526

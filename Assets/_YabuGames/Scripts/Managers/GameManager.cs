@@ -200,5 +200,27 @@ namespace _YabuGames.Scripts.Managers
             _playerXp -= spentXp;
             Save();
         }
+
+        public void ResetMissionProgress(int id)
+        {
+            switch (id)
+            {
+                case 0:
+                    StatsManager.Instance.OnReachTargetEliminate(_eliminatedCops);
+                    _eliminatedCops = 0;
+                    break;
+                case 1:
+                    StatsManager.Instance.OnReachTargetSurvive((int)_survivedTime);
+                    _survivedTime = 0;
+                    break;
+                case 2:
+                    StatsManager.Instance.OnReachTargetReachedLevel(_playerLevel);
+                    break;
+                default:
+                    break;
+                    
+            }
+            Save();
+        }
     }
 }

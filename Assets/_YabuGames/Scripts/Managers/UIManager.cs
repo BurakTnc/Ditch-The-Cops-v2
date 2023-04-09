@@ -307,18 +307,21 @@ namespace _YabuGames.Scripts.Managers
 
         public void MenuButton()
         {
+            CoreGameSignals.Instance.OnSave?.Invoke();
             CoreGameSignals.Instance.OnMainMenu?.Invoke();
             HapticManager.Instance.PlayLightHaptic();
         }
 
         public void NextButton()
         {
+            CoreGameSignals.Instance.OnSave?.Invoke();
             CoreGameSignals.Instance.OnGameStart?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
         }
 
         public void RetryButton()
         {
+            CoreGameSignals.Instance.OnSave?.Invoke();
             CoreGameSignals.Instance.OnGameStart?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
         }
@@ -334,7 +337,10 @@ namespace _YabuGames.Scripts.Managers
         public void ClaimButton(int buttonID)
         {
             missionClaimButtons[buttonID].interactable = false;
-            CoreGameSignals.Instance.OnSpawnCoins?.Invoke(20, 1, 50, true);
+            CoreGameSignals.Instance.OnSpawnCoins?.Invoke(20, 0, 50, true);
+            GameManager.Instance.ResetMissionProgress(buttonID);
+            GetTargetValues();
+            SetProgressBars();
         }
     }
 }

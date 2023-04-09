@@ -91,7 +91,7 @@ namespace _YabuGames.Scripts.Managers
 
         public void OnReachTargetSurvive(int value)
         {
-            targetSurvivedTime=(int)(value * 1.5f);
+            targetSurvivedTime = (int)(value * 1.5f) / 60;
             Save();
         }
 

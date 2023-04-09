@@ -29,7 +29,7 @@ namespace _YabuGames.Scripts.Objects
             {
                 transform.localScale = Vector3.one * 1.5f;
                 var x = Random.Range(-200, 100);
-                var y = Random.Range(-100, 300);
+                var y = Random.Range(-300, 0);
                 _rectTransform.anchoredPosition = new Vector3(x, y, 0);
             }
             StartCoroutine(Latency());

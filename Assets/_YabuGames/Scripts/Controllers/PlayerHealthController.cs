@@ -17,7 +17,6 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private CarSpecs specs;
         [SerializeField] private List<GameObject> damageEffects = new List<GameObject>();
         [SerializeField] private PlayerPhysicsController physicsController;
-        [SerializeField] private int collectibleHealValue;
 
         private float _maxHealth;
         private float _health;
@@ -151,7 +150,7 @@ namespace _YabuGames.Scripts.Controllers
 
         public void GetHeal()
         {
-            _health += collectibleHealValue;
+            _health += _maxHealth * .2f;
             SkillSignals.Instance.OnHealing?.Invoke(1);
         }
     }
