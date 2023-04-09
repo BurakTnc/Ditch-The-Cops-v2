@@ -342,5 +342,15 @@ namespace _YabuGames.Scripts.Managers
             GetTargetValues();
             SetProgressBars();
         }
+
+        public void BuyMapButton(int mapID)
+        {
+            
+        }
+
+        public void BuyCarButton(int carID)
+        {
+            
+        }
     }
 }

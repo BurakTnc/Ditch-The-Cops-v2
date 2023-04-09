@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _YabuGames.Scripts.ScriptableObjects;
 using _YabuGames.Scripts.Signals;
 using DG.Tweening;
 using UnityEngine;
@@ -8,11 +9,11 @@ namespace _YabuGames.Scripts.Managers
 {
     public class SkillManager : MonoBehaviour
     {
-        //skill timeri resetlenmiyor
-        
+
         public static SkillManager Instance;
         
        [HideInInspector] public readonly int[] ChosenSkills = new int[9];
+       [HideInInspector] public int earningLevel = 1;
         
         public float missileSpawnPeriod;
         public float godModePeriod;
@@ -21,6 +22,7 @@ namespace _YabuGames.Scripts.Managers
         public float spikePeriod;
         public float oilPeriod;
 
+        [SerializeField] private List<SkillSpecs> instanceSpecs = new List<SkillSpecs>();
         [SerializeField] private float godModeDuration;
         [SerializeField] private float nitroDuration;
         [SerializeField] private float healDuration;
@@ -87,24 +89,40 @@ namespace _YabuGames.Scripts.Managers
             {
                 case 0:
                     _missileDelayer = 0;
+                    missileSpawnPeriod -= 5;
                     break;
                 case 1:
                     _godModeDelayer = 0;
+                    godModePeriod -= 5;
                     break;
                 case 2:
                     _nitroDelayer = 0;
+                    nitroPeriod -= 5;
                     break;
                 case 5:
                     _healDelayer = 0;
+                    healPeriod -= 5;
+                    break;
+                case 6:
+                    ApplyBonusEarning();
                     break;
                 case 7:
                     _spikeDelayer = 0;
+                    spikePeriod -= 5;
+                    break;
+                case 8:
+                    _oilDelayer = 0;
+                    oilPeriod -= 5;
                     break;
                 default:
                     break;
             }
         }
 
+        private void ApplyBonusEarning()
+        {
+            earningLevel++;
+        }
         private void ApplyOilTrap()
         {
             _oilDelayer -= Time.deltaTime;
@@ -236,6 +254,22 @@ namespace _YabuGames.Scripts.Managers
                     break;
                 case 2:
                     ChosenSkills[id] = 3;
+                    if (LevelManager.Instance.skillSpecsList.Contains(instanceSpecs[id]))
+                    {
+                        LevelManager.Instance.skillSpecsList.Remove(instanceSpecs[id]);
+                    }
+
+                    if (LevelManager.Instance.chosenSkills.Contains(instanceSpecs[id]))
+                    {
+                        LevelManager.Instance.chosenSkills.Remove(instanceSpecs[id]);
+                    }
+
+                    if (LevelManager.Instance.chosenSkills.Count == 0 &&
+                        LevelManager.Instance.skillSpecsList.Count == 0)
+                    {
+                        LevelManager.Instance.onLose = true;
+                    }
+                    
                     break;
                 default:
                     break;

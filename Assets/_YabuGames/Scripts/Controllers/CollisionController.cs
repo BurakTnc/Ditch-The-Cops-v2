@@ -110,7 +110,7 @@ namespace _YabuGames.Scripts.Controllers
                 }
                 SpawnManager.Instance.currentCollectibleCount--;
                 SpawnManager.Instance.collectibleDelayer += 2;
-                var r = Random.Range(1, 6);
+                var r = Random.Range(SkillManager.Instance.earningLevel, 6);
                 CoreGameSignals.Instance.OnSpawnCoins?.Invoke(r, 0, 10,false);
                 Destroy(other.gameObject);
             }

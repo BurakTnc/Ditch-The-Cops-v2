@@ -16,9 +16,12 @@ namespace _YabuGames.Scripts.Managers
     {
         public static LevelManager Instance;
 
+        public List<SkillSpecs> skillSpecsList = new List<SkillSpecs>();
+        [HideInInspector] public List<SkillSpecs> chosenSkills = new List<SkillSpecs>(3);
+        [HideInInspector] public bool onLose;
+        
         [SerializeField] private float wantedLevelIncreaseValue;
         [SerializeField] private float skillPanelTime;
-        [SerializeField] private List<SkillSpecs> skillSpecsList = new List<SkillSpecs>();
         [SerializeField] private SkillButton[] skillButtons;
         [SerializeField] private AudioClip[] wantedLevelIncreaseSounds;
         
@@ -26,8 +29,8 @@ namespace _YabuGames.Scripts.Managers
         private float _wantedLevel;
         private int _passedLevels;
         private float _delayer;
-        private bool _onLose;
-        private readonly List<SkillSpecs> _chosenSkills = new List<SkillSpecs>(3);
+        
+        
         
         private void Awake()
         {
@@ -100,38 +103,51 @@ namespace _YabuGames.Scripts.Managers
         {
             GameManager.Instance.onSurvive = false;
             CoreGameSignals.Instance.OnSave?.Invoke();
-            _onLose = true;
+            onLose = true;
             var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
             _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
         }
         private void ChooseRandomSkill()
         {
-            LevelSignals.Instance.OnSkillPanel?.Invoke(true);
-            if (_chosenSkills.Count>0)
+
+            
+            if (chosenSkills.Count>0)
             {
-                foreach (var skill in _chosenSkills)
+                foreach (var skill in chosenSkills)
                 {
                     skillSpecsList.Add(skill);
                 }
-                _chosenSkills.Clear();
+                chosenSkills.Clear();
             }
+            if(skillSpecsList.Count<1)
+                return;
+            LevelSignals.Instance.OnSkillPanel?.Invoke(true);
             
-            for (var i = 0; i < 3; i++)
+            var chooseCount = 3;
+            if (skillSpecsList.Count<3)
+            {
+                chooseCount = skillSpecsList.Count;
+            }
+            for (var i = 0; i < chooseCount; i++)
             {
                 var r = Random.Range(0, skillSpecsList.Count);
                 var skill = skillSpecsList[r];
                 skillSpecsList.Remove(skill);
-                _chosenSkills.Add(skill);
+                chosenSkills.Add(skill);
             }
 
-            for (var i = 0; i < 3; i++)
+            for (var i = 0; i < chooseCount; i++)
             {
-                skillButtons[i].SetSkill(_chosenSkills[i]);
+                skillButtons[i].SetSkill(chosenSkills[i]);
+                if (chooseCount<3)
+                {
+                    skillButtons[chooseCount].gameObject.SetActive(false);
+                }
             }
         }
         private void OpenSkillPanel()
         {
-            if(_onLose)
+            if(onLose)
                 return;
             
             _delayer -= Time.deltaTime;
