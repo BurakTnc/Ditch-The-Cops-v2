@@ -6676,6 +6676,7 @@ MonoBehaviour:
   rewardMoneyTexts:
   - {fileID: 1484036272}
   - {fileID: 760034809}
+  surviveTimeText: {fileID: 823636245}
   playerXpText: {fileID: 0}
   playerLevel: {fileID: 0}
   playerProgressBar: {fileID: 0}
@@ -21340,6 +21341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSurvive: 0
+  survivedTimePerAPlay: 0
   money: 0
 --- !u!1 &1145535488 stripped
 GameObject:

@@ -19,6 +19,7 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private Sprite yellowStarSprite;
         [SerializeField] private TextMeshProUGUI[] scoreTexts;
         [SerializeField] private TextMeshProUGUI[] rewardMoneyTexts;
+        [SerializeField] private TextMeshProUGUI surviveTimeText;
 
         [Header("Player Profile")] 
         [SerializeField] private TextMeshProUGUI playerXpText;
@@ -87,6 +88,36 @@ namespace _YabuGames.Scripts.Managers
             _targetReachedLevel = StatsManager.Instance.targetReachedLevel;
         }
 
+        private void SetSurviveText()
+        {
+            if(!surviveTimeText)
+                return;
+            var total = GameManager.Instance.survivedTimePerAPlay;
+            var minute = (int)(total / 60);
+            var second = (int)(total % 60);
+            if (minute > 9)
+            {
+                if (second > 9) 
+                {
+                    surviveTimeText.text = minute + ":" + second;
+                }
+                else
+                {
+                    surviveTimeText.text = minute + ":0" + second;
+                }
+            }
+            else
+            {
+                if (second > 9)
+                {
+                    surviveTimeText.text = "0" + minute + ":" + second;
+                }
+                else
+                {
+                    surviveTimeText.text = "0" + minute + ":0" + second;
+                }
+            }
+        }
         public void SetPlayerProgress()
         {
             if (!playerXpText)
@@ -129,6 +160,7 @@ namespace _YabuGames.Scripts.Managers
         private void Update()
         {
             SetMoneyTexts();
+            SetSurviveText();
         }
 
         #region Subscribtions

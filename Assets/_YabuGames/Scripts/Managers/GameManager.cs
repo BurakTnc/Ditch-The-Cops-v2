@@ -9,6 +9,7 @@ namespace _YabuGames.Scripts.Managers
         public static GameManager Instance;
 
         [HideInInspector] public bool onSurvive;
+        [HideInInspector] public float survivedTimePerAPlay;
         public int money;
         
         private float _playerXp;
@@ -19,7 +20,7 @@ namespace _YabuGames.Scripts.Managers
         private int _targetReachedLevel;
         private int _playerLevel;
         private int _eliminatedCopsPerAPlay;
-        private float _survivedTimePerAPlay;
+        
         private int _earnedMoney;
         
         
@@ -61,6 +62,8 @@ namespace _YabuGames.Scripts.Managers
             CoreGameSignals.Instance.OnLevelWin += SetPlayerLevel;
             CoreGameSignals.Instance.OnLevelFail += EarnMoney;
             CoreGameSignals.Instance.OnLevelWin += EarnMoney;
+            LevelSignals.Instance.OnPlayerDestroyed += Stop;
+            LevelSignals.Instance.OnRevive += Revive;
             LevelSignals.Instance.OnPoliceEliminated += IncreaseEliminatedCops;
         }
 
@@ -75,6 +78,8 @@ namespace _YabuGames.Scripts.Managers
             CoreGameSignals.Instance.OnLevelWin -= SetPlayerLevel;
             CoreGameSignals.Instance.OnLevelFail -= EarnMoney;
             CoreGameSignals.Instance.OnLevelWin -= EarnMoney;
+            LevelSignals.Instance.OnPlayerDestroyed -= Stop;
+            LevelSignals.Instance.OnRevive -= Revive;
             LevelSignals.Instance.OnPoliceEliminated -= IncreaseEliminatedCops;
         }
         #endregion
@@ -88,8 +93,19 @@ namespace _YabuGames.Scripts.Managers
             if(!onSurvive)
                 return;
             _survivedTime += Time.deltaTime;
-            _survivedTimePerAPlay += Time.deltaTime;
+            survivedTimePerAPlay += Time.deltaTime;
 
+        }
+        
+
+        private void Stop()
+        {
+            onSurvive = false;
+        }
+
+        private void Revive()
+        {
+            onSurvive = true;
         }
 
         private void Initialize()
@@ -147,8 +163,8 @@ namespace _YabuGames.Scripts.Managers
         public int GetEliminatedCops() => _eliminatedCops;
         public float GetSurvivedTime() => _survivedTime;
         public float GetPlayerXp() => _playerXp;
-        public int GetCurrentSurvivedTime() => (int)_survivedTimePerAPlay;
-        public int GetEarnedMoney() => _eliminatedCopsPerAPlay + (int)_survivedTimePerAPlay / 50;
+        public int GetCurrentSurvivedTime() => (int)survivedTimePerAPlay;
+        public int GetEarnedMoney() => _eliminatedCopsPerAPlay + (int)survivedTimePerAPlay / 50;
 
         private void IncreaseEliminatedCops()
         {
