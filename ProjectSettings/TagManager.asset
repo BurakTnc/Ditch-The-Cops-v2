@@ -12,6 +12,7 @@ TagManager:
   - CoinUI
   - SpikeTrap
   - OilTrap
+  - HydrantWater
   layers:
   - Default
   - TransparentFX
