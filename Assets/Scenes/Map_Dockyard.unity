@@ -19029,7 +19029,7 @@ MonoBehaviour:
   chosenSkills: []
   onLose: 0
   wantedLevelIncreaseValue: 0.05
-  skillPanelTime: 5
+  skillPanelTime: 25
   skillButtons:
   - {fileID: 1587392121}
   - {fileID: 2052789994}
