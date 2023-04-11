@@ -12,8 +12,8 @@ namespace _YabuGames.Scripts.Controllers
     [RequireComponent(typeof(AudioSource))]
     public class PoliceCarController : MonoBehaviour
     {
-        [HideInInspector] public int damage;
         [HideInInspector] public bool onOil;
+        [HideInInspector] public bool isArmored;
         
         [Header("Physics")] 
         [SerializeField] private float explosionForce;
@@ -27,6 +27,7 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private PoliceSpecs specs;
 
         [Space]
+        private int _damage;
         private BoxCollider _collider;
         private AudioSource _source;
         private Rigidbody _rb;
@@ -78,7 +79,8 @@ namespace _YabuGames.Scripts.Controllers
         private void Start()
         {
            // _source.Play();
-            damage = specs.damage;
+            _damage = specs.damage;
+            isArmored = _damage >= 40;
         }
 
         private void Update()
@@ -95,6 +97,8 @@ namespace _YabuGames.Scripts.Controllers
 
         public void Continue()
         {
+            if(_isEliminated)
+                return;
             _aiController.ContinueChasing();
             Mute(false);
         }
@@ -120,7 +124,7 @@ namespace _YabuGames.Scripts.Controllers
             if(_isEliminated)
                 return;
             onOil = false;
-            GameManager.Instance.IncreaseXp(damage);
+            GameManager.Instance.IncreaseXp(_damage);
             HapticManager.Instance.PlayRigidHaptic();
             ShakeManager.Instance.ShakeCamera(true);
             LevelSignals.Instance.OnPoliceEliminated?.Invoke();
@@ -145,7 +149,7 @@ namespace _YabuGames.Scripts.Controllers
             if (!_isEliminated)
             {
                 onOil = false;
-                GameManager.Instance.IncreaseXp(damage);
+                GameManager.Instance.IncreaseXp(_damage);
                 HapticManager.Instance.PlayHeavyHaptic();
                 LevelSignals.Instance.OnPoliceEliminated?.Invoke();
                 _isEliminated = true;
@@ -196,8 +200,12 @@ namespace _YabuGames.Scripts.Controllers
             _onOilHeading = transform.forward;
             transform.DOShakeRotation(2, Vector3.up * 70, 1, 100, true)
                 .OnComplete(() => Eliminate(transform.position - Vector3.up));
+            
+        }
 
-
+        public int GetDamage()
+        {
+            return _isEliminated ? 0 : _damage;
         }
     }
 }

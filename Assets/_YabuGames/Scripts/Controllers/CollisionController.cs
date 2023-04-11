@@ -82,22 +82,24 @@ namespace _YabuGames.Scripts.Controllers
             {
                 if (!_onGodMode)
                 {
-                    HapticManager.Instance.PlaySoftHaptic();
+                    HapticManager.Instance.PlayWarningHaptic();
                     physicsController.PoliceCollision(collision.contacts[0].point);
                     if (_onReduceDamage)
                     {
-                        var reducedDamage = (int)(component.damage - component.damage * .1f);
+                        var reducedDamage = (int)(component.GetDamage() - component.GetDamage() * .1f);
                         healthController.TakeDamage(reducedDamage);
                     }
                     else
                     {
-                        healthController.TakeDamage(component.damage);
+                        healthController.TakeDamage(component.GetDamage());
                     }
                     
                 }
                 else
                 {
-                    HapticManager.Instance.PlayWarningHaptic();
+                    HapticManager.Instance.PlaySoftHaptic();
+                    if(component.isArmored)
+                        return;
                     component.MissileExplosion(collision.contacts[0].point,10);
                 }
                 return;

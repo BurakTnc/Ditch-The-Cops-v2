@@ -18,6 +18,12 @@ namespace _YabuGames.Scripts.Controllers
             
             if (collision.gameObject.TryGetComponent(out PoliceCarController carController))
             {
+                if (carController.isArmored)
+                {
+                    if(!_carController.isArmored)
+                        return;
+                }
+                    
                 carController.Eliminate(collision.contacts[0].point);
                 return;
             }
@@ -59,6 +65,8 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (other.gameObject.CompareTag("SpikeTrap"))
             {
+                if(_carController.isArmored)
+                    return;
                 _carController.Eliminate(transform.position + Vector3.down);
                 return;
             }

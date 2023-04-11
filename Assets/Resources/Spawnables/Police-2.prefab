@@ -179,12 +179,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a823e0e5ca255426fa0ab1d394886ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   onOil: 0
-  explosionForce: 60
+  isArmored: 0
+  explosionForce: 15
   explosionRadius: 1
   upwardsModifier: 2
-  forceMode: 1
+  forceMode: 2
   explosionSound: {fileID: 8300000, guid: e05f675c1546b41b8815f86b1480bdc3, type: 3}
   specs: {fileID: 11400000, guid: b944f1fe0262846518427eeb82bc977e, type: 2}
 --- !u!114 &-519556991820398677
