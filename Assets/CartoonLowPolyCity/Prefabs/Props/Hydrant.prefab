@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterGeysir
       objectReference: {fileID: 0}
+    - target: {fileID: 191974, guid: 11abcf894073489409459f7f08e60bda, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 462512, guid: 11abcf894073489409459f7f08e60bda, type: 3}
       propertyPath: m_RootOrder
       value: 0
