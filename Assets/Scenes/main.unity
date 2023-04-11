@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.36594948, g: 0.587445, b: 0.909968, a: 1}
+  m_IndirectSpecularColor: {r: 0.3659043, g: 0.58711183, b: 0.90973705, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -34993,6 +34993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSurvive: 0
+  survivedTimePerAPlay: 0
   money: 0
 --- !u!4 &2535183592692100951
 Transform:
@@ -35139,6 +35140,7 @@ MonoBehaviour:
   yellowStarSprite: {fileID: 21300000, guid: 0a72e799835015e4a870130c4c958d92, type: 3}
   scoreTexts: []
   rewardMoneyTexts: []
+  surviveTimeText: {fileID: 0}
   playerXpText: {fileID: 192857412}
   playerLevel: {fileID: 916201444}
   playerProgressBar: {fileID: 2050928937}
@@ -36432,7 +36434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &6977822147919768135
 PrefabInstance:
   m_ObjectHideFlags: 0
