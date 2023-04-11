@@ -188,6 +188,7 @@ MonoBehaviour:
   forceMode: 2
   explosionSound: {fileID: 8300000, guid: e05f675c1546b41b8815f86b1480bdc3, type: 3}
   specs: {fileID: 11400000, guid: b944f1fe0262846518427eeb82bc977e, type: 2}
+  siren: {fileID: 7008400250956244443}
 --- !u!114 &-519556991820398677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +918,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be5da12753cb54280ba8b5e8712c2bf3, type: 3}
+--- !u!1 &7008400250956244443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3784687943365250755, guid: be5da12753cb54280ba8b5e8712c2bf3, type: 3}
+  m_PrefabInstance: {fileID: 6180978577228180248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7102378657034466950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3987806107306745246, guid: be5da12753cb54280ba8b5e8712c2bf3, type: 3}

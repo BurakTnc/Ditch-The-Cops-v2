@@ -16062,7 +16062,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &865419620
 PrefabInstance:
@@ -19092,7 +19092,7 @@ Transform:
   - {fileID: 1617898742}
   - {fileID: 1565824758}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1021814675
 PrefabInstance:
@@ -19216,7 +19216,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
   chosenSkills: []
   onLose: 0
-  wantedLevelIncreaseValue: 0.5
+  wantedLevelIncreaseValue: 1
   skillPanelTime: 25
   skillButtons:
   - {fileID: 1587392121}
@@ -20820,7 +20820,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 974101441420897463, guid: 05a6187a78a8646e68f9f9982e6b48b3, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 974101441420897463, guid: 05a6187a78a8646e68f9f9982e6b48b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40282,7 +40282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40323,6 +40323,14 @@ PrefabInstance:
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8125642775169092339, guid: f467cbae9182441b18a6c45aac811627, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8125642775169092339, guid: f467cbae9182441b18a6c45aac811627, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f467cbae9182441b18a6c45aac811627, type: 3}

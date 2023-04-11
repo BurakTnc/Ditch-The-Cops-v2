@@ -110,7 +110,6 @@ namespace _YabuGames.Scripts.Controllers
                 HapticManager.Instance.PlaySelectionHaptic();
                 physicsController.ObstacleCollision(collision.contacts[0].point, rb);
                 AudioSource.PlayClipAtPoint(hitSound,transform.position);
-                return;
             }
             else
             {

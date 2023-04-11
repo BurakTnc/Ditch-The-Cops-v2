@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb36a1d857141f58785c4b87cdb7954, type: 3}
   m_Name: Police Spec-3
   m_EditorClassIdentifier: 
+  hasSiren: 1
   angularSpeed: 145.2
   speed: 18.15
   acceleration: 30

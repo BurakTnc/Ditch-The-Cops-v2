@@ -25,6 +25,7 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private AudioClip explosionSound;
         [Space]
         [SerializeField] private PoliceSpecs specs;
+        [SerializeField] private GameObject siren;
 
         [Space]
         private int _damage;
@@ -35,6 +36,7 @@ namespace _YabuGames.Scripts.Controllers
         private bool _isEliminated;
         private NavMeshAgent _agent;
         private Vector3 _onOilHeading;
+        private bool _hasSiren;
 
         private void Awake()
         {
@@ -81,6 +83,7 @@ namespace _YabuGames.Scripts.Controllers
            // _source.Play();
             _damage = specs.damage;
             isArmored = _damage >= 40;
+            _hasSiren = specs.hasSiren;
         }
 
         private void Update()
@@ -123,6 +126,10 @@ namespace _YabuGames.Scripts.Controllers
         {
             if(_isEliminated)
                 return;
+            if (_hasSiren)
+            {
+                siren.SetActive(false);
+            }
             onOil = false;
             GameManager.Instance.IncreaseXp(_damage);
             HapticManager.Instance.PlayRigidHaptic();
@@ -148,6 +155,10 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (!_isEliminated)
             {
+                if (_hasSiren)
+                {
+                    siren.SetActive(false);
+                }
                 onOil = false;
                 GameManager.Instance.IncreaseXp(_damage);
                 HapticManager.Instance.PlayHeavyHaptic();
@@ -207,5 +218,6 @@ namespace _YabuGames.Scripts.Controllers
         {
             return _isEliminated ? 0 : _damage;
         }
+        
     }
 }
