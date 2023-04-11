@@ -76,11 +76,13 @@ namespace _YabuGames.Scripts.Controllers
 
         public void ContinueChasing()
         {
+            _agent.enabled = true;
+            
             if (_agent.isActiveAndEnabled)
             {
                 _onChase = true;
                 _agent.isStopped = false;
-                _agent.enabled = true;
+                
             }
         }
     }

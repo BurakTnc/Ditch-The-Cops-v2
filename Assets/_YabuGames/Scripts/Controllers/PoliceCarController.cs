@@ -88,12 +88,12 @@ namespace _YabuGames.Scripts.Controllers
             _rb.velocity = _onOilHeading * 16;
         }
 
-        private void Stop()
+        public void Stop()
         {
             _aiController.StopChasing();
         }
 
-        private void Continue()
+        public void Continue()
         {
             _aiController.ContinueChasing();
             Mute(false);

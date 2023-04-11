@@ -26,8 +26,12 @@ namespace _YabuGames.Scripts.Controllers
             {
                 if (collision.gameObject.CompareTag("Player"))
                 {
-                    if(!_carController.onOil)
+                    if (!_carController.onOil)
+                    {
+                        _carController.Stop();
                         return;
+                    }
+                        
                     _carController.Eliminate(collision.contacts[0].point);
                     return;
 
@@ -38,6 +42,17 @@ namespace _YabuGames.Scripts.Controllers
             }
             
             
+        }
+
+        private void OnCollisionExit(Collision other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                if (!_carController.onOil)
+                {
+                    _carController.Continue();
+                }
+            }
         }
 
         private void OnTriggerEnter(Collider other)
