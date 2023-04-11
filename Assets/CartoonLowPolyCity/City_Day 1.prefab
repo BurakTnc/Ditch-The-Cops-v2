@@ -39786,6 +39786,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -5828814752476051363, guid: 706f50f31d9f0d740a7664f87af11fee, type: 3}
     - {fileID: 4954565885524222268, guid: 706f50f31d9f0d740a7664f87af11fee, type: 3}
+    - {fileID: 2165907061023334359, guid: 706f50f31d9f0d740a7664f87af11fee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 706f50f31d9f0d740a7664f87af11fee, type: 3}
 --- !u!4 &7106980138010048259 stripped
 Transform:
