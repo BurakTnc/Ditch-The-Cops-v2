@@ -125,6 +125,18 @@ namespace _YabuGames.Scripts.Controllers
                 HapticManager.Instance.PlaySelectionHaptic();
                 physicsController.ObstacleCollision(collision.contacts[0].point, rb);
                 AudioSource.PlayClipAtPoint(hitSound,transform.position);
+
+                if (collision.transform.childCount <= 0) 
+                    return;
+                
+                var obj = collision.transform.GetChild(0).gameObject;
+                
+                if (!obj.CompareTag("HydrantWater")) 
+                    return;
+                obj.transform.SetParent(null);
+                obj.SetActive(true);
+                Destroy(obj,5);
+
             }
             else
             {

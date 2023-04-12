@@ -89,8 +89,12 @@ namespace _YabuGames.Scripts.Managers
                         mapButtonImages[i].SetActive(false);
                         continue;
                     }
+                    var anchoredPos = mapButtonsTexts[i].GetComponent<RectTransform>().anchoredPosition;
+                    mapButtonsTexts[i].GetComponent<RectTransform>().anchoredPosition =
+                        new Vector2(0, anchoredPos.y);
                     mapButtonsTexts[i].text = "Select";
                     mapButtonImages[i].SetActive(false);
+                    
                 }
                 
             }

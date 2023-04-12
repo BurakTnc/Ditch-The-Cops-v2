@@ -90,33 +90,19 @@ namespace _YabuGames.Scripts.Managers
 
         private void SetSurviveText()
         {
-            if(!surviveTimeText)
+            if (!surviveTimeText)
                 return;
+
             var total = GameManager.Instance.survivedTimePerAPlay;
             var minute = (int)(total / 60);
             var second = (int)(total % 60);
-            if (minute > 9)
-            {
-                if (second > 9) 
-                {
-                    surviveTimeText.text = minute + ":" + second;
-                }
-                else
-                {
-                    surviveTimeText.text = minute + ":0" + second;
-                }
-            }
-            else
-            {
-                if (second > 9)
-                {
-                    surviveTimeText.text = "0" + minute + ":" + second;
-                }
-                else
-                {
-                    surviveTimeText.text = "0" + minute + ":0" + second;
-                }
-            }
+
+            // Format the time as a string
+            var minuteString = minute.ToString("D2");
+            var secondString = second.ToString("D2");
+
+            surviveTimeText.text = $"{minuteString}:{secondString}";
+   
         }
         public void SetPlayerProgress()
         {
