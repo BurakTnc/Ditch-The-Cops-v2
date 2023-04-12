@@ -2062,9 +2062,9 @@ MonoBehaviour:
   missileSpawnPeriod: 21
   godModePeriod: 20
   nitroPeriod: 20
-  healPeriod: 20
-  spikePeriod: 25
-  oilPeriod: 20
+  healPeriod: 25
+  spikePeriod: 20
+  oilPeriod: 17
   instanceSpecs:
   - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
   - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
@@ -19216,7 +19216,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
   chosenSkills: []
   onLose: 0
-  wantedLevelIncreaseValue: 1
+  wantedLevelIncreaseValue: 0.05
   skillPanelTime: 25
   skillButtons:
   - {fileID: 1587392121}

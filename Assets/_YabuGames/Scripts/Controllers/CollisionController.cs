@@ -18,6 +18,8 @@ namespace _YabuGames.Scripts.Controllers
         private bool _onGodMode;
         private bool _onReduceDamage;
         private bool _isEliminated;
+        private float _reduceDamageLevel = .1f;
+        private int _coinIncome = 10;
 
        #region Subscribtions
 
@@ -35,6 +37,8 @@ namespace _YabuGames.Scripts.Controllers
        {
            SkillSignals.Instance.OnGodMode += ApplyGodMode;
            SkillSignals.Instance.OnReduceDamage += ApplyReducedDamage;
+           SkillSignals.Instance.OnReduceDamageLevelIncrease += ReduceDamageLevelIncrease;
+           SkillSignals.Instance.OnBonusIncome += IncreaseCoinIncome;
            LevelSignals.Instance.OnPlayerDestroyed += Eliminate;
            LevelSignals.Instance.OnRevive += Revive;
        }
@@ -43,12 +47,23 @@ namespace _YabuGames.Scripts.Controllers
        {
            SkillSignals.Instance.OnGodMode -= ApplyGodMode;
            SkillSignals.Instance.OnReduceDamage -= ApplyReducedDamage;
+           SkillSignals.Instance.OnReduceDamageLevelIncrease -= ReduceDamageLevelIncrease;
+           SkillSignals.Instance.OnBonusIncome -= IncreaseCoinIncome;
            LevelSignals.Instance.OnPlayerDestroyed -= Eliminate;
            LevelSignals.Instance.OnRevive -= Revive;
        }
 
        #endregion
 
+       private void ReduceDamageLevelIncrease()
+       {
+           _reduceDamageLevel += .1f;
+       }
+
+       private void IncreaseCoinIncome()
+       {
+           _coinIncome *= 2;
+       }
        private void Eliminate()
        {
            _isEliminated = true;
@@ -86,7 +101,8 @@ namespace _YabuGames.Scripts.Controllers
                     physicsController.PoliceCollision(collision.contacts[0].point);
                     if (_onReduceDamage)
                     {
-                        var reducedDamage = (int)(component.GetDamage() - component.GetDamage() * .1f);
+                        var reducedDamage = (int)(component.GetDamage() - component.GetDamage() * _reduceDamageLevel);
+                        Debug.Log("damage"+reducedDamage);
                         healthController.TakeDamage(reducedDamage);
                     }
                     else
@@ -126,10 +142,11 @@ namespace _YabuGames.Scripts.Controllers
                 {
                     spawner.hasCollectible = false;
                 }
+                Debug.Log("earn Value"+ _coinIncome);
                 SpawnManager.Instance.currentCollectibleCount--;
                 SpawnManager.Instance.collectibleDelayer += 2;
                 var r = Random.Range(SkillManager.Instance.earningLevel, 6);
-                CoreGameSignals.Instance.OnSpawnCoins?.Invoke(r, 0, 10,false);
+                CoreGameSignals.Instance.OnSpawnCoins?.Invoke(r, 0, _coinIncome,false);
                 Destroy(other.gameObject);
             }
             if (other.gameObject.CompareTag("Health"))

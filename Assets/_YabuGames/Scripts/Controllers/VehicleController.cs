@@ -143,9 +143,9 @@ namespace _YabuGames.Scripts.Controllers
 
         private IEnumerator SpeedRoutine(float duration)
         {
-            _topSpeed += _forwardSpeed * .2f;
+            _topSpeed += _forwardSpeed * .1f;
             yield return new WaitForSeconds(duration);
-            _topSpeed -= _forwardSpeed * .2f;
+            _topSpeed -= _forwardSpeed * .1f;
         }
         private void GainSpeed(float duration)
         {

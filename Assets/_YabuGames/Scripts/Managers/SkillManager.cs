@@ -121,7 +121,7 @@ namespace _YabuGames.Scripts.Managers
 
         private void ApplyBonusEarning()
         {
-            earningLevel++;
+            SkillSignals.Instance.OnBonusIncome?.Invoke();
         }
         private void ApplyOilTrap()
         {
@@ -251,9 +251,33 @@ namespace _YabuGames.Scripts.Managers
                     break;
                 case 1:
                     ChosenSkills[id] = 2;
+                    switch (id)
+                    {
+                        case 4:
+                            SkillSignals.Instance.OnReduceDamageLevelIncrease?.Invoke();
+                            break;
+                        case 5:
+                            SkillSignals.Instance.OnHealLevelIncrease?.Invoke();
+                            break;
+                        default:
+                            break;
+
+                    }
                     break;
                 case 2:
                     ChosenSkills[id] = 3;
+                    switch (id)
+                    {
+                        case 4:
+                            SkillSignals.Instance.OnReduceDamageLevelIncrease?.Invoke();
+                            break;
+                        case 5:
+                            SkillSignals.Instance.OnHealLevelIncrease?.Invoke();
+                            break;
+                        default:
+                            break;
+
+                    }
                     if (LevelManager.Instance.skillSpecsList.Contains(instanceSpecs[id]))
                     {
                         LevelManager.Instance.skillSpecsList.Remove(instanceSpecs[id]);

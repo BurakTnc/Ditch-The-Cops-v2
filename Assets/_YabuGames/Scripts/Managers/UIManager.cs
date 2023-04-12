@@ -249,7 +249,7 @@ namespace _YabuGames.Scripts.Managers
             foreach (var t in rewardMoneyTexts)
             {
                 t.text = _earnedMoney.ToString();
-                DOTween.To(GetValue, SetValue, earnedValue, 1.5f).OnUpdate(UpdateValue)
+                DOTween.To(GetValue, SetValue, earnedValue, .8f).OnUpdate(UpdateValue)
                     .SetEase(Ease.OutSine).SetDelay(1);
                 
 

@@ -26,6 +26,7 @@ namespace _YabuGames.Scripts.Controllers
         private bool _onHeal;
         private bool _onLose;
         private bool _isRevived;
+        private int _healLevel = 1;
 
         private void OnEnable()
         {
@@ -41,6 +42,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             SkillSignals.Instance.OnMaxHealth += GainMaxHp;
             SkillSignals.Instance.OnHealing += ActivateHealMode;
+            SkillSignals.Instance.OnHealLevelIncrease += IncreaseHealLevel;
             LevelSignals.Instance.OnRevive += Revive;
         }
 
@@ -48,6 +50,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             SkillSignals.Instance.OnMaxHealth -= GainMaxHp;
             SkillSignals.Instance.OnHealing -= ActivateHealMode;
+            SkillSignals.Instance.OnHealLevelIncrease -= IncreaseHealLevel;
             LevelSignals.Instance.OnRevive -= Revive;
         }
 
@@ -63,6 +66,10 @@ namespace _YabuGames.Scripts.Controllers
             Heal();
         }
 
+        private void IncreaseHealLevel()
+        {
+            _healLevel++;
+        }
         private void Revive()
         {
             _isRevived = true;
@@ -87,7 +94,7 @@ namespace _YabuGames.Scripts.Controllers
             if (!_onHeal) 
                 return;
 
-            _health += 2 * Time.deltaTime;
+            _health += (2 + _healLevel) * Time.deltaTime;
             var amount = _health / _maxHealth;
             UIManager.Instance.UpdateHealthBar(amount);
             _health = Mathf.Clamp(_health, 0, _maxHealth);
@@ -95,6 +102,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void ActivateHealMode(float duration)
         {
+            Debug.Log("heal level"+_healLevel);
             StartCoroutine(HealRoutine(duration));
         }
 

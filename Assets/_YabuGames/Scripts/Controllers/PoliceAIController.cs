@@ -52,7 +52,10 @@ namespace _YabuGames.Scripts.Controllers
             if(_delayer>0)
                 return;
             _delayer += _rookieLevel;
-            _agent.SetDestination(_player.position);
+            if (_agent.isActiveAndEnabled)
+            {
+                _agent.SetDestination(_player.position);
+            }
         }
         
         void Update()

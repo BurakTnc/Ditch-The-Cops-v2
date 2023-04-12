@@ -14,6 +14,8 @@ namespace _YabuGames.Scripts.Signals
         public UnityAction OnReduceDamage = delegate { };
         public UnityAction<float> OnNitro = delegate { };
         public UnityAction OnBonusIncome = delegate { };
+        public UnityAction OnHealLevelIncrease = delegate { };
+        public UnityAction OnReduceDamageLevelIncrease = delegate { };
 
         private void Awake()
         {
