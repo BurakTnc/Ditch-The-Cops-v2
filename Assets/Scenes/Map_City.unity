@@ -1779,7 +1779,7 @@ RectTransform:
   - {fileID: 853687014}
   - {fileID: 1079917761}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12424,7 +12424,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &680579042 stripped
 GameObject:
@@ -16062,7 +16062,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &865419620
 PrefabInstance:
@@ -20820,7 +20820,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 974101441420897463, guid: 05a6187a78a8646e68f9f9982e6b48b3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 974101441420897463, guid: 05a6187a78a8646e68f9f9982e6b48b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21771,7 +21771,7 @@ Transform:
   - {fileID: 1455104377}
   - {fileID: 480070355}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1164893188
 PrefabInstance:
@@ -40282,7 +40282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40324,13 +40324,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8125642775169092339, guid: f467cbae9182441b18a6c45aac811627, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125642775169092339, guid: f467cbae9182441b18a6c45aac811627, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
+    - target: {fileID: 7926447629906404264, guid: f467cbae9182441b18a6c45aac811627, type: 3}
+      propertyPath: cannonForce
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f467cbae9182441b18a6c45aac811627, type: 3}

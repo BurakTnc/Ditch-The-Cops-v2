@@ -97,7 +97,7 @@ namespace _YabuGames.Scripts.Controllers
                 }
                 else
                 {
-                    HapticManager.Instance.PlaySoftHaptic();
+                    HapticManager.Instance.PlayHeavyHaptic();
                     if(component.isArmored)
                         return;
                     component.MissileExplosion(collision.contacts[0].point,10);

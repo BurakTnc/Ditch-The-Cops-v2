@@ -68,9 +68,9 @@ namespace _YabuGames.Scripts.Objects
             _hasTarget = true;
         }
 
-        private void Explode(PoliceCarController police)
+        private void Explode()
         {
-            police.MissileExplosion(transform.position,50);
+            //police.MissileExplosion(transform.position,50);
             ShakeManager.Instance.ShakeCamera(false);
             PoolManager.Instance.GetExplosionParticle(transform.position);
             if (explosionSound)
@@ -85,7 +85,7 @@ namespace _YabuGames.Scripts.Objects
             
             foreach (var coll in _explodedColliders)
             {
-                coll.GetComponent<PoliceCarController>().MissileExplosion(transform.position,50);
+                coll.GetComponent<PoliceCarController>().MissileExplosion(transform.position,70);
             }
         }
 
@@ -93,7 +93,7 @@ namespace _YabuGames.Scripts.Objects
         {
             if (collision.gameObject.TryGetComponent(out PoliceCarController police))
             {
-                Explode(police);
+                Explode();
                 Destroy(gameObject);
             }
         }

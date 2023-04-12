@@ -362,7 +362,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6473067648539920816}
   - component: {fileID: 6473067648539920819}
-  - component: {fileID: 6473067648539920817}
   - component: {fileID: 6473067648539920818}
   - component: {fileID: 6473067648539920822}
   - component: {fileID: 2880822531224762955}
@@ -409,19 +408,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 1
---- !u!65 &6473067648539920817
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6473067648539920815}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.9210383, y: 1.0530261, z: 4.5924406}
-  m_Center: {x: 0, y: 0.7425495, z: -0.006942868}
 --- !u!114 &6473067648539920818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,13 +770,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 1
-  explosionForce: 25
+  explosionForce: 10
   upwardsModifier: 0
   forceMode: 1
   obstacleExplosionRadius: 0.3
   obstacleExplosionForce: 1
   obstacleUpwardsModifier: 0
   obstacleForceMode: 1
+  cannonRadius: 20
+  cannonForce: 150
 --- !u!65 &8125642775169092339
 BoxCollider:
   m_ObjectHideFlags: 0

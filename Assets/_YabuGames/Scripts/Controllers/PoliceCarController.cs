@@ -15,6 +15,8 @@ namespace _YabuGames.Scripts.Controllers
         [HideInInspector] public bool onOil;
         [HideInInspector] public bool isArmored;
         
+        [SerializeField] private TurretController turretController;
+        
         [Header("Physics")] 
         [SerializeField] private float explosionForce;
         [SerializeField] private float explosionRadius;
@@ -112,6 +114,9 @@ namespace _YabuGames.Scripts.Controllers
         }
         private void Mute(bool isMuted)
         {
+            if(!_source)
+                return;
+            
             if (isMuted)
             {
                 _source.Stop();
@@ -126,10 +131,16 @@ namespace _YabuGames.Scripts.Controllers
         {
             if(_isEliminated)
                 return;
-            if (_hasSiren)
+            switch (_hasSiren)
             {
-                siren.SetActive(false);
+                case true:
+                    siren.SetActive(false);
+                    break;
+                case false:
+                    turretController.Eliminate();
+                    break;
             }
+
             onOil = false;
             GameManager.Instance.IncreaseXp(_damage);
             HapticManager.Instance.PlayRigidHaptic();
@@ -155,10 +166,16 @@ namespace _YabuGames.Scripts.Controllers
         {
             if (!_isEliminated)
             {
-                if (_hasSiren)
+                switch (_hasSiren)
                 {
-                    siren.SetActive(false);
+                    case true:
+                        siren.SetActive(false);
+                        break;
+                    case false:
+                        turretController.Eliminate();
+                        break;
                 }
+
                 onOil = false;
                 GameManager.Instance.IncreaseXp(_damage);
                 HapticManager.Instance.PlayHeavyHaptic();

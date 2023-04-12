@@ -19,6 +19,10 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private float obstacleUpwardsModifier;
         [SerializeField] private ForceMode obstacleForceMode;
 
+        [Header("Cannon Explosion")] 
+        [SerializeField] private float cannonRadius;
+        [SerializeField] private float cannonForce;
+
         private Rigidbody _rb;
 
         private void Awake()
@@ -26,7 +30,12 @@ namespace _YabuGames.Scripts.Controllers
             _rb = transform.root.GetComponent<Rigidbody>();
         }
 
-
+        public void CannonExplosion(Vector3 impactPoint)
+        {
+            _rb.AddExplosionForce(cannonForce, impactPoint, cannonRadius, upwardsModifier, forceMode);
+            PoolManager.Instance.GetHitParticle(impactPoint);
+            HapticManager.Instance.PlaySoftHaptic();
+        }
         public void PoliceCollision(Vector3 impactPoint)
         {
             _rb.AddExplosionForce(explosionForce, impactPoint, explosionRadius, upwardsModifier, forceMode);

@@ -300,7 +300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onOil: 0
   isArmored: 0
-  explosionForce: 15
+  turretController: {fileID: 0}
+  explosionForce: 20
   explosionRadius: 1
   upwardsModifier: 2
   forceMode: 2

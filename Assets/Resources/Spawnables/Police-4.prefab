@@ -363,11 +363,11 @@ AudioSource:
   m_GameObject: {fileID: 4964784697678982746}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c690a70b43c004848b74503c7eee5a31, type: 3}
+  OutputAudioMixerGroup: {fileID: -3783893103257190392, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a15af062c3e6a409d92a756591c6b23c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 1
+  m_Volume: 0.329
+  m_Pitch: 0.75
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -464,7 +464,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onOil: 0
   isArmored: 0
-  explosionForce: 15
+  turretController: {fileID: 2208925325785432643}
+  explosionForce: 25
   explosionRadius: 1
   upwardsModifier: 2
   forceMode: 2
@@ -841,12 +842,12 @@ MonoBehaviour:
   hasCannon: 0
   turret: {fileID: 8225003046329071267}
   shootingPos: {fileID: 0}
-  shootParticle: {fileID: 6139291330307247073}
   shootPeriod: 0
   shootingRange: 30
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  shootingEffect: {fileID: 6139291330307247073}
 --- !u!1 &7129511908279031023
 GameObject:
   m_ObjectHideFlags: 0
