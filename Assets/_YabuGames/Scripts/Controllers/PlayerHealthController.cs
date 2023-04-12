@@ -102,7 +102,6 @@ namespace _YabuGames.Scripts.Controllers
 
         private void ActivateHealMode(float duration)
         {
-            Debug.Log("heal level"+_healLevel);
             StartCoroutine(HealRoutine(duration));
         }
 

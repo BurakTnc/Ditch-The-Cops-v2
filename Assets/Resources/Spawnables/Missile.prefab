@@ -23886,7 +23886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnOffset: {x: 0, y: 75, z: 0}
   speed: 5
-  scanningRange: 30
+  scanningRange: 20
   explosionRange: 10
   scanningLayer:
     serializedVersion: 2

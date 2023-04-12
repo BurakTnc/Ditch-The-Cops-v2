@@ -102,7 +102,6 @@ namespace _YabuGames.Scripts.Controllers
                     if (_onReduceDamage)
                     {
                         var reducedDamage = (int)(component.GetDamage() - component.GetDamage() * _reduceDamageLevel);
-                        Debug.Log("damage"+reducedDamage);
                         healthController.TakeDamage(reducedDamage);
                     }
                     else
@@ -142,7 +141,7 @@ namespace _YabuGames.Scripts.Controllers
                 {
                     spawner.hasCollectible = false;
                 }
-                Debug.Log("earn Value"+ _coinIncome);
+
                 SpawnManager.Instance.currentCollectibleCount--;
                 SpawnManager.Instance.collectibleDelayer += 2;
                 var r = Random.Range(SkillManager.Instance.earningLevel, 6);

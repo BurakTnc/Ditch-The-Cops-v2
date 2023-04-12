@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 1
-  explosionForce: 10
+  explosionForce: 15
   upwardsModifier: 0
   forceMode: 1
   obstacleExplosionRadius: 0.3

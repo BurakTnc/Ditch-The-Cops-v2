@@ -45,7 +45,7 @@ public class Map : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDr
             }
         }
 
-        catch (NullReferenceException ex)
+        catch 
         {
             Debug.Log("out of bounds");
         }
@@ -55,8 +55,6 @@ public class Map : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDr
     {
         
     }
-
-    // Start is called before the first frame update
 
     public void OnPointerDown(PointerEventData eventData)
     {

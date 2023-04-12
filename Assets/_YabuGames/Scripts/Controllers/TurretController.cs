@@ -91,8 +91,7 @@ namespace _YabuGames.Scripts.Controllers
                         if(explosionColliders.Length<1)
                             return;
                         explosionColliders[0].GetComponent<PlayerPhysicsController>().CannonExplosion(transform.position);
-                        Debug.Log("hit");
-                        
+
                     }
 
                 }

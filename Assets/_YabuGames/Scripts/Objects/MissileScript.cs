@@ -18,8 +18,8 @@ namespace _YabuGames.Scripts.Objects
         private bool _hasTarget;
         private Transform _target;
         private Collider[] _scannedColliders = new Collider[10];
-        private Collider[] _explodedColliders = new Collider[10];
-        private float _distanceReference = 100;
+        private Collider[] _explodedColliders = new Collider[20];
+        private float _distanceReference = 10000;
 
         private void Awake()
         {
@@ -59,10 +59,12 @@ namespace _YabuGames.Scripts.Objects
             {
                 var police = t.transform;
                 var distance = Vector3.Distance(transform.position, police.position);
-                
-                if (!(distance < _distanceReference)) continue;
+
+                if ((!(distance < _distanceReference)))
+                    continue;
                 _distanceReference = distance;
                 _target = police;
+
             }
 
             _hasTarget = true;
@@ -85,7 +87,7 @@ namespace _YabuGames.Scripts.Objects
             
             foreach (var coll in _explodedColliders)
             {
-                coll.GetComponent<PoliceCarController>().MissileExplosion(transform.position,70);
+                coll.GetComponent<PoliceCarController>().MissileExplosion(transform.position,100);
             }
         }
 
