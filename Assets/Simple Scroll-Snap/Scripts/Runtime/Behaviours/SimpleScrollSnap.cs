@@ -8,8 +8,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using _YabuGames.Scripts.Managers;
 
-namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours
+namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
 {
     [AddComponentMenu("UI/Simple Scroll-Snap")]
     [RequireComponent(typeof(ScrollRect))]
@@ -461,7 +462,7 @@ namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours
             }
             else if (!isDragging && (ScrollRect.velocity.magnitude <= thresholdSpeedToSnap || thresholdSpeedToSnap == -1f))
             {
-                
+                HapticManager.Instance.PlaySelectionHaptic();
                 SelectPanel();
             }
         }
