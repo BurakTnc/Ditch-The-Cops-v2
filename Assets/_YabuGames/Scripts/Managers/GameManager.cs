@@ -189,6 +189,7 @@ namespace _YabuGames.Scripts.Managers
             else
             {
                 missionsIcon.transform.DOKill(true);
+                missionsIcon.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
         private void SetEliminatedCops()

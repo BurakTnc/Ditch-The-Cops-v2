@@ -75,14 +75,14 @@ namespace _YabuGames.Scripts.Managers
 
         private void Start()
         {
+            Time.timeScale = 0;
             SetMoneyTexts();
             GetTargetValues();
             SetPlayerProgress();
             if (SceneManager.GetActiveScene().buildIndex != 0) 
             {
-                OpenMissionsPanel();
+                OpenMissionsPanel(false);
             }
-            Time.timeScale = 1;
         }
 
         private void GetTargetValues()
@@ -123,7 +123,7 @@ namespace _YabuGames.Scripts.Managers
             playerLevel.text = _playerLevel.ToString();
         }
 
-        private void SetProgressBars()
+        private void SetProgressBars(bool onMainMenu=true)
         {
             if (!eliminatedCopsProgressBar)
                 return;
@@ -132,21 +132,22 @@ namespace _YabuGames.Scripts.Managers
 
             eliminatedCopsProgressBar.value = 0;
             eliminatedCopsProgressBar.maxValue = _targetEliminate;
-            eliminatedCopsProgressBar.DOValue(eliminatedCops, 2).SetEase(Ease.OutBack);
+            eliminatedCopsProgressBar.DOValue(eliminatedCops, 2).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
             eliminatedCopsText.text = eliminatedCops + "/" + _targetEliminate;
 
             var survivedTime = GameManager.Instance.GetSurvivedTime();
 
             survivedTimeProgressBar.value = 0;
             survivedTimeProgressBar.maxValue = _targetSurviveTime;
-            survivedTimeProgressBar.DOValue((int)(survivedTime/60), 2).SetEase(Ease.OutBack);
+            survivedTimeProgressBar.DOValue((int)(survivedTime / 60), 2).SetEase(Ease.OutBack)
+                .SetUpdate(UpdateType.Late, true);
             survivedTimeText.text = (int)(survivedTime / 60) + "/" + _targetSurviveTime;
 
             reachedLevelProgressBar.value = 0;
             reachedLevelProgressBar.maxValue = _targetReachedLevel;
             reachedLevelText.text = _playerLevel + "/" + _targetReachedLevel;
-            reachedLevelProgressBar.DOValue(_playerLevel, 2).SetEase(Ease.OutBack);
-            
+            reachedLevelProgressBar.DOValue(_playerLevel, 2).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
+
         }
 
         private void Update()
@@ -309,15 +310,25 @@ namespace _YabuGames.Scripts.Managers
             }
         }
 
-        public void OpenMissionsPanel()
+        public void OpenMissionsPanel(bool onMainMenu = true)
         {
             if(!missionsPanel)
                 return;
             missionsPanel.SetActive(true);
             missionsPanel.transform.localScale = Vector3.zero;
-            missionsPanel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
-            SetProgressBars();
+            missionsPanel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
+            SetProgressBars(onMainMenu);
             HapticManager.Instance.PlaySelectionHaptic();
+            if(onMainMenu)
+                return;
+            missionsPanel.transform.DOScale(Vector3.zero, .5f).SetEase(Ease.OutBack)
+                .SetUpdate(UpdateType.Late, true).OnComplete(StartTheGame).SetDelay(2);
+
+            void StartTheGame()
+            {
+                Time.timeScale = 1;
+                missionsPanel.SetActive(false);
+            }
         }
 
         public void OpenPanel(GameObject panel)

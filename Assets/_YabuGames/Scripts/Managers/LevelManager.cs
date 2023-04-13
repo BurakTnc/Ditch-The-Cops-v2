@@ -52,7 +52,7 @@ namespace _YabuGames.Scripts.Managers
 
         private void Start()
         {
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
             GameManager.Instance.onSurvive = true;
             SetChaosValue();
             _delayer = skillPanelTime;
