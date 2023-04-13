@@ -128,11 +128,13 @@ namespace _YabuGames.Scripts.Managers
             if (!eliminatedCopsProgressBar)
                 return;
 
+            var delay = onMainMenu ? .3f : 1f;
             var eliminatedCops = GameManager.Instance.GetEliminatedCops();
 
             eliminatedCopsProgressBar.value = 0;
             eliminatedCopsProgressBar.maxValue = _targetEliminate;
-            eliminatedCopsProgressBar.DOValue(eliminatedCops, 2).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
+            eliminatedCopsProgressBar.DOValue(eliminatedCops, 2).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true)
+                .SetDelay(delay);
             eliminatedCopsText.text = eliminatedCops + "/" + _targetEliminate;
 
             var survivedTime = GameManager.Instance.GetSurvivedTime();
@@ -140,13 +142,14 @@ namespace _YabuGames.Scripts.Managers
             survivedTimeProgressBar.value = 0;
             survivedTimeProgressBar.maxValue = _targetSurviveTime;
             survivedTimeProgressBar.DOValue((int)(survivedTime / 60), 2).SetEase(Ease.OutBack)
-                .SetUpdate(UpdateType.Late, true);
+                .SetUpdate(UpdateType.Late, true).SetDelay(delay);
             survivedTimeText.text = (int)(survivedTime / 60) + "/" + _targetSurviveTime;
 
             reachedLevelProgressBar.value = 0;
             reachedLevelProgressBar.maxValue = _targetReachedLevel;
             reachedLevelText.text = _playerLevel + "/" + _targetReachedLevel;
-            reachedLevelProgressBar.DOValue(_playerLevel, 2).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
+            reachedLevelProgressBar.DOValue(_playerLevel, 2).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true)
+                .SetDelay(delay);
 
         }
 
@@ -314,15 +317,16 @@ namespace _YabuGames.Scripts.Managers
         {
             if(!missionsPanel)
                 return;
+            var duration = onMainMenu ? .5f : 1.2f;
             missionsPanel.SetActive(true);
             missionsPanel.transform.localScale = Vector3.zero;
-            missionsPanel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
+            missionsPanel.transform.DOScale(Vector3.one, duration).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
             SetProgressBars(onMainMenu);
             HapticManager.Instance.PlaySelectionHaptic();
             if(onMainMenu)
                 return;
-            missionsPanel.transform.DOScale(Vector3.zero, .5f).SetEase(Ease.OutBack)
-                .SetUpdate(UpdateType.Late, true).OnComplete(StartTheGame).SetDelay(2);
+            missionsPanel.transform.DOScale(Vector3.zero, .3f).SetEase(Ease.InBack)
+                .SetUpdate(UpdateType.Late, true).OnComplete(StartTheGame).SetDelay(2.5f);
 
             void StartTheGame()
             {
