@@ -3,11 +3,12 @@
 
 using System.Collections.Generic;
 using DanielLochner.Assets;
+using Simple_Scroll_Snap.Scripts.Runtime.Behaviours;
 using UnityEngine;
 
 namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.TransitionEffect
 {
-    [RequireComponent(typeof(Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.SimpleScrollSnap))]
+    [RequireComponent(typeof(SimpleScrollSnap))]
     public abstract class TransitionEffectBase<T> : MonoBehaviour where T : Component
     {
         #region Fields
