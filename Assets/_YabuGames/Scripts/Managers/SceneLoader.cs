@@ -32,10 +32,10 @@ namespace _YabuGames.Scripts.Managers
 
        private void Start()
        {
-           loadingPanel.SetActive(true);
-           loadingPanel.transform.GetChild(0).transform.DOLocalMoveX(-600, .7f).SetEase(Ease.InSine).SetRelative(true);
-           loadingPanel.transform.GetChild(1).transform.DOLocalMoveX(700, .7f).SetEase(Ease.InSine).SetRelative(true)
-               .OnComplete(ClosePanel);
+           // loadingPanel.SetActive(true);
+           // loadingPanel.transform.GetChild(0).transform.DOLocalMoveX(-600, .7f).SetEase(Ease.InSine).SetRelative(true);
+           // loadingPanel.transform.GetChild(1).transform.DOLocalMoveX(700, .7f).SetEase(Ease.InSine).SetRelative(true)
+           //     .OnComplete(ClosePanel);
 
        }
 
@@ -58,14 +58,14 @@ namespace _YabuGames.Scripts.Managers
 
        private void Subscribe()
        {
-           CoreGameSignals.Instance.OnGameStart += BeginLoading;
-           CoreGameSignals.Instance.OnMainMenu += BeginMainMenuLoading;
+           CoreGameSignals.Instance.OnGameStart += LoadScene;
+           CoreGameSignals.Instance.OnMainMenu += LoadMainMenu;
        }
 
        private void UnSubscribe()
        {
-           CoreGameSignals.Instance.OnGameStart -= BeginLoading;
-           CoreGameSignals.Instance.OnMainMenu -= BeginMainMenuLoading;
+           CoreGameSignals.Instance.OnGameStart -= LoadScene;
+           CoreGameSignals.Instance.OnMainMenu -= LoadMainMenu;
        }
 
        #endregion
@@ -76,8 +76,8 @@ namespace _YabuGames.Scripts.Managers
            loadingPanel.SetActive(true);
            while (!operation.isDone)
            {
-               // var progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-               // loadingBar.fillAmount = progressValue;
+               var progressValue = Mathf.Clamp01(operation.progress / 0.9f);
+               loadingBar.fillAmount = progressValue;
                yield return null;
            }
            
