@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.36594948, g: 0.587445, b: 0.909968, a: 1}
+  m_IndirectSpecularColor: {r: 0.36328766, g: 0.5917591, b: 0.91536087, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22567,7 +22567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -0.00024414062}
+  m_AnchoredPosition: {x: 0.00012207031, y: -0.00024414062}
   m_SizeDelta: {x: -0.0002, y: -0.00048828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328164153
@@ -33175,7 +33175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.00012207031}
+  m_AnchoredPosition: {x: 0, y: -0.00024414062}
   m_SizeDelta: {x: 325, y: 545}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936448629
@@ -35997,7 +35997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6696085626405884149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.9, y: -117.9, z: -27.6}
+  m_LocalPosition: {x: 52.9, y: -117.9, z: -17.62}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36087,6 +36087,7 @@ MonoBehaviour:
   onSurvive: 0
   survivedTimePerAPlay: 0
   money: 0
+  missionsIcon: {fileID: 86247009}
 --- !u!4 &2535183592692100951
 Transform:
   m_ObjectHideFlags: 0
@@ -37526,7 +37527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &6977822147919768135
 PrefabInstance:
   m_ObjectHideFlags: 0

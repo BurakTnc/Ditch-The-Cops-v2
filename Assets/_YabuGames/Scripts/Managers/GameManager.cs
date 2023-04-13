@@ -1,5 +1,6 @@
 using System;
 using _YabuGames.Scripts.Signals;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _YabuGames.Scripts.Managers
@@ -11,6 +12,7 @@ namespace _YabuGames.Scripts.Managers
         [HideInInspector] public bool onSurvive;
         [HideInInspector] public float survivedTimePerAPlay;
         public int money;
+        [SerializeField] private GameObject missionsIcon;
         
         private float _playerXp;
         private int _eliminatedCops;
@@ -20,7 +22,7 @@ namespace _YabuGames.Scripts.Managers
         private int _targetReachedLevel;
         private int _playerLevel;
         private int _eliminatedCopsPerAPlay;
-        
+        private int _waitingRewards;
         private int _earnedMoney;
         
         
@@ -114,6 +116,7 @@ namespace _YabuGames.Scripts.Managers
             SetEliminatedCops();
             SetPlayerLevel();
             SetSurvivedTime();
+            RewardStatus();
             
         }
 
@@ -138,6 +141,7 @@ namespace _YabuGames.Scripts.Managers
             PlayerPrefs.SetInt("eliminatedCops",_eliminatedCops);
             PlayerPrefs.SetFloat("survivedTime",_survivedTime);
             PlayerPrefs.SetFloat("playerXp", _playerXp);
+            RewardStatus();
         }
 
         private void EarnMoney()
@@ -171,15 +175,29 @@ namespace _YabuGames.Scripts.Managers
             _eliminatedCops++;
             _eliminatedCopsPerAPlay++;
         }
+
+        private void RewardStatus()
+        {
+            if (_waitingRewards>0)
+            {
+                missionsIcon.transform.DOShakeRotation(2f, Vector3.forward * 30, 6, 100, true)
+                    .SetLoops(-1, LoopType.Restart).SetDelay(1);
+            }
+            else
+            {
+                missionsIcon.transform.DOKill(true);
+            }
+        }
         private void SetEliminatedCops()
         {
             
             _eliminatedCops = Mathf.Clamp(_eliminatedCops, 0, 1000000);
             if(onSurvive)
                 return;
-            
+            _eliminatedCops = 112;
             if (_eliminatedCops >= _targetEliminate)
             {
+                _waitingRewards++;
                 _eliminatedCops = _targetEliminate;
                 UIManager.Instance.OpenClaimButton(0);
             }
@@ -193,6 +211,7 @@ namespace _YabuGames.Scripts.Managers
                 return;
             if (_survivedTime >= _targetSurvive*60)
             {
+                _waitingRewards++;
                 _survivedTime = _targetSurvive*60;
                 UIManager.Instance.OpenClaimButton(1);
             }
@@ -205,6 +224,7 @@ namespace _YabuGames.Scripts.Managers
                 return;
             if (_playerLevel >= _targetReachedLevel) 
             {
+                _waitingRewards++;
                 UIManager.Instance.OpenClaimButton(2);
             }
             CoreGameSignals.Instance.OnSave?.Invoke();
@@ -223,14 +243,17 @@ namespace _YabuGames.Scripts.Managers
             {
                 case 0:
                     StatsManager.Instance.OnReachTargetEliminate(_eliminatedCops);
+                    _waitingRewards--;
                     _eliminatedCops = 0;
                     break;
                 case 1:
                     StatsManager.Instance.OnReachTargetSurvive((int)_survivedTime);
+                    _waitingRewards--;
                     _survivedTime = 0;
                     break;
                 case 2:
                     StatsManager.Instance.OnReachTargetReachedLevel(_playerLevel);
+                    _waitingRewards--;
                     break;
                 default:
                     break;

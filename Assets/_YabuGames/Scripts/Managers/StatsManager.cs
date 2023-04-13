@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _YabuGames.Scripts.Managers
@@ -13,6 +14,9 @@ namespace _YabuGames.Scripts.Managers
         [HideInInspector] public int targetSurvivedTime;
         [HideInInspector] public int targetReachedLevel;
         [HideInInspector] public int playerLevel;
+
+
+        private int _waitingRewards;
 
         private void Awake()
         {
@@ -45,6 +49,11 @@ namespace _YabuGames.Scripts.Managers
         {
             
         }
+
+        private void Start()
+        {
+        }
+        
 
         private void Save()
         {

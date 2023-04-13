@@ -148,6 +148,8 @@ namespace _YabuGames.Scripts.Managers
                     boughtCars[i] = PlayerPrefs.GetInt($"car{i}", 0);
                 }
                 
+                _prevCarId = PlayerPrefs.GetInt("prevCarId", 0);
+                
             }
         }
         private void Save()
@@ -161,6 +163,8 @@ namespace _YabuGames.Scripts.Managers
             {
                 PlayerPrefs.SetInt($"car{i}",boughtCars[i]);
             }
+            PlayerPrefs.SetInt("prevMaoId",_prevMapId);
+            PlayerPrefs.SetInt("prevCarId",_prevCarId);
         }
 
         private void SetCurrentMapImage()
