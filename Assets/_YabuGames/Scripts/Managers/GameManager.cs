@@ -87,6 +87,7 @@ namespace _YabuGames.Scripts.Managers
         #endregion
         private void Start()
         {
+            Application.targetFrameRate = 60;
             Initialize();
         }
 
