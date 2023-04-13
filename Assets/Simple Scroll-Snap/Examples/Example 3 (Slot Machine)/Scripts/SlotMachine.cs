@@ -8,13 +8,13 @@ namespace DanielLochner.Assets.SimpleScrollSnap
     public class SlotMachine : MonoBehaviour
     {
         #region Fields
-        [SerializeField] private SimpleScrollSnap[] slots;
+        [SerializeField] private Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.SimpleScrollSnap[] slots;
         #endregion
 
         #region Methods
         public void Spin()
         {
-            foreach (SimpleScrollSnap slot in slots)
+            foreach (Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.SimpleScrollSnap slot in slots)
             {
                 slot.Velocity += Random.Range(2500, 5000) * Vector2.up;
             }

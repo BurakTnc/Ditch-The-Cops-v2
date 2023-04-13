@@ -178,6 +178,8 @@ namespace _YabuGames.Scripts.Managers
 
         private void RewardStatus()
         {
+            if(!missionsIcon)
+                return;
             if (_waitingRewards>0)
             {
                 missionsIcon.transform.DOShakeRotation(2f, Vector3.forward * 30, 6, 100, true)
@@ -194,7 +196,7 @@ namespace _YabuGames.Scripts.Managers
             _eliminatedCops = Mathf.Clamp(_eliminatedCops, 0, 1000000);
             if(onSurvive)
                 return;
-            _eliminatedCops = 112;
+            _eliminatedCops = 168;
             if (_eliminatedCops >= _targetEliminate)
             {
                 _waitingRewards++;

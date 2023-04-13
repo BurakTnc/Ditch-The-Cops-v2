@@ -1935,10 +1935,10 @@ MonoBehaviour:
       - m_Target: {fileID: 2535183594103103070}
         m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
         m_MethodName: OpenMissionsPanel
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 4622689338406686159}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -36221,6 +36221,7 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   skillPanel: {fileID: 0}
   losePanel: {fileID: 0}
+  missionsPanel: {fileID: 4622689338406686159}
   moneyText:
   - {fileID: 1904424511}
   stars:

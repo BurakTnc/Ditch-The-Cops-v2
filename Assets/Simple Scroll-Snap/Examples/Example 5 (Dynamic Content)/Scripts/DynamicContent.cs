@@ -14,7 +14,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         [SerializeField] private Toggle togglePrefab;
         [SerializeField] private ToggleGroup toggleGroup;
         [SerializeField] private InputField addInputField, removeInputField;
-        [SerializeField] private SimpleScrollSnap scrollSnap;
+        [SerializeField] private Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.SimpleScrollSnap scrollSnap;
 
         private float toggleWidth;
         #endregion

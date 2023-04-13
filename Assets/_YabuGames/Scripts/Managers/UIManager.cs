@@ -3,6 +3,7 @@ using _YabuGames.Scripts.Signals;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -12,7 +13,7 @@ namespace _YabuGames.Scripts.Managers
     {
         public static UIManager Instance;
 
-        [SerializeField] private GameObject revivePanel, gamePanel, winPanel, skillPanel, losePanel;
+        [SerializeField] private GameObject revivePanel, gamePanel, winPanel, skillPanel, losePanel, missionsPanel;
         [SerializeField] private TextMeshProUGUI[] moneyText;
         [SerializeField] private Image[] stars = new Image[5];
         [SerializeField] private Image healthBar;
@@ -77,6 +78,11 @@ namespace _YabuGames.Scripts.Managers
             SetMoneyTexts();
             GetTargetValues();
             SetPlayerProgress();
+            if (SceneManager.GetActiveScene().buildIndex != 0) 
+            {
+                OpenMissionsPanel();
+            }
+            Time.timeScale = 1;
         }
 
         private void GetTargetValues()
@@ -303,13 +309,13 @@ namespace _YabuGames.Scripts.Managers
             }
         }
 
-        public void OpenMissionsPanel( GameObject panel)
+        public void OpenMissionsPanel()
         {
-            if(!panel)
+            if(!missionsPanel)
                 return;
-            panel.SetActive(true);
-            panel.transform.localScale = Vector3.zero;
-            panel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
+            missionsPanel.SetActive(true);
+            missionsPanel.transform.localScale = Vector3.zero;
+            missionsPanel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
             SetProgressBars();
             HapticManager.Instance.PlaySelectionHaptic();
         }

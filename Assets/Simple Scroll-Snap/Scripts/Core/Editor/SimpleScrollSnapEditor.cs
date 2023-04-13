@@ -7,19 +7,19 @@ using UnityEngine.UI;
 
 namespace DanielLochner.Assets.SimpleScrollSnap
 {
-    [CustomEditor(typeof(SimpleScrollSnap))]
+    [CustomEditor(typeof(Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.SimpleScrollSnap))]
     public class SimpleScrollSnapEditor : SSSCopyrightEditor
     {
         #region Fields
         private bool showMovementAndLayoutSettings = true, showNavigationSettings = true, showSnapSettings = true, showTransitionEffects = true, showEvents = false;
         private SerializedProperty movementType, movementAxis, useAutomaticLayout, sizeControl, size, automaticLayoutSpacing, automaticLayoutMargins, useInfiniteScrolling, infiniteScrollingSpacing, useOcclusionCulling, startingPanel, useSwipeGestures, minimumSwipeSpeed, previousButton, nextButton, pagination, useToggleNavigation, snapTarget, snapSpeed, thresholdSpeedToSnap, useHardSnapping, useUnscaledTime, onTransitionEffects, onPanelSelecting, onPanelSelected, onPanelCentering, onPanelCentered;
-        private SimpleScrollSnap scrollSnap;
+        private Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.SimpleScrollSnap scrollSnap;
         #endregion
 
         #region Methods
         private void OnEnable()
         {
-            scrollSnap = target as SimpleScrollSnap;
+            scrollSnap = target as Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.SimpleScrollSnap;
 
             #region Serialized Properties
             // Movement and Layout Settings

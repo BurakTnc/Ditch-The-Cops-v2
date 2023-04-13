@@ -2,12 +2,14 @@
 // Copyright (c) Daniel Lochner
 
 using System;
+using DanielLochner.Assets;
+using DanielLochner.Assets.SimpleScrollSnap;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace DanielLochner.Assets.SimpleScrollSnap
+namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours
 {
     [AddComponentMenu("UI/Simple Scroll-Snap")]
     [RequireComponent(typeof(ScrollRect))]
