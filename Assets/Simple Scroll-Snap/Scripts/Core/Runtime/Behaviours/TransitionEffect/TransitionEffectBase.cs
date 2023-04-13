@@ -2,9 +2,10 @@
 // Copyright (c) Daniel Lochner
 
 using System.Collections.Generic;
+using DanielLochner.Assets;
 using UnityEngine;
 
-namespace DanielLochner.Assets.SimpleScrollSnap
+namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.TransitionEffect
 {
     [RequireComponent(typeof(Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.SimpleScrollSnap))]
     public abstract class TransitionEffectBase<T> : MonoBehaviour where T : Component

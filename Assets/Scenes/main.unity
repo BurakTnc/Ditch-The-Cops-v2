@@ -22665,7 +22665,7 @@ MonoBehaviour:
   infiniteScrollingSpacing: 0
   useOcclusionCulling: 0
   startingPanel: 0
-  useSwipeGestures: 1
+  useSwipeGestures: 0
   minimumSwipeSpeed: 0
   previousButton: {fileID: 4158230966057284188, guid: e13a09b0b66e54d109c22f8b39d24339, type: 3}
   nextButton: {fileID: 4158230966627217802, guid: e13a09b0b66e54d109c22f8b39d24339, type: 3}
@@ -22673,8 +22673,8 @@ MonoBehaviour:
   useToggleNavigation: 1
   snapTarget: 0
   snapSpeed: 10
-  thresholdSpeedToSnap: -1
-  useHardSnapping: 1
+  thresholdSpeedToSnap: 200
+  useHardSnapping: 0
   useUnscaledTime: 0
   onTransitionEffects:
     m_PersistentCalls:
@@ -29399,8 +29399,8 @@ MonoBehaviour:
   useToggleNavigation: 1
   snapTarget: 0
   snapSpeed: 10
-  thresholdSpeedToSnap: -1
-  useHardSnapping: 1
+  thresholdSpeedToSnap: 200
+  useHardSnapping: 0
   useUnscaledTime: 0
   onTransitionEffects:
     m_PersistentCalls:

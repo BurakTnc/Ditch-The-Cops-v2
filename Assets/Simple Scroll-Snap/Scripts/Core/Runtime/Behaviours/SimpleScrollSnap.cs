@@ -308,10 +308,10 @@ namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours
         }
         public void OnDrag(PointerEventData eventData)
         {
-            if (isDragging && onPanelSelecting.GetPersistentEventCount() > 0)
-            {
-                onPanelSelecting.Invoke(GetNearestPanel());
-            }
+            // if (isDragging && onPanelSelecting.GetPersistentEventCount() > 0)
+            // {
+            //     onPanelSelecting.Invoke(GetNearestPanel());
+            // }
         }
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -327,6 +327,10 @@ namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours
         {
             isDragging = false;
 
+            if (isDragging && onPanelSelecting.GetPersistentEventCount() > 0)
+            {
+                onPanelSelecting.Invoke(GetNearestPanel());
+            }
             switch (movementAxis)
             {
                 case MovementAxis.Horizontal:
@@ -457,6 +461,7 @@ namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours
             }
             else if (!isDragging && (ScrollRect.velocity.magnitude <= thresholdSpeedToSnap || thresholdSpeedToSnap == -1f))
             {
+                
                 SelectPanel();
             }
         }
@@ -526,7 +531,8 @@ namespace Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours
             }
             else
             {
-                ScrollRect.horizontal = ScrollRect.vertical = !isDragging;
+                ScrollRect.horizontal = (movementType == MovementType.Free) || (movementAxis == MovementAxis.Horizontal);
+                //ScrollRect.horizontal = ScrollRect.vertical = !isDragging;
             }
         }
         private void HandleTransitionEffects()
