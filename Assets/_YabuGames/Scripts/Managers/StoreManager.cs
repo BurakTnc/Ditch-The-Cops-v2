@@ -114,6 +114,9 @@ namespace _YabuGames.Scripts.Managers
                         carButtonImages[i].SetActive(false);
                         continue;
                     }
+                    var anchoredPos = carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition;
+                    carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition =
+                        new Vector2(0, anchoredPos.y);
                     carButtonTexts[i].text = "Select";
                     carButtonImages[i].SetActive(false);
                 }
