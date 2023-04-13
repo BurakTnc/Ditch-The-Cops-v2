@@ -2,6 +2,7 @@
 // Copyright (c) Daniel Lochner
 
 using System;
+using System.Collections.Generic;
 using DanielLochner.Assets;
 using DanielLochner.Assets.SimpleScrollSnap;
 using UnityEngine;
@@ -9,6 +10,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using _YabuGames.Scripts.Managers;
+using DG.Tweening;
 
 namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
 {
@@ -57,7 +59,9 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
         private Direction releaseDirection;
         private float releaseSpeed;
         private bool isDragging, isPressing, isSelected = true;
+        private readonly List<GameObject> _contentList = new List<GameObject>();
         #endregion
+        
 
         #region Properties
         public MovementType MovementType
@@ -212,7 +216,9 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
                     scrollRect = GetComponent<ScrollRect>();
                 }
                 return scrollRect;
+                
             }
+            
         }
         public int NumberOfPanels
         {
@@ -302,10 +308,14 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
         public void OnPointerDown(PointerEventData eventData)
         {
             isPressing = true;
+            var obj = _contentList[CenteredPanel];
+            OpenButtons(obj,true);
+            
         }
         public void OnPointerUp(PointerEventData eventData)
         {
             isPressing = false;
+            
         }
         public void OnDrag(PointerEventData eventData)
         {
@@ -316,6 +326,10 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
         }
         public void OnBeginDrag(PointerEventData eventData)
         {
+            foreach (var panel in _contentList)
+            {
+                panel.SetActive(false);
+            }
             if (useHardSnapping)
             {
                 ScrollRect.inertia = true;
@@ -324,10 +338,15 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
             isSelected = false;
             isDragging = true;
         }
+
+        public void OnMouseDown()
+        {
+            
+        }
+
         public void OnEndDrag(PointerEventData eventData)
         {
             isDragging = false;
-
             if (isDragging && onPanelSelecting.GetPersistentEventCount() > 0)
             {
                 onPanelSelecting.Invoke(GetNearestPanel());
@@ -376,6 +395,12 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
                     float panelPosY = (movementAxis == MovementAxis.Vertical)   ? i * (automaticLayoutSpacing + 1f) * size.y + (size.y / 2f) : 0f;
                     Panels[i].anchoredPosition = new Vector2(panelPosX, panelPosY);
                 }
+            }
+            for (var i = 0; i < NumberOfPanels; i++)
+            {
+                var panel = Panels[i].gameObject.transform.GetChild(0).gameObject;
+                _contentList.Add(panel);
+                panel.transform.localScale=Vector3.zero;
             }
 
             // Content
@@ -462,7 +487,6 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
             }
             else if (!isDragging && (ScrollRect.velocity.magnitude <= thresholdSpeedToSnap || thresholdSpeedToSnap == -1f))
             {
-                HapticManager.Instance.PlaySelectionHaptic();
                 SelectPanel();
             }
         }
@@ -620,7 +644,8 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
             CenteredPanel = panelNumber;
             isSelected = true;
             onPanelSelected.Invoke(SelectedPanel);
-
+            var currentPanel = _contentList[panelNumber];
+            OpenButtons(currentPanel,false);
             if (pagination != null)
             {
                 Toggles[panelNumber].isOn = true;
@@ -630,6 +655,21 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
                 ScrollRect.inertia = false;
             }
         }
+
+        private static void OpenButtons(GameObject currentPanel,bool isAlreadySelected=false)
+        {
+            HapticManager.Instance.PlaySelectionHaptic();
+            currentPanel.transform.DOKill();
+            if (!isAlreadySelected)
+            {
+                currentPanel.transform.localScale = Vector3.zero;
+            }
+            currentPanel.SetActive(true);
+            currentPanel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
+            currentPanel.transform.DOScale(Vector3.zero, .5f).SetEase(Ease.InBack).SetDelay(5)
+                .SetUpdate(UpdateType.Late, true);
+        }
+
         public void GoToPreviousPanel()
         {
             int nearestPanel = GetNearestPanel();
