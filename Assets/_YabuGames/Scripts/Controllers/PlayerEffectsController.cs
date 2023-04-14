@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _YabuGames.Scripts.Managers;
 using _YabuGames.Scripts.Signals;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -52,7 +53,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void ApplyReduceDamage()
         {
-          //  reduceDamageEffect.SetActive(true);
+            
         }
 
         private void ApplyHealingEffect(float duration)
@@ -65,11 +66,13 @@ namespace _YabuGames.Scripts.Controllers
             StartCoroutine(ApplyCoolDown(nitroEffect, duration));
         }
 
-        private IEnumerator ApplyCoolDown(GameObject effect,float time)
+        private static IEnumerator ApplyCoolDown(GameObject effect, float time)
         {
+
             effect.SetActive(true);
             yield return new WaitForSeconds(time);
             effect.SetActive(false);
+
         }
     }
     

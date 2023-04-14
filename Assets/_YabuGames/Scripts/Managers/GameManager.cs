@@ -198,7 +198,6 @@ namespace _YabuGames.Scripts.Managers
             _eliminatedCops = Mathf.Clamp(_eliminatedCops, 0, 1000000);
             if(onSurvive)
                 return;
-            _eliminatedCops = 168;
             if (_eliminatedCops >= _targetEliminate)
             {
                 _waitingRewards++;

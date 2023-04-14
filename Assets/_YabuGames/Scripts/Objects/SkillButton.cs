@@ -19,6 +19,18 @@ namespace _YabuGames.Scripts.Objects
 
         private int _skillLevel = 1;
         private int _skillID;
+        private Button _button;
+
+        private void Awake()
+        {
+            _button = GetComponent<Button>();
+        }
+        
+        private void SetButtonInteractable(bool isInteractable)
+        {
+            _button.interactable = isInteractable;
+        }
+        
 
         public void SetSkill(SkillSpecs skillSpecs)
         {
@@ -43,11 +55,13 @@ namespace _YabuGames.Scripts.Objects
 
         private void OnEnable()
         {
+            SkillSignals.Instance.OnSkillPanelOpened += SetButtonInteractable;
             OnOpening();
         }
 
         private void OnDisable()
         {
+            //SkillSignals.Instance.OnSkillPanelOpened -= SetButtonInteractable;
             foreach (var t in crowns)
             {
                 t.transform.DOComplete();
@@ -69,6 +83,7 @@ namespace _YabuGames.Scripts.Objects
 
         public void ApplySkill()
         {
+            SkillSignals.Instance.OnSkillPanelOpened?.Invoke(false);
             HapticManager.Instance.PlaySelectionHaptic();
             UIManager.Instance.CloseSkillPanel();
             LevelSignals.Instance.OnSkillActive?.Invoke(_skillID);

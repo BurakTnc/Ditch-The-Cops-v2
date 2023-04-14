@@ -16,6 +16,7 @@ namespace _YabuGames.Scripts.Signals
         public UnityAction OnBonusIncome = delegate { };
         public UnityAction OnHealLevelIncrease = delegate { };
         public UnityAction OnReduceDamageLevelIncrease = delegate { };
+        public UnityAction<bool> OnSkillPanelOpened = delegate { };
 
         private void Awake()
         {

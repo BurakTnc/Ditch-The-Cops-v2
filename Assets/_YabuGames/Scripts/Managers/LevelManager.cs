@@ -164,6 +164,7 @@ namespace _YabuGames.Scripts.Managers
             _delayer = Mathf.Clamp(_delayer, 0, skillPanelTime);
             if (_delayer>0)
                 return;
+            SkillSignals.Instance.OnSkillPanelOpened?.Invoke(true);
             ChooseRandomSkill();
             _delayer += skillPanelTime;
             UIManager.Instance.OpenSkillPanel();
