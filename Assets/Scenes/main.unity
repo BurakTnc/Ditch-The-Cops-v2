@@ -36511,7 +36511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSurvive: 0
   survivedTimePerAPlay: 0
-  money: 10000
+  money: 0
   missionsIcon: {fileID: 86247009}
 --- !u!4 &2535183592692100951
 Transform:

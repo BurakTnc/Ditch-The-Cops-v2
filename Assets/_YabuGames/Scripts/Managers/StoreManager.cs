@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using _YabuGames.Scripts.Signals;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -237,6 +238,7 @@ namespace _YabuGames.Scripts.Managers
             CheckButtonConditions();
             SetButtons();
             Save();
+            CoreGameSignals.Instance.OnSave?.Invoke();
         }
 
         public void UnlockCar(int carID)
@@ -269,6 +271,7 @@ namespace _YabuGames.Scripts.Managers
             CheckButtonConditions();
             SetButtons();
             Save();
+            CoreGameSignals.Instance.OnSave?.Invoke();
         }
 
         
