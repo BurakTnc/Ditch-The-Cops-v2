@@ -28,8 +28,18 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private TextMeshProUGUI[] carButtonTexts;
         [SerializeField] private GameObject[] carButtonImages;
 
+        [Header("Watch Buttons")] 
+        [SerializeField] private Button[] watchMapButtons = new Button[3];
+        [SerializeField] private Button[] watchCarButtons = new Button[8];
+        [SerializeField] private TextMeshProUGUI[] watchMapButtonTexts = new TextMeshProUGUI[3];
+        [SerializeField] private TextMeshProUGUI[] watchCarButtonTexts = new TextMeshProUGUI[8];
+        [SerializeField] private int[] targetWatchMapCounts = new int[3];
+        [SerializeField] private int[] targetWatchCarCounts = new int[8];
+
         private int _prevMapId, _prevCarId;
         private readonly int[] _boughtMysteryCars = new int[9];
+        private readonly int[] _watchMapStatus = new int[3];
+        private readonly int[] _watchCarStatus = new int[8];
 
         private void Awake()
         {
