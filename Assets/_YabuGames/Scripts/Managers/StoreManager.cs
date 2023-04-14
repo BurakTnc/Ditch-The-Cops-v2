@@ -20,7 +20,6 @@ namespace _YabuGames.Scripts.Managers
         [HideInInspector] public int[] boughtCars = new int[9];
 
         [SerializeField] private int[] mysteryButtonIds;
-        [SerializeField] private GameObject[] currentMapImages;
         [SerializeField] private Button[] carButtons;
         [SerializeField] private Button[] mapButtons;
         [SerializeField] private TextMeshProUGUI[] mapButtonsTexts;
@@ -57,7 +56,6 @@ namespace _YabuGames.Scripts.Managers
         {
             CheckButtonConditions();
             SetButtons();
-            SetCurrentMapImage();
         }
 
         private void CheckButtonConditions()
@@ -154,6 +152,10 @@ namespace _YabuGames.Scripts.Managers
 
         private void GetValues()
         {
+            #region Buttons
+
+            #region MapButtons
+
             for (var i = 0; i < boughtMaps.Length; i++)
             {
                 if (i==0)
@@ -166,6 +168,10 @@ namespace _YabuGames.Scripts.Managers
                 }
             }
 
+            #endregion
+
+            #region CarButtons
+
             for (var i = 0; i < boughtCars.Length; i++)
             {
                 if (i == 0)
@@ -177,8 +183,13 @@ namespace _YabuGames.Scripts.Managers
                     boughtCars[i] = PlayerPrefs.GetInt($"car{i}", 0);
                 }
             }
-            _prevMapId = PlayerPrefs.GetInt("prevMapId", 0);
-            _prevCarId = PlayerPrefs.GetInt("prevCarId", 0);
+
+#endregion
+
+            #endregion
+
+            #region MysteryButtons
+
             for (var i = 0; i < _boughtMysteryCars.Length; i++)
             {
                 var id = PlayerPrefs.GetInt($"mysteryCar{i}", 0);
@@ -186,11 +197,30 @@ namespace _YabuGames.Scripts.Managers
                 {
                     _boughtMysteryCars[i] = 1;
                 }
-                // if (PlayerPrefs.HasKey($"mysteryCar{mysteryButtonIds[i]}"))
-                // {
-                //     
-                // }
+        
             }
+
+            #endregion
+
+            #region WatchButtons
+
+            #region WatchMapButtons
+
+            
+
+            #endregion
+
+            #region WatchCarButtons
+
+            
+
+                
+            #endregion
+
+            #endregion
+            
+            _prevMapId = PlayerPrefs.GetInt("prevMapId", 0);
+            _prevCarId = PlayerPrefs.GetInt("prevCarId", 0);
         }
         private void Save()
         {
@@ -207,16 +237,49 @@ namespace _YabuGames.Scripts.Managers
             PlayerPrefs.SetInt("prevCarId",_prevCarId);
         }
 
-        private void SetCurrentMapImage()
+        private void MapWatchStatus(int mapID)
         {
-            foreach (var t in currentMapImages)
-            {
-                t.SetActive(false);
-            }
+            var id = mapID - 1;
+            var status = _watchMapStatus[id];
 
-            currentMapImages[_prevMapId].SetActive(true);
+            status++;
+            if (status >= targetWatchMapCounts[id])
+            {
+                PlayerPrefs.SetInt($"watchMapStatus{id}",-1);
+                watchMapButtons[id].gameObject.SetActive(false);
+                UnlockMap(mapID);
+                return;
+            }
+            
+            PlayerPrefs.SetInt($"watchMapStatus{id}",status);
+        }
+        private void CarWatchStatus(int mapID)
+        {
+            var id = mapID - 1;
+            var status = _watchMapStatus[id];
+
+            status++;
+            if (status >= targetWatchMapCounts[id])
+            {
+                PlayerPrefs.SetInt($"watchMapStatus{id}", -1);
+                watchMapButtons[id].gameObject.SetActive(false);
+                UnlockMap(mapID);
+                return;
+            }
+            
+            PlayerPrefs.SetInt($"watchMapStatus{id}",status);
+        }
+        
+        public void WatchForMapButton(int mapID)
+        {
+            AdManager.Instance.ShowRewardedMap(mapID);
         }
 
+        public void WatchForCarButton(int carID)
+        {
+            
+        }
+        
         public void UnlockMap(int mapID)
         {
             if (_prevMapId == 0)
@@ -225,7 +288,6 @@ namespace _YabuGames.Scripts.Managers
                 mapButtonImages[mapID].SetActive(false);
                 _prevMapId = mapID;
                 PlayerPrefs.SetInt("prevMapId",_prevMapId);
-                SetCurrentMapImage();
             }
             else
             {
@@ -235,10 +297,8 @@ namespace _YabuGames.Scripts.Managers
                 mapButtonImages[mapID].SetActive(false);
                 _prevMapId = mapID;
                 PlayerPrefs.SetInt("prevMapId",_prevMapId);
-                SetCurrentMapImage();
-        
+
             }
-            currentMapImages[mapID].SetActive(true);
             SceneLoader.Instance.ChangeSceneIndex(mapID+1);
             if (boughtMaps[mapID] == 0)
             {
