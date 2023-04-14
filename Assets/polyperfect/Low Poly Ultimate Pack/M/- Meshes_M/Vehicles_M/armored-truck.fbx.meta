@@ -1,45 +1,113 @@
 fileFormatVersion: 2
 guid: e013675de5698c244afd86565a17f24b
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: armored-truck-base
-    100004: armored-truck-wheel_BL
-    100006: armored-truck-wheel_BR
-    100008: armored-truck-wheel_FL
-    100010: armored-truck-wheel_FR
-    400000: //RootNode
-    400002: armored-truck-base
-    400004: armored-truck-wheel_BL
-    400006: armored-truck-wheel_BR
-    400008: armored-truck-wheel_FL
-    400010: armored-truck-wheel_FR
-    2100000: 20 GREY
-    2100002: 64 GLASS
-    2100004: 17 GREY-DARKEST
-    2100006: 57 BLACK
-    2100008: 59 EMISSION-WHITE
-    2100010: 58 WHITE
-    2100012: 60 EMISSION-RED
-    2300000: armored-truck-base
-    2300002: armored-truck-wheel_BL
-    2300004: armored-truck-wheel_BR
-    2300006: armored-truck-wheel_FL
-    2300008: armored-truck-wheel_FR
-    3300000: armored-truck-base
-    3300002: armored-truck-wheel_BL
-    3300004: armored-truck-wheel_BR
-    3300006: armored-truck-wheel_FL
-    3300008: armored-truck-wheel_FR
-    4300000: armored-truck-base
-    4300002: armored-truck-wheel_FR
-    4300004: armored-truck-wheel_FL
-    4300006: armored-truck-wheel_BR
-    4300008: armored-truck-wheel_BL
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: armored-truck-base
+  - first:
+      1: 100004
+    second: armored-truck-wheel_BL
+  - first:
+      1: 100006
+    second: armored-truck-wheel_BR
+  - first:
+      1: 100008
+    second: armored-truck-wheel_FL
+  - first:
+      1: 100010
+    second: armored-truck-wheel_FR
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: armored-truck-base
+  - first:
+      4: 400004
+    second: armored-truck-wheel_BL
+  - first:
+      4: 400006
+    second: armored-truck-wheel_BR
+  - first:
+      4: 400008
+    second: armored-truck-wheel_FL
+  - first:
+      4: 400010
+    second: armored-truck-wheel_FR
+  - first:
+      21: 2100000
+    second: 20 GREY
+  - first:
+      21: 2100002
+    second: 64 GLASS
+  - first:
+      21: 2100004
+    second: 17 GREY-DARKEST
+  - first:
+      21: 2100006
+    second: 57 BLACK
+  - first:
+      21: 2100008
+    second: 59 EMISSION-WHITE
+  - first:
+      21: 2100010
+    second: 58 WHITE
+  - first:
+      21: 2100012
+    second: 60 EMISSION-RED
+  - first:
+      23: 2300000
+    second: armored-truck-base
+  - first:
+      23: 2300002
+    second: armored-truck-wheel_BL
+  - first:
+      23: 2300004
+    second: armored-truck-wheel_BR
+  - first:
+      23: 2300006
+    second: armored-truck-wheel_FL
+  - first:
+      23: 2300008
+    second: armored-truck-wheel_FR
+  - first:
+      33: 3300000
+    second: armored-truck-base
+  - first:
+      33: 3300002
+    second: armored-truck-wheel_BL
+  - first:
+      33: 3300004
+    second: armored-truck-wheel_BR
+  - first:
+      33: 3300006
+    second: armored-truck-wheel_FL
+  - first:
+      33: 3300008
+    second: armored-truck-wheel_FR
+  - first:
+      43: 4300000
+    second: armored-truck-base
+  - first:
+      43: 4300002
+    second: armored-truck-wheel_FR
+  - first:
+      43: 4300004
+    second: armored-truck-wheel_FL
+  - first:
+      43: 4300006
+    second: armored-truck-wheel_BR
+  - first:
+      43: 4300008
+    second: armored-truck-wheel_BL
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -48,6 +116,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -69,28 +138,37 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 2
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -99,10 +177,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -112,13 +190,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

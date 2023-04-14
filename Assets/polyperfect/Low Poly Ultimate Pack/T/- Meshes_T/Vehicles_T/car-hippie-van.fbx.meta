@@ -1,94 +1,245 @@
 fileFormatVersion: 2
 guid: e92f069a140934191983d973dea63ed7
-timeCreated: 1513195712
-licenseType: Store
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName:
-    100000: car-hippieVan-wheelBackLeft
-    100002: car-hippieVan-wheelBackRight
-    100004: car-hippieVan-wheelFrontLeft
-    100006: car-hippieVan-wheelFrontRight
-    100008: //RootNode
-    100010: van-hippie-base
-    100012: van-hippie-wheel_BL
-    100014: van-hippie-wheel_BR
-    100016: van-hippie-wheel_FL
-    100018: van-hippie-wheel_FR
-    100020: car-hippie-van-base
-    100022: car-hippie-van-wheel_BL
-    100024: car-hippie-van-wheel_FL
-    100026: car-hippie-van-wheel_FR
-    100028: car-hippie-van-wheel_BR
-    400000: car-hippieVan-wheelBackLeft
-    400002: car-hippieVan-wheelBackRight
-    400004: car-hippieVan-wheelFrontLeft
-    400006: car-hippieVan-wheelFrontRight
-    400008: //RootNode
-    400010: van-hippie-base
-    400012: van-hippie-wheel_BL
-    400014: van-hippie-wheel_BR
-    400016: van-hippie-wheel_FL
-    400018: van-hippie-wheel_FR
-    400020: car-hippie-van-base
-    400022: car-hippie-van-wheel_BL
-    400024: car-hippie-van-wheel_FL
-    400026: car-hippie-van-wheel_FR
-    400028: car-hippie-van-wheel_BR
-    2300000: car-hippieVan-wheelBackLeft
-    2300002: car-hippieVan-wheelBackRight
-    2300004: car-hippieVan-wheelFrontLeft
-    2300006: car-hippieVan-wheelFrontRight
-    2300008: //RootNode
-    2300010: van-hippie-base
-    2300012: van-hippie-wheel_BL
-    2300014: van-hippie-wheel_BR
-    2300016: van-hippie-wheel_FL
-    2300018: van-hippie-wheel_FR
-    2300020: car-hippie-van-base
-    2300022: car-hippie-van-wheel_BL
-    2300024: car-hippie-van-wheel_FL
-    2300026: car-hippie-van-wheel_FR
-    2300028: car-hippie-van-wheel_BR
-    3300000: car-hippieVan-wheelBackLeft
-    3300002: car-hippieVan-wheelBackRight
-    3300004: car-hippieVan-wheelFrontLeft
-    3300006: car-hippieVan-wheelFrontRight
-    3300008: //RootNode
-    3300010: van-hippie-base
-    3300012: van-hippie-wheel_BL
-    3300014: van-hippie-wheel_BR
-    3300016: van-hippie-wheel_FL
-    3300018: van-hippie-wheel_FR
-    3300020: car-hippie-van-base
-    3300022: car-hippie-van-wheel_BL
-    3300024: car-hippie-van-wheel_FL
-    3300026: car-hippie-van-wheel_FR
-    3300028: car-hippie-van-wheel_BR
-    4300000: hippieVan
-    4300002: car-hippieVan-wheelBackRight
-    4300004: car-hippieVan-wheelFrontLeft
-    4300006: car-hippieVan-wheelBackLeft
-    4300008: car-hippieVan-wheelFrontRight
-    4300010: van-hippie-base
-    4300012: van-hippie-wheel_BR
-    4300014: van-hippie-wheel_FL
-    4300016: van-hippie-wheel_BL
-    4300018: van-hippie-wheel_FR
-    4300020: car-hippie-van-base
-    4300022: car-hippie-van-wheel_FL
-    4300024: car-hippie-van-wheel_BL
-    4300026: car-hippie-van-wheel_FR
-    4300028: car-hippie-van-wheel_BR
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: car-hippieVan-wheelBackLeft
+  - first:
+      1: 100002
+    second: car-hippieVan-wheelBackRight
+  - first:
+      1: 100004
+    second: car-hippieVan-wheelFrontLeft
+  - first:
+      1: 100006
+    second: car-hippieVan-wheelFrontRight
+  - first:
+      1: 100008
+    second: //RootNode
+  - first:
+      1: 100010
+    second: van-hippie-base
+  - first:
+      1: 100012
+    second: van-hippie-wheel_BL
+  - first:
+      1: 100014
+    second: van-hippie-wheel_BR
+  - first:
+      1: 100016
+    second: van-hippie-wheel_FL
+  - first:
+      1: 100018
+    second: van-hippie-wheel_FR
+  - first:
+      1: 100020
+    second: car-hippie-van-base
+  - first:
+      1: 100022
+    second: car-hippie-van-wheel_BL
+  - first:
+      1: 100024
+    second: car-hippie-van-wheel_FL
+  - first:
+      1: 100026
+    second: car-hippie-van-wheel_FR
+  - first:
+      1: 100028
+    second: car-hippie-van-wheel_BR
+  - first:
+      4: 400000
+    second: car-hippieVan-wheelBackLeft
+  - first:
+      4: 400002
+    second: car-hippieVan-wheelBackRight
+  - first:
+      4: 400004
+    second: car-hippieVan-wheelFrontLeft
+  - first:
+      4: 400006
+    second: car-hippieVan-wheelFrontRight
+  - first:
+      4: 400008
+    second: //RootNode
+  - first:
+      4: 400010
+    second: van-hippie-base
+  - first:
+      4: 400012
+    second: van-hippie-wheel_BL
+  - first:
+      4: 400014
+    second: van-hippie-wheel_BR
+  - first:
+      4: 400016
+    second: van-hippie-wheel_FL
+  - first:
+      4: 400018
+    second: van-hippie-wheel_FR
+  - first:
+      4: 400020
+    second: car-hippie-van-base
+  - first:
+      4: 400022
+    second: car-hippie-van-wheel_BL
+  - first:
+      4: 400024
+    second: car-hippie-van-wheel_FL
+  - first:
+      4: 400026
+    second: car-hippie-van-wheel_FR
+  - first:
+      4: 400028
+    second: car-hippie-van-wheel_BR
+  - first:
+      23: 2300000
+    second: car-hippieVan-wheelBackLeft
+  - first:
+      23: 2300002
+    second: car-hippieVan-wheelBackRight
+  - first:
+      23: 2300004
+    second: car-hippieVan-wheelFrontLeft
+  - first:
+      23: 2300006
+    second: car-hippieVan-wheelFrontRight
+  - first:
+      23: 2300008
+    second: //RootNode
+  - first:
+      23: 2300010
+    second: van-hippie-base
+  - first:
+      23: 2300012
+    second: van-hippie-wheel_BL
+  - first:
+      23: 2300014
+    second: van-hippie-wheel_BR
+  - first:
+      23: 2300016
+    second: van-hippie-wheel_FL
+  - first:
+      23: 2300018
+    second: van-hippie-wheel_FR
+  - first:
+      23: 2300020
+    second: car-hippie-van-base
+  - first:
+      23: 2300022
+    second: car-hippie-van-wheel_BL
+  - first:
+      23: 2300024
+    second: car-hippie-van-wheel_FL
+  - first:
+      23: 2300026
+    second: car-hippie-van-wheel_FR
+  - first:
+      23: 2300028
+    second: car-hippie-van-wheel_BR
+  - first:
+      33: 3300000
+    second: car-hippieVan-wheelBackLeft
+  - first:
+      33: 3300002
+    second: car-hippieVan-wheelBackRight
+  - first:
+      33: 3300004
+    second: car-hippieVan-wheelFrontLeft
+  - first:
+      33: 3300006
+    second: car-hippieVan-wheelFrontRight
+  - first:
+      33: 3300008
+    second: //RootNode
+  - first:
+      33: 3300010
+    second: van-hippie-base
+  - first:
+      33: 3300012
+    second: van-hippie-wheel_BL
+  - first:
+      33: 3300014
+    second: van-hippie-wheel_BR
+  - first:
+      33: 3300016
+    second: van-hippie-wheel_FL
+  - first:
+      33: 3300018
+    second: van-hippie-wheel_FR
+  - first:
+      33: 3300020
+    second: car-hippie-van-base
+  - first:
+      33: 3300022
+    second: car-hippie-van-wheel_BL
+  - first:
+      33: 3300024
+    second: car-hippie-van-wheel_FL
+  - first:
+      33: 3300026
+    second: car-hippie-van-wheel_FR
+  - first:
+      33: 3300028
+    second: car-hippie-van-wheel_BR
+  - first:
+      43: 4300000
+    second: hippieVan
+  - first:
+      43: 4300002
+    second: car-hippieVan-wheelBackRight
+  - first:
+      43: 4300004
+    second: car-hippieVan-wheelFrontLeft
+  - first:
+      43: 4300006
+    second: car-hippieVan-wheelBackLeft
+  - first:
+      43: 4300008
+    second: car-hippieVan-wheelFrontRight
+  - first:
+      43: 4300010
+    second: van-hippie-base
+  - first:
+      43: 4300012
+    second: van-hippie-wheel_BR
+  - first:
+      43: 4300014
+    second: van-hippie-wheel_FL
+  - first:
+      43: 4300016
+    second: van-hippie-wheel_BL
+  - first:
+      43: 4300018
+    second: van-hippie-wheel_FR
+  - first:
+      43: 4300020
+    second: car-hippie-van-base
+  - first:
+      43: 4300022
+    second: car-hippie-van-wheel_FL
+  - first:
+      43: 4300024
+    second: car-hippie-van-wheel_BL
+  - first:
+      43: 4300026
+    second: car-hippie-van-wheel_FR
+  - first:
+      43: 4300028
+    second: car-hippie-van-wheel_BR
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -96,6 +247,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -108,21 +261,35 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 2
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -130,10 +297,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -143,14 +313,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

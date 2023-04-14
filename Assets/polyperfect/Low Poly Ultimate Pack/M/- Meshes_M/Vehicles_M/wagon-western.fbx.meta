@@ -1,121 +1,326 @@
 fileFormatVersion: 2
 guid: 495c49394ffa04bc99a138bf054017ed
-timeCreated: 1500934797
-licenseType: Store
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName:
-    100000: Root
-    100002: wagon--wheel1
-    100004: wagon--wheel1 1
-    100006: wagon--wheel1_end
-    100008: wagon--wheel2
-    100010: wagon--wheel2 1
-    100012: wagon--wheel2_end
-    100014: wagon--wheel3
-    100016: wagon--wheel3 1
-    100018: wagon--wheel3_end
-    100020: wagon--wheel4
-    100022: wagon--wheel4 1
-    100024: wagon--wheel4_end
-    100026: wagon--wheels1
-    100028: wagon--wheels1 1
-    100030: wagon--wheels2
-    100032: wagon--wheels2 1
-    100034: wagon-western
-    100036: //RootNode
-    100038: wagon-western-base
-    100040: wagon-wheel-base1
-    100042: wagon-wheel-base2
-    100044: wagon-wheel1
-    100046: wagon-wheel2
-    100048: wagon-wheel3
-    100050: wagon-wheel4
-    400000: Root
-    400002: wagon--wheel1
-    400004: wagon--wheel1 1
-    400006: wagon--wheel1_end
-    400008: wagon--wheel2
-    400010: wagon--wheel2 1
-    400012: wagon--wheel2_end
-    400014: wagon--wheel3
-    400016: wagon--wheel3 1
-    400018: wagon--wheel3_end
-    400020: wagon--wheel4
-    400022: wagon--wheel4 1
-    400024: wagon--wheel4_end
-    400026: wagon--wheels1
-    400028: wagon--wheels1 1
-    400030: wagon--wheels2
-    400032: wagon--wheels2 1
-    400034: wagon-western
-    400036: //RootNode
-    400038: wagon-western-base
-    400040: wagon-wheel-base1
-    400042: wagon-wheel-base2
-    400044: wagon-wheel1
-    400046: wagon-wheel2
-    400048: wagon-wheel3
-    400050: wagon-wheel4
-    2300000: wagon--wheel1 1
-    2300002: wagon--wheel2 1
-    2300004: wagon--wheel3 1
-    2300006: wagon--wheel4 1
-    2300008: wagon--wheels1 1
-    2300010: wagon--wheels2 1
-    2300012: wagon-western
-    2300014: wagon-western-base
-    2300016: wagon-wheel-base1
-    2300018: wagon-wheel-base2
-    2300020: wagon-wheel1
-    2300022: wagon-wheel2
-    2300024: wagon-wheel3
-    2300026: wagon-wheel4
-    3300000: wagon--wheel1 1
-    3300002: wagon--wheel2 1
-    3300004: wagon--wheel3 1
-    3300006: wagon--wheel4 1
-    3300008: wagon--wheels1 1
-    3300010: wagon--wheels2 1
-    3300012: wagon-western
-    3300014: wagon-western-base
-    3300016: wagon-wheel-base1
-    3300018: wagon-wheel-base2
-    3300020: wagon-wheel1
-    3300022: wagon-wheel2
-    3300024: wagon-wheel3
-    3300026: wagon-wheel4
-    4300000: wagon-western
-    4300002: wagon--wheels2
-    4300004: wagon--wheel3
-    4300006: wagon--wheel4
-    4300008: wagon--wheels1
-    4300010: wagon--wheel2
-    4300012: wagon--wheel1
-    4300014: wagon-western-base
-    4300016: wagon-wheel-base1
-    4300018: wagon-wheel2
-    4300020: wagon-wheel1
-    4300022: wagon-wheel-base2
-    4300024: wagon-wheel4
-    4300026: wagon-wheel3
-    7400000: WagonRig|WagonDrive
-    7400002: WagonRig|WagonDrive.001
-    7400004: wagon-western|WagonDrive.001
-    7400006: wagon--wheel2|WagonDrive.001
-    7400008: wagon--wheel1|WagonDrive.001
-    7400010: wagon--wheel3|WagonDrive.001
-    7400012: wagon--wheel4|WagonDrive.001
-    9500000: //RootNode
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Root
+  - first:
+      1: 100002
+    second: wagon--wheel1
+  - first:
+      1: 100004
+    second: wagon--wheel1 1
+  - first:
+      1: 100006
+    second: wagon--wheel1_end
+  - first:
+      1: 100008
+    second: wagon--wheel2
+  - first:
+      1: 100010
+    second: wagon--wheel2 1
+  - first:
+      1: 100012
+    second: wagon--wheel2_end
+  - first:
+      1: 100014
+    second: wagon--wheel3
+  - first:
+      1: 100016
+    second: wagon--wheel3 1
+  - first:
+      1: 100018
+    second: wagon--wheel3_end
+  - first:
+      1: 100020
+    second: wagon--wheel4
+  - first:
+      1: 100022
+    second: wagon--wheel4 1
+  - first:
+      1: 100024
+    second: wagon--wheel4_end
+  - first:
+      1: 100026
+    second: wagon--wheels1
+  - first:
+      1: 100028
+    second: wagon--wheels1 1
+  - first:
+      1: 100030
+    second: wagon--wheels2
+  - first:
+      1: 100032
+    second: wagon--wheels2 1
+  - first:
+      1: 100034
+    second: wagon-western
+  - first:
+      1: 100036
+    second: //RootNode
+  - first:
+      1: 100038
+    second: wagon-western-base
+  - first:
+      1: 100040
+    second: wagon-wheel-base1
+  - first:
+      1: 100042
+    second: wagon-wheel-base2
+  - first:
+      1: 100044
+    second: wagon-wheel1
+  - first:
+      1: 100046
+    second: wagon-wheel2
+  - first:
+      1: 100048
+    second: wagon-wheel3
+  - first:
+      1: 100050
+    second: wagon-wheel4
+  - first:
+      4: 400000
+    second: Root
+  - first:
+      4: 400002
+    second: wagon--wheel1
+  - first:
+      4: 400004
+    second: wagon--wheel1 1
+  - first:
+      4: 400006
+    second: wagon--wheel1_end
+  - first:
+      4: 400008
+    second: wagon--wheel2
+  - first:
+      4: 400010
+    second: wagon--wheel2 1
+  - first:
+      4: 400012
+    second: wagon--wheel2_end
+  - first:
+      4: 400014
+    second: wagon--wheel3
+  - first:
+      4: 400016
+    second: wagon--wheel3 1
+  - first:
+      4: 400018
+    second: wagon--wheel3_end
+  - first:
+      4: 400020
+    second: wagon--wheel4
+  - first:
+      4: 400022
+    second: wagon--wheel4 1
+  - first:
+      4: 400024
+    second: wagon--wheel4_end
+  - first:
+      4: 400026
+    second: wagon--wheels1
+  - first:
+      4: 400028
+    second: wagon--wheels1 1
+  - first:
+      4: 400030
+    second: wagon--wheels2
+  - first:
+      4: 400032
+    second: wagon--wheels2 1
+  - first:
+      4: 400034
+    second: wagon-western
+  - first:
+      4: 400036
+    second: //RootNode
+  - first:
+      4: 400038
+    second: wagon-western-base
+  - first:
+      4: 400040
+    second: wagon-wheel-base1
+  - first:
+      4: 400042
+    second: wagon-wheel-base2
+  - first:
+      4: 400044
+    second: wagon-wheel1
+  - first:
+      4: 400046
+    second: wagon-wheel2
+  - first:
+      4: 400048
+    second: wagon-wheel3
+  - first:
+      4: 400050
+    second: wagon-wheel4
+  - first:
+      23: 2300000
+    second: wagon--wheel1 1
+  - first:
+      23: 2300002
+    second: wagon--wheel2 1
+  - first:
+      23: 2300004
+    second: wagon--wheel3 1
+  - first:
+      23: 2300006
+    second: wagon--wheel4 1
+  - first:
+      23: 2300008
+    second: wagon--wheels1 1
+  - first:
+      23: 2300010
+    second: wagon--wheels2 1
+  - first:
+      23: 2300012
+    second: wagon-western
+  - first:
+      23: 2300014
+    second: wagon-western-base
+  - first:
+      23: 2300016
+    second: wagon-wheel-base1
+  - first:
+      23: 2300018
+    second: wagon-wheel-base2
+  - first:
+      23: 2300020
+    second: wagon-wheel1
+  - first:
+      23: 2300022
+    second: wagon-wheel2
+  - first:
+      23: 2300024
+    second: wagon-wheel3
+  - first:
+      23: 2300026
+    second: wagon-wheel4
+  - first:
+      33: 3300000
+    second: wagon--wheel1 1
+  - first:
+      33: 3300002
+    second: wagon--wheel2 1
+  - first:
+      33: 3300004
+    second: wagon--wheel3 1
+  - first:
+      33: 3300006
+    second: wagon--wheel4 1
+  - first:
+      33: 3300008
+    second: wagon--wheels1 1
+  - first:
+      33: 3300010
+    second: wagon--wheels2 1
+  - first:
+      33: 3300012
+    second: wagon-western
+  - first:
+      33: 3300014
+    second: wagon-western-base
+  - first:
+      33: 3300016
+    second: wagon-wheel-base1
+  - first:
+      33: 3300018
+    second: wagon-wheel-base2
+  - first:
+      33: 3300020
+    second: wagon-wheel1
+  - first:
+      33: 3300022
+    second: wagon-wheel2
+  - first:
+      33: 3300024
+    second: wagon-wheel3
+  - first:
+      33: 3300026
+    second: wagon-wheel4
+  - first:
+      43: 4300000
+    second: wagon-western
+  - first:
+      43: 4300002
+    second: wagon--wheels2
+  - first:
+      43: 4300004
+    second: wagon--wheel3
+  - first:
+      43: 4300006
+    second: wagon--wheel4
+  - first:
+      43: 4300008
+    second: wagon--wheels1
+  - first:
+      43: 4300010
+    second: wagon--wheel2
+  - first:
+      43: 4300012
+    second: wagon--wheel1
+  - first:
+      43: 4300014
+    second: wagon-western-base
+  - first:
+      43: 4300016
+    second: wagon-wheel-base1
+  - first:
+      43: 4300018
+    second: wagon-wheel2
+  - first:
+      43: 4300020
+    second: wagon-wheel1
+  - first:
+      43: 4300022
+    second: wagon-wheel-base2
+  - first:
+      43: 4300024
+    second: wagon-wheel4
+  - first:
+      43: 4300026
+    second: wagon-wheel3
+  - first:
+      74: 7400000
+    second: WagonRig|WagonDrive
+  - first:
+      74: 7400002
+    second: WagonRig|WagonDrive.001
+  - first:
+      74: 7400004
+    second: wagon-western|WagonDrive.001
+  - first:
+      74: 7400006
+    second: wagon--wheel2|WagonDrive.001
+  - first:
+      74: 7400008
+    second: wagon--wheel1|WagonDrive.001
+  - first:
+      74: 7400010
+    second: wagon--wheel3|WagonDrive.001
+  - first:
+      74: 7400012
+    second: wagon--wheel4|WagonDrive.001
+  - first:
+      95: 9500000
+    second: //RootNode
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -123,6 +328,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -134,6 +341,7 @@ ModelImporter:
     - serializedVersion: 16
       name: WagonRig|WagonDrive
       takeName: WagonRig|WagonDrive
+      internalID: 0
       firstFrame: 0
       lastFrame: 29
       wrapMode: 0
@@ -201,21 +409,35 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 2
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -223,10 +445,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -236,14 +461,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

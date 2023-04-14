@@ -1,40 +1,98 @@
 fileFormatVersion: 2
 guid: 7a9ecc973d7f5da4c9d0784cf49e0c85
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: car-tow-truck-base
-    100004: car-tow-truck-wheel_BL
-    100006: car-tow-truck-wheel_FL
-    100008: car-tow-truck-wheel_FR
-    100010: car-tow-truck_BR
-    400000: //RootNode
-    400002: car-tow-truck-base
-    400004: car-tow-truck-wheel_BL
-    400006: car-tow-truck-wheel_FL
-    400008: car-tow-truck-wheel_FR
-    400010: car-tow-truck_BR
-    2100000: LOWPOLY-COLORS
-    2100002: 17 GREY-DARKEST.007
-    2300000: car-tow-truck-base
-    2300002: car-tow-truck-wheel_BL
-    2300004: car-tow-truck-wheel_FL
-    2300006: car-tow-truck-wheel_FR
-    2300008: car-tow-truck_BR
-    3300000: car-tow-truck-base
-    3300002: car-tow-truck-wheel_BL
-    3300004: car-tow-truck-wheel_FL
-    3300006: car-tow-truck-wheel_FR
-    3300008: car-tow-truck_BR
-    4300000: car-tow-truck-base
-    4300002: car-tow-truck-wheel_BL
-    4300004: car-tow-truck_BR
-    4300006: car-tow-truck-wheel_FL
-    4300008: car-tow-truck-wheel_FR
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: car-tow-truck-base
+  - first:
+      1: 100004
+    second: car-tow-truck-wheel_BL
+  - first:
+      1: 100006
+    second: car-tow-truck-wheel_FL
+  - first:
+      1: 100008
+    second: car-tow-truck-wheel_FR
+  - first:
+      1: 100010
+    second: car-tow-truck_BR
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: car-tow-truck-base
+  - first:
+      4: 400004
+    second: car-tow-truck-wheel_BL
+  - first:
+      4: 400006
+    second: car-tow-truck-wheel_FL
+  - first:
+      4: 400008
+    second: car-tow-truck-wheel_FR
+  - first:
+      4: 400010
+    second: car-tow-truck_BR
+  - first:
+      21: 2100000
+    second: LOWPOLY-COLORS
+  - first:
+      21: 2100002
+    second: 17 GREY-DARKEST.007
+  - first:
+      23: 2300000
+    second: car-tow-truck-base
+  - first:
+      23: 2300002
+    second: car-tow-truck-wheel_BL
+  - first:
+      23: 2300004
+    second: car-tow-truck-wheel_FL
+  - first:
+      23: 2300006
+    second: car-tow-truck-wheel_FR
+  - first:
+      23: 2300008
+    second: car-tow-truck_BR
+  - first:
+      33: 3300000
+    second: car-tow-truck-base
+  - first:
+      33: 3300002
+    second: car-tow-truck-wheel_BL
+  - first:
+      33: 3300004
+    second: car-tow-truck-wheel_FL
+  - first:
+      33: 3300006
+    second: car-tow-truck-wheel_FR
+  - first:
+      33: 3300008
+    second: car-tow-truck_BR
+  - first:
+      43: 4300000
+    second: car-tow-truck-base
+  - first:
+      43: 4300002
+    second: car-tow-truck-wheel_BL
+  - first:
+      43: 4300004
+    second: car-tow-truck_BR
+  - first:
+      43: 4300006
+    second: car-tow-truck-wheel_FL
+  - first:
+      43: 4300008
+    second: car-tow-truck-wheel_FR
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -43,6 +101,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -64,28 +123,37 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 2
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -94,10 +162,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -107,13 +175,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

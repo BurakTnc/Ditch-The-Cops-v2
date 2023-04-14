@@ -1,127 +1,344 @@
 fileFormatVersion: 2
 guid: 718f2b420a30e0045bf9bddd59e75150
-timeCreated: 1472927410
-licenseType: Store
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: sunscreen_04-2
-    100004: Circle.006
-    100006: Cube.009
-    100008: Cube.010
-    100010: Cube.011
-    100012: fence-vineyard01
-    100014: fence-vineyard02.001
-    100016: fence-vineyard03
-    100018: fence-vineyard04
-    100020: grapes
-    100022: grapes|Circle.006|Dupli|0
-    100024: grapes|Cube.010|Dupli|1
-    100026: hexagonTile-land01
-    100028: hexagonTile-land01.001
-    100030: hexagonTile-land02
-    100032: house-vineyard01
-    100034: house11
-    100036: house11|house-vineyard01|Dupli|0
-    100038: Plane.038
-    100040: Plane.328
-    100042: tree17
-    100044: tree17.001
-    400000: //RootNode
-    400002: sunscreen_04-2
-    400004: Circle.006
-    400006: Cube.009
-    400008: Cube.010
-    400010: Cube.011
-    400012: fence-vineyard01
-    400014: fence-vineyard02.001
-    400016: fence-vineyard03
-    400018: fence-vineyard04
-    400020: grapes
-    400022: grapes|Circle.006|Dupli|0
-    400024: grapes|Cube.010|Dupli|1
-    400026: hexagonTile-land01
-    400028: hexagonTile-land01.001
-    400030: hexagonTile-land02
-    400032: house-vineyard01
-    400034: house11
-    400036: house11|house-vineyard01|Dupli|0
-    400038: Plane.038
-    400040: Plane.328
-    400042: tree17
-    400044: tree17.001
-    2300000: //RootNode
-    2300002: sunscreen_04-2
-    2300004: Circle.006
-    2300006: Cube.009
-    2300008: Cube.010
-    2300010: Cube.011
-    2300012: fence-vineyard01
-    2300014: fence-vineyard02.001
-    2300016: fence-vineyard03
-    2300018: fence-vineyard04
-    2300020: grapes|Circle.006|Dupli|0
-    2300022: grapes|Cube.010|Dupli|1
-    2300024: hexagonTile-land01
-    2300026: hexagonTile-land01.001
-    2300028: hexagonTile-land02
-    2300030: house-vineyard01
-    2300032: house11|house-vineyard01|Dupli|0
-    2300034: Plane.038
-    2300036: Plane.328
-    2300038: tree17
-    2300040: tree17.001
-    3300000: //RootNode
-    3300002: sunscreen_04-2
-    3300004: Circle.006
-    3300006: Cube.009
-    3300008: Cube.010
-    3300010: Cube.011
-    3300012: fence-vineyard01
-    3300014: fence-vineyard02.001
-    3300016: fence-vineyard03
-    3300018: fence-vineyard04
-    3300020: grapes|Circle.006|Dupli|0
-    3300022: grapes|Cube.010|Dupli|1
-    3300024: hexagonTile-land01
-    3300026: hexagonTile-land01.001
-    3300028: hexagonTile-land02
-    3300030: house-vineyard01
-    3300032: house11|house-vineyard01|Dupli|0
-    3300034: Plane.038
-    3300036: Plane.328
-    3300038: tree17
-    3300040: tree17.001
-    4300000: sunscreen_04
-    4300002: sunscreen_04-2
-    4300004: sunscreen04
-    4300006: fence-vineyard04
-    4300008: fence-vineyard02.001
-    4300010: fence-vineyard01
-    4300012: hexagonTile-land01
-    4300014: hexagonTile-land02
-    4300016: fence-vineyard03
-    4300018: Cube.011
-    4300020: Circle.006
-    4300022: Cube.010
-    4300024: tree17.001
-    4300026: tree17
-    4300028: Plane.328
-    4300030: house-vineyard01
-    4300032: Cube.009
-    4300034: Plane.038
-    4300036: hexagonTile-land01.001
-    4300038: sunscreen-closed
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: sunscreen_04-2
+  - first:
+      1: 100004
+    second: Circle.006
+  - first:
+      1: 100006
+    second: Cube.009
+  - first:
+      1: 100008
+    second: Cube.010
+  - first:
+      1: 100010
+    second: Cube.011
+  - first:
+      1: 100012
+    second: fence-vineyard01
+  - first:
+      1: 100014
+    second: fence-vineyard02.001
+  - first:
+      1: 100016
+    second: fence-vineyard03
+  - first:
+      1: 100018
+    second: fence-vineyard04
+  - first:
+      1: 100020
+    second: grapes
+  - first:
+      1: 100022
+    second: grapes|Circle.006|Dupli|0
+  - first:
+      1: 100024
+    second: grapes|Cube.010|Dupli|1
+  - first:
+      1: 100026
+    second: hexagonTile-land01
+  - first:
+      1: 100028
+    second: hexagonTile-land01.001
+  - first:
+      1: 100030
+    second: hexagonTile-land02
+  - first:
+      1: 100032
+    second: house-vineyard01
+  - first:
+      1: 100034
+    second: house11
+  - first:
+      1: 100036
+    second: house11|house-vineyard01|Dupli|0
+  - first:
+      1: 100038
+    second: Plane.038
+  - first:
+      1: 100040
+    second: Plane.328
+  - first:
+      1: 100042
+    second: tree17
+  - first:
+      1: 100044
+    second: tree17.001
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: sunscreen_04-2
+  - first:
+      4: 400004
+    second: Circle.006
+  - first:
+      4: 400006
+    second: Cube.009
+  - first:
+      4: 400008
+    second: Cube.010
+  - first:
+      4: 400010
+    second: Cube.011
+  - first:
+      4: 400012
+    second: fence-vineyard01
+  - first:
+      4: 400014
+    second: fence-vineyard02.001
+  - first:
+      4: 400016
+    second: fence-vineyard03
+  - first:
+      4: 400018
+    second: fence-vineyard04
+  - first:
+      4: 400020
+    second: grapes
+  - first:
+      4: 400022
+    second: grapes|Circle.006|Dupli|0
+  - first:
+      4: 400024
+    second: grapes|Cube.010|Dupli|1
+  - first:
+      4: 400026
+    second: hexagonTile-land01
+  - first:
+      4: 400028
+    second: hexagonTile-land01.001
+  - first:
+      4: 400030
+    second: hexagonTile-land02
+  - first:
+      4: 400032
+    second: house-vineyard01
+  - first:
+      4: 400034
+    second: house11
+  - first:
+      4: 400036
+    second: house11|house-vineyard01|Dupli|0
+  - first:
+      4: 400038
+    second: Plane.038
+  - first:
+      4: 400040
+    second: Plane.328
+  - first:
+      4: 400042
+    second: tree17
+  - first:
+      4: 400044
+    second: tree17.001
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      23: 2300002
+    second: sunscreen_04-2
+  - first:
+      23: 2300004
+    second: Circle.006
+  - first:
+      23: 2300006
+    second: Cube.009
+  - first:
+      23: 2300008
+    second: Cube.010
+  - first:
+      23: 2300010
+    second: Cube.011
+  - first:
+      23: 2300012
+    second: fence-vineyard01
+  - first:
+      23: 2300014
+    second: fence-vineyard02.001
+  - first:
+      23: 2300016
+    second: fence-vineyard03
+  - first:
+      23: 2300018
+    second: fence-vineyard04
+  - first:
+      23: 2300020
+    second: grapes|Circle.006|Dupli|0
+  - first:
+      23: 2300022
+    second: grapes|Cube.010|Dupli|1
+  - first:
+      23: 2300024
+    second: hexagonTile-land01
+  - first:
+      23: 2300026
+    second: hexagonTile-land01.001
+  - first:
+      23: 2300028
+    second: hexagonTile-land02
+  - first:
+      23: 2300030
+    second: house-vineyard01
+  - first:
+      23: 2300032
+    second: house11|house-vineyard01|Dupli|0
+  - first:
+      23: 2300034
+    second: Plane.038
+  - first:
+      23: 2300036
+    second: Plane.328
+  - first:
+      23: 2300038
+    second: tree17
+  - first:
+      23: 2300040
+    second: tree17.001
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      33: 3300002
+    second: sunscreen_04-2
+  - first:
+      33: 3300004
+    second: Circle.006
+  - first:
+      33: 3300006
+    second: Cube.009
+  - first:
+      33: 3300008
+    second: Cube.010
+  - first:
+      33: 3300010
+    second: Cube.011
+  - first:
+      33: 3300012
+    second: fence-vineyard01
+  - first:
+      33: 3300014
+    second: fence-vineyard02.001
+  - first:
+      33: 3300016
+    second: fence-vineyard03
+  - first:
+      33: 3300018
+    second: fence-vineyard04
+  - first:
+      33: 3300020
+    second: grapes|Circle.006|Dupli|0
+  - first:
+      33: 3300022
+    second: grapes|Cube.010|Dupli|1
+  - first:
+      33: 3300024
+    second: hexagonTile-land01
+  - first:
+      33: 3300026
+    second: hexagonTile-land01.001
+  - first:
+      33: 3300028
+    second: hexagonTile-land02
+  - first:
+      33: 3300030
+    second: house-vineyard01
+  - first:
+      33: 3300032
+    second: house11|house-vineyard01|Dupli|0
+  - first:
+      33: 3300034
+    second: Plane.038
+  - first:
+      33: 3300036
+    second: Plane.328
+  - first:
+      33: 3300038
+    second: tree17
+  - first:
+      33: 3300040
+    second: tree17.001
+  - first:
+      43: 4300000
+    second: sunscreen_04
+  - first:
+      43: 4300002
+    second: sunscreen_04-2
+  - first:
+      43: 4300004
+    second: sunscreen04
+  - first:
+      43: 4300006
+    second: fence-vineyard04
+  - first:
+      43: 4300008
+    second: fence-vineyard02.001
+  - first:
+      43: 4300010
+    second: fence-vineyard01
+  - first:
+      43: 4300012
+    second: hexagonTile-land01
+  - first:
+      43: 4300014
+    second: hexagonTile-land02
+  - first:
+      43: 4300016
+    second: fence-vineyard03
+  - first:
+      43: 4300018
+    second: Cube.011
+  - first:
+      43: 4300020
+    second: Circle.006
+  - first:
+      43: 4300022
+    second: Cube.010
+  - first:
+      43: 4300024
+    second: tree17.001
+  - first:
+      43: 4300026
+    second: tree17
+  - first:
+      43: 4300028
+    second: Plane.328
+  - first:
+      43: 4300030
+    second: house-vineyard01
+  - first:
+      43: 4300032
+    second: Cube.009
+  - first:
+      43: 4300034
+    second: Plane.038
+  - first:
+      43: 4300036
+    second: hexagonTile-land01.001
+  - first:
+      43: 4300038
+    second: sunscreen-closed
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -129,6 +346,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -141,21 +360,35 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 2
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -163,10 +396,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -176,14 +412,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
