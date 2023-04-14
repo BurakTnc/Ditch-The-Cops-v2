@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 478616}
   - component: {fileID: 3353306}
   - component: {fileID: 2346800}
-  - component: {fileID: 6486452}
   m_Layer: 0
   m_Name: CPT_Mountain_L_b_13
   m_TagString: Untagged
@@ -84,17 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6486452
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: d5fbe1d4e29715c44b87e0f3c0ce8e88, type: 3}

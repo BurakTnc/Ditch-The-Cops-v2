@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Map_City.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Map_Dockyard.unity
+    guid: 836f6e3d92dd74575923452eba2b9299
+  - enabled: 1
     path: Assets/Scenes/Map_Town.unity
     guid: 0e3352bdeb1004a2990ff469ef4358b7
   - enabled: 1
