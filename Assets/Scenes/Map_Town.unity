@@ -1537,12 +1537,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earningLevel: 1
-  missileSpawnPeriod: 10
-  godModePeriod: 15
-  nitroPeriod: 15
-  healPeriod: 15
-  spikePeriod: 15
-  oilPeriod: 5
+  missileSpawnPeriod: 20
+  godModePeriod: 23
+  nitroPeriod: 21
+  healPeriod: 18
+  spikePeriod: 22
+  oilPeriod: 18
   instanceSpecs:
   - {fileID: 11400000, guid: 9b9385da55abf4bca835d4c37998d8f3, type: 2}
   - {fileID: 11400000, guid: 2b32c2573dffd48f9b992574b747f89e, type: 2}
