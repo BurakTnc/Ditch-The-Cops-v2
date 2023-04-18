@@ -130,7 +130,7 @@ namespace _YabuGames.Scripts.Managers
         }
         private void GetValues()
         {
-            money = PlayerPrefs.GetInt("money", 0);
+            money = PlayerPrefs.GetInt("money", 999999);
             _eliminatedCops = PlayerPrefs.GetInt("eliminatedCops", 0);
             _survivedTime = PlayerPrefs.GetFloat("survivedTime", 0);
             _playerXp = PlayerPrefs.GetFloat("playerXp", 0);
