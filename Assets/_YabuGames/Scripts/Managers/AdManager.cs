@@ -1,4 +1,5 @@
 using System;
+using _YabuGames.Scripts.Signals;
 using UnityEngine;
 
 namespace _YabuGames.Scripts.Managers
@@ -20,7 +21,12 @@ namespace _YabuGames.Scripts.Managers
 
         public void ShowRewardedMap(int mapID)
         {
-            
+            AdSignals.Instance.OnRewardedMapWatchComplete?.Invoke(mapID);
+        }
+
+        public void ShowRewardedCar(int carID)
+        {
+            AdSignals.Instance.OnRewardedCarWatchComplete?.Invoke(carID);
         }
     }
 }

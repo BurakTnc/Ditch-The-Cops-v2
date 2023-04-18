@@ -52,6 +52,28 @@ namespace _YabuGames.Scripts.Managers
             GetValues();
         }
 
+        private void OnEnable()
+        {
+            Subscribe();
+        }
+
+        private void OnDisable()
+        {
+            UnSubscribe();
+        }
+
+        private void Subscribe()
+        {
+            AdSignals.Instance.OnRewardedMapWatchComplete += MapWatchStatus;
+            AdSignals.Instance.OnRewardedCarWatchComplete += CarWatchStatus;
+        }
+
+        private void UnSubscribe()
+        {
+            AdSignals.Instance.OnRewardedMapWatchComplete -= MapWatchStatus;
+            AdSignals.Instance.OnRewardedCarWatchComplete -= CarWatchStatus;
+        }
+
         private void Start()
         {
             CheckButtonConditions();
@@ -148,6 +170,22 @@ namespace _YabuGames.Scripts.Managers
                     }
                 }
             }
+
+            for (var i = 0; i < watchMapButtons.Length; i++)
+            {
+                var btn = watchMapButtons[i];
+                var text = watchMapButtonTexts[i];
+                var display=_watchMapStatus[i] + "/" + targetWatchMapCounts[i];
+                
+                if (_watchMapStatus[i] == -1)
+                {
+                    btn.gameObject.SetActive(false);
+                }
+                else
+                {
+                    text.text = display;
+                }
+            }
         }
 
         private void GetValues()
@@ -206,6 +244,12 @@ namespace _YabuGames.Scripts.Managers
 
             #region WatchMapButtons
 
+            for (var i = 0; i < _watchMapStatus.Length; i++)
+            {
+                var watchStatus = PlayerPrefs.GetInt($"watchMapStatus{i}", 0);
+                _watchMapStatus[i] = watchStatus;
+
+            }
             
 
             #endregion
@@ -250,24 +294,30 @@ namespace _YabuGames.Scripts.Managers
                 UnlockMap(mapID);
                 return;
             }
-            
+
+            _watchMapStatus[id] = status;
             PlayerPrefs.SetInt($"watchMapStatus{id}",status);
+            CheckButtonConditions();
+            SetButtons();
+            Save();
         }
         private void CarWatchStatus(int mapID)
         {
-            var id = mapID - 1;
-            var status = _watchMapStatus[id];
+            var status = _watchMapStatus[mapID];
 
             status++;
-            if (status >= targetWatchMapCounts[id])
+            if (status >= targetWatchMapCounts[mapID])
             {
-                PlayerPrefs.SetInt($"watchMapStatus{id}", -1);
-                watchMapButtons[id].gameObject.SetActive(false);
+                PlayerPrefs.SetInt($"watchMapStatus{mapID}", -1);
+                watchMapButtons[mapID].gameObject.SetActive(false);
                 UnlockMap(mapID);
                 return;
             }
             
-            PlayerPrefs.SetInt($"watchMapStatus{id}",status);
+            PlayerPrefs.SetInt($"watchMapStatus{mapID}",status);
+            CheckButtonConditions();
+            SetButtons();
+            Save();
         }
         
         public void WatchForMapButton(int mapID)
@@ -277,7 +327,7 @@ namespace _YabuGames.Scripts.Managers
 
         public void WatchForCarButton(int carID)
         {
-            
+            AdManager.Instance.ShowRewardedCar(carID);
         }
         
         public void UnlockMap(int mapID)
@@ -299,7 +349,7 @@ namespace _YabuGames.Scripts.Managers
                 PlayerPrefs.SetInt("prevMapId",_prevMapId);
 
             }
-            SceneLoader.Instance.ChangeSceneIndex(mapID+1);
+            SceneLoader.Instance.ChangeSceneIndex(mapID);
             if (boughtMaps[mapID] == 0)
             {
                 GameManager.Instance.money -= mapPrices[mapID];
