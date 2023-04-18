@@ -8,6 +8,9 @@ namespace _YabuGames.Scripts.Managers
     {
         public static AdManager Instance;
 
+        private const int _showInterLimit = 120;
+
+        private float _timer;
         private void Awake()
         {
             if (Instance != this && Instance != null) 
@@ -19,6 +22,12 @@ namespace _YabuGames.Scripts.Managers
             Instance = this;
         }
 
+        private void Update()
+        {
+            _timer += Time.deltaTime;
+            
+        }
+
         public void ShowRewardedMap(int mapID)
         {
             AdSignals.Instance.OnRewardedMapWatchComplete?.Invoke(mapID);
@@ -27,6 +36,14 @@ namespace _YabuGames.Scripts.Managers
         public void ShowRewardedCar(int carID)
         {
             AdSignals.Instance.OnRewardedCarWatchComplete?.Invoke(carID);
+        }
+
+        public void ShowInter()
+        {
+            if (_timer<_showInterLimit)
+                return;
+            _timer = 0;
+
         }
     }
 }

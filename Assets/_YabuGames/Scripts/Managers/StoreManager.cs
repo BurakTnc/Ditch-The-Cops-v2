@@ -118,15 +118,19 @@ namespace _YabuGames.Scripts.Managers
                 }
                 else
                 {
+                    var anchoredPos = mapButtonsTexts[i].GetComponent<RectTransform>().anchoredPosition;
+                    mapButtonsTexts[i].GetComponent<RectTransform>().anchoredPosition =
+                        new Vector2(0, anchoredPos.y);
+                    var anchoredButtonPos = mapButtons[i].GetComponent<RectTransform>().anchoredPosition;
+                    mapButtons[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, anchoredButtonPos.y);
+                    
                     if (_prevMapId==i)
                     {
                         mapButtonsTexts[i].text = "Selected";
                         mapButtonImages[i].SetActive(false);
                         continue;
                     }
-                    var anchoredPos = mapButtonsTexts[i].GetComponent<RectTransform>().anchoredPosition;
-                    mapButtonsTexts[i].GetComponent<RectTransform>().anchoredPosition =
-                        new Vector2(0, anchoredPos.y);
+                   
                     mapButtonsTexts[i].text = "Select";
                     mapButtonImages[i].SetActive(false);
                     
@@ -143,6 +147,12 @@ namespace _YabuGames.Scripts.Managers
                 }
                 else
                 {
+                    var anchoredPos = carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition;
+                    carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition =
+                        new Vector2(0, anchoredPos.y);
+                    var anchoredButtonPos = carButtons[i].GetComponent<RectTransform>().anchoredPosition;
+                    carButtons[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, anchoredButtonPos.y);
+                    
                     if (_prevCarId==i)
                     {
                         carButtonTexts[i].text = "Selected";
@@ -157,11 +167,9 @@ namespace _YabuGames.Scripts.Managers
                         
                         continue;
                     }
-                    var anchoredPos = carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition;
-                    carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition =
-                        new Vector2(0, anchoredPos.y);
                     carButtonTexts[i].text = "Select";
                     carButtonImages[i].SetActive(false);
+                    
                     //Mystery Icon Close
                     if (mysteryButtonIds.Contains(i) && _boughtMysteryCars[i] > 0)
                     {
@@ -178,6 +186,21 @@ namespace _YabuGames.Scripts.Managers
                 var display=_watchMapStatus[i] + "/" + targetWatchMapCounts[i];
                 
                 if (_watchMapStatus[i] == -1)
+                {
+                    btn.gameObject.SetActive(false);
+                }
+                else
+                {
+                    text.text = display;
+                }
+            }
+            for (var i = 0; i < watchCarButtons.Length; i++)
+            {
+                var btn = watchCarButtons[i];
+                var text = watchCarButtonTexts[i];
+                var display=_watchCarStatus[i] + "/" + targetWatchCarCounts[i];
+                
+                if (_watchCarStatus[i] == -1)
                 {
                     btn.gameObject.SetActive(false);
                 }
@@ -250,6 +273,13 @@ namespace _YabuGames.Scripts.Managers
                 _watchMapStatus[i] = watchStatus;
 
             }
+
+            for (var i = 0; i < _watchCarStatus.Length; i++)
+            {
+                var watchStatus = PlayerPrefs.GetInt($"watchCarStatus{i}", 0);
+                _watchCarStatus[i] = watchStatus;
+
+            }
             
 
             #endregion
@@ -300,24 +330,29 @@ namespace _YabuGames.Scripts.Managers
             CheckButtonConditions();
             SetButtons();
             Save();
+            CoreGameSignals.Instance.OnSave?.Invoke();
         }
-        private void CarWatchStatus(int mapID)
+        private void CarWatchStatus(int carId)
         {
-            var status = _watchMapStatus[mapID];
+            var id = carId - 1;
+            
+            var status = _watchCarStatus[id];
 
             status++;
-            if (status >= targetWatchMapCounts[mapID])
+            if (status >= targetWatchCarCounts[id])
             {
-                PlayerPrefs.SetInt($"watchMapStatus{mapID}", -1);
-                watchMapButtons[mapID].gameObject.SetActive(false);
-                UnlockMap(mapID);
+                PlayerPrefs.SetInt($"watchCarStatus{id}", -1);
+                watchCarButtons[id].gameObject.SetActive(false);
+                
+                UnlockCar(carId);
                 return;
             }
-            
-            PlayerPrefs.SetInt($"watchMapStatus{mapID}",status);
+            _watchCarStatus[id] = status;
+            PlayerPrefs.SetInt($"watchCarStatus{id}",status);
             CheckButtonConditions();
             SetButtons();
             Save();
+            CoreGameSignals.Instance.OnSave?.Invoke();
         }
         
         public void WatchForMapButton(int mapID)
@@ -332,7 +367,7 @@ namespace _YabuGames.Scripts.Managers
         
         public void UnlockMap(int mapID)
         {
-            if (_prevMapId == 0)
+            if (!PlayerPrefs.HasKey("prevMapId"))
             {
                 mapButtonsTexts[mapID].text = "Selected";
                 mapButtonImages[mapID].SetActive(false);

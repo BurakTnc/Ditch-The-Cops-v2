@@ -4752,7 +4752,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 304170388}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279566837}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.StoreManager, Assembly-CSharp
+        m_MethodName: WatchForCarButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &304170388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5396,7 +5408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 347409953}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279566837}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.StoreManager, Assembly-CSharp
+        m_MethodName: WatchForCarButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &347409953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7495,7 +7519,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 498502010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588342214}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.IAPManager, Assembly-CSharp
+        m_MethodName: PurchaseCoin
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 100
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &498502010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8020,7 +8056,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 522008907}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279566837}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.StoreManager, Assembly-CSharp
+        m_MethodName: WatchForCarButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &522008907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10621,7 +10669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100.35211, y: -201.38698}
+  m_AnchoredPosition: {x: 100.3521, y: -201.38698}
   m_SizeDelta: {x: 178.5918, y: 99.32941}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731216232
@@ -12301,7 +12349,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 867529997}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279566837}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.StoreManager, Assembly-CSharp
+        m_MethodName: WatchForCarButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &867529997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13934,7 +13994,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 929742756}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279566837}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.StoreManager, Assembly-CSharp
+        m_MethodName: WatchForCarButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &929742756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14056,7 +14128,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 935963687}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588342214}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.IAPManager, Assembly-CSharp
+        m_MethodName: PurchaseCoin
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &935963687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14797,7 +14881,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1006833773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588342214}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.IAPManager, Assembly-CSharp
+        m_MethodName: PurchaseCoin
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1006833773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17389,7 +17485,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1192528219}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279566837}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.StoreManager, Assembly-CSharp
+        m_MethodName: WatchForCarButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1192528219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22334,6 +22442,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573630486}
   m_CullTransparentMesh: 1
+--- !u!1 &1588342213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588342215}
+  - component: {fileID: 1588342214}
+  m_Layer: 0
+  m_Name: IAP Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1588342214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588342213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ec169563204affbe831831eed39ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1588342215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588342213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2535183592716570559}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603121215
 GameObject:
   m_ObjectHideFlags: 0
@@ -23101,7 +23253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1640040173}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279566837}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.StoreManager, Assembly-CSharp
+        m_MethodName: WatchForCarButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1640040173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29425,7 +29589,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2086663697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279566837}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.StoreManager, Assembly-CSharp
+        m_MethodName: WatchForCarButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2086663697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30711,6 +30887,7 @@ Transform:
   - {fileID: 279566836}
   - {fileID: 97803014}
   - {fileID: 503044422}
+  - {fileID: 1588342215}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

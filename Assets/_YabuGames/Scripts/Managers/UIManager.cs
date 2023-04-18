@@ -392,7 +392,7 @@ namespace _YabuGames.Scripts.Managers
 
         public void BuyMapButton(int mapID)
         {
-            StoreManager.Instance.UnlockMap(mapID-1);
+            StoreManager.Instance.UnlockMap(mapID);
             HapticManager.Instance.PlaySelectionHaptic();
         }
 

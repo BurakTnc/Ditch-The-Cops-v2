@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using _YabuGames.Scripts.Signals;
-using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -84,26 +81,28 @@ namespace _YabuGames.Scripts.Managers
        }
        private void LoadMainMenu()
        {
+           AdManager.Instance.ShowInter();
            StartCoroutine(LoadSceneAsync(0));
        }
 
-       private void BeginMainMenuLoading()
-       {
-           loadingPanel.SetActive(true);
-           loadingPanel.transform.GetChild(0).transform.DOLocalMoveX(600, 1f).SetEase(Ease.InSine).SetRelative(true);
-           loadingPanel.transform.GetChild(1).transform.DOLocalMoveX(-700, 1f).SetEase(Ease.InSine).SetRelative(true)
-               .OnComplete(LoadMainMenu);
-       }
-
-       private void BeginLoading()
-       {
-           loadingPanel.SetActive(true);
-           loadingPanel.transform.GetChild(0).transform.DOLocalMoveX(600, 1f).SetEase(Ease.InSine).SetRelative(true);
-           loadingPanel.transform.GetChild(1).transform.DOLocalMoveX(-700, 1f).SetEase(Ease.InSine).SetRelative(true)
-               .OnComplete(LoadScene);
-       }
+       // private void BeginMainMenuLoading()
+       // {
+       //     loadingPanel.SetActive(true);
+       //     loadingPanel.transform.GetChild(0).transform.DOLocalMoveX(600, 1f).SetEase(Ease.InSine).SetRelative(true);
+       //     loadingPanel.transform.GetChild(1).transform.DOLocalMoveX(-700, 1f).SetEase(Ease.InSine).SetRelative(true)
+       //         .OnComplete(LoadMainMenu);
+       // }
+       //
+       // private void BeginLoading()
+       // {
+       //     loadingPanel.SetActive(true);
+       //     loadingPanel.transform.GetChild(0).transform.DOLocalMoveX(600, 1f).SetEase(Ease.InSine).SetRelative(true);
+       //     loadingPanel.transform.GetChild(1).transform.DOLocalMoveX(-700, 1f).SetEase(Ease.InSine).SetRelative(true)
+       //         .OnComplete(LoadScene);
+       // }
        private void LoadScene()
        {
+           AdManager.Instance.ShowInter();
            sceneID = PlayerPrefs.GetInt("sceneID",1);
            PlayerPrefs.SetInt("sceneID",sceneID);
            StartCoroutine(LoadSceneAsync(sceneID));
@@ -111,7 +110,6 @@ namespace _YabuGames.Scripts.Managers
 
        public void ChangeSceneIndex(int id)
        {
-           Debug.Log(id);
            PlayerPrefs.SetInt("sceneID",id);
        }
        
