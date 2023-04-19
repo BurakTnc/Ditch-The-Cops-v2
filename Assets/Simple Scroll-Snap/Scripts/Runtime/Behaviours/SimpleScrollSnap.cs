@@ -20,6 +20,7 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
     {
         #region Fields
         // Movement and Layout Settings
+        [SerializeField] private bool isMapScroll;
         [SerializeField] private MovementType movementType = MovementType.Fixed;
         [SerializeField] private MovementAxis movementAxis = MovementAxis.Horizontal;
         [SerializeField] private bool useAutomaticLayout = true;
@@ -445,7 +446,15 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
             float yOffset = (movementType == MovementType.Free || movementAxis == MovementAxis.Vertical)   ? Viewport.rect.height / 2f : 0f;
             Vector2 offset = new Vector2(xOffset, yOffset);
             prevAnchoredPosition = Content.anchoredPosition = -Panels[startingPanel].anchoredPosition + offset;
-            SelectedPanel = CenteredPanel = startingPanel;
+            if (isMapScroll)
+            {
+                SelectedPanel = CenteredPanel = StoreManager.Instance.GetStartingMapPanel();
+            }
+            else
+            {
+                SelectedPanel = CenteredPanel = StoreManager.Instance.GetStartingCarPanel();
+            }
+            
 
             // Buttons
             if (previousButton != null)

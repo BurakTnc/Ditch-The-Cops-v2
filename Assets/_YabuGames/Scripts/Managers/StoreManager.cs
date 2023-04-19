@@ -449,6 +449,8 @@ namespace _YabuGames.Scripts.Managers
             CoreGameSignals.Instance.OnSave?.Invoke();
         }
 
+        public int GetStartingMapPanel() => _prevMapId;
+        public int GetStartingCarPanel() => _prevCarId;
 
     }
 }
