@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3626648, g: 0.590699, b: 0.9138494, a: 1}
+  m_IndirectSpecularColor: {r: 0.36374462, g: 0.5873712, b: 0.9103389, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19025,8 +19025,8 @@ MonoBehaviour:
   onTransitionEffects:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4158230966116331546, guid: e13a09b0b66e54d109c22f8b39d24339, type: 3}
-        m_TargetAssemblyTypeName: DanielLochner.Assets.SimpleScrollSnap.TransitionEffectBase`1[[UnityEngine.CanvasGroup,
+      - m_Target: {fileID: 1328164161}
+        m_TargetAssemblyTypeName: Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.TransitionEffect.TransitionEffectBase`1[[UnityEngine.RectTransform,
           UnityEngine
         m_MethodName: OnTransition
         m_Mode: 0
@@ -19038,8 +19038,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4158230966116331524, guid: e13a09b0b66e54d109c22f8b39d24339, type: 3}
-        m_TargetAssemblyTypeName: DanielLochner.Assets.SimpleScrollSnap.TransitionEffectBase`1[[UnityEngine.RectTransform,
+      - m_Target: {fileID: 1328164163}
+        m_TargetAssemblyTypeName: Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.TransitionEffect.TransitionEffectBase`1[[UnityEngine.RectTransform,
           UnityEngine
         m_MethodName: OnTransition
         m_Mode: 0
@@ -19051,8 +19051,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4158230966116331525, guid: e13a09b0b66e54d109c22f8b39d24339, type: 3}
-        m_TargetAssemblyTypeName: DanielLochner.Assets.SimpleScrollSnap.TransitionEffectBase`1[[UnityEngine.RectTransform,
+      - m_Target: {fileID: 1328164162}
+        m_TargetAssemblyTypeName: Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.TransitionEffect.TransitionEffectBase`1[[UnityEngine.CanvasGroup,
           UnityEngine
         m_MethodName: OnTransition
         m_Mode: 0
@@ -19149,8 +19149,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.50416565
-      value: 0.75
+      time: 0.49508667
+      value: 1.007122
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -24620,8 +24620,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.50416565
-      value: 0.75
+      time: 0.5309906
+      value: 0.9956322
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -24682,8 +24682,8 @@ MonoBehaviour:
   onTransitionEffects:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4158230966116331546, guid: e13a09b0b66e54d109c22f8b39d24339, type: 3}
-        m_TargetAssemblyTypeName: DanielLochner.Assets.SimpleScrollSnap.TransitionEffectBase`1[[UnityEngine.CanvasGroup,
+      - m_Target: {fileID: 1703813968}
+        m_TargetAssemblyTypeName: Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.TransitionEffect.TransitionEffectBase`1[[UnityEngine.CanvasGroup,
           UnityEngine
         m_MethodName: OnTransition
         m_Mode: 0
@@ -24695,8 +24695,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4158230966116331524, guid: e13a09b0b66e54d109c22f8b39d24339, type: 3}
-        m_TargetAssemblyTypeName: DanielLochner.Assets.SimpleScrollSnap.TransitionEffectBase`1[[UnityEngine.RectTransform,
+      - m_Target: {fileID: 1703813967}
+        m_TargetAssemblyTypeName: Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.TransitionEffect.TransitionEffectBase`1[[UnityEngine.RectTransform,
           UnityEngine
         m_MethodName: OnTransition
         m_Mode: 0
@@ -24708,8 +24708,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4158230966116331525, guid: e13a09b0b66e54d109c22f8b39d24339, type: 3}
-        m_TargetAssemblyTypeName: DanielLochner.Assets.SimpleScrollSnap.TransitionEffectBase`1[[UnityEngine.RectTransform,
+      - m_Target: {fileID: 1703813966}
+        m_TargetAssemblyTypeName: Simple_Scroll_Snap.Scripts.Core.Runtime.Behaviours.TransitionEffect.TransitionEffectBase`1[[UnityEngine.RectTransform,
           UnityEngine
         m_MethodName: OnTransition
         m_Mode: 0
