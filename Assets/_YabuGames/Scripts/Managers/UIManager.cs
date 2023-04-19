@@ -375,7 +375,7 @@ namespace _YabuGames.Scripts.Managers
 
         public void OpenClaimButton(int buttonID)
         {
-            if(missionClaimButtons.Length<1)
+            if(missionClaimButtons.Length<1 || !missionClaimButtons[buttonID])
                 return;
             
             missionClaimButtons[buttonID].interactable = true;

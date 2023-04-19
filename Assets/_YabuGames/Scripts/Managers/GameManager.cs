@@ -223,8 +223,6 @@ namespace _YabuGames.Scripts.Managers
 
         private void SetPlayerLevel()
         {
-            if(onSurvive)
-                return;
             if (_playerLevel >= _targetReachedLevel) 
             {
                 _waitingRewards++;

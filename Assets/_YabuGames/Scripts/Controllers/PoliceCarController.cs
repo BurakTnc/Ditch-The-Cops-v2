@@ -226,7 +226,7 @@ namespace _YabuGames.Scripts.Controllers
             _aiController.StopChasing();
             onOil = true;
             _onOilHeading = transform.forward;
-            transform.DOShakeRotation(2, Vector3.up * 70, 1, 100, true)
+            transform.DOShakeRotation(2, Vector3.up * 70, 2, 100, true)
                 .OnComplete(() => Eliminate(transform.position - Vector3.up));
             
         }

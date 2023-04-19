@@ -274,19 +274,16 @@ namespace _YabuGames.Scripts.Managers
 
             }
 
+            #endregion
+
+            #region WatchCarButtons
+
             for (var i = 0; i < _watchCarStatus.Length; i++)
             {
                 var watchStatus = PlayerPrefs.GetInt($"watchCarStatus{i}", 0);
                 _watchCarStatus[i] = watchStatus;
 
             }
-            
-
-            #endregion
-
-            #region WatchCarButtons
-
-            
 
                 
             #endregion
@@ -389,6 +386,12 @@ namespace _YabuGames.Scripts.Managers
             {
                 GameManager.Instance.money -= mapPrices[mapID];
             }
+
+            if (mapID != 0) 
+            {
+                PlayerPrefs.SetInt($"watchMapStatus{mapID-1}",-1);
+                watchMapButtons[mapID-1].gameObject.SetActive(false);
+            }
             boughtMaps[mapID] = 1;
             CheckButtonConditions();
             SetButtons();
@@ -418,6 +421,11 @@ namespace _YabuGames.Scripts.Managers
                 GameManager.Instance.money -= carPrices[carID];
             }
 
+            if (carID != 0) 
+            {
+                PlayerPrefs.SetInt($"watchCarStatus{carID-1}", -1);
+                watchCarButtons[carID-1].gameObject.SetActive(false);
+            }
             boughtCars[carID] = 1;
             PlayerVehicleManager.Instance.SetCarId(carID);
             if (mysteryButtonIds.Contains(carID))
