@@ -384,7 +384,7 @@ namespace _YabuGames.Scripts.Managers
                 PlayerPrefs.SetInt("prevMapId",_prevMapId);
 
             }
-            SceneLoader.Instance.ChangeSceneIndex(mapID);
+            SceneLoader.Instance.ChangeSceneIndex(mapID+1);
             if (boughtMaps[mapID] == 0 && !isRewarded)
             {
                 GameManager.Instance.money -= mapPrices[mapID];
