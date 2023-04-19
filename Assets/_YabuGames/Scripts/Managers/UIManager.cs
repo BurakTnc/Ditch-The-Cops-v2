@@ -112,6 +112,7 @@ namespace _YabuGames.Scripts.Managers
         }
         public void SetPlayerProgress()
         {
+            GetTargetValues();
             if (!playerXpText)
                 return;
             var reachedXp = GameManager.Instance.GetPlayerXp();
@@ -412,7 +413,7 @@ namespace _YabuGames.Scripts.Managers
         public void ReviveButton()
         {
             revivePanel.SetActive(false);
-            LevelSignals.Instance.OnRevive?.Invoke();
+            AdManager.Instance.ShowRewardedRevive();
             HapticManager.Instance.PlaySelectionHaptic();
         }
     }

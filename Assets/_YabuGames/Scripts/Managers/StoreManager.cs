@@ -321,7 +321,7 @@ namespace _YabuGames.Scripts.Managers
             {
                 PlayerPrefs.SetInt($"watchMapStatus{id}",-1);
                 watchMapButtons[id].gameObject.SetActive(false);
-                UnlockMap(mapID);
+                UnlockMap(mapID,true);
                 return;
             }
 
@@ -344,7 +344,7 @@ namespace _YabuGames.Scripts.Managers
                 PlayerPrefs.SetInt($"watchCarStatus{id}", -1);
                 watchCarButtons[id].gameObject.SetActive(false);
                 
-                UnlockCar(carId);
+                UnlockCar(carId,true);
                 return;
             }
             _watchCarStatus[id] = status;
@@ -364,8 +364,8 @@ namespace _YabuGames.Scripts.Managers
         {
             AdManager.Instance.ShowRewardedCar(carID);
         }
-        
-        public void UnlockMap(int mapID)
+
+        public void UnlockMap(int mapID, bool isRewarded = false)
         {
             if (!PlayerPrefs.HasKey("prevMapId"))
             {
@@ -385,7 +385,7 @@ namespace _YabuGames.Scripts.Managers
 
             }
             SceneLoader.Instance.ChangeSceneIndex(mapID);
-            if (boughtMaps[mapID] == 0)
+            if (boughtMaps[mapID] == 0 && !isRewarded)
             {
                 GameManager.Instance.money -= mapPrices[mapID];
             }
@@ -396,7 +396,7 @@ namespace _YabuGames.Scripts.Managers
             CoreGameSignals.Instance.OnSave?.Invoke();
         }
 
-        public void UnlockCar(int carID)
+        public void UnlockCar(int carID, bool isRewarded = false)
         {
             if (_prevCarId == 0)
             {
@@ -410,25 +410,28 @@ namespace _YabuGames.Scripts.Managers
                 carButtonTexts[carID].text = "Selected";
                 carButtonImages[carID].SetActive(false);
                 _prevCarId = carID;
-        
+
             }
-            if (boughtCars[carID] == 0)
+
+            if (boughtCars[carID] == 0 && !isRewarded)
             {
                 GameManager.Instance.money -= carPrices[carID];
             }
+
             boughtCars[carID] = 1;
             PlayerVehicleManager.Instance.SetCarId(carID);
             if (mysteryButtonIds.Contains(carID))
             {
-                PlayerPrefs.SetInt($"mysteryCar{carID}",1);
+                PlayerPrefs.SetInt($"mysteryCar{carID}", 1);
                 _boughtMysteryCars[carID] = 1;
             }
+
             CheckButtonConditions();
             SetButtons();
             Save();
             CoreGameSignals.Instance.OnSave?.Invoke();
         }
 
-        
+
     }
 }

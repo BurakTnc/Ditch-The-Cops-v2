@@ -236,14 +236,8 @@ namespace _YabuGames.Scripts.Managers
 
         public void ResetPlayerXp(int spentXp)
         {
-            if (_playerXp > spentXp) 
-            {
-                _playerXp -= spentXp;
-            }
-            else
-            {
-                _playerXp = 0;
-            }
+            _playerXp -= spentXp;
+            _playerXp = Mathf.Clamp(_playerXp, 0, 10000000);
             Save();
         }
 

@@ -38,6 +38,11 @@ namespace _YabuGames.Scripts.Managers
             AdSignals.Instance.OnRewardedCarWatchComplete?.Invoke(carID);
         }
 
+        public void ShowRewardedRevive()
+        {
+            LevelSignals.Instance.OnRevive?.Invoke();
+        }
+
         public void ShowInter()
         {
             if (_timer<_showInterLimit)
