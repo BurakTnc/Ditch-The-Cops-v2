@@ -6653,7 +6653,7 @@ MonoBehaviour:
   chosenSkills: []
   onLose: 0
   wantedLevelIncreaseValue: 0.05
-  skillPanelTime: 25
+  skillPanelTime: 3
   skillButtons:
   - {fileID: 1587392121}
   - {fileID: 2052789994}
@@ -22268,7 +22268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.158
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_LocalPosition.z
