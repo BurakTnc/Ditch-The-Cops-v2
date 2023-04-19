@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using _YabuGames.Scripts.Signals;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _YabuGames.Scripts.Managers
@@ -62,16 +59,28 @@ namespace _YabuGames.Scripts.Managers
             UnSubscribe();
         }
 
+        private void OnApplicationPause(bool pauseStatus)
+        {
+            CoreGameSignals.Instance.OnSave?.Invoke();
+        }
+
+        private void OnApplicationQuit()
+        {
+            CoreGameSignals.Instance.OnSave?.Invoke();
+        }
+
         private void Subscribe()
         {
             AdSignals.Instance.OnRewardedMapWatchComplete += MapWatchStatus;
             AdSignals.Instance.OnRewardedCarWatchComplete += CarWatchStatus;
+            CoreGameSignals.Instance.OnSave += CheckButtonConditions;
         }
 
         private void UnSubscribe()
         {
             AdSignals.Instance.OnRewardedMapWatchComplete -= MapWatchStatus;
             AdSignals.Instance.OnRewardedCarWatchComplete -= CarWatchStatus;
+            CoreGameSignals.Instance.OnSave -= CheckButtonConditions;
         }
 
         private void Start()

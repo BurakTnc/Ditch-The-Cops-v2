@@ -4,9 +4,6 @@ using _YabuGames.Scripts.Objects;
 using _YabuGames.Scripts.ScriptableObjects;
 using _YabuGames.Scripts.Signals;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace _YabuGames.Scripts.Managers
