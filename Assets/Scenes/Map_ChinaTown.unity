@@ -2301,7 +2301,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 192
-  scanRadius: 17
+  scanRadius: 18
 --- !u!1001 &465745360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3078,7 +3078,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2036930621}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &515617305
 MonoBehaviour:
@@ -3096,7 +3096,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 192
-  scanRadius: 17
+  scanRadius: 18
 --- !u!1 &590916086
 GameObject:
   m_ObjectHideFlags: 0
@@ -7012,55 +7012,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051958224}
   m_CullTransparentMesh: 1
---- !u!1 &1091445930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1091445931}
-  - component: {fileID: 1091445932}
-  m_Layer: 0
-  m_Name: Spawner (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1091445931
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091445930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.5, y: 0, z: 29.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2036930621}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1091445932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091445930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae43af191bfd4cb2ae31baa60609bb36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasCollectible: 0
-  layer:
-    serializedVersion: 2
-    m_Bits: 192
-  scanRadius: 17
 --- !u!1 &1104312690
 GameObject:
   m_ObjectHideFlags: 0
@@ -8569,7 +8520,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 192
-  scanRadius: 17
+  scanRadius: 18
 --- !u!1 &1498239687
 GameObject:
   m_ObjectHideFlags: 0
@@ -8600,7 +8551,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2036930621}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1498239689
 MonoBehaviour:
@@ -8618,7 +8569,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 192
-  scanRadius: 17
+  scanRadius: 18
 --- !u!1 &1528549448
 GameObject:
   m_ObjectHideFlags: 0
@@ -8878,7 +8829,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 192
-  scanRadius: 17
+  scanRadius: 18
 --- !u!1 &1561439781
 GameObject:
   m_ObjectHideFlags: 0
@@ -9172,7 +9123,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2036930621}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1599660308
 MonoBehaviour:
@@ -9190,7 +9141,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 192
-  scanRadius: 17
+  scanRadius: 18
 --- !u!1 &1604461422
 GameObject:
   m_ObjectHideFlags: 0
@@ -10459,7 +10410,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2036930621}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1919322957
 MonoBehaviour:
@@ -10477,7 +10428,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 192
-  scanRadius: 17
+  scanRadius: 18
 --- !u!1 &1924841139
 GameObject:
   m_ObjectHideFlags: 0
@@ -11171,7 +11122,7 @@ MonoBehaviour:
   - {fileID: 1557449474}
   - {fileID: 439232479}
   - {fileID: 1497763306}
-  - {fileID: 1091445932}
+  - {fileID: 0}
   - {fileID: 1919322957}
   - {fileID: 515617305}
   - {fileID: 1599660308}
@@ -11195,7 +11146,6 @@ Transform:
   - {fileID: 1557449473}
   - {fileID: 439232478}
   - {fileID: 1497763305}
-  - {fileID: 1091445931}
   - {fileID: 1919322956}
   - {fileID: 515617304}
   - {fileID: 1599660307}
@@ -11907,9 +11857,9 @@ RectTransform:
   m_Father: {fileID: 985253657133405804}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 206.55154, y: -65.82105}
   m_SizeDelta: {x: 389.1031, y: 131.6421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985253656946282947
@@ -13604,9 +13554,9 @@ RectTransform:
   m_Father: {fileID: 985253657133405804}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 206.55154, y: -200.92712}
   m_SizeDelta: {x: 389.1031, y: 131.6421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5587636234845963149
@@ -15641,9 +15591,9 @@ RectTransform:
   m_Father: {fileID: 985253657133405804}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 206.55154, y: -336.03317}
   m_SizeDelta: {x: 389.1031, y: 131.6421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5587636235996944580
@@ -17010,10 +16960,6 @@ PrefabInstance:
     - target: {fileID: 6473067648539920815, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6473067648539920815, guid: f467cbae9182441b18a6c45aac811627, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6473067648539920816, guid: f467cbae9182441b18a6c45aac811627, type: 3}
       propertyPath: m_RootOrder
