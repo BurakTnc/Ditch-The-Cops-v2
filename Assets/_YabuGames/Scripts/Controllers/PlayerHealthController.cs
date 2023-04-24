@@ -18,6 +18,7 @@ namespace _YabuGames.Scripts.Controllers
         [SerializeField] private List<GameObject> damageEffects = new List<GameObject>();
         [SerializeField] private PlayerPhysicsController physicsController;
         [SerializeField] private AudioClip explosionSound;
+        [SerializeField] private GameObject eliminateEffect;
 
         private float _maxHealth;
         private float _health;
@@ -72,6 +73,7 @@ namespace _YabuGames.Scripts.Controllers
         }
         private void Revive()
         {
+            eliminateEffect.SetActive(false);
             _isRevived = true;
             _onLose = false;
             _health = _maxHealth;
@@ -179,10 +181,11 @@ namespace _YabuGames.Scripts.Controllers
             {
                 _health = 0;
                 PoolManager.Instance.GetEliminatedParticle(transform.position+Vector3.up);
-                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
                 SetHealthBar();
                 physicsController.Eliminate();
                 Invoke(nameof(Lose), 2);
+                eliminateEffect.SetActive(true);
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
                 HapticManager.Instance.PlaySoftHaptic();
                 InputSignals.Instance.CanMove?.Invoke(true);
                 _onLose = true;
@@ -194,14 +197,19 @@ namespace _YabuGames.Scripts.Controllers
 
         private void Lose()
         {
+            
             if (_isRevived)
             {
-                CoreGameSignals.Instance.OnLevelFail?.Invoke();
+                Invoke(nameof(CallLose), 1);
                 return;
             }
             LevelSignals.Instance.OnPlayerDestroyed?.Invoke();
         }
 
+        private void CallLose()
+        {
+            CoreGameSignals.Instance.OnLevelFail?.Invoke();
+        }
         public void GetHeal()
         {
             _health += _maxHealth * .2f;

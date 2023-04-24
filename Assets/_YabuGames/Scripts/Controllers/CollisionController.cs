@@ -1,9 +1,8 @@
-using System;
+
 using System.Collections;
 using _YabuGames.Scripts.Managers;
 using _YabuGames.Scripts.Signals;
 using _YabuGames.Scripts.Spawners;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -154,6 +153,7 @@ namespace _YabuGames.Scripts.Controllers
                     spawner.hasCollectible = false;
                 }
 
+                HapticManager.Instance.PlaySoftHaptic();
                 SpawnManager.Instance.currentCollectibleCount--;
                 SpawnManager.Instance.collectibleDelayer += 2;
                 var r = Random.Range(SkillManager.Instance.earningLevel, 6);
@@ -162,6 +162,7 @@ namespace _YabuGames.Scripts.Controllers
             }
             if (other.gameObject.CompareTag("Health"))
             {
+                HapticManager.Instance.PlaySoftHaptic();
                 if (other.transform.parent.TryGetComponent(out Spawner spawner))
                 {
                     spawner.hasCollectible = false;
