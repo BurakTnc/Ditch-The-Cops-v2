@@ -223,6 +223,7 @@ namespace _YabuGames.Scripts.Managers
 
         private void SetPlayerLevel()
         {
+            Debug.Log(_playerLevel + "/ " + _targetReachedLevel);
             if (_playerLevel >= _targetReachedLevel) 
             {
                 _waitingRewards++;
@@ -236,6 +237,7 @@ namespace _YabuGames.Scripts.Managers
         {
             _playerXp -= spentXp;
             _playerXp = Mathf.Clamp(_playerXp, 0, 10000000);
+            SetPlayerLevel();
             Save();
         }
 

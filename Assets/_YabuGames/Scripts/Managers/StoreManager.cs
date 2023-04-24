@@ -36,6 +36,7 @@ namespace _YabuGames.Scripts.Managers
         private readonly int[] _boughtMysteryCars = new int[9];
         private readonly int[] _watchMapStatus = new int[3];
         private readonly int[] _watchCarStatus = new int[8];
+        private AudioSource _audioSource;
 
         private void Awake()
         {
@@ -47,6 +48,7 @@ namespace _YabuGames.Scripts.Managers
 
             Instance = this;
             GetValues();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnEnable()
@@ -363,11 +365,13 @@ namespace _YabuGames.Scripts.Managers
         
         public void WatchForMapButton(int mapID)
         {
+            HapticManager.Instance.PlaySelectionHaptic();
             AdManager.Instance.ShowRewardedMap(mapID);
         }
 
         public void WatchForCarButton(int carID)
         {
+            HapticManager.Instance.PlaySelectionHaptic();
             AdManager.Instance.ShowRewardedCar(carID);
         }
 
@@ -393,6 +397,11 @@ namespace _YabuGames.Scripts.Managers
             SceneLoader.Instance.ChangeSceneIndex(mapID+1);
             if (boughtMaps[mapID] == 0 && !isRewarded)
             {
+                if (_audioSource)
+                {
+                    _audioSource.Stop();
+                    _audioSource.Play();
+                }
                 GameManager.Instance.money -= mapPrices[mapID];
             }
 
@@ -427,6 +436,11 @@ namespace _YabuGames.Scripts.Managers
 
             if (boughtCars[carID] == 0 && !isRewarded)
             {
+                if (_audioSource)
+                {
+                    _audioSource.Stop();
+                    _audioSource.Play();
+                }
                 GameManager.Instance.money -= carPrices[carID];
             }
 

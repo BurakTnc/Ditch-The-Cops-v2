@@ -7,6 +7,8 @@ namespace _YabuGames.Scripts.Controllers
     {
         [SerializeField] private float followSpeed = 3f;
         [SerializeField] private Vector3 offset;
+        [SerializeField] private float clampPositionXMin, clampPositionXMax;
+        [SerializeField] private float clampPositionZMin, clampPositionZMax;
         
         private Transform _player;
 
@@ -25,7 +27,9 @@ namespace _YabuGames.Scripts.Controllers
             // if (!_isGameRunning) 
             //     return;
             Vector3 desiredPos = new Vector3(_player.position.x, transform.position.y, _player.position.z) + offset;
-            transform.position = Vector3.Lerp(transform.position, desiredPos, followSpeed * Time.deltaTime);
+             transform.position = Vector3.Lerp(transform.position, desiredPos, followSpeed * Time.deltaTime);
+            // transform.position = new Vector3(Mathf.Clamp(transform.position.x, clampPositionXMin, clampPositionXMax),
+            //     transform.position.y, Mathf.Clamp(transform.position.z, clampPositionZMin, clampPositionZMax));
         }
     }
 }

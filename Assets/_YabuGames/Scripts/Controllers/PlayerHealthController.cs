@@ -88,6 +88,7 @@ namespace _YabuGames.Scripts.Controllers
                 effect.SetActive(false);
                 damageEffects.Add(effect);
             }
+            _activeEffects.Clear();
         }
         private void Heal()
         {
@@ -98,6 +99,21 @@ namespace _YabuGames.Scripts.Controllers
             var amount = _health / _maxHealth;
             UIManager.Instance.UpdateHealthBar(amount);
             _health = Mathf.Clamp(_health, 0, _maxHealth);
+            
+            if (!(_health > .3f))
+                return;
+            
+            foreach (var effect in damageEffects)
+            {
+                effect.SetActive(false);
+            }
+            _takenDamageLevel = 0;
+            foreach (var effect in _activeEffects)
+            {
+                effect.SetActive(false);
+                damageEffects.Add(effect);
+            }
+            _activeEffects.Clear();
         }
 
         private void ActivateHealMode(float duration)
@@ -189,6 +205,17 @@ namespace _YabuGames.Scripts.Controllers
         public void GetHeal()
         {
             _health += _maxHealth * .2f;
+            foreach (var effect in damageEffects)
+            {
+                effect.SetActive(false);
+            }
+            _takenDamageLevel = 0;
+            foreach (var effect in _activeEffects)
+            {
+                effect.SetActive(false);
+                damageEffects.Add(effect);
+            }
+            _activeEffects.Clear();
             SkillSignals.Instance.OnHealing?.Invoke(1);
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using _YabuGames.Scripts.Managers;
+using _YabuGames.Scripts.Signals;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -53,6 +54,7 @@ namespace _YabuGames.Scripts.Objects
 
         private void SetMoney()
         {
+            CoreGameSignals.Instance.OnSave?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
             _source.Play();
             GameManager.Instance.ArrangeMoney(_earnValue);

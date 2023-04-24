@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+
 namespace _YabuGames.Scripts.Managers
 {
+    [RequireComponent(typeof(AudioSource))]
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
@@ -41,6 +43,7 @@ namespace _YabuGames.Scripts.Managers
         private int _targetReachedLevel;
         private int _playerLevel;
         private int _earnedMoney;
+        private AudioSource _audioSource;
         
 
 
@@ -59,7 +62,11 @@ namespace _YabuGames.Scripts.Managers
             Instance = this;
 
             #endregion
-            
+
+            if (transform.TryGetComponent(out AudioSource source))
+            {
+                _audioSource = source;
+            }
 
         }
 
@@ -118,8 +125,8 @@ namespace _YabuGames.Scripts.Managers
             var reachedXp = GameManager.Instance.GetPlayerXp();
 
             var reachedXpAmount = reachedXp / _targetLevelXp;
-            playerProgressBar.DOFillAmount(reachedXpAmount, 1).SetEase(Ease.OutBack)
-                .OnComplete(StatsManager.Instance.SetPlayerLevel);
+            playerProgressBar.DOFillAmount(reachedXpAmount, 2).SetEase(Ease.OutBack)
+                .OnComplete(StatsManager.Instance.SetPlayerLevel).SetDelay(.3f);
             playerXpText.text = reachedXp + "/" + _targetLevelXp;
             playerLevel.text = _playerLevel.ToString();
         }
@@ -348,6 +355,7 @@ namespace _YabuGames.Scripts.Managers
         
         public void PlayButton()
         {
+            CoreGameSignals.Instance.OnSave?.Invoke();
             CoreGameSignals.Instance.OnGameStart?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
         }
@@ -383,6 +391,11 @@ namespace _YabuGames.Scripts.Managers
 
         public void ClaimButton(int buttonID)
         {
+            if (_audioSource)
+            {
+                _audioSource.Stop();
+                _audioSource.Play();
+            }
             missionClaimButtons[buttonID].interactable = false;
             CoreGameSignals.Instance.OnSpawnCoins?.Invoke(20, 0, 50, true);
             GameManager.Instance.ResetMissionProgress(buttonID);
