@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3626648, g: 0.590699, b: 0.9138494, a: 1}
+  m_IndirectSpecularColor: {r: 0.36374462, g: 0.5873712, b: 0.9103389, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6923,7 +6923,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
   chosenSkills: []
   onLose: 0
-  wantedLevelIncreaseValue: 0.05
+  wantedLevelIncreaseValue: 0.035
   skillPanelTime: 25
   skillButtons:
   - {fileID: 1587392121}
@@ -17016,7 +17016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54, y: -16.3}
+  m_AnchoredPosition: {x: 53.999992, y: -16.3}
   m_SizeDelta: {x: 261.9245, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7954620437105275021

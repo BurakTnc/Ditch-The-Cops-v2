@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3626648, g: 0.590699, b: 0.9138494, a: 1}
+  m_IndirectSpecularColor: {r: 0.36374462, g: 0.5873712, b: 0.9103389, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7030,7 +7030,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
   chosenSkills: []
   onLose: 0
-  wantedLevelIncreaseValue: 0.05
+  wantedLevelIncreaseValue: 0.035
   skillPanelTime: 20
   skillButtons:
   - {fileID: 1587392121}
@@ -10596,6 +10596,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 3
   offset: {x: 0, y: 0, z: -25}
+  clampPositionXMin: 0
+  clampPositionXMax: 0
+  clampPositionZMin: 0
+  clampPositionZMax: 0
 --- !u!81 &1918689195
 AudioListener:
   m_ObjectHideFlags: 0
