@@ -221,8 +221,9 @@ namespace _YabuGames.Scripts.Managers
             CoreGameSignals.Instance.OnSave?.Invoke();
         }
 
-        private void SetPlayerLevel()
+        public void SetPlayerLevel()
         {
+            GetTargetValues();
             Debug.Log(_playerLevel + "/ " + _targetReachedLevel);
             if (_playerLevel >= _targetReachedLevel) 
             {
@@ -237,7 +238,7 @@ namespace _YabuGames.Scripts.Managers
         {
             _playerXp -= spentXp;
             _playerXp = Mathf.Clamp(_playerXp, 0, 10000000);
-            SetPlayerLevel();
+            //SetPlayerLevel();
             Save();
         }
 

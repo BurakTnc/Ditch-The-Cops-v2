@@ -1,9 +1,6 @@
-using System;
 using _YabuGames.Scripts.Managers;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Animations;
-using UnityEngine.Experimental.GlobalIllumination;
 
 namespace _YabuGames.Scripts.Controllers
 {
@@ -81,17 +78,28 @@ namespace _YabuGames.Scripts.Controllers
 
                     void Explode()
                     {
-                        var explosionColliders = new Collider[1];
+                        var explosionColliders = new Collider[5];
                         
                         PoolManager.Instance.GetHitParticle(cannon.transform.position);
 
                         explosionColliders = Physics.OverlapSphere(cannon.transform.position, 3, layerMask);
-                        Destroy(cannon);
-                        
-                        if(explosionColliders.Length<1)
-                            return;
-                        explosionColliders[0].GetComponent<PlayerPhysicsController>().CannonExplosion(transform.position);
 
+                        if (explosionColliders.Length > 0)
+                        {
+                            foreach (var car in explosionColliders)
+                            {
+                                if (car.TryGetComponent(out PoliceCarController police))
+                                {
+                                    police.Eliminate(cannon.transform.position);
+                                }
+
+                                if (car.TryGetComponent(out PlayerPhysicsController player))
+                                {
+                                    player.CannonExplosion(cannon.transform.position);
+                                }
+                            }  
+                        }
+                        Destroy(cannon);
                     }
 
                 }

@@ -63,7 +63,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void Subscribe()
         {
-            LevelSignals.Instance.OnSkillPanel += Mute;
+            //LevelSignals.Instance.OnSkillPanel += Mute;
             LevelSignals.Instance.OnPlayerDestroyed += Stop;
             LevelSignals.Instance.OnRevive += Continue;
             CoreGameSignals.Instance.OnLevelFail += LevelEnd;
@@ -74,7 +74,7 @@ namespace _YabuGames.Scripts.Controllers
         {
             LevelSignals.Instance.OnPlayerDestroyed -= Stop;
             LevelSignals.Instance.OnRevive -= Continue;
-            LevelSignals.Instance.OnSkillPanel -= Mute;
+            //LevelSignals.Instance.OnSkillPanel -= Mute;
             CoreGameSignals.Instance.OnLevelFail -= LevelEnd;
             CoreGameSignals.Instance.OnLevelWin -= LevelEnd;
         }

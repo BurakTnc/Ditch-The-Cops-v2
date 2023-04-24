@@ -584,7 +584,8 @@ MonoBehaviour:
   shootingRange: 40
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
+  shootingEffect: {fileID: 0}
 --- !u!82 &7329496549292781062
 AudioSource:
   m_ObjectHideFlags: 0

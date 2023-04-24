@@ -71,7 +71,7 @@ namespace _YabuGames.Scripts.Managers
             targetLevelXp = PlayerPrefs.GetInt("targetLevelXp", 1000);
             targetEliminate = PlayerPrefs.GetInt("targetEliminate", 50);
             targetSurvivedTime = PlayerPrefs.GetInt("targetSurvivedTime", 5); 
-            targetReachedLevel = PlayerPrefs.GetInt("targetReachedLevel", 2);
+            targetReachedLevel = PlayerPrefs.GetInt("targetReachedLevel", 5);
         }
 
         public void SetPlayerLevel()
@@ -82,6 +82,7 @@ namespace _YabuGames.Scripts.Managers
                 return;
             GameManager.Instance.ResetPlayerXp(targetLevelXp);
             OnReachTargetLevel();
+            GameManager.Instance.SetPlayerLevel();
             UIManager.Instance.SetPlayerProgress();
         }
 

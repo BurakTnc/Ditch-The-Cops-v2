@@ -62,17 +62,17 @@ namespace _YabuGames.Scripts.Controllers
         }
         private void Mute(bool isMuted)
         {
-            if (isMuted)
-            {
-                effectSource.Pause();
-                mainSource.Pause();
-            }
-            else
-            {
-                effectSource.UnPause();
-                mainSource.UnPause();
-            }
-            // _listener.enabled = !isMuted;
+            // if (isMuted)
+            // {
+            //     effectSource.Pause();
+            //     mainSource.Pause();
+            // }
+            // else
+            // {
+            //     effectSource.UnPause();
+            //     mainSource.UnPause();
+            // }
+             _listener.enabled = !isMuted;
         }
         public void BeginSkidding()
         {
