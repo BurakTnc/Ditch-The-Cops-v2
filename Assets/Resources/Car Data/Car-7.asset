@@ -15,5 +15,5 @@ MonoBehaviour:
   angularSpeed: 8
   forwardSpeed: 3000
   skidLimit: 1
-  topSpeed: 26
+  topSpeed: 23
   health: 220
