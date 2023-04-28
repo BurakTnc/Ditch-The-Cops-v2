@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 
 namespace _YabuGames.Scripts.Objects
 {
@@ -87,6 +88,8 @@ namespace _YabuGames.Scripts.Objects
             HapticManager.Instance.PlaySelectionHaptic();
             UIManager.Instance.CloseSkillPanel();
             LevelSignals.Instance.OnSkillActive?.Invoke(_skillID);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Player_ApplySkill");
+
         }
     }
 }

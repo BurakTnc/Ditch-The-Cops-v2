@@ -1,5 +1,6 @@
 using System.Linq;
 using _YabuGames.Scripts.Signals;
+using GameAnalyticsSDK;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -158,6 +159,9 @@ namespace _YabuGames.Scripts.Managers
                 }
                 else
                 {
+                    var button1Parent = carButtons[i].transform.parent.parent;
+                    var iconParent = button1Parent.GetChild(1);
+                    iconParent.gameObject.SetActive(true);
                     var anchoredPos = carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition;
                     carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition =
                         new Vector2(0, anchoredPos.y);
@@ -185,7 +189,12 @@ namespace _YabuGames.Scripts.Managers
                     if (mysteryButtonIds.Contains(i) && _boughtMysteryCars[i] > 0)
                     {
                         var buttonParent = carButtons[i].transform.parent.parent;
+                       
+                        
+                        
+                  
                         buttonParent.GetChild(buttonParent.childCount-1).gameObject.SetActive(false);
+                        //iconParent.gameObject.SetActive(true);
                     }
                 }
             }
@@ -403,6 +412,8 @@ namespace _YabuGames.Scripts.Managers
                     _audioSource.Play();
                 }
                 GameManager.Instance.money -= mapPrices[mapID];
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "BuyMap"+mapID.ToString());
+
             }
 
             if (mapID != 0) 
@@ -442,6 +453,8 @@ namespace _YabuGames.Scripts.Managers
                     _audioSource.Play();
                 }
                 GameManager.Instance.money -= carPrices[carID];
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "CarMap"+carID.ToString());
+
             }
 
             if (carID != 0) 

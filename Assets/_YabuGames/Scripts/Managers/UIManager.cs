@@ -2,11 +2,11 @@ using System;
 using _YabuGames.Scripts.Signals;
 using DG.Tweening;
 using TMPro;
-using UnityEngine;
+using UnityEngine;  
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
-
+using GameAnalyticsSDK;
 
 namespace _YabuGames.Scripts.Managers
 {
@@ -82,13 +82,14 @@ namespace _YabuGames.Scripts.Managers
 
         private void Start()
         {
-            Time.timeScale = 0;
             SetMoneyTexts();
             GetTargetValues();
             SetPlayerProgress();
             if (SceneManager.GetActiveScene().buildIndex != 0) 
             {
                 OpenMissionsPanel(false);
+                Time.timeScale = 1;
+
             }
         }
 
@@ -278,11 +279,17 @@ namespace _YabuGames.Scripts.Managers
 
         public void DoubleTheIncome(GameObject button)
         {
+            MaxManager._instance.button = button;
+           MaxManager._instance.ShowRewarded("DoubleCoin");
+        }
+
+        public void CoinReward(GameObject button)
+        {
             button.SetActive(false);
             CalculateEarnings(GameManager.Instance.GetEarnedMoney()*2);
             var r = Random.Range(10, 15);
             CoreGameSignals.Instance.OnSpawnCoins?.Invoke(r,0,0,true);
-            HapticManager.Instance.PlaySelectionHaptic();
+            HapticManager.Instance.PlaySelectionHaptic(); 
         }
 
         public void UpdateHealthBar(float amount)
@@ -351,6 +358,15 @@ namespace _YabuGames.Scripts.Managers
             panel.transform.localScale = Vector3.zero;
             panel.transform.DOScale(Vector3.one, .3f).SetEase(Ease.OutBack);
             HapticManager.Instance.PlaySelectionHaptic();
+            try
+            {
+                GameObject.Find("IAPMANAGER").GetComponent<IAPManager>().coinSetPriceText();
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
         
         public void PlayButton()
@@ -358,6 +374,8 @@ namespace _YabuGames.Scripts.Managers
             CoreGameSignals.Instance.OnSave?.Invoke();
             CoreGameSignals.Instance.OnGameStart?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Player_Play");
+
         }
 
         public void MenuButton()
@@ -387,6 +405,8 @@ namespace _YabuGames.Scripts.Managers
                 return;
             
             missionClaimButtons[buttonID].interactable = true;
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Mission_Completed_Prize");
+
         }
 
         public void ClaimButton(int buttonID)

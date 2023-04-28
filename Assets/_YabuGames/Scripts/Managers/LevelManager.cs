@@ -5,7 +5,7 @@ using _YabuGames.Scripts.ScriptableObjects;
 using _YabuGames.Scripts.Signals;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+using GameAnalyticsSDK;
 namespace _YabuGames.Scripts.Managers
 {
     [RequireComponent(typeof(AudioSource))]
@@ -26,7 +26,6 @@ namespace _YabuGames.Scripts.Managers
         private float _wantedLevel;
         private int _passedLevels;
         private float _delayer;
-        
         
         
         private void Awake()
@@ -103,6 +102,8 @@ namespace _YabuGames.Scripts.Managers
             if (skillSpecsList.Count > 0 || chosenSkills.Count > 0)
             {
                 onLose = false;
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Player_Revive");
+
             }
         }
 
@@ -113,6 +114,7 @@ namespace _YabuGames.Scripts.Managers
             onLose = true;
             var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
             _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Player_Lose");
         }
         private void ChooseRandomSkill()
         {
