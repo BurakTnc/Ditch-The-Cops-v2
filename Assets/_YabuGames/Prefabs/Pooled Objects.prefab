@@ -691,7 +691,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -905,7 +913,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -1115,7 +1131,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -1193,7 +1217,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -1468,16 +1500,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
-      propertyPath: looping
-      value: 0
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
-      propertyPath: stopAction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
-      propertyPath: lengthInSec
-      value: 5
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -1621,7 +1649,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -1769,7 +1805,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -1847,7 +1891,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -2127,7 +2179,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -2337,7 +2397,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -2481,7 +2549,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -2629,7 +2705,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -2707,7 +2791,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -2851,7 +2943,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -3135,7 +3235,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -3345,7 +3453,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -3489,7 +3605,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -3703,7 +3827,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -3983,7 +4115,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: lengthInSec
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
@@ -4473,10 +4613,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeDark (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 130900, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 477408, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4522,16 +4658,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
-      propertyPath: looping
-      value: 0
+      propertyPath: ShapeModule.radius.value
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
-      propertyPath: stopAction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19833736, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
-      propertyPath: lengthInSec
-      value: 5
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
