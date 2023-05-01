@@ -529,6 +529,8 @@ public class IAPManager : MonoBehaviour,IStoreListener
 
     public void coinSetPriceText()
     {
+        if(!ShopCoinText4)
+            return;
         ShopCoinText4.text = GetPrice(cops_100);
         ShopCoinText5.text = GetPrice(cops_1000);
         ShopCoinText6.text = GetPrice(cops_5000);

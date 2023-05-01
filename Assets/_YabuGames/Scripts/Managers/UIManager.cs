@@ -82,15 +82,16 @@ namespace _YabuGames.Scripts.Managers
 
         private void Start()
         {
+            Time.timeScale = 0;
             SetMoneyTexts();
             GetTargetValues();
             SetPlayerProgress();
             if (SceneManager.GetActiveScene().buildIndex != 0) 
             {
                 OpenMissionsPanel(false);
-                Time.timeScale = 1;
-
+                return;
             }
+            Time.timeScale = 1;
         }
 
         private void GetTargetValues()
@@ -360,7 +361,11 @@ namespace _YabuGames.Scripts.Managers
             HapticManager.Instance.PlaySelectionHaptic();
             try
             {
-                GameObject.Find("IAPMANAGER").GetComponent<IAPManager>().coinSetPriceText();
+                var iap = GameObject.Find("IAPMANAGER");
+                if (iap.TryGetComponent(out IAPManager manager))
+                {
+                    manager.coinSetPriceText();
+                }
 
             }
             catch (Exception e)

@@ -160,7 +160,7 @@ namespace _YabuGames.Scripts.Managers
                 else
                 {
                     var button1Parent = carButtons[i].transform.parent.parent;
-                    var iconParent = button1Parent.GetChild(1);
+                    var iconParent = button1Parent.GetChild(0).GetChild(0);
                     iconParent.gameObject.SetActive(true);
                     var anchoredPos = carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition;
                     carButtonTexts[i].GetComponent<RectTransform>().anchoredPosition =
@@ -192,7 +192,7 @@ namespace _YabuGames.Scripts.Managers
                        
                         
                         
-                  
+                        iconParent.gameObject.SetActive(true);
                         buttonParent.GetChild(buttonParent.childCount-1).gameObject.SetActive(false);
                         //iconParent.gameObject.SetActive(true);
                     }

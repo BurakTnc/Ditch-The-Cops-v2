@@ -198,7 +198,7 @@ namespace _YabuGames.Scripts.Controllers
 
         private void SetSmokeParticle()
         {
-            PoolManager.Instance.GetSmokeParticle(transform.position);
+            PoolManager.Instance.GetSmokeParticle(transform.position+Vector3.up);
         }
 
         private void OnBecameInvisible()

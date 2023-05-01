@@ -9,7 +9,7 @@ namespace _YabuGames.Scripts.Managers
         public static AdManager Instance;
         public bool onMenu;
 
-        public MaxManager MAX;
+        [SerializeField] private MaxManager MAX;
         private const int _showInterLimit = 120;
 
         public float _timer;
@@ -24,6 +24,7 @@ namespace _YabuGames.Scripts.Managers
             }
             
             Instance = this;
+            MAX = GameObject.Find("MAXMANAGER").GetComponent<MaxManager>();
         }
 
         private void Update()
@@ -65,6 +66,7 @@ namespace _YabuGames.Scripts.Managers
                 return;
             _timer = 0;
             MAX.ShowInter("INTER");
+            Debug.Log("INTER");
 
         }
     }

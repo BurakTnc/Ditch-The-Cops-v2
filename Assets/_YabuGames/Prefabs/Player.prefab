@@ -780,7 +780,7 @@ MonoBehaviour:
   obstacleUpwardsModifier: 0
   obstacleForceMode: 1
   cannonRadius: 20
-  cannonForce: 150
+  cannonForce: 90
 --- !u!65 &8125642775169092339
 BoxCollider:
   m_ObjectHideFlags: 0
