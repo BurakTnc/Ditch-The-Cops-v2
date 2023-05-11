@@ -305,6 +305,22 @@ public class AndroidTenjin : BaseTenjin {
 		tenjinJava.Call ("updatePostbackConversionValue", args);
 	}
 
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue){
+		if (Debug.isDebugBuild) {
+			Debug.Log ("Android UpdatePostbackConversionValue");
+		}
+		object[] args = new object[]{conversionValue, coarseValue};
+		tenjinJava.Call ("updatePostbackConversionValue", args);
+	}
+
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue, bool lockWindow){
+		if (Debug.isDebugBuild) {
+			Debug.Log ("Android UpdatePostbackConversionValue");
+		}
+		object[] args = new object[]{conversionValue, coarseValue, lockWindow};
+		tenjinJava.Call ("updatePostbackConversionValue", args);
+	}
+
 	public override void RequestTrackingAuthorizationWithCompletionHandler(Action<int> trackingAuthorizationCallback) {
 	}
 
@@ -451,6 +467,17 @@ public class AndroidTenjin : BaseTenjin {
 			}
 		}
 	}
+
+	public override void SetCustomerUserId(string userId) {
+		Debug.Log($"SetCustomerUserId {userId}");
+		var args = new object[] {userId};
+		tenjinJava.Call ("setCustomerUserId", args);
+	}
+
+	public override string GetCustomerUserId() {
+		Debug.Log($"GetCustomerUserId");
+		return tenjinJava.Call<string> ("setCustomerUserId");
+	}
 #else
 	public override void Init(string apiKey){
 		Debug.Log ("Android Initializing - v"+this.SdkVersion);
@@ -581,6 +608,16 @@ public class AndroidTenjin : BaseTenjin {
 		Debug.Log("Sending UpdatePostbackConversionValue: " + conversionValue);
 	}
 
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue)
+	{
+		Debug.Log("Sending UpdatePostbackConversionValueCoarseValue: " + conversionValue + coarseValue);
+	}
+
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue, bool lockWindow)
+	{
+		Debug.Log("Sending UpdatePostbackConversionValueCoarseValueLockWindow: " + conversionValue + coarseValue + lockWindow);
+	}
+
 	public override void RegisterAppForAdNetworkAttribution()
 	{
 		throw new NotImplementedException();
@@ -593,6 +630,15 @@ public class AndroidTenjin : BaseTenjin {
 
 	public override void SetAppStoreType(AppStoreType appStoreType) {
 		Debug.Log("Setting AndroidTenjin::SetAppStoreType: " + appStoreType);
+	}
+
+	public override void SetCustomerUserId(string userId) {
+		Debug.Log("Setting AndroidTenjin::SetCustomerUserId: " + userId);
+	}
+
+	public override string GetCustomerUserId() {
+		Debug.Log("Setting AndroidTenjin::GetCustomerUserId");
+		return "";
 	}
 #endif
 }

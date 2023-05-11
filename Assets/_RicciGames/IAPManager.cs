@@ -22,7 +22,7 @@ public class IAPManager : MonoBehaviour,IStoreListener
     public TextMeshProUGUI ShopCoinText4, ShopCoinText5, ShopCoinText6, ShopCoinText7, buyUnlmtFLYText;
 
 
-    public static string cops_100 = "cops_100", cops_1000 = "cops_1000", cops_5000 = "cops_5000";
+    public static string cops_100 = "cops_100", cops_1000 = "cops_1000", cops_5000 = "cops_5000", cops_noads = "cops_noads";
     float counter;
     DateTime olddateForWeek;
 
@@ -32,10 +32,10 @@ public class IAPManager : MonoBehaviour,IStoreListener
     {
  
         unlimited_fly = "WorldPlanet_UnlimitedFLY";
-        //if (PlayerPrefs.GetInt("isNoAds") == 1)
-        //{
-        //    noAdsImage.gameObject.SetActive(false);
-        //}
+        if (PlayerPrefs.GetInt("IsNoAds") == 1)
+        {
+            noAdsImage.gameObject.SetActive(false);
+        }
 
         // If we haven't set up the Unity Purchasing reference
         if (m_StoreController == null)
@@ -44,9 +44,9 @@ public class IAPManager : MonoBehaviour,IStoreListener
             InitializePurchasing();
         }
 
-       // checkProd(noAds);
+        checkProd(cops_noads);
        
-        //ReceiptCheckNoADS(noAds);
+        ReceiptCheckNoADS(cops_noads);
      
 
     }
@@ -60,7 +60,7 @@ public class IAPManager : MonoBehaviour,IStoreListener
 
             InitializedPlay = false;
         }
-        if (PlayerPrefs.GetInt("BoughtNoAdsControl", 0)==0)
+        if (PlayerPrefs.GetInt("IsNoAds", 0)==0)
         {
             if (counter!=-1)
             {
@@ -68,7 +68,7 @@ public class IAPManager : MonoBehaviour,IStoreListener
 
                  if (counter>=3)
                  {
-                    // noAdsImage.gameObject.SetActive(true);
+                     noAdsImage.gameObject.SetActive(true);
                      counter = -1;
                  }
 
@@ -88,15 +88,15 @@ public class IAPManager : MonoBehaviour,IStoreListener
         yield return new WaitForSeconds(3);
         if (IsInitialized())
         {
-           // Product product = m_StoreController.products.WithID(prodI   Product product = m_StoreController.products.WithID(prodId);d);
-           // if (product != null && product.hasReceipt)
-            //{
-             //   RemoveAds();
-            //}
-            //else
-            //{
-             //   EnableAds();
-            //}
+            Product product = m_StoreController.products.WithID(prodId);
+            if (product != null && product.hasReceipt)
+            {
+                RemoveAds();
+            }
+            else
+            {
+                EnableAds();
+            }
 
         }
 
@@ -399,7 +399,7 @@ public class IAPManager : MonoBehaviour,IStoreListener
             builder.AddProduct(cops_100, ProductType.Consumable);
             builder.AddProduct(cops_1000, ProductType.Consumable);
             builder.AddProduct(cops_5000, ProductType.Consumable);
-   
+            builder.AddProduct(cops_noads, ProductType.NonConsumable); 
    
             UnityPurchasing.Initialize(this, builder);
         }
@@ -431,7 +431,10 @@ public class IAPManager : MonoBehaviour,IStoreListener
     {
         BuyProductID("cops_" + i.ToString());
     }
-
+    public void BuyNoAds()
+    {
+        BuyProductID(cops_noads);
+    }
     void BuyProductID(string productId)
     {
         if (IsInitialized())
@@ -534,6 +537,7 @@ public class IAPManager : MonoBehaviour,IStoreListener
         ShopCoinText4.text = GetPrice(cops_100);
         ShopCoinText5.text = GetPrice(cops_1000);
         ShopCoinText6.text = GetPrice(cops_5000);
+        ShopCoinText7.text = GetPrice(cops_noads);
 
     }
 
@@ -588,7 +592,22 @@ public class IAPManager : MonoBehaviour,IStoreListener
             GameManager.Instance.money += 5000;
             CoreGameSignals.Instance.OnSave?.Invoke();
         }
-      
+        else if (String.Equals(args.purchasedProduct.definition.id, cops_noads, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            PlayerPrefs.SetInt("isNoAds", 1);
+            Debug.Log("isNoAds setlendi !!!");
+            if (noAdsImage.gameObject != null)
+            {
+                Debug.Log("NoadsImage :null değil");
+                noAdsImage.gameObject.SetActive(false);
+
+            }
+            NoAdsOkay = true;
+            PlayerPrefs.SetInt("IsNoAds", 1);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Noads-Bought");
+            RemoveAds();
+        }
 
         else
         {

@@ -9,8 +9,8 @@ public class Test2 : MonoBehaviour {
 	}
 
 	IEnumerator replace () {
-		yield return new WaitForSeconds(2.0f);
+		yield return new WaitForSeconds(45.0f);
 //		Debug.Break();
-		Application.LoadLevel("TestScene");
+		AppraterScript.ShowRaterPopup();
 	}
 }

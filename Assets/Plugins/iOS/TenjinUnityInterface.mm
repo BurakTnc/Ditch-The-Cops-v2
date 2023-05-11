@@ -141,6 +141,16 @@ void iosTenjinUpdatePostbackConversionValue(int conversionValue){
     [TenjinSDK updatePostbackConversionValue:conversionValue];
 }
 
+void iosTenjinUpdatePostbackConversionValueCoarseValue(int conversionValue, const char* coarseValue){
+    NSLog(@"Called Tenjin [TenjinSDK updatePostbackConversionValueCoarseValue]");
+    [TenjinSDK updatePostbackConversionValue:conversionValue coarseValue:[NSString stringWithUTF8String:coarseValue]];
+}
+
+void iosTenjinUpdatePostbackConversionValueCoarseValueLockWindow(int conversionValue, const char* coarseValue, bool lockWindow){
+    NSLog(@"Called Tenjin [TenjinSDK updatePostbackConversionValueCoarseValue]");
+    [TenjinSDK updatePostbackConversionValue:conversionValue coarseValue:[NSString stringWithUTF8String:coarseValue] lockWindow:lockWindow];
+}
+
 void iosTenjinRegisterAppForAdNetworkAttribution(){
     NSLog(@"Called Tenjin [TenjinSDK registerAppForAdNetworkAttribution]");
     [TenjinSDK registerAppForAdNetworkAttribution];
@@ -280,10 +290,22 @@ void iosTenjin_InternalFreeStringStringKeyValuePairs(TenjinStringStringKeyValueP
     free((void*) pairs);
 }
 
-void iosTenjinSetWrapperVersion(const char* wrapperString){
+void iosTenjinSetWrapperVersion(const char* wrapperString) {
     NSString *utfStr = [NSString stringWithUTF8String:wrapperString];
     
     [TenjinSDK setWrapperVersion:utfStr];
+}
+
+void iosTenjinSetCustomerUserId(const char* userId) {
+    NSString *utfStr = [NSString stringWithUTF8String:userId];
+    
+    [TenjinSDK setCustomerUserId:utfStr];
+}
+
+const char* iosTenjinGetCustomerUserId() {
+    NSString *userId = [TenjinSDK getCustomerUserId];
+
+    return [userId UTF8String];
 }
 
 

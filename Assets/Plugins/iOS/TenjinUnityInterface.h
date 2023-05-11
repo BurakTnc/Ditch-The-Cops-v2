@@ -48,6 +48,8 @@ void iosTenjinOptOutParams(char** params, int size);
 void iosTenjinAppendAppSubversion(int subversion);
 void iosTenjinUpdateConversionValue(int conversionValue);
 void iosTenjinUpdatePostbackConversionValue(int conversionValue);
+void iosTenjinUpdatePostbackConversionValueCoarseValue(int conversionValue, const char* coarseValue);
+void iosTenjinUpdatePostbackConversionValueCoarseValueLockWindow(int conversionValue, const char* coarseValue, bool lockWindow);
 void iosTenjinRequestTrackingAuthorizationWithCompletionHandler();
 
 void iosTenjinSetDebugLogs();
@@ -59,6 +61,9 @@ void iosTenjinIronSourceImpressionFromJSON(const char* jsonString);
 void iosTenjinHyperBidImpressionFromJSON(const char* jsonString);
 void iosTenjinSubscribeAbMobImpressionFromJSON(const char* jsonString);
 void iosTenjinTopOnImpressionFromJSON(const char* jsonString);
+
+void iosTenjinSetCustomerUserId(const char* userId);
+const char* iosTenjinGetSetCustomerUserId();
 }
 
 #endif

@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: AppLovinSettings
   m_EditorClassIdentifier: 
   qualityServiceEnabled: 1
-  sdkKey: 
+  sdkKey: _kziwD3Fce76fVb2eZQT0v4pGloAtkTsSQZMecbGGkNwDzytXNKXHPLT97i1sBuIcReF3EWJyuE9rA1NTLvqmF
   setAttributionReportEndpoint: 0
-  consentFlowEnabled: 0
+  consentFlowEnabled: 1
   consentFlowPlatform: 0
-  consentFlowPrivacyPolicyUrl: 
-  consentFlowTermsOfServiceUrl: 
-  userTrackingUsageDescriptionEn: 
+  consentFlowPrivacyPolicyUrl: https://riccigame.com/copcarrush_terms_and_conditions.html
+  consentFlowTermsOfServiceUrl: https://www.riccigame.com/copcarrush_privacy_policy.html
+  userTrackingUsageDescriptionEn: This uses info for less annoying, more relevant
+    ads
   userTrackingUsageLocalizationEnabled: 0
   userTrackingUsageDescriptionDe: 
   userTrackingUsageDescriptionEs: 
@@ -27,7 +28,7 @@ MonoBehaviour:
   userTrackingUsageDescriptionJa: 
   userTrackingUsageDescriptionKo: 
   userTrackingUsageDescriptionZhHans: 
-  userTrackingUsageDescriptionZhHant: default_localization
+  userTrackingUsageDescriptionZhHant: 
   adMobAndroidAppId: 
-  adMobIosAppId: 
+  adMobIosAppId: ca-app-pub-9759525536113999~8735342661
   showInternalSettingsInIntegrationManager: 0

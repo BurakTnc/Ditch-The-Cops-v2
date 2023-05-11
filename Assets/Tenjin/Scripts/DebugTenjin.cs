@@ -177,6 +177,16 @@ public class DebugTenjin : BaseTenjin {
 		Debug.Log("UpdatePostbackConversionValue: " + conversionValue);
 	}
 
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue)
+	{
+		Debug.Log("UpdatePostbackConversionValueCoarseValue: " + conversionValue + coarseValue);
+	}
+
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue, bool lockWindow)
+	{
+		Debug.Log("UpdatePostbackConversionValueCoarseValueLockWindow: " + conversionValue + coarseValue + lockWindow);
+	}
+
 	public override void SubscribeTopOnImpressions()
 	{
 		Debug.Log("Subscribing to topon impressions");
@@ -196,5 +206,16 @@ public class DebugTenjin : BaseTenjin {
 	public override void SetAppStoreType(AppStoreType appStoreType)
 	{
 		Debug.Log("SetAppStoreType");
+	}
+
+	public override void SetCustomerUserId(string userId)
+	{
+		Debug.Log("SetCustomerUserId");
+	}
+
+	public override string GetCustomerUserId()
+	{
+		Debug.Log("GetCustomerUserId");
+		return "";
 	}
 }

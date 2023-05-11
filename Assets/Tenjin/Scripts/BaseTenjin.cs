@@ -15,7 +15,7 @@ public abstract class BaseTenjin : MonoBehaviour {
 	protected bool optOut;
 	protected int appSubversion;
 
-	public string SdkVersion { get; } = "1.12.23";
+	public string SdkVersion { get; } = "1.12.28";
 
 	public string ApiKey{
 		get{
@@ -63,6 +63,8 @@ public abstract class BaseTenjin : MonoBehaviour {
 	public abstract void RegisterAppForAdNetworkAttribution();
 	public abstract void UpdateConversionValue(int conversionValue);
 	public abstract void UpdatePostbackConversionValue(int conversionValue);
+	public abstract void UpdatePostbackConversionValue(int conversionValue, string coarseValue);
+	public abstract void UpdatePostbackConversionValue(int conversionValue, string coarseValue, bool lockWindow);
 	public abstract void RequestTrackingAuthorizationWithCompletionHandler(Action<int> trackingAuthorizationCallback);
 	public abstract void DebugLogs();
 	public abstract void SetAppStoreType(AppStoreType appStoreType);
@@ -74,4 +76,6 @@ public abstract class BaseTenjin : MonoBehaviour {
 	public abstract void SubscribeAdMobInterstitialAdImpressions(object interstitialAd, string adUnitId);
 	public abstract void SubscribeAdMobRewardedInterstitialAdImpressions(object rewardedInterstitialAd, string adUnitId);
 	public abstract void SubscribeTopOnImpressions();
+	public abstract void SetCustomerUserId(string userId);
+	public abstract string GetCustomerUserId();
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400000}
   - component: {fileID: 11400000}
+  - component: {fileID: 4140749302544474185}
   m_Layer: 0
   m_Name: KTAppRater
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model:
-    appid: 00000000
+    appid: 6448630735
     reviewTitle: Rate ProductName
     reviewMessage: Will you mind giving a minute to rate this app?
     rateNowTitle: Rate Now
@@ -57,3 +58,15 @@ MonoBehaviour:
     numberOfDays: 2
     numberOfGamePlays: 3
     numberOfButtons: 1
+--- !u!114 &4140749302544474185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08688c013537544948ecbf1f60d1bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

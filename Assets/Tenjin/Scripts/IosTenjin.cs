@@ -50,6 +50,12 @@ public class IosTenjin : BaseTenjin
 	private static extern void iosTenjinUpdatePostbackConversionValue(int conversionValue);
 
 	[DllImport ("__Internal")]
+	private static extern void iosTenjinUpdatePostbackConversionValueCoarseValue(int conversionValue, string coarseValue);
+
+	[DllImport ("__Internal")]
+	private static extern void iosTenjinUpdatePostbackConversionValueCoarseValueLockWindow(int conversionValue, string coarseValue, bool lockWindow);
+
+	[DllImport ("__Internal")]
 	private static extern void iosTenjinRequestTrackingAuthorizationWithCompletionHandler();
 
 	[DllImport ("__Internal")]
@@ -93,6 +99,12 @@ public class IosTenjin : BaseTenjin
 
     [DllImport ("__Internal")]
     private static extern void iosTenjinSetWrapperVersion(string wrapperString);
+
+	[DllImport ("__Internal")]
+    private static extern void iosTenjinSetCustomerUserId(string userId);
+
+	[DllImport ("__Internal")]
+    private static extern string iosTenjinGetCustomerUserId();
 
 	private delegate void DeepLinkHandlerNativeDelegate(IntPtr deepLinkDataPairArray, int deepLinkDataPairCount);
 	private delegate void AttributionInfoNativeDelegate(IntPtr attributionInfoDataPairArray, int attributionInfoDataPairCount);
@@ -224,6 +236,22 @@ public class IosTenjin : BaseTenjin
 			Debug.Log ("iOS UpdatePostbackConversionValue");
 		}
 		iosTenjinUpdatePostbackConversionValue (conversionValue);
+	}
+
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue)
+	{
+		if (Debug.isDebugBuild) {
+			Debug.Log ("iOS UpdatePostbackConversionValueCoarseValue");
+		}
+		iosTenjinUpdatePostbackConversionValueCoarseValue (conversionValue, coarseValue);
+	}
+
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue, bool lockWindow)
+	{
+		if (Debug.isDebugBuild) {
+			Debug.Log ("iOS UpdatePostbackConversionValueCoarseValueLockWindow");
+		}
+		iosTenjinUpdatePostbackConversionValueCoarseValueLockWindow (conversionValue, coarseValue, lockWindow);
 	}
 
 	public override void RequestTrackingAuthorizationWithCompletionHandler(Action<int> trackingAuthorizationCallback)
@@ -417,6 +445,22 @@ public class IosTenjin : BaseTenjin
 		registeredAttributionInfoDelegate = attributionInfoDelegate;
 		iosTenjinGetAttributionInfo(AttributionInfo);
 	}
+
+	public override void SetCustomerUserId(string userId)
+	{
+		if (Debug.isDebugBuild) {
+			Debug.Log ("Sending IosTenjin::SetCustomerUserId");
+		}
+        iosTenjinSetCustomerUserId(userId);
+    }
+
+	public override string GetCustomerUserId()
+	{
+		if (Debug.isDebugBuild) {
+			Debug.Log ("Sending IosTenjin::GetCustomerUserId");
+		}
+        return iosTenjinGetCustomerUserId();
+    }
 
 	public override void DebugLogs()
 	{
@@ -621,6 +665,16 @@ public class IosTenjin : BaseTenjin
         Debug.Log("iOS UpdatePostbackConversionValue: " + conversionValue);
     }
 
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue)
+    {
+        Debug.Log("iOS UpdatePostbackConversionValue: " + conversionValue + coarseValue);
+    }
+
+	public override void UpdatePostbackConversionValue(int conversionValue, string coarseValue, bool lockWindow)
+    {
+        Debug.Log("iOS UpdatePostbackConversionValue: " + conversionValue + coarseValue + lockWindow);
+    }
+
     public override void RequestTrackingAuthorizationWithCompletionHandler(Action<int> trackingAuthorizationCallback)
     {
         Debug.Log("iOS RequestTrackingAuthorizationWithCompletionHandler");
@@ -679,6 +733,17 @@ public class IosTenjin : BaseTenjin
     public override void SetAppStoreType(AppStoreType appStoreType)
     {
         Debug.Log("iOS SetAppStoreType");
+    }
+
+	public override void SetCustomerUserId(string userId)
+    {
+        Debug.Log("iOS SetCustomerUserId");
+    }
+
+	public override string GetCustomerUserId()
+    {
+        Debug.Log("iOS GetCustomerUserId");
+		return "";
     }
 #endif
 }

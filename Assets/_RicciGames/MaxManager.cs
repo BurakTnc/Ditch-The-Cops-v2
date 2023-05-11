@@ -43,8 +43,8 @@ public class MaxManager : MonoBehaviour
 
    
     }
-    public static string interstitialAdUnitId = "d737a78b578f313f";
-    public static string rewardedAdUnitId = "2ca49d3bfb496a28";
+    public static string interstitialAdUnitId = "6032d3962789e27f";
+    public static string rewardedAdUnitId = "3704ade8023b3cd3";
 
     int retryAttempt;
     public void InitializeInterstitialAds()

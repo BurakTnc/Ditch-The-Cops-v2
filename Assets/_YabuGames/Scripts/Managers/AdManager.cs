@@ -62,6 +62,11 @@ namespace _YabuGames.Scripts.Managers
 
         public void ShowInter()
         {
+            if (PlayerPrefs.GetInt("IsNoAds") == 1)
+            {
+                _timer = 0;
+                return;
+            }
             if (_timer<_showInterLimit)
                 return;
             _timer = 0;
