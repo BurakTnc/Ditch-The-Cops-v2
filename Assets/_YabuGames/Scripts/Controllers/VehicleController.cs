@@ -127,7 +127,7 @@ namespace _YabuGames.Scripts.Controllers
 
             foreach (var t in smokeParticle)
             {
-                t.Pause();
+                t.Stop();
             }
         }
 

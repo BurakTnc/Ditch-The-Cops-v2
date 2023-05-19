@@ -815,7 +815,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: UNITY_POST_PROCESSING_STACK_V2;gameanalytics_max_enabled;tenjin_applovin_enabled
+    Android: UNITY_POST_PROCESSING_STACK_V2;gameanalytics_max_enabled;CF_FORCE_MOBILE_MODE;tenjin_applovin_enabled
     EmbeddedLinux: UNITY_POST_PROCESSING_STACK_V2
     GameCoreXboxOne: UNITY_POST_PROCESSING_STACK_V2
     Lumin: UNITY_POST_PROCESSING_STACK_V2
@@ -825,9 +825,9 @@ PlayerSettings:
     Stadia: UNITY_POST_PROCESSING_STACK_V2
     Standalone: MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;UNITY_POST_PROCESSING_STACK_V2
     WebGL: UNITY_POST_PROCESSING_STACK_V2
-    Windows Store Apps: UNITY_POST_PROCESSING_STACK_V2
+    Windows Store Apps: UNITY_POST_PROCESSING_STACK_V2;CF_FORCE_MOBILE_MODE
     XboxOne: UNITY_POST_PROCESSING_STACK_V2
-    iPhone: MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;gameanalytics_max_enabled;tenjin_applovin_enabled
+    iPhone: MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;gameanalytics_max_enabled;CF_FORCE_MOBILE_MODE;tenjin_applovin_enabled
     tvOS: UNITY_POST_PROCESSING_STACK_V2
   additionalCompilerArguments: {}
   platformArchitecture: {}
