@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &10369562
 RectTransform:
   m_ObjectHideFlags: 0
@@ -839,7 +839,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 73858563}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: PopUpRewardedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: CloseButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1985811070}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &73858563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2361,7 +2385,6 @@ GameObject:
   - component: {fileID: 208779154}
   - component: {fileID: 208779153}
   - component: {fileID: 208779152}
-  - component: {fileID: 208779151}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -2390,19 +2413,6 @@ RectTransform:
   m_AnchoredPosition: {x: -10, y: -18}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &208779151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208779149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b15860555df245c449e6b1feef9dc3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 1008951185}
 --- !u!114 &208779152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2446,7 +2456,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 208779153}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: OpenPopUpIcon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1056577317}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: ClosePopUpButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1008951185}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &208779153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2746,7 +2780,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 260388362}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: PopUpRewardedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: CloseButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1881794581}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &260388362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7333,7 +7391,6 @@ GameObject:
   - component: {fileID: 727653039}
   - component: {fileID: 727653038}
   - component: {fileID: 727653037}
-  - component: {fileID: 727653036}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -7362,19 +7419,6 @@ RectTransform:
   m_AnchoredPosition: {x: -11.899963, y: -20.299973}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &727653036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727653034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b15860555df245c449e6b1feef9dc3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 419067711}
 --- !u!114 &727653037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7418,7 +7462,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 727653038}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: OpenPopUpIcon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 10369561}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: ClosePopUpButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 419067711}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &727653038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9093,7 +9161,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 852203942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: PopUpRewardedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: CloseButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 980791852}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &852203942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10902,9 +10994,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08b9d8a7df7d1498d9f57f0bcd29a930, type: 2}
   chosenSkills: []
   onLose: 0
-  criticalHealthPopUp: {fileID: 0}
-  wantedLevelPopUp: {fileID: 0}
-  reduceSkillChoosePanel: {fileID: 980791852}
+  criticalHealthPopUp: {fileID: 1985811070}
+  wantedLevelPopUp: {fileID: 1881794581}
+  reduceSkillChoosePopUp: {fileID: 980791852}
+  extraSkillPopUp: {fileID: 125007775}
   wantedLevelIncreaseValue: 0.035
   skillPanelTime: 25
   skillButtons:
@@ -10918,7 +11011,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9a031a663ead84716b88d5c29d4c1f5e, type: 3}
   - {fileID: 8300000, guid: 0b48f9d7f76514d29bc9b41bae66fbfe, type: 3}
   - {fileID: 8300000, guid: 2a700f0eba5b24e30b5bf54952bf9354, type: 3}
-  _skillCount: 0
 --- !u!82 &1023218147
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11515,7 +11607,6 @@ GameObject:
   - component: {fileID: 1051966599}
   - component: {fileID: 1051966598}
   - component: {fileID: 1051966597}
-  - component: {fileID: 1051966596}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -11544,19 +11635,6 @@ RectTransform:
   m_AnchoredPosition: {x: -15, y: -18}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &1051966596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051966594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b15860555df245c449e6b1feef9dc3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 225359139}
 --- !u!114 &1051966597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11600,7 +11678,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1051966598}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: OpenPopUpIcon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1911844615}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: ClosePopUpButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 225359139}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1051966598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11654,7 +11756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1056577318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12308,7 +12410,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1169086490}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: PopUpRewardedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: CloseButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1881794581}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1169086490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13744,7 +13870,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1388198043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: PopUpRewardedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: CloseButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1985811070}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1388198043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13940,6 +14090,7 @@ GameObject:
   - component: {fileID: 1411016799}
   - component: {fileID: 1411016798}
   - component: {fileID: 1411016797}
+  - component: {fileID: 1411016800}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -14012,7 +14163,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1411016798}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: PopUpRewardedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: CloseButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 125007775}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1411016798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14051,6 +14226,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411016795}
   m_CullTransparentMesh: 1
+--- !u!114 &1411016800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411016795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15860555df245c449e6b1feef9dc3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 125007775}
 --- !u!1 &1412083194
 GameObject:
   m_ObjectHideFlags: 0
@@ -14066,7 +14254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1412083195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16823,7 +17011,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1652179741}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: PopUpRewardedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: CloseButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 980791852}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1652179741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16923,7 +17135,6 @@ GameObject:
   - component: {fileID: 1712947484}
   - component: {fileID: 1712947483}
   - component: {fileID: 1712947482}
-  - component: {fileID: 1712947481}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -16952,19 +17163,6 @@ RectTransform:
   m_AnchoredPosition: {x: -9, y: -18}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &1712947481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712947479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b15860555df245c449e6b1feef9dc3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 550245997}
 --- !u!114 &1712947482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17008,7 +17206,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1712947483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: OpenPopUpIcon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1412083194}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: ClosePopUpButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 550245997}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1712947483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17986,7 +18208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1911844616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18275,7 +18497,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1922465972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: PopUpRewardedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 399410079}
+        m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
+        m_MethodName: CloseButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 125007775}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1922465972
 MonoBehaviour:
   m_ObjectHideFlags: 0

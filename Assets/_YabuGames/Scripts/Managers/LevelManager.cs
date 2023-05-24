@@ -7,6 +7,8 @@ using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using GameAnalyticsSDK;
+using UnityEngine.Serialization;
+
 namespace _YabuGames.Scripts.Managers
 {
     [RequireComponent(typeof(AudioSource))]
@@ -18,7 +20,10 @@ namespace _YabuGames.Scripts.Managers
         [HideInInspector] public List<SkillSpecs> chosenSkills = new List<SkillSpecs>(3);
         [HideInInspector] public bool onLose;
 
-        [SerializeField] private GameObject criticalHealthPopUp, wantedLevelPopUp, reduceSkillChoosePanel;
+        [SerializeField] private GameObject criticalHealthPopUp, wantedLevelPopUp;
+        [SerializeField] private GameObject reduceSkillChoosePopUp;
+        [SerializeField] private GameObject extraSkillPopUp;
+
         [SerializeField] private float wantedLevelIncreaseValue;
         [SerializeField] private float skillPanelTime;
         [SerializeField] private SkillButton[] skillButtons;
@@ -28,8 +33,10 @@ namespace _YabuGames.Scripts.Managers
         private float _wantedLevel;
         private int _passedLevels;
         private float _delayer;
-        private float _boostTimer = 60;
-        public int _skillCount;
+        private float _boostTimer;
+        private int _skillCount;
+        private float _originalSkillPanelTime;
+        private bool _hasExtraSkillOffer, _hasBonusHealOffer, _hasReduceCooldownOffer, _hasReduceWantedLevelOffer;
         
         
         private void Awake()
@@ -52,13 +59,26 @@ namespace _YabuGames.Scripts.Managers
 
         private void Start()
         {
-            //Time.timeScale = 1;
+            _originalSkillPanelTime = skillPanelTime;
             GameManager.Instance.onSurvive = true;
             SetChaosValue();
             _delayer = skillPanelTime;
-
+            var r = Random.Range(0, 101);
+            if(r<61)
+                return;
+            Invoke(nameof(ShowExtraSkillOffer), 1);
         }
 
+        private void ShowExtraSkillOffer()
+        {
+            _hasExtraSkillOffer = true;
+            Time.timeScale = 0;
+            var panel = extraSkillPopUp;
+            panel.transform.localScale = Vector3.zero;
+            panel.SetActive(true);
+            panel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
+
+        }
         private void OnEnable()
         {
             Subscribe();
@@ -99,6 +119,23 @@ namespace _YabuGames.Scripts.Managers
         private void Update()
         {
             OpenSkillPanel();
+            ApplySkillTimeBoost();
+        }
+
+        private void ApplySkillTimeBoost()
+        {
+            if (_boostTimer > 0)
+            {
+                skillPanelTime = _originalSkillPanelTime / 2;
+                Debug.Log(_boostTimer.ToString("00"));
+            }
+            else
+            {
+                skillPanelTime = _originalSkillPanelTime;
+            }
+
+            _boostTimer -= Time.deltaTime;
+            _boostTimer = Mathf.Clamp(_boostTimer, 0, 60);
         }
 
         private void Revive()
@@ -158,7 +195,7 @@ namespace _YabuGames.Scripts.Managers
                 }
             }
         }
-        private void OpenSkillPanel()
+        public void OpenSkillPanel()
         {
             if(onLose)
                 return;
@@ -190,6 +227,9 @@ namespace _YabuGames.Scripts.Managers
                 var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
                 _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
                 UIManager.Instance.SetStars(5);
+                if(_hasReduceWantedLevelOffer)
+                    return;
+                Invoke(nameof(ShowWantedLevelOffer),10);
                 return;
             }
             if (_wantedLevel>=4)
@@ -238,26 +278,79 @@ namespace _YabuGames.Scripts.Managers
         public void SetSkillCount()
         {
             _skillCount++;
-            if (_skillCount<5)
+            if (_skillCount != 4 && _hasReduceCooldownOffer) 
                 return;
-            Invoke(nameof(ShowSkillOffer),1);
+            Invoke(nameof(ShowReduceSkillOffer),.2f);
 
         }
-
-        private void ShowSkillOffer()
+        
+        private void ShowReduceSkillOffer()
         {
+            if(_hasReduceCooldownOffer)
+                return;
+            _hasReduceCooldownOffer = true;
             Time.timeScale = 0;
-            var panel = reduceSkillChoosePanel;
+            var panel = reduceSkillChoosePopUp;
+            panel.transform.localScale = Vector3.zero;
+            panel.SetActive(true);
+            panel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
+        }
+        private void ShowWantedLevelOffer()
+        {
+            if(_hasReduceWantedLevelOffer)
+                return;
+            _hasReduceWantedLevelOffer = true;
+            Time.timeScale = 0;
+            var panel = wantedLevelPopUp;
+            panel.transform.localScale = Vector3.zero;
+            panel.SetActive(true);
+            panel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
+        }
+        
+        public void ShowHealOffer()
+        {
+            if(_hasExtraSkillOffer)
+                return;
+            _hasBonusHealOffer = true;
+            Time.timeScale = 0;
+            var panel = criticalHealthPopUp;
             panel.transform.localScale = Vector3.zero;
             panel.SetActive(true);
             panel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
         }
 
+        public void ReduceWantedLevel()
+        {
+            _wantedLevel = 4;
+            _passedLevels = 3;
+        }
+
+        public void ReduceSkillChooseTime()
+        {
+            _boostTimer = 60;
+        }
+
+        public void OpenBonusSkill()
+        {
+            _delayer = 0;
+        }
+
         public void ClaimPopUpReward(int rewardID)
         {
+            // 0-Extra Skill 1-Critical Health 2- Wanted Level Decrease 3- Reduce Skill Choose Time
             switch (rewardID)
             {
                 case 0:
+                    AdManager.Instance.showReward("ExtraSkillOffer");
+                    break;
+                case 1:
+                    AdManager.Instance.showReward("BonusHealOffer");
+                    break;
+                case 2:
+                    AdManager.Instance.showReward("ReduceWantedLevelOffer");
+                    break;
+                case 3:
+                    AdManager.Instance.showReward("ReduceSkillChooseTimeOffer");
                     break;
             }
         }

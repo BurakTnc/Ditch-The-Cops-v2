@@ -458,19 +458,29 @@ namespace _YabuGames.Scripts.Managers
         public void OpenPopUpIcon(GameObject icon)
         {
             icon.SetActive(true);
-            icon.transform.DOShakeRotation(2f, Vector3.left * 20, 3, 100, true).SetLoops(-1);
+            icon.transform.DOShakeRotation(5f, Vector3.forward * 7, 7, 100, true).SetLoops(-1);
         }
 
         public void ClosePopUpButton(GameObject panel)
         {
-            panel.transform.DOScale(Vector3.zero, .5f).SetEase(Ease.InBack).OnComplete(DisablePanel);
-
+            panel.transform.DOScale(Vector3.zero, .2f).SetEase(Ease.InBack).OnComplete(DisablePanel);
+            Time.timeScale = 1;
+            
             void DisablePanel()
             {
                 panel.SetActive(false);
             }
         }
 
+        public void CloseButton(GameObject panel)
+        {
+            panel.transform.DOScale(Vector3.zero, .2f).SetEase(Ease.InBack).OnComplete(Disable);
+
+            void Disable()
+            {
+                panel.SetActive(false);
+            }
+        }
         public void PopUpRewardedButton(int rewardID)
         {
             LevelManager.Instance.ClaimPopUpReward(rewardID);

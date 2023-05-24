@@ -237,6 +237,22 @@ public class MaxManager : MonoBehaviour
             PlayerPrefs.SetInt("OnRevive", PlayerPrefs.GetInt("OnRevive", 0) + 1);
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "OnRevive" + PlayerPrefs.GetInt("OnRevive", 0)); 
         }
+        else if (currentreward == "ExtraSkillOffer")
+        {
+            LevelManager.Instance.OpenBonusSkill();
+        }
+        else if (currentreward == "ReduceSkillChooseTimeOffer")
+        {
+            LevelManager.Instance.ReduceSkillChooseTime();
+        }
+        else if (currentreward == "ReduceWantedLevelOffer")
+        {
+            LevelManager.Instance.ReduceWantedLevel();
+        }
+        else if (currentreward == "BonusHealOffer")
+        {
+            LevelSignals.Instance.OnBonusHealing?.Invoke();
+        }
 
         StopMusic("Play");
 

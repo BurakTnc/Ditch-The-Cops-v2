@@ -45,6 +45,7 @@ namespace _YabuGames.Scripts.Controllers
             SkillSignals.Instance.OnHealing += ActivateHealMode;
             SkillSignals.Instance.OnHealLevelIncrease += IncreaseHealLevel;
             LevelSignals.Instance.OnRevive += Revive;
+            LevelSignals.Instance.OnBonusHealing += GetBonusHeal;
         }
 
         private void UnSubscribe()
@@ -53,6 +54,7 @@ namespace _YabuGames.Scripts.Controllers
             SkillSignals.Instance.OnHealing -= ActivateHealMode;
             SkillSignals.Instance.OnHealLevelIncrease -= IncreaseHealLevel;
             LevelSignals.Instance.OnRevive -= Revive;
+            LevelSignals.Instance.OnBonusHealing -= GetBonusHeal;
         }
 
         private void Start()
@@ -158,6 +160,7 @@ namespace _YabuGames.Scripts.Controllers
                     effect.SetActive(true);
                     damageEffects.Remove(effect);
                     _activeEffects.Add(effect);
+                    LevelManager.Instance.ShowHealOffer();
                     return;
                 }
                 case <= .3f:
@@ -209,6 +212,23 @@ namespace _YabuGames.Scripts.Controllers
         private void CallLose()
         {
             CoreGameSignals.Instance.OnLevelFail?.Invoke();
+        }
+
+        private void GetBonusHeal()
+        {
+            _health += _maxHealth * .5f;
+            foreach (var effect in damageEffects)
+            {
+                effect.SetActive(false);
+            }
+            _takenDamageLevel = 0;
+            foreach (var effect in _activeEffects)
+            {
+                effect.SetActive(false);
+                damageEffects.Add(effect);
+            }
+            _activeEffects.Clear();
+            SkillSignals.Instance.OnHealing?.Invoke(1);
         }
         public void GetHeal()
         {
