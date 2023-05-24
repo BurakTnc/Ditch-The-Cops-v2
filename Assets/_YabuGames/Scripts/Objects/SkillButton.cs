@@ -84,11 +84,12 @@ namespace _YabuGames.Scripts.Objects
 
         public void ApplySkill()
         {
+            LevelManager.Instance.SetSkillCount();
             SkillSignals.Instance.OnSkillPanelOpened?.Invoke(false);
             HapticManager.Instance.PlaySelectionHaptic();
             UIManager.Instance.CloseSkillPanel();
             LevelSignals.Instance.OnSkillActive?.Invoke(_skillID);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Player_ApplySkill");
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "AppliedSkill- "+_skillID);
 
         }
     }

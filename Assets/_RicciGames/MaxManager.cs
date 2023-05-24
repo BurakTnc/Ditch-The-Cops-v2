@@ -100,7 +100,7 @@ public class MaxManager : MonoBehaviour
     private void OnInterstitialHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
     {
         // Interstitial ad is hidden. Pre-load the next ad.
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
 
         if (currentInter == "INTER")
         {
@@ -109,7 +109,7 @@ public class MaxManager : MonoBehaviour
 
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "INTER");
             PlayerPrefs.SetInt("INTER", PlayerPrefs.GetInt("INTER", 0) + 1);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "INTER" + PlayerPrefs.GetInt("INTER", 0));
+            //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "INTER" + PlayerPrefs.GetInt("INTER", 0));
 
         }
 

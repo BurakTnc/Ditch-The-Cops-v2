@@ -1,5 +1,6 @@
 using System;
 using _YabuGames.Scripts.Signals;
+using DG.Tweening;
 using UnityEngine;
 using GameAnalyticsSDK;
 namespace _YabuGames.Scripts.Managers
@@ -10,7 +11,8 @@ namespace _YabuGames.Scripts.Managers
         public bool onMenu;
 
         [SerializeField] private MaxManager MAX;
-        private const int _showInterLimit = 120;
+        [SerializeField] private GameObject adLoadingPanel;
+        private const int _showInterLimit = 70;
 
         public float _timer;
         private void Awake()
@@ -70,9 +72,23 @@ namespace _YabuGames.Scripts.Managers
             if (_timer<_showInterLimit)
                 return;
             _timer = 0;
-            MAX.ShowInter("INTER");
-            Debug.Log("INTER");
+            if (adLoadingPanel)
+            {
+                adLoadingPanel.SetActive(true);
+                adLoadingPanel.transform.DOScale(Vector3.one, 1.25f).OnComplete(Show);
+            }
+            else
+            {
+                MAX.ShowInter("INTER");
+            }
+
+            void Show()
+            {
+                adLoadingPanel.SetActive(false);
+                MAX.ShowInter("INTER");
+            }
 
         }
+        
     }
 }

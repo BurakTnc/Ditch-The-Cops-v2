@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _YabuGames.Scripts.Objects;
 using _YabuGames.Scripts.ScriptableObjects;
 using _YabuGames.Scripts.Signals;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using GameAnalyticsSDK;
@@ -16,16 +17,19 @@ namespace _YabuGames.Scripts.Managers
         public List<SkillSpecs> skillSpecsList = new List<SkillSpecs>();
         [HideInInspector] public List<SkillSpecs> chosenSkills = new List<SkillSpecs>(3);
         [HideInInspector] public bool onLose;
-        
+
+        [SerializeField] private GameObject criticalHealthPopUp, wantedLevelPopUp, reduceSkillChoosePanel;
         [SerializeField] private float wantedLevelIncreaseValue;
         [SerializeField] private float skillPanelTime;
         [SerializeField] private SkillButton[] skillButtons;
         [SerializeField] private AudioClip[] wantedLevelIncreaseSounds;
-        
+
         private AudioSource _source;
         private float _wantedLevel;
         private int _passedLevels;
         private float _delayer;
+        private float _boostTimer = 60;
+        public int _skillCount;
         
         
         private void Awake()
@@ -167,7 +171,7 @@ namespace _YabuGames.Scripts.Managers
             ChooseRandomSkill();
             _delayer += skillPanelTime;
             UIManager.Instance.OpenSkillPanel();
-
+            AdManager.Instance.ShowInter();
         }
 
         private void IncreaseWantedLevel()
@@ -230,5 +234,32 @@ namespace _YabuGames.Scripts.Managers
         }
 
         public int GetWantedLevel() => _passedLevels;
+
+        public void SetSkillCount()
+        {
+            _skillCount++;
+            if (_skillCount<5)
+                return;
+            Invoke(nameof(ShowSkillOffer),1);
+
+        }
+
+        private void ShowSkillOffer()
+        {
+            Time.timeScale = 0;
+            var panel = reduceSkillChoosePanel;
+            panel.transform.localScale = Vector3.zero;
+            panel.SetActive(true);
+            panel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack);
+        }
+
+        public void ClaimPopUpReward(int rewardID)
+        {
+            switch (rewardID)
+            {
+                case 0:
+                    break;
+            }
+        }
     }
 }

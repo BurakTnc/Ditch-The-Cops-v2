@@ -68,7 +68,10 @@ public class IAPManager : MonoBehaviour,IStoreListener
 
                  if (counter>=3)
                  {
-                     noAdsImage.gameObject.SetActive(true);
+                     if (noAdsImage)
+                     {
+                         noAdsImage.gameObject.SetActive(true);
+                     }
                      counter = -1;
                  }
 

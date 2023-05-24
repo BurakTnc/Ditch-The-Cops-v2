@@ -454,5 +454,26 @@ namespace _YabuGames.Scripts.Managers
             AdManager.Instance.ShowRewardedRevive();
             HapticManager.Instance.PlaySelectionHaptic();
         }
+
+        public void OpenPopUpIcon(GameObject icon)
+        {
+            icon.SetActive(true);
+            icon.transform.DOShakeRotation(2f, Vector3.left * 20, 3, 100, true).SetLoops(-1);
+        }
+
+        public void ClosePopUpButton(GameObject panel)
+        {
+            panel.transform.DOScale(Vector3.zero, .5f).SetEase(Ease.InBack).OnComplete(DisablePanel);
+
+            void DisablePanel()
+            {
+                panel.SetActive(false);
+            }
+        }
+
+        public void PopUpRewardedButton(int rewardID)
+        {
+            LevelManager.Instance.ClaimPopUpReward(rewardID);
+        }
     }
 }
