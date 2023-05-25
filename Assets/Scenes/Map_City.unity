@@ -980,7 +980,7 @@ MonoBehaviour:
   id: 
   isRelative: 1
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
@@ -5321,11 +5321,11 @@ MonoBehaviour:
   id: 
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
-  target: {fileID: 1386798782}
+  target: {fileID: 511661436}
   animationType: 7
   targetType: 3
   forcedTargetType: 0
@@ -7631,7 +7631,7 @@ MonoBehaviour:
   autoKill: 1
   isActive: 1
   isValid: 1
-  target: {fileID: 1334636044}
+  target: {fileID: 712760579}
   animationType: 13
   targetType: 11
   forcedTargetType: 0
@@ -10911,11 +10911,11 @@ MonoBehaviour:
   id: 
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
-  target: {fileID: 1386798782}
+  target: {fileID: 955022782}
   animationType: 7
   targetType: 3
   forcedTargetType: 0
@@ -11761,11 +11761,11 @@ MonoBehaviour:
   id: 
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
-  target: {fileID: 1386798782}
+  target: {fileID: 1022192875}
   animationType: 7
   targetType: 3
   forcedTargetType: 0
@@ -13405,11 +13405,11 @@ MonoBehaviour:
   id: 
   isRelative: 1
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
-  target: {fileID: 1922465970}
+  target: {fileID: 1169086488}
   animationType: 5
   targetType: 11
   forcedTargetType: 0
@@ -14812,11 +14812,11 @@ MonoBehaviour:
   id: 
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
-  target: {fileID: 1386798782}
+  target: {fileID: 1376119899}
   animationType: 7
   targetType: 3
   forcedTargetType: 0
@@ -15031,7 +15031,7 @@ MonoBehaviour:
   id: 
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
@@ -16012,7 +16012,7 @@ MonoBehaviour:
   id: 
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
@@ -18671,7 +18671,7 @@ MonoBehaviour:
   id: 
   isRelative: 1
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
@@ -20263,7 +20263,7 @@ MonoBehaviour:
   id: 
   isRelative: 1
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
@@ -21089,7 +21089,7 @@ MonoBehaviour:
   id: 
   isRelative: 0
   isFrom: 0
-  isIndependentUpdate: 0
+  isIndependentUpdate: 1
   autoKill: 1
   isActive: 1
   isValid: 1
