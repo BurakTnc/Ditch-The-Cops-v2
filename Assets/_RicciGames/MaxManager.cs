@@ -47,6 +47,51 @@ public class MaxManager : MonoBehaviour
     public static string rewardedAdUnitId = "3704ade8023b3cd3";
 
     int retryAttempt;
+
+    public void InitializeBannerAds()
+    {
+        MaxSdkCallbacks.Interstitial.OnAdClickedEvent += OnBannerClickedEvent;
+        MaxSdkCallbacks.Interstitial.OnAdDisplayedEvent += OnBannerDisplayedEvent;
+        MaxSdkCallbacks.Interstitial.OnAdHiddenEvent += OnBannerHiddenEvent;
+        MaxSdkCallbacks.Interstitial.OnAdLoadedEvent += OnBannerLoadedEvent;
+        MaxSdkCallbacks.Interstitial.OnAdLoadFailedEvent += OnBannerLoadFailedEvent;
+        MaxSdkCallbacks.Interstitial.OnAdDisplayFailedEvent += OnBannerDisplayFailedEvent;
+    }
+
+    private void LoadBanner()
+    {
+        
+    }
+    private void OnBannerDisplayFailedEvent(string arg1, MaxSdkBase.ErrorInfo arg2, MaxSdkBase.AdInfo arg3)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnBannerLoadFailedEvent(string arg1, MaxSdkBase.ErrorInfo arg2)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnBannerLoadedEvent(string arg1, MaxSdkBase.AdInfo arg2)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnBannerHiddenEvent(string arg1, MaxSdkBase.AdInfo arg2)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnBannerDisplayedEvent(string arg1, MaxSdkBase.AdInfo arg2)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnBannerClickedEvent(string arg1, MaxSdkBase.AdInfo arg2)
+    {
+        throw new NotImplementedException();
+    }
+
     public void InitializeInterstitialAds()
     {
         // Attach callback
@@ -56,7 +101,6 @@ public class MaxManager : MonoBehaviour
         MaxSdkCallbacks.Interstitial.OnAdClickedEvent += OnInterstitialClickedEvent;
         MaxSdkCallbacks.Interstitial.OnAdHiddenEvent += OnInterstitialHiddenEvent;
         MaxSdkCallbacks.Interstitial.OnAdDisplayFailedEvent += OnInterstitialAdFailedToDisplayEvent;
-
         // Load the first interstitial
         LoadInterstitial();
     }
@@ -108,7 +152,7 @@ public class MaxManager : MonoBehaviour
             StopMusic("Play");
 
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "INTER");
-            PlayerPrefs.SetInt("INTER", PlayerPrefs.GetInt("INTER", 0) + 1);
+            //PlayerPrefs.SetInt("INTER", PlayerPrefs.GetInt("INTER", 0) + 1);
             //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "INTER" + PlayerPrefs.GetInt("INTER", 0));
 
         }

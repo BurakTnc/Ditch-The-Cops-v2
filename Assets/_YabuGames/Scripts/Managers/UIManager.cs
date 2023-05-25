@@ -540,7 +540,7 @@ namespace _YabuGames.Scripts.Managers
         {
             LevelManager.Instance.ClaimPopUpReward(rewardID);
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "RewardedOfferClaimed");
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"OfferTypeClaimed-{rewardID}");
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"ClaimedOfferType-{rewardID}");
         }
         
     }

@@ -401,7 +401,18 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
             {
                 var panel = Panels[i].gameObject.transform.GetChild(0).gameObject;
                 _contentList.Add(panel);
-                //panel.transform.localScale=Vector3.zero;
+                panel.transform.localScale=Vector3.zero;
+            }
+
+            if (isMapScroll)
+            {
+                Panels[StoreManager.Instance.GetStartingMapPanel()].gameObject.transform.GetChild(0).gameObject.transform
+                    .localScale = Vector3.one;
+            }
+            else
+            {
+                Panels[StoreManager.Instance.GetStartingCarPanel()].gameObject.transform.GetChild(0).gameObject.transform
+                    .localScale = Vector3.one;
             }
 
             // Content
