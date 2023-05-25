@@ -14,7 +14,7 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private GameObject adLoadingPanel;
         private const int _showInterLimit = 70;
 
-        public float _timer;
+       [HideInInspector] public float _timer;
         private void Awake()
         {
         
@@ -62,8 +62,13 @@ namespace _YabuGames.Scripts.Managers
             MAX.ShowRewarded("OnRevive");
         }
 
-        public void ShowInter()
+        public void ShowInter(bool isForced=false)
         {
+            if (isForced)
+            {
+                MAX.ShowInter("INTER");
+                return;
+            }
             if (PlayerPrefs.GetInt("IsNoAds") == 1)
             {
                 _timer = 0;
@@ -75,7 +80,7 @@ namespace _YabuGames.Scripts.Managers
             if (adLoadingPanel)
             {
                 adLoadingPanel.SetActive(true);
-                adLoadingPanel.transform.DOScale(Vector3.one, 1.25f).OnComplete(Show);
+                adLoadingPanel.transform.DOScale(Vector3.one, .9f).OnComplete(Show);
             }
             else
             {

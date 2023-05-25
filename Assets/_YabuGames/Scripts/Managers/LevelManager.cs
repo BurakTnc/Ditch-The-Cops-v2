@@ -7,6 +7,7 @@ using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using GameAnalyticsSDK;
+using TMPro;
 using UnityEngine.Serialization;
 
 namespace _YabuGames.Scripts.Managers
@@ -20,6 +21,8 @@ namespace _YabuGames.Scripts.Managers
         [HideInInspector] public List<SkillSpecs> chosenSkills = new List<SkillSpecs>(3);
         [HideInInspector] public bool onLose;
 
+        [SerializeField] private TextMeshProUGUI skillBoostText;
+        
         [SerializeField] private GameObject criticalHealthPopUp, wantedLevelPopUp;
         [SerializeField] private GameObject reduceSkillChoosePopUp;
         [SerializeField] private GameObject extraSkillPopUp;
@@ -36,7 +39,8 @@ namespace _YabuGames.Scripts.Managers
         private float _boostTimer;
         private int _skillCount;
         private float _originalSkillPanelTime;
-        private bool _hasExtraSkillOffer, _hasBonusHealOffer, _hasReduceCooldownOffer, _hasReduceWantedLevelOffer;
+        private bool _hasBonusHealOffer, _hasReduceCooldownOffer, _hasReduceWantedLevelOffer;
+        private bool _onSkillBoost;
         
         
         private void Awake()
@@ -71,7 +75,6 @@ namespace _YabuGames.Scripts.Managers
 
         private void ShowExtraSkillOffer()
         {
-            _hasExtraSkillOffer = true;
             Time.timeScale = 0;
             var panel = extraSkillPopUp;
             panel.transform.localScale = Vector3.zero;
@@ -124,14 +127,27 @@ namespace _YabuGames.Scripts.Managers
 
         private void ApplySkillTimeBoost()
         {
+            if(!_onSkillBoost)
+                return;
+            var minutes = _boostTimer / 60;
+            var seconds = _boostTimer % 60;
+
+            if (skillBoostText)
+            {
+                skillBoostText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+            }
+            
             if (_boostTimer > 0)
             {
                 skillPanelTime = _originalSkillPanelTime / 2;
-                Debug.Log(_boostTimer.ToString("00"));
+                
             }
+            
             else
             {
                 skillPanelTime = _originalSkillPanelTime;
+                _onSkillBoost = false;
+                skillBoostText.gameObject.SetActive(false);
             }
 
             _boostTimer -= Time.deltaTime;
@@ -278,7 +294,7 @@ namespace _YabuGames.Scripts.Managers
         public void SetSkillCount()
         {
             _skillCount++;
-            if (_skillCount != 4 && _hasReduceCooldownOffer) 
+            if (_skillCount < 5 ) 
                 return;
             Invoke(nameof(ShowReduceSkillOffer),.2f);
 
@@ -309,7 +325,7 @@ namespace _YabuGames.Scripts.Managers
         
         public void ShowHealOffer()
         {
-            if(_hasExtraSkillOffer)
+            if(_hasBonusHealOffer)
                 return;
             _hasBonusHealOffer = true;
             Time.timeScale = 0;
@@ -328,6 +344,10 @@ namespace _YabuGames.Scripts.Managers
         public void ReduceSkillChooseTime()
         {
             _boostTimer = 60;
+            if(!skillBoostText)
+                return;
+            skillBoostText.gameObject.SetActive(true);
+            skillBoostText.transform.DOScale(Vector3.one * 1.1f, .4f).SetLoops(7, LoopType.Yoyo);
         }
 
         public void OpenBonusSkill()

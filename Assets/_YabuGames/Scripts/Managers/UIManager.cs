@@ -44,8 +44,7 @@ namespace _YabuGames.Scripts.Managers
         private int _playerLevel;
         private int _earnedMoney;
         private AudioSource _audioSource;
-        
-
+        private Sprite _defaultStarSprite;
 
 
         private void Awake()
@@ -68,6 +67,7 @@ namespace _YabuGames.Scripts.Managers
                 _audioSource = source;
             }
 
+            _defaultStarSprite = stars[3].sprite;
         }
 
         private void OnEnable()
@@ -304,6 +304,11 @@ namespace _YabuGames.Scripts.Managers
         }
         public void SetStars(int wantedLevel)
         {
+            foreach (var t in stars)
+            {
+                t.sprite = _defaultStarSprite;
+            }
+
             for (var i = 0; i < wantedLevel; i++)
             {
                 stars[i].sprite = yellowStarSprite;
@@ -373,13 +378,39 @@ namespace _YabuGames.Scripts.Managers
                 throw;
             }
         }
-        
-        public void PlayButton()
+
+        private void SearchForAdCloseButton()
+        {
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+                return;
+            
+            var closeButton = GameObject.Find("MaxInterstitialCloseButton").GetComponent<Button>();
+            if (closeButton)
+            {
+                closeButton.onClick.AddListener(InitializeLevel);
+            }
+            else
+            {
+                InitializeLevel();
+            }
+        }
+
+        private void InitializeLevel()
         {
             CoreGameSignals.Instance.OnSave?.Invoke();
             CoreGameSignals.Instance.OnGameStart?.Invoke();
             HapticManager.Instance.PlaySelectionHaptic();
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Player_Play");
+        }
+        public void PlayButton()
+        {
+            AdManager.Instance.ShowInter(true);
+            SearchForAdCloseButton();
+            //Invoke(nameof(SearchForAdCloseButton), 1);
+            // CoreGameSignals.Instance.OnSave?.Invoke();
+            // CoreGameSignals.Instance.OnGameStart?.Invoke();
+            // HapticManager.Instance.PlaySelectionHaptic();
+            // GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Player_Play");
 
         }
 

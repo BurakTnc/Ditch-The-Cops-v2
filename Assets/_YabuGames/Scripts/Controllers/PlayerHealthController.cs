@@ -160,13 +160,13 @@ namespace _YabuGames.Scripts.Controllers
                     effect.SetActive(true);
                     damageEffects.Remove(effect);
                     _activeEffects.Add(effect);
-                    LevelManager.Instance.ShowHealOffer();
                     return;
                 }
                 case <= .3f:
                 {
                     if(_takenDamageLevel>0)
                         return;
+                    LevelManager.Instance.ShowHealOffer();
                     _takenDamageLevel++;
                     var r = Random.Range(0, damageEffects.Count);
                     var effect = damageEffects[r];
