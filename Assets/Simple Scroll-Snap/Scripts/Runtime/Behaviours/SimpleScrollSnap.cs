@@ -401,7 +401,7 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
             {
                 var panel = Panels[i].gameObject.transform.GetChild(0).gameObject;
                 _contentList.Add(panel);
-                panel.transform.localScale=Vector3.zero;
+                //panel.transform.localScale=Vector3.zero;
             }
 
             // Content
@@ -675,8 +675,8 @@ namespace Simple_Scroll_Snap.Scripts.Runtime.Behaviours
             }
             currentPanel.SetActive(true);
             currentPanel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutBack).SetUpdate(UpdateType.Late, true);
-            currentPanel.transform.DOScale(Vector3.zero, .5f).SetEase(Ease.InBack).SetDelay(5)
-                .SetUpdate(UpdateType.Late, true);
+            // currentPanel.transform.DOScale(Vector3.zero, .5f).SetEase(Ease.InBack).SetDelay(5)
+            //     .SetUpdate(UpdateType.Late, true);
         }
 
         public void GoToPreviousPanel()

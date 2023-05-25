@@ -174,7 +174,35 @@ public class MaxManager : MonoBehaviour
     private void OnRewardedAdHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
     {
         // Rewarded ad is hidden. Pre-load the next ad
-       
+        
+         if (currentreward == "ExtraSkillOffer")
+         {
+             Time.timeScale = 1;
+         }
+        else if (currentreward == "ReduceSkillChooseTimeOffer")
+        {
+            Time.timeScale = 1;
+        }
+        else if (currentreward == "ReduceWantedLevelOffer")
+        {
+            Time.timeScale = 1;
+        }
+        else if (currentreward == "BonusHealOffer")
+        {
+            Time.timeScale = 1;
+        }
+        else if (currentreward == "RewardedClaim0")
+        {
+            Time.timeScale = 1;
+        }
+        else if (currentreward == "RewardedClaim1")
+        {
+            Time.timeScale = 1;
+        }
+        else if (currentreward == "RewardedClaim2")
+        {
+            Time.timeScale = 1;
+        }
 
         LoadRewardedAd();
     }
@@ -212,30 +240,30 @@ public class MaxManager : MonoBehaviour
         if(currentreward == "CarRewarded")
         {
             AdSignals.Instance.OnRewardedCarWatchComplete.Invoke(currentCar);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "CarRewarded" + DateTime.Now.Year+"_"+DateTime.Now.Month+"_"+DateTime.Now.Day);
-            PlayerPrefs.SetInt("CarRewarded", PlayerPrefs.GetInt("CarRewarded", 0) + 1);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "CarRewarded" + PlayerPrefs.GetInt("CarRewarded", 0));
+            // GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "CarRewarded" + DateTime.Now.Year+"_"+DateTime.Now.Month+"_"+DateTime.Now.Day);
+            // PlayerPrefs.SetInt("CarRewarded", PlayerPrefs.GetInt("CarRewarded", 0) + 1);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "CarRewarded");
         }
         else if (currentreward == "MapRewarded")
         {
             AdSignals.Instance.OnRewardedMapWatchComplete?.Invoke(currentMap);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "MapRewarded" + DateTime.Now.Year+"_"+DateTime.Now.Month+"_"+DateTime.Now.Day);
-            PlayerPrefs.SetInt("MapRewarded", PlayerPrefs.GetInt("MapRewarded", 0) + 1);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "MapRewarded" + PlayerPrefs.GetInt("MapRewarded", 0));
+            // GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "MapRewarded" + DateTime.Now.Year+"_"+DateTime.Now.Month+"_"+DateTime.Now.Day);
+            // PlayerPrefs.SetInt("MapRewarded", PlayerPrefs.GetInt("MapRewarded", 0) + 1);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "MapRewarded");
         }
         else if (currentreward == "DoubleCoin")
         {
             UIManager.Instance.CoinReward(button);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "DoubleCoin" + DateTime.Now.Year+"_"+DateTime.Now.Month+"_"+DateTime.Now.Day);
-            PlayerPrefs.SetInt("DoubleCoin", PlayerPrefs.GetInt("DoubleCoin", 0) + 1);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "DoubleCoin" + PlayerPrefs.GetInt("DoubleCoin", 0)); 
+            // GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "DoubleCoin" + DateTime.Now.Year+"_"+DateTime.Now.Month+"_"+DateTime.Now.Day);
+            // PlayerPrefs.SetInt("DoubleCoin", PlayerPrefs.GetInt("DoubleCoin", 0) + 1);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "DoubleCoin"); 
         }
         else if (currentreward == "OnRevive")
         {
             LevelSignals.Instance.OnRevive.Invoke();
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "OnRevive" + DateTime.Now.Year+"_"+DateTime.Now.Month+"_"+DateTime.Now.Day);
-            PlayerPrefs.SetInt("OnRevive", PlayerPrefs.GetInt("OnRevive", 0) + 1);
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "OnRevive" + PlayerPrefs.GetInt("OnRevive", 0)); 
+            // GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "OnRevive" + DateTime.Now.Year+"_"+DateTime.Now.Month+"_"+DateTime.Now.Day);
+            // PlayerPrefs.SetInt("OnRevive", PlayerPrefs.GetInt("OnRevive", 0) + 1);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "OnRevive"); 
         }
         else if (currentreward == "ExtraSkillOffer")
         {

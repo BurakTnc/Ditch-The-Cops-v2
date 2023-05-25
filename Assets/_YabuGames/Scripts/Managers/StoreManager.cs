@@ -338,6 +338,7 @@ namespace _YabuGames.Scripts.Managers
             {
                 PlayerPrefs.SetInt($"watchMapStatus{id}",-1);
                 watchMapButtons[id].gameObject.SetActive(false);
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"Unlocked Map-{mapID}");
                 UnlockMap(mapID,true);
                 return;
             }
@@ -360,7 +361,7 @@ namespace _YabuGames.Scripts.Managers
             {
                 PlayerPrefs.SetInt($"watchCarStatus{id}", -1);
                 watchCarButtons[id].gameObject.SetActive(false);
-                
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"Unlocked Car-{carId}");
                 UnlockCar(carId,true);
                 return;
             }
@@ -412,7 +413,7 @@ namespace _YabuGames.Scripts.Managers
                     _audioSource.Play();
                 }
                 GameManager.Instance.money -= mapPrices[mapID];
-                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "BuyMap"+mapID.ToString());
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Unlocked Map-"+mapID.ToString());
 
             }
 
@@ -453,7 +454,7 @@ namespace _YabuGames.Scripts.Managers
                     _audioSource.Play();
                 }
                 GameManager.Instance.money -= carPrices[carID];
-                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "CarMap"+carID.ToString());
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"Unlocked Car-{carID}");
 
             }
 

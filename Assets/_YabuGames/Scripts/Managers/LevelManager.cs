@@ -100,6 +100,7 @@ namespace _YabuGames.Scripts.Managers
             LevelSignals.Instance.OnRevive += Revive;
             LevelSignals.Instance.OnPlayerDestroyed += Lose;
             CoreGameSignals.Instance.OnLevelWin += Lose;
+            LevelSignals.Instance.OnBonusHealing += CloseHealOffer;
             // CoreGameSignals.Instance.OnSave += Save;
             // CoreGameSignals.Instance.OnLevelWin += LevelWin;
             // CoreGameSignals.Instance.OnLevelLoad += LoadScene;
@@ -109,9 +110,8 @@ namespace _YabuGames.Scripts.Managers
         {
             LevelSignals.Instance.OnPoliceEliminated -= IncreaseWantedLevel;
             LevelSignals.Instance.OnRevive -= Revive;
-            CoreGameSignals.Instance.OnLevelFail -= Lose;
             CoreGameSignals.Instance.OnLevelWin -= Lose;
-            
+            LevelSignals.Instance.OnBonusHealing -= CloseHealOffer;
             // CoreGameSignals.Instance.OnSave -= Save;
             // CoreGameSignals.Instance.OnLevelWin -= LevelWin;
             // CoreGameSignals.Instance.OnLevelLoad -= LoadScene;
@@ -125,6 +125,10 @@ namespace _YabuGames.Scripts.Managers
             ApplySkillTimeBoost();
         }
 
+        private void CloseHealOffer()
+        {
+            criticalHealthPopUp.SetActive(false);
+        }
         private void ApplySkillTimeBoost()
         {
             if(!_onSkillBoost)
@@ -172,6 +176,8 @@ namespace _YabuGames.Scripts.Managers
             var r = Random.Range(0, wantedLevelIncreaseSounds.Length);
             _source.PlayOneShot(wantedLevelIncreaseSounds[r],.5f);
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Player_Lose");
+            
+            
         }
         private void ChooseRandomSkill()
         {
@@ -337,12 +343,14 @@ namespace _YabuGames.Scripts.Managers
 
         public void ReduceWantedLevel()
         {
+            wantedLevelPopUp.SetActive(false);
             _wantedLevel = 4;
             _passedLevels = 3;
         }
 
         public void ReduceSkillChooseTime()
         {
+            reduceSkillChoosePopUp.SetActive(false);
             _boostTimer = 60;
             _onSkillBoost = true;
             if(!skillBoostText)
@@ -355,6 +363,7 @@ namespace _YabuGames.Scripts.Managers
         public void OpenBonusSkill()
         {
             _delayer = 0;
+            extraSkillPopUp.SetActive(false);
         }
 
         public void ClaimPopUpReward(int rewardID)

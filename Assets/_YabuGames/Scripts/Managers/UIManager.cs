@@ -529,16 +529,19 @@ namespace _YabuGames.Scripts.Managers
 
         public void CloseButton(GameObject panel)
         {
-            panel.transform.DOScale(Vector3.zero, .2f).SetEase(Ease.InBack).OnComplete(Disable);
-
-            void Disable()
-            {
-                panel.SetActive(false);
-            }
+            // panel.transform.DOScale(Vector3.zero, .2f).SetEase(Ease.InBack).OnComplete(Disable);
+            //
+            // void Disable()
+            // {
+            //     panel.SetActive(false);
+            // }
         }
         public void PopUpRewardedButton(int rewardID)
         {
             LevelManager.Instance.ClaimPopUpReward(rewardID);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "RewardedOfferClaimed");
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, $"OfferTypeClaimed-{rewardID}");
         }
+        
     }
 }
