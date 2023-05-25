@@ -66,8 +66,7 @@ namespace _YabuGames.Scripts.Managers
             {
                 _audioSource = source;
             }
-
-            _defaultStarSprite = stars[3].sprite;
+            
         }
 
         private void OnEnable()
@@ -82,12 +81,12 @@ namespace _YabuGames.Scripts.Managers
 
         private void Start()
         {
-            Time.timeScale = 0;
             SetMoneyTexts();
             GetTargetValues();
             SetPlayerProgress();
             if (SceneManager.GetActiveScene().buildIndex != 0) 
             {
+                _defaultStarSprite = stars[3].sprite;
                 OpenMissionsPanel(false);
                 return;
             }

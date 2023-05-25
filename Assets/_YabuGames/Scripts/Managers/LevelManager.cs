@@ -129,12 +129,12 @@ namespace _YabuGames.Scripts.Managers
         {
             if(!_onSkillBoost)
                 return;
-            var minutes = _boostTimer / 60;
-            var seconds = _boostTimer % 60;
+            var minutes = (int)_boostTimer / 60;
+            var seconds = (int)_boostTimer % 60;
 
             if (skillBoostText)
             {
-                skillBoostText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+                skillBoostText.text = minutes.ToString("00") + " : " + seconds.ToString("00");
             }
             
             if (_boostTimer > 0)
@@ -147,7 +147,7 @@ namespace _YabuGames.Scripts.Managers
             {
                 skillPanelTime = _originalSkillPanelTime;
                 _onSkillBoost = false;
-                skillBoostText.gameObject.SetActive(false);
+                skillBoostText.transform.parent.gameObject.SetActive(false);
             }
 
             _boostTimer -= Time.deltaTime;
@@ -294,7 +294,7 @@ namespace _YabuGames.Scripts.Managers
         public void SetSkillCount()
         {
             _skillCount++;
-            if (_skillCount < 5 ) 
+            if (_skillCount < 2 ) 
                 return;
             Invoke(nameof(ShowReduceSkillOffer),.2f);
 
@@ -344,10 +344,12 @@ namespace _YabuGames.Scripts.Managers
         public void ReduceSkillChooseTime()
         {
             _boostTimer = 60;
+            _onSkillBoost = true;
             if(!skillBoostText)
                 return;
-            skillBoostText.gameObject.SetActive(true);
-            skillBoostText.transform.DOScale(Vector3.one * 1.1f, .4f).SetLoops(7, LoopType.Yoyo);
+            var parent = skillBoostText.transform.parent;
+            parent.gameObject.SetActive(true);
+            parent.DOScale(Vector3.one * 1.1f, .4f).SetLoops(7, LoopType.Yoyo);
         }
 
         public void OpenBonusSkill()
