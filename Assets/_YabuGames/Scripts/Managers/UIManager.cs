@@ -35,7 +35,7 @@ namespace _YabuGames.Scripts.Managers
         [SerializeField] private Slider eliminatedCopsProgressBar;
         [SerializeField] private Slider survivedTimeProgressBar;
         [SerializeField] private Slider reachedLevelProgressBar;
-        [SerializeField] private Button[] missionClaimButtons;
+        [SerializeField] private Button[] missionClaimButtons, rewardedClaimButtons;
 
         private int _targetLevelXp;
         private int _targetEliminate;
@@ -440,10 +440,33 @@ namespace _YabuGames.Scripts.Managers
                 return;
             
             missionClaimButtons[buttonID].interactable = true;
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Mission_Completed_Prize");
+            rewardedClaimButtons[buttonID].interactable = true;
+
 
         }
 
+        public void GetClaimReward(int buttonID)
+        {
+            if (_audioSource)
+            {
+                _audioSource.Stop();
+                _audioSource.Play();
+            }
+            CoreGameSignals.Instance.OnSpawnCoins?.Invoke(40, 0, 25, true);
+            GetTargetValues();
+            SetProgressBars();
+            missionClaimButtons[buttonID].interactable = false;
+            rewardedClaimButtons[buttonID].interactable = false;
+            GameManager.Instance.ResetMissionProgress(buttonID);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Mission__Prize_Claimed(Rewarded)");
+
+        }
+        public void RewardedClaimButton(int buttonID)
+        {
+            AdManager.Instance.showReward($"RewardedClaim{buttonID}");
+            HapticManager.Instance.PlaySelectionHaptic();
+            
+        }
         public void ClaimButton(int buttonID)
         {
             if (_audioSource)
@@ -452,11 +475,13 @@ namespace _YabuGames.Scripts.Managers
                 _audioSource.Play();
             }
             missionClaimButtons[buttonID].interactable = false;
-            CoreGameSignals.Instance.OnSpawnCoins?.Invoke(20, 0, 50, true);
+            rewardedClaimButtons[buttonID].interactable = false;
+            CoreGameSignals.Instance.OnSpawnCoins?.Invoke(20, 0, 25, true);
             GameManager.Instance.ResetMissionProgress(buttonID);
             GetTargetValues();
             SetProgressBars();
             HapticManager.Instance.PlaySelectionHaptic();
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Mission__Prize_Claimed");
         }
 
         public void BuyMapButton(int mapID)

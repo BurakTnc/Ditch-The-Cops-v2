@@ -10883,12 +10883,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2535183594103103070}
         m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
-        m_MethodName: ClaimButton
+        m_MethodName: RewardedClaimButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13493,7 +13493,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2535183594103103070}
         m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
-        m_MethodName: ClaimButton
+        m_MethodName: RewardedClaimButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15729,12 +15729,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2535183594103103070}
         m_TargetAssemblyTypeName: _YabuGames.Scripts.Managers.UIManager, Assembly-CSharp
-        m_MethodName: ClaimButton
+        m_MethodName: RewardedClaimButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19408,7 +19408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x1000
+  m_text: x500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3f21d9c2f3a140219d555d8aafe08ee, type: 2}
   m_sharedMaterial: {fileID: -9006972912442625360, guid: e3f21d9c2f3a140219d555d8aafe08ee, type: 2}
@@ -25490,7 +25490,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x1000
+  m_text: x500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3f21d9c2f3a140219d555d8aafe08ee, type: 2}
   m_sharedMaterial: {fileID: -9006972912442625360, guid: e3f21d9c2f3a140219d555d8aafe08ee, type: 2}
@@ -28827,7 +28827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x1000
+  m_text: x500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3f21d9c2f3a140219d555d8aafe08ee, type: 2}
   m_sharedMaterial: {fileID: -9006972912442625360, guid: e3f21d9c2f3a140219d555d8aafe08ee, type: 2}
@@ -33347,6 +33347,10 @@ MonoBehaviour:
   - {fileID: 1571282764}
   - {fileID: 2099186311}
   - {fileID: 1725508614}
+  rewardedClaimButtons:
+  - {fileID: 880017859}
+  - {fileID: 969977710}
+  - {fileID: 675682073}
 --- !u!4 &2535183594103103071
 Transform:
   m_ObjectHideFlags: 0

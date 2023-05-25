@@ -294,7 +294,7 @@ namespace _YabuGames.Scripts.Managers
         public void SetSkillCount()
         {
             _skillCount++;
-            if (_skillCount < 2 ) 
+            if (_skillCount < 6 ) 
                 return;
             Invoke(nameof(ShowReduceSkillOffer),.2f);
 

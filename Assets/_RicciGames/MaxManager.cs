@@ -253,6 +253,18 @@ public class MaxManager : MonoBehaviour
         {
             LevelSignals.Instance.OnBonusHealing?.Invoke();
         }
+        else if (currentreward == "RewardedClaim0")
+        {
+            UIManager.Instance.GetClaimReward(0);
+        }
+        else if (currentreward == "RewardedClaim1")
+        {
+            UIManager.Instance.GetClaimReward(1);
+        }
+        else if (currentreward == "RewardedClaim2")
+        {
+            UIManager.Instance.GetClaimReward(2);
+        }
 
         StopMusic("Play");
 
