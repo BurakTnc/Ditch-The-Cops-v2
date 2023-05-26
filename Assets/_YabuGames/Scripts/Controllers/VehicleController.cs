@@ -81,11 +81,24 @@ namespace _YabuGames.Scripts.Controllers
             }
 
             if (direction != Vector3.zero) 
-            {
-                Quaternion desiredRotation= Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(direction), _angularSpeed * Time.deltaTime);
+            {var difference = Mathf.Abs(direction.magnitude);
+                Quaternion desiredRotation= Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(direction), (_angularSpeed-difference*10) * Time.deltaTime);
                 Vector3 rot = mesh.rotation.eulerAngles;
                 Vector3 des = desiredRotation.eulerAngles;
+                
+                Debug.Log(direction.magnitude);
                 CheckTheSkid((des-rot).magnitude);
+                // if (difference<.08f)
+                // {
+                //     mesh.rotation=Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(direction), 1* Time.deltaTime);
+                //     Debug.LogWarning("detected");
+                // }
+                //
+                // else
+                // {
+                //     mesh.rotation = desiredRotation;
+                // }
+                //Quaternion calculatedRotation= Quaternion.Slerp(mesh.rotation, desiredRotation, (_angularSpeed-difference*10) * Time.deltaTime);
                 mesh.rotation = desiredRotation;
             }
 
